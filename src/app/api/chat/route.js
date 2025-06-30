@@ -122,8 +122,8 @@ When students ask about careers, suggest a few options based on real data, and e
 
     // Call OpenAI Chat API
     const chatCompletion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: openaiMessages,
+      model: "gpt-4o",
+      messages,
     });
 
     const response = chatCompletion.choices[0].message.content;
