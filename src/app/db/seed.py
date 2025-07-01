@@ -1,12 +1,19 @@
 import pandas as pd
 import sqlite3
+import os
 
-# Adjust paths as needed
-csv_file = 'src/app/scripts/grades_distribution_dummy_cleaned.csv'
-db_file = '../../../courses.db'  # adjust if your .db is elsewhere
+# File locations (all in the same folder)
+csv_file = 'grades_distribution_dummy_cleaned.csv'
+db_file = '../../../courses.db'  # Adjust if your DB is somewhere else
 
+# Show working directory for debugging
+print("Working directory:", os.getcwd())
+print("Looking for CSV at:", os.path.abspath(csv_file))
+
+# Read CSV
 df = pd.read_csv(csv_file)
 
+# Connect to SQLite database
 conn = sqlite3.connect(db_file)
 cur = conn.cursor()
 
