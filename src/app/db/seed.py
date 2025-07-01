@@ -2,7 +2,7 @@ import pandas as pd
 import sqlite3
 
 # Adjust paths as needed
-csv_file = '../scripts/grades_distribution_dummy_cleaned.csv'
+csv_file = 'src/app/scripts/grades_distribution_dummy_cleaned.csv'
 db_file = '../../../courses.db'  # adjust if your .db is elsewhere
 
 df = pd.read_csv(csv_file)
