@@ -10,6 +10,7 @@ export default function NavBar() {
   const pages = [
     { name: 'Home', href: '/' },
     { name: 'Chatbot', href: '/chat' },
+    { name: 'Courses', href: '/courses' },
     { name: 'Recommendations', href: '/recommendations' },
     { name: 'Careers', href: '/careers' },
     { name: 'Sign Up', href: '/signup' },
