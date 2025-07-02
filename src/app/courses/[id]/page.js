@@ -39,7 +39,7 @@ export default function CourseDetailsPage() {
         </div>
         {/* Optional: Show full grade distribution */}
         <div className="mt-6">
-          <h2 className="font-bold text-lg mb-1">Grade Distribution</h2>
+          <h2 className="font-bold text-lg mb-1 text-black">Grade Distribution</h2>
           <div className="grid grid-cols-3 gap-2 text-sm text-gray-700">
             {["A", "AB", "B", "BC", "C", "D", "F", "S", "U", "CR", "N", "P", "I", "NW", "NR", "Other"].map((k) =>
               course[k] !== undefined && course[k] !== "NA" ? (
