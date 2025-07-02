@@ -1,17 +1,71 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import Database from "better-sqlite3";
+import path from "path";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Set up OpenAI and SQLite
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const dbPath = path.join(process.cwd(), "courses.db");
+const db = new Database(dbPath, { readonly: true });
+
+// Helper: find courses matching some keywords
+function findRelevantCourses(query, limit = 10) {
+  if (!query) return [];
+  const q = `%${query.toLowerCase()}%`;
+  const sql = `
+    SELECT * FROM courses
+    WHERE LOWER(subject_name_section) LIKE ?
+      OR LOWER(class_description) LIKE ?
+      OR LOWER(department) LIKE ?
+    LIMIT ?
+  `;
+  return db.prepare(sql).all(q, q, q, limit);
+}
 
 export async function POST(req) {
   try {
     const { messages } = await req.json();
 
+    // Find user’s latest message
+    const userMsg = messages
+      .slice()
+      .reverse()
+      .find((m) => m.role === "user")?.content;
+
+    // Find relevant courses
+    const relevantCourses = userMsg
+      ? findRelevantCourses(userMsg)
+      : [];
+
+    // Build a course info summary for the AI
+    const courseList = relevantCourses.length
+      ? relevantCourses
+          .map(
+            (c, i) =>
+              `${i + 1}. ${c.subject_name_section} — ${c.class_description} (GPA: ${c.ave_gpa || "N/A"})`
+          )
+          .join("\n")
+      : "No matching courses were found in the UW-Madison course catalog.";
+
+    // Create a system prompt that includes real courses
+    const systemPrompt = `
+You are a UW-Madison course advisor AI. When students ask about courses, always recommend only from the following real courses at UW-Madison, using this list:
+
+${courseList}
+
+Give friendly, personalized suggestions and, when possible, explain why each course might be interesting or useful.
+`;
+
+    // Compose the OpenAI messages array (system + previous messages)
+    const openaiMessages = [
+      { role: "system", content: systemPrompt },
+      ...messages,
+    ];
+
+    // Call OpenAI Chat API
     const chatCompletion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages,
+      messages: openaiMessages,
     });
 
     const response = chatCompletion.choices[0].message.content;

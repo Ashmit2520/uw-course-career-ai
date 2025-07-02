@@ -7,31 +7,27 @@ export default function CoursesPage() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
-  const [search, setSearch] = useState(""); // Only filter on button/Enter
+  const [search, setSearch] = useState("");
   const inputRef = useRef(null);
 
+  // Fetch from API every time the search query changes
   useEffect(() => {
-    fetch("/api/courses")
+    setLoading(true);
+    let url = "/api/courses";
+    if (search.trim()) {
+      // Encode search query for URL
+      url += `?search=${encodeURIComponent(search.trim())}`;
+    }
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+  }, [search]);
 
-  // Filter courses by search query (case-insensitive)
-  const filtered = courses.filter((c) => {
-    const q = search.toLowerCase();
-    return (
-      c.subject_name_section?.toLowerCase().includes(q) ||
-      c.department?.toLowerCase().includes(q) ||
-      c.class_description?.toLowerCase().includes(q) ||
-      c.subject_code?.toLowerCase().includes(q)
-    );
-  });
-
-  // Handle search on button or Enter key
+  // Handle search on button click or Enter key
   const doSearch = (e) => {
     if (e) e.preventDefault();
     setSearch(query);
@@ -63,9 +59,9 @@ export default function CoursesPage() {
         </button>
       </form>
       {loading && <div>Loading...</div>}
-      {!loading && filtered.length === 0 && <div>No courses found.</div>}
+      {!loading && courses.length === 0 && <div>No courses found.</div>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
-        {filtered.map((course) => (
+        {courses.map((course) => (
           <Link
             key={course.subject_name_section}
             href={`/courses/${encodeURIComponent(course.subject_name_section)}`}

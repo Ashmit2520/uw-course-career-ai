@@ -1,136 +1,128 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
+import { FiMic } from "react-icons/fi";
 
-export default function ChatPage() {
+export default function ChatbotPage() {
   const [messages, setMessages] = useState([
     {
-      from: "bot",
-      text: "Hi! Tell me about your interests and what you want in a course.",
+      role: "assistant",
+      content: "Hi! Tell me about your interests and what you want in a course.",
     },
   ]);
   const [input, setInput] = useState("");
-  const chatEndRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef(null);
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  // Scroll to bottom after new message
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
-  async function handleSend(e) {
-    e.preventDefault();
+  // Send user message to API
+  const sendMessage = async () => {
     if (!input.trim()) return;
-
-    const userMessage = { from: "user", text: input };
-    const updatedMessages = [...messages, userMessage];
-    setMessages(updatedMessages);
+    const userMsg = { role: "user", content: input };
+    const newMsgs = [...messages, userMsg];
+    setMessages(newMsgs);
     setInput("");
+    setLoading(true);
+    scrollToBottom();
 
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are a helpful course selection assistant at UW-Madison.",
-            },
-            ...updatedMessages.map((msg) => ({
-              role: msg.from === "user" ? "user" : "assistant",
-              content: msg.text,
-            })),
-          ],
-        }),
+        body: JSON.stringify({ messages: newMsgs }),
       });
-
       const data = await res.json();
-      setMessages((msgs) => [...msgs, { from: "bot", text: data.response }]);
-    } catch (err) {
-      console.error(err);
-      setMessages((msgs) => [
-        ...msgs,
-        { from: "bot", text: "Something went wrong." },
+      setMessages([
+        ...newMsgs,
+        {
+          role: "assistant",
+          content: data.response || "Sorry, I couldn’t find any courses!",
+        },
+      ]);
+    } catch {
+      setMessages([
+        ...newMsgs,
+        { role: "assistant", content: "Sorry, something went wrong." },
       ]);
     }
-  }
+    setLoading(false);
+    scrollToBottom();
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+    // Allow Shift+Enter for multiline
+  };
+
+  // For textarea auto-grow
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = e.target.scrollHeight + "px";
+  };
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-[80vh] px-2">
-      <div className="w-full max-w-md md:max-w-lg bg-white shadow-2xl rounded-xl p-4 md:p-6 flex flex-col gap-4">
-        {/* Chatbot header darker */}
-        <h2 className="text-2xl font-bold mb-2 text-center text-gray-900">
+    <main
+      className="flex flex-col items-center justify-center min-h-[80vh] px-4"
+      style={{ background: "#111" }}
+    >
+      <div className="bg-white shadow rounded-xl p-12 w-full max-w-2xl flex flex-col items-center">
+        <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
           Course Selection Chatbot
         </h2>
-        <div className="flex-1 overflow-y-auto max-h-80 mb-2">
+        <div className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto" style={{ minHeight: "260px" }}>
           {messages.map((msg, i) => (
             <div
               key={i}
-              className={`my-2 flex ${
-                msg.from === "user" ? "justify-end" : "justify-start"
+              className={`rounded-lg px-4 py-2 text-base whitespace-pre-line ${
+                msg.role === "assistant"
+                  ? "bg-gray-100 text-gray-800 self-start"
+                  : "bg-blue-100 text-gray-900 self-end"
               }`}
             >
-              <div
-                className={`px-4 py-2 rounded-2xl max-w-xs break-words
-                ${
-                  msg.from === "user"
-                    ? "bg-blue-100 text-blue-900" // user message: lighter blue bg, dark text
-                    : "bg-gray-200 text-gray-800"
-                }`}
-              >
-                {msg.text}
-              </div>
+              {msg.content}
             </div>
           ))}
-          <div ref={chatEndRef} />
+          <div ref={messagesEndRef} />
         </div>
-        <form onSubmit={handleSend} className="flex gap-2 w-full">
-          <input
-            className="flex-1 px-4 py-2 rounded-xl border focus:outline-none focus:ring placeholder-gray-600 text-black text-base"
-            type="text"
-            placeholder="Type your message..."
+        <div className="w-full flex items-center gap-2">
+          <textarea
+            className="flex-1 border rounded px-3 py-2 text-black resize-none overflow-y-auto"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
-            style={{ minWidth: 0 }}
+            placeholder="Type your message..."
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            disabled={loading}
+            rows={1}
+            style={{ minHeight: "40px", maxHeight: "120px" }}
           />
           <button
-            type="submit"
-            className="bg-blue-600 text-white px-3 py-2 md:px-4 md:py-2 rounded-xl hover:bg-blue-700 transition text-sm md:text-base cursor-pointer"
+            onClick={sendMessage}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold"
+            disabled={loading}
           >
-            Send
+            {loading ? "..." : "Send"}
           </button>
-          {/* Voice input button: scaled down, always same size as send */}
           <button
             type="button"
-            className="bg-gray-200 text-gray-600 p-2 rounded-full cursor-not-allowed flex items-center justify-center"
-            title="Voice input coming soon"
+            className="ml-1 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full p-2 flex items-center justify-center"
+            aria-label="Voice input coming soon"
             disabled
-            style={{ width: "40px", height: "40px" }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 md:h-6 md:w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 18v4m0 0h3m-3 0H9m6-6v-5a3 3 0 10-6 0v5a3 3 0 006 0z"
-              />
-            </svg>
+            <FiMic size={22} />
           </button>
-        </form>
-        {/* Enter-to-send hint */}
-        <span className="text-xs text-gray-400 text-center mt-1">
-          Hint: Press{" "}
-          <span className="font-mono px-1 bg-gray-200 rounded">Enter</span> to
-          send your message.
-        </span>
-        <span className="text-xs text-gray-400 text-center">
+        </div>
+        <div className="mt-2 text-xs text-gray-400 text-center">
+          Hint: Press <span className="font-semibold bg-gray-200 px-1 rounded">Enter</span> to send your message.
+          <br />
           Voice input coming soon
-        </span>
+        </div>
       </div>
     </main>
   );
