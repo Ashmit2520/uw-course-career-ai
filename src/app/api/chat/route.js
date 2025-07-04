@@ -49,7 +49,7 @@ export async function POST(req) {
 
     // Create a system prompt that includes real courses
     const systemPrompt = `
-You are a UW-Madison course advisor AI. When students ask about courses, always recommend only from the following real courses at UW-Madison, using this list:
+You are a UW-Madison course advisor and AI. When students ask about courses, always recommend only from the following real courses at UW-Madison, using this list:
 
 ${courseList}
 
