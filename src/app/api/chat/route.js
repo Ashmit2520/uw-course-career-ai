@@ -22,6 +22,33 @@ function findRelevantCourses(query, limit = 10) {
   return db.prepare(sql).all(q, q, q, limit);
 }
 
+// Helper: find majors/careers matching keywords (for career advising)
+function findRelevantMajors(query, limit = 5) {
+  if (!query) return [];
+  const q = `%${query.toLowerCase()}%`;
+  const sql = `
+    SELECT * FROM majors
+    WHERE LOWER(major) LIKE ?
+      OR LOWER(key_skills) LIKE ?
+      OR LOWER(majors) LIKE ?
+    LIMIT ?
+  `;
+  return db.prepare(sql).all(q, q, q, limit);
+}
+
+// Helper: simple check if user is asking about careers
+function isCareerPrompt(msg) {
+  const lower = msg.toLowerCase();
+  return (
+    lower.includes("career") ||
+    lower.includes("job") ||
+    lower.includes("profession") ||
+    lower.includes("salary") ||
+    lower.includes("major") ||
+    lower.includes("path")
+  );
+}
+
 export async function POST(req) {
   try {
     const { messages } = await req.json();
@@ -30,7 +57,7 @@ export async function POST(req) {
     const userMsg = messages
       .slice()
       .reverse()
-      .find((m) => m.role === "user")?.content;
+      .find((m) => m.role === "user")?.content || "";
 
     // Find relevant courses
     const relevantCourses = userMsg
@@ -47,14 +74,47 @@ export async function POST(req) {
           .join("\n")
       : "No matching courses were found in the UW-Madison course catalog.";
 
-    // Create a system prompt that includes real courses
-    const systemPrompt = `
-You are a UW-Madison course advisor and AI. When students ask about courses, always recommend only from the following real courses at UW-Madison, using this list:
+    // Check if user is asking about careers/majors
+    let careerList = "";
+    if (isCareerPrompt(userMsg)) {
+      const majors = findRelevantMajors(userMsg) || [];
+      if (majors.length) {
+        careerList = majors
+          .map(
+            (m, i) =>
+              `${i + 1}. ${m.major} — Median Salary: $${m.median_pay || "N/A"} (Key skills: ${m.key_skills || "N/A"})`
+          )
+          .join("\n");
+      } else {
+        careerList = "No matching careers or majors were found in the UW-Madison data.";
+      }
+    }
+
+    // Ikigai context for career advising
+    const ikigai = `
+When giving career or major advice, try to combine the student's interests, strengths, salary prospects, and personal fulfillment (the Ikigai approach).
+`;
+
+    // Build the system prompt (includes both, if relevant)
+    let systemPrompt = `
+You are a UW-Madison course and career advisor AI. 
+When students ask about courses, always recommend only from the following real courses at UW-Madison, using this list:
 
 ${courseList}
 
 Give friendly, personalized suggestions and, when possible, explain why each course might be interesting or useful.
 `;
+
+    if (careerList) {
+      systemPrompt += `
+Additionally, here are some career/major paths relevant to the student:
+
+${careerList}
+
+${ikigai}
+When students ask about careers, suggest a few options based on real data, and explain how each could fit the user's interests, strengths, and life goals.
+`;
+    }
 
     // Compose the OpenAI messages array (system + previous messages)
     const openaiMessages = [
