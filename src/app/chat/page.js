@@ -2,6 +2,12 @@
 import { useState, useRef } from "react";
 import { FiMic } from "react-icons/fi";
 
+const SUGGESTED_QUESTIONS = [
+  "What are some interesting computer science courses?",
+  "What career paths fit someone who loves biology?",
+  "I want a major with high pay and good job outlook—what courses should I take?",
+];
+
 export default function ChatbotPage() {
   const [messages, setMessages] = useState([
     {
@@ -12,6 +18,7 @@ export default function ChatbotPage() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
+  const textareaRef = useRef(null);
 
   // Scroll to bottom after new message
   const scrollToBottom = () => {
@@ -67,14 +74,24 @@ export default function ChatbotPage() {
     e.target.style.height = e.target.scrollHeight + "px";
   };
 
+  // Handle suggested questions click
+  const handleSuggested = (q) => {
+    setInput(q);
+    setTimeout(() => {
+      if (textareaRef.current) {
+        textareaRef.current.focus();
+      }
+    }, 50);
+  };
+
   return (
     <main
-      className="flex flex-col items-center justify-center min-h-[80vh] px-4"
+      className="flex flex-col items-center justify-center min-h-screen w-full bg-black px-4"
       style={{ background: "#111" }}
     >
       <div className="bg-white shadow rounded-xl p-12 w-full max-w-2xl flex flex-col items-center">
         <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
-          Course Selection Chatbot
+          Course Selection and Career Advising Chatbot
         </h2>
         <div className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto" style={{ minHeight: "260px" }}>
           {messages.map((msg, i) => (
@@ -93,6 +110,7 @@ export default function ChatbotPage() {
         </div>
         <div className="w-full flex items-center gap-2">
           <textarea
+            ref={textareaRef}
             className="flex-1 border rounded px-3 py-2 text-black resize-none overflow-y-auto"
             value={input}
             placeholder="Type your message..."
@@ -122,6 +140,22 @@ export default function ChatbotPage() {
           Hint: Press <span className="font-semibold bg-gray-200 px-1 rounded">Enter</span> to send your message.
           <br />
           Voice input coming soon
+        </div>
+
+        {/* SUGGESTED QUESTIONS SECTION */}
+        <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
+          <div className="font-semibold mb-2 text-gray-700">Try these questions:</div>
+            <div className="flex flex-row flex-nowrap gap-2 overflow-x-auto">
+            {SUGGESTED_QUESTIONS.map((q) => (
+              <button
+                key={q}
+                onClick={() => handleSuggested(q)}
+                className="bg-blue-100 hover:bg-blue-300 text-blue-900 px-3 py-1 rounded transition whitespace-nowrap"
+              >
+                {q}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </main>

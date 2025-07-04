@@ -29,11 +29,9 @@ function findRelevantMajors(query, limit = 5) {
   const sql = `
     SELECT * FROM majors
     WHERE LOWER(major) LIKE ?
-      OR LOWER(key_skills) LIKE ?
-      OR LOWER(majors) LIKE ?
     LIMIT ?
   `;
-  return db.prepare(sql).all(q, q, q, limit);
+  return db.prepare(sql).all(q, limit);
 }
 
 // Helper: simple check if user is asking about careers
@@ -82,7 +80,7 @@ export async function POST(req) {
         careerList = majors
           .map(
             (m, i) =>
-              `${i + 1}. ${m.major} — Median Salary: $${m.median_pay || "N/A"} (Key skills: ${m.key_skills || "N/A"})`
+              `${i + 1}. ${m.major} — Median Salary: $${m.median_pay || "N/A"}`
           )
           .join("\n");
       } else {
