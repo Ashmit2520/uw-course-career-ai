@@ -58,16 +58,16 @@ export async function POST(req) {
       .find((m) => m.role === "user")?.content || "";
 
     // Find relevant courses
-    const relevantCourses = userMsg
-      ? findRelevantCourses(userMsg)
-      : [];
+    const relevantCourses = userMsg ? findRelevantCourses(userMsg) : [];
 
     // Build a course info summary for the AI
     const courseList = relevantCourses.length
       ? relevantCourses
           .map(
             (c, i) =>
-              `${i + 1}. ${c.subject_name_section} — ${c.class_description} (GPA: ${c.ave_gpa || "N/A"})`
+              `${i + 1}. ${c.subject_name_section} — ${
+                c.class_description
+              } (GPA: ${c.ave_gpa || "N/A"})`
           )
           .join("\n")
       : "No matching courses were found in the UW-Madison course catalog.";
@@ -123,7 +123,7 @@ When students ask about careers, suggest a few options based on real data, and e
     // Call OpenAI Chat API
     const chatCompletion = await openai.chat.completions.create({
       model: "gpt-4o",
-      messages,
+      messages: openaiMessages,
     });
 
     const response = chatCompletion.choices[0].message.content;
