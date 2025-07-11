@@ -7,6 +7,8 @@ const dbPath = path.join(process.cwd(), 'courses.db');
 
 export async function GET(request) {
   const db = new Database(dbPath, { readonly: true });
+  console.log("📁 Reading from DB:", dbPath);
+
   const search = request.nextUrl.searchParams.get('q');
 
   let majors;
@@ -20,3 +22,4 @@ export async function GET(request) {
   db.close();
   return NextResponse.json(majors);
 }
+ 

@@ -1,7 +1,10 @@
-import './globals.css'
-import NavBar from './components/NavBar'
+import "./globals.css";
+import NavBar from "./components/NavBar";
 
-export const metadata = { title: 'UW-Madison Course Selector', description: 'Smart course selection app' }
+export const metadata = {
+  title: "UW-Madison Course Selector",
+  description: "Smart course selection app",
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -11,5 +14,5 @@ export default function RootLayout({ children }) {
         {children}
       </body>
     </html>
-  )
+  );
 }
