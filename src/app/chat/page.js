@@ -1,51 +1,48 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { FiMic } from "react-icons/fi";
-import FourYearPlan from "./FourYearPlan"; // Adjust path if needed
+import FourYearPlan from "./FourYearPlan";
 
+// Suggested questions
 const SUGGESTED_QUESTIONS = [
   "What are some interesting computer science courses?",
   "What career paths fit someone who loves biology?",
   "I want a major with high pay and good job outlook—what courses should I take?",
 ];
 
-const CHAT_STORAGE_KEY = "uwmadison-chat-messages";
-const DEFAULT_MSG = [
-  {
-    role: "assistant",
-    content:
-      "Hi! Tell me about your interests and what you want in a course.",
-  },
-];
-
-function saveMessages(messages) {
-  if (typeof window !== "undefined") {
-    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
-  }
-}
+// Storage key for chat history
+const CHAT_STORAGE_KEY = "chatbotMessages";
 
 export default function ChatbotPage() {
-  // Always initialize with default message for SSR/first load!
-  const [messages, setMessages] = useState(DEFAULT_MSG);
+  const [messages, setMessages] = useState([
+    {
+      role: "assistant",
+      content: "Hi! Tell me about your interests and what you want in a course.",
+    },
+  ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
 
-  // Load chat from localStorage on client only
+  // Load messages from localStorage on mount
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem(CHAT_STORAGE_KEY);
-      if (saved) {
-        setMessages(JSON.parse(saved));
-      }
+      const stored = window.localStorage.getItem(CHAT_STORAGE_KEY);
+      if (stored) setMessages(JSON.parse(stored));
     }
   }, []);
+
+  // Save messages to localStorage when they change
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+    }
+  }, [messages]);
 
   // Scroll to bottom after new message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    saveMessages(messages);
   }, [messages]);
 
   // Send user message to API
@@ -85,6 +82,7 @@ export default function ChatbotPage() {
       e.preventDefault();
       sendMessage();
     }
+    // Allow Shift+Enter for multiline
   };
 
   // For textarea auto-grow
@@ -98,26 +96,29 @@ export default function ChatbotPage() {
   const handleSuggested = (q) => {
     setInput(q);
     setTimeout(() => {
-      textareaRef.current?.focus();
+      if (textareaRef.current) {
+        textareaRef.current.focus();
+      }
     }, 50);
-  };
-
-  // Clear chat button
-  const handleClearChat = () => {
-    setMessages(DEFAULT_MSG);
   };
 
   return (
     <main
-      className="flex flex-row items-start justify-center min-h-screen w-full bg-black px-4 py-10"
+      className="flex flex-row items-start justify-center min-h-screen w-full bg-black px-4"
       style={{ background: "#111" }}
     >
-      {/* Chat area, now on the left */}
-      <div className="bg-white shadow rounded-xl p-8 w-full max-w-2xl flex flex-col items-center mr-8" style={{ minWidth: "420px" }}>
+      {/* Chat Window */}
+      <div
+        className="bg-white shadow rounded-xl p-12 w-full max-w-2xl flex flex-col items-center"
+        style={{ minWidth: "400px" }}
+      >
         <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
           Course Selection and Career Advising Chatbot
         </h2>
-        <div className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto" style={{ minHeight: "260px" }}>
+        <div
+          className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto"
+          style={{ minHeight: "260px" }}
+        >
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -165,14 +166,7 @@ export default function ChatbotPage() {
           <br />
           Voice input coming soon
         </div>
-        <div className="mt-4 w-full flex justify-end">
-          <button
-            onClick={handleClearChat}
-            className="text-xs text-blue-600 hover:underline"
-          >
-            Clear chat
-          </button>
-        </div>
+
         {/* SUGGESTED QUESTIONS SECTION */}
         <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
           <div className="font-semibold mb-2 text-gray-700">Try these questions:</div>
@@ -189,9 +183,8 @@ export default function ChatbotPage() {
           </div>
         </div>
       </div>
-
-      {/* Four Year Plan (right side) */}
-      <div className="flex-1 max-w-4xl">
+      {/* Four Year Plan on the side */}
+      <div className="ml-8" style={{ minWidth: "600px" }}>
         <FourYearPlan />
       </div>
     </main>
