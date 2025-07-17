@@ -3,42 +3,47 @@ import { useState, useRef, useEffect } from "react";
 import { FiMic } from "react-icons/fi";
 import FourYearPlan from "./FourYearPlan";
 
-// Suggested questions
+const STORAGE_KEY = "uwmadison_chat_history";
+
 const SUGGESTED_QUESTIONS = [
   "What are some interesting computer science courses?",
   "What career paths fit someone who loves biology?",
   "I want a major with high pay and good job outlook—what courses should I take?",
 ];
 
-// Storage key for chat history
-const CHAT_STORAGE_KEY = "chatbotMessages";
-
 export default function ChatbotPage() {
-  const [messages, setMessages] = useState([
-    {
-      role: "assistant",
-      content: "Hi! Tell me about your interests and what you want in a course.",
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
 
-  // Load messages from localStorage on mount
+  // On mount: load messages from localStorage
   useEffect(() => {
+    setHydrated(true);
     if (typeof window !== "undefined") {
-      const stored = window.localStorage.getItem(CHAT_STORAGE_KEY);
-      if (stored) setMessages(JSON.parse(stored));
+      const saved = localStorage.getItem(STORAGE_KEY);
+      setMessages(
+        saved
+          ? JSON.parse(saved)
+          : [
+              {
+                role: "assistant",
+                content:
+                  "Hi! Tell me about your interests and what you want in a course.",
+              },
+            ]
+      );
     }
   }, []);
 
-  // Save messages to localStorage when they change
+  // Save messages to localStorage every time they change
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+    if (hydrated) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     }
-  }, [messages]);
+  }, [messages, hydrated]);
 
   // Scroll to bottom after new message
   useEffect(() => {
@@ -102,15 +107,23 @@ export default function ChatbotPage() {
     }, 50);
   };
 
+  // Render nothing until hydrated
+  if (!hydrated) return null;
+
+  // Layout: Chat left, FourYearPlan right (side-by-side)
   return (
     <main
-      className="flex flex-row items-start justify-center min-h-screen w-full bg-black px-4"
+      className="flex flex-row items-start justify-center min-h-screen w-full bg-black px-2 md:px-8 py-8 gap-8"
       style={{ background: "#111" }}
     >
-      {/* Chat Window */}
+      {/* Chatbox */}
       <div
-        className="bg-white shadow rounded-xl p-12 w-full max-w-2xl flex flex-col items-center"
-        style={{ minWidth: "400px" }}
+        className="bg-white shadow rounded-xl p-10 flex flex-col items-center"
+        style={{
+          width: "420px",
+          minWidth: "350px",
+          maxWidth: "480px",
+        }}
       >
         <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
           Course Selection and Career Advising Chatbot
@@ -162,14 +175,19 @@ export default function ChatbotPage() {
           </button>
         </div>
         <div className="mt-2 text-xs text-gray-400 text-center">
-          Hint: Press <span className="font-semibold bg-gray-200 px-1 rounded">Enter</span> to send your message.
+          Hint: Press{" "}
+          <span className="font-semibold bg-gray-200 px-1 rounded">
+            Enter
+          </span>{" "}
+          to send your message.
           <br />
           Voice input coming soon
         </div>
-
         {/* SUGGESTED QUESTIONS SECTION */}
         <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
-          <div className="font-semibold mb-2 text-gray-700">Try these questions:</div>
+          <div className="font-semibold mb-2 text-gray-700">
+            Try these questions:
+          </div>
           <div className="flex flex-row flex-nowrap gap-2 overflow-x-auto">
             {SUGGESTED_QUESTIONS.map((q) => (
               <button
@@ -183,8 +201,8 @@ export default function ChatbotPage() {
           </div>
         </div>
       </div>
-      {/* Four Year Plan on the side */}
-      <div className="ml-8" style={{ minWidth: "600px" }}>
+      {/* FourYearPlan to the right */}
+      <div className="ml-8" style={{ minWidth: "950px" }}>
         <FourYearPlan />
       </div>
     </main>

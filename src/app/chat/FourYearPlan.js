@@ -1,6 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
+
+const STORAGE_KEY = "uwmadison_four_year_plan";
+
+function savePlanToStorage(plan) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
+}
+
+function loadPlanFromStorage(defaultPlan) {
+  if (typeof window === "undefined") return defaultPlan;
+  const data = localStorage.getItem(STORAGE_KEY);
+  return data ? JSON.parse(data) : defaultPlan;
+}
 
 const INITIAL_PLAN = [
   {
@@ -76,21 +88,39 @@ function semesterCredits(courses) {
 }
 
 export default function FourYearPlan() {
-  const [plan, setPlan] = useState(INITIAL_PLAN);
+  const [plan, setPlan] = useState(() => loadPlanFromStorage(INITIAL_PLAN));
+  const [hydrated, setHydrated] = useState(false);
   const [dragged, setDragged] = useState(null);
+
+
+   useEffect(() => {
+    // Only load from localStorage after mount
+    setPlan(loadPlanFromStorage(INITIAL_PLAN));
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (hydrated) savePlanToStorage(plan);
+  }, [plan, hydrated]);
+
+  // Persist plan to localStorage whenever it changes
+  useEffect(() => {
+    savePlanToStorage(plan);
+  }, [plan]);
 
   // Remove course
   const removeCourse = (yearIdx, sem, courseIdx) => {
-    setPlan((prevPlan) =>
-      prevPlan.map((y, yi) =>
+    setPlan((prevPlan) => {
+      const newPlan = prevPlan.map((y, yi) =>
         yi === yearIdx
           ? {
               ...y,
               [sem]: y[sem].filter((_, ci) => ci !== courseIdx),
             }
           : { ...y }
-      )
-    );
+      );
+      return newPlan;
+    });
   };
 
   // Drag & Drop logic
@@ -121,12 +151,15 @@ export default function FourYearPlan() {
     setDragged(null);
   };
 
+  // Show nothing until hydrated
+  if (!hydrated) return null;
+
   return (
     <div
-      className="bg-white shadow-xl rounded-xl px-6 py-8 flex flex-col"
+      className="bg-white shadow-xl rounded-xl px-10 py-10 flex flex-col"
       style={{
-        minWidth: 650,
-        maxWidth: 900,
+        minWidth: 900,
+        maxWidth: 1250,
         width: "100%",
         marginLeft: 32,
         marginRight: 0,
@@ -140,9 +173,12 @@ export default function FourYearPlan() {
           <div
             key={yIdx}
             className="border rounded-lg bg-gray-50 p-3 flex flex-col"
-            style={{ minWidth: 150, maxWidth: 210 }}
+            style={{ minWidth: 180, maxWidth: 250 }}
           >
-            <div className="font-bold text-lg text-gray-900 mb-2 text-center" style={{ color: "#1a202c" }}>
+            <div
+              className="font-extrabold text-xl mb-2 text-center"
+              style={{ color: "#222" }}
+            >
               Year {year.year}
             </div>
             {["fall", "spring"].map((sem) => (
@@ -170,9 +206,9 @@ export default function FourYearPlan() {
                     draggable
                     onDragStart={() => onDragStart(yIdx, sem, cIdx)}
                   >
-                    <span className="text-gray-900 font-medium">
+                    <span className="text-gray-900 font-semibold">
                       {course.name}{" "}
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-700">
                         ({course.credits} cr)
                       </span>
                     </span>
