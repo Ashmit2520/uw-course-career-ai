@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { FiMic } from "react-icons/fi";
+import FourYearPlan from "./FourYearPlan"; // Adjust the path if needed
 
 const SUGGESTED_QUESTIONS = [
   "What are some interesting computer science courses?",
@@ -86,10 +87,11 @@ export default function ChatbotPage() {
 
   return (
     <main
-      className="flex flex-col items-center justify-center min-h-screen w-full bg-black px-4"
+      className="flex flex-row items-start justify-center min-h-screen w-full bg-black px-2 py-6 gap-8"
       style={{ background: "#111" }}
     >
-      <div className="bg-white shadow rounded-xl p-12 w-full max-w-2xl flex flex-col items-center">
+      {/* Chat Window - left side */}
+      <div className="bg-white shadow rounded-xl p-8 w-full max-w-xl flex flex-col items-center flex-shrink-0">
         <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
           Course Selection and Career Advising Chatbot
         </h2>
@@ -141,11 +143,10 @@ export default function ChatbotPage() {
           <br />
           Voice input coming soon
         </div>
-
         {/* SUGGESTED QUESTIONS SECTION */}
         <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
           <div className="font-semibold mb-2 text-gray-700">Try these questions:</div>
-            <div className="flex flex-row flex-nowrap gap-2 overflow-x-auto">
+          <div className="flex flex-row flex-nowrap gap-2 overflow-x-auto">
             {SUGGESTED_QUESTIONS.map((q) => (
               <button
                 key={q}
@@ -157,6 +158,11 @@ export default function ChatbotPage() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Four Year Plan - right side */}
+      <div className="flex-1 flex justify-center">
+        <FourYearPlan />
       </div>
     </main>
   );
