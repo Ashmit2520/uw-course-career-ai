@@ -4,6 +4,13 @@ import { IoClose } from "react-icons/io5";
 
 const STORAGE_KEY = "uwmadison_four_year_plan";
 
+function getSemesterStatus(courses) {
+  const credits = semesterCredits(courses);
+  if (credits < 12) return { status: "low", message: "Below 12 credits" };
+  if (credits > 18) return { status: "high", message: "Above 18 credits" };
+  return { status: "ok", message: "" };
+}
+
 function savePlanToStorage(plan) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
 }
@@ -156,10 +163,10 @@ export default function FourYearPlan() {
 
   return (
     <div
-      className="bg-white shadow-xl rounded-xl px-10 py-10 flex flex-col"
+      className="bg-white shadow-xl rounded-xl px-6 py-8 flex flex-col"
       style={{
-        minWidth: 900,
-        maxWidth: 1250,
+        minWidth: 650,
+        maxWidth: 900,
         width: "100%",
         marginLeft: 32,
         marginRight: 0,
@@ -173,57 +180,70 @@ export default function FourYearPlan() {
           <div
             key={yIdx}
             className="border rounded-lg bg-gray-50 p-3 flex flex-col"
-            style={{ minWidth: 180, maxWidth: 250 }}
+            style={{ minWidth: 150, maxWidth: 210 }}
           >
-            <div
-              className="font-extrabold text-xl mb-2 text-center"
-              style={{ color: "#222" }}
-            >
+            <div className="font-bold text-lg text-gray-900 mb-2 text-center" style={{ color: "#1a202c" }}>
               Year {year.year}
             </div>
-            {["fall", "spring"].map((sem) => (
-              <div
-                key={sem}
-                className="mb-4 bg-gray-200 rounded p-2 min-h-[120px] flex-1"
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={() => onDrop(yIdx, sem)}
-              >
-                <div className="font-semibold text-gray-800 mb-1">
-                  {sem[0].toUpperCase() + sem.slice(1)}{" "}
-                  <span className="text-xs text-gray-600">
-                    ({semesterCredits(year[sem])} cr)
-                  </span>
-                </div>
-                {year[sem].length === 0 && (
-                  <div className="text-gray-400 text-xs italic">
-                    Drop courses here
-                  </div>
-                )}
-                {year[sem].map((course, cIdx) => (
-                  <div
-                    key={course.id}
-                    className="bg-blue-50 mb-2 px-2 py-1 rounded text-base cursor-move border flex items-center justify-between group"
-                    draggable
-                    onDragStart={() => onDragStart(yIdx, sem, cIdx)}
-                  >
-                    <span className="text-gray-900 font-semibold">
-                      {course.name}{" "}
-                      <span className="text-xs text-gray-700">
-                        ({course.credits} cr)
+            {["fall", "spring"].map((sem) => {
+              const { status, message } = getSemesterStatus(year[sem]);
+              return (
+                <div
+                  key={sem}
+                  className={`mb-4 rounded p-2 min-h-[120px] flex-1 border-2 ${
+                    status === "low"
+                      ? "border-red-400 bg-red-100"
+                      : status === "high"
+                      ? "border-orange-400 bg-orange-100"
+                      : "border-gray-200 bg-gray-200"
+                  }`}
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={() => onDrop(yIdx, sem)}
+                >
+                  <div className="font-semibold text-gray-800 mb-1 flex items-center justify-between">
+                    <span>
+                      {sem[0].toUpperCase() + sem.slice(1)}{" "}
+                      <span className="text-xs text-gray-600">
+                        ({semesterCredits(year[sem])} cr)
                       </span>
                     </span>
-                    <button
-                      onClick={() => removeCourse(yIdx, sem, cIdx)}
-                      className="ml-2 p-1 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition"
-                      aria-label="Remove course"
-                      tabIndex={0}
-                    >
-                      <IoClose size={20} />
-                    </button>
+                    {status !== "ok" && (
+                      <span className="text-xs font-bold text-red-500 ml-2">
+                        {message}
+                      </span>
+                    )}
                   </div>
-                ))}
-              </div>
-            ))}
+                  {year[sem].length === 0 && (
+                    <div className="text-gray-400 text-xs italic">
+                      Drop courses here
+                    </div>
+                  )}
+                  {year[sem].map((course, cIdx) => (
+                    <div
+                      key={course.id}
+                      className="bg-blue-50 mb-2 px-2 py-1 rounded text-base cursor-move border flex items-center justify-between group"
+                      draggable
+                      onDragStart={() => onDragStart(yIdx, sem, cIdx)}
+                    >
+                      <span className="text-gray-900 font-medium">
+                        {course.name}{" "}
+                        <span className="text-xs text-gray-500">
+                          ({course.credits} cr)
+                        </span>
+                      </span>
+                      <button
+                        onClick={() => removeCourse(yIdx, sem, cIdx)}
+                        className="ml-2 p-1 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition"
+                        aria-label="Remove course"
+                        tabIndex={0}
+                      >
+                        <IoClose size={20} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
