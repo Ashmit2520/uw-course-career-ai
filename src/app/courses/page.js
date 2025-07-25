@@ -85,12 +85,12 @@ export default function CoursesPage() {
 
         {/* Sort dropdown */}
         <div className="flex items-center gap-2">
-          <label htmlFor="sort" className="text-gray-600 font-medium">
+          <label htmlFor="sort" className="text-white font-medium">
             Sort by:
           </label>
           <select
             id="sort"
-            className="border rounded px-2 py-1"
+            className="border rounded px-2 py-1 bg-gray-800 text-white font-semibold shadow focus:ring focus:border-blue-400"
             value={sort}
             onChange={e => {
               const selected = SORT_OPTIONS.find(o => o.value === e.target.value);
@@ -98,9 +98,17 @@ export default function CoursesPage() {
               setDirection(selected.direction || "asc");
               setPage(1);
             }}
+            style={{ minWidth: 185 }}
           >
             {SORT_OPTIONS.map(opt => (
-              <option key={opt.value} value={opt.value}>{opt.label}</option>
+              <option
+                key={opt.value}
+                value={opt.value}
+                className="bg-gray-900 text-white font-semibold"
+                style={{ backgroundColor: "#111827", color: "#fff" }}
+              >
+                {opt.label}
+              </option>
             ))}
           </select>
         </div>
