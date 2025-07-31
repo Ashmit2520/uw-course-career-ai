@@ -1,0 +1,10590 @@
+{
+  "COMPSCI 537": [
+    "COMPSCI642",
+    "COMPSCI506"
+  ],
+  "MATH 141": [
+    "COMPSCI102",
+    "PHILOS210"
+  ],
+  "SCANDST 131": [
+    "SCANDST132"
+  ],
+  "AFAERO 301": [
+    "AFAERO302"
+  ],
+  "ME 351": [
+    "ME352"
+  ],
+  "PSYCH 406": [
+    "PSYCH515",
+    "PSYCH513",
+    "PSYCH532",
+    "PSYCH528",
+    "PSYCH521",
+    "PSYCH502"
+  ],
+  "LITTRANS, SLAVIC 215": [
+    "LITTRANS361"
+  ],
+  "AMERIND 313": [
+    "AMERIND411"
+  ],
+  "FINANCE 325": [
+    "FINANCE340",
+    "FINANCE601",
+    "FINANCE410",
+    "FINANCE635",
+    "FINANCE420",
+    "FINANCE650",
+    "FINANCE503",
+    "INTLBUS445"
+  ],
+  "MATH 113": [
+    "PHYSICS103",
+    "MS&E260",
+    "BSE310",
+    "GLE371",
+    "F&WECOL395",
+    "KINES330",
+    "BSE301",
+    "ECON111",
+    "MATH221",
+    "KINES318",
+    "CHEM109",
+    "STAT371"
+  ],
+  "AAE 101": [
+    "AAE322",
+    "AAE371",
+    "AAE419",
+    "AAE477",
+    "AAE306",
+    "AAE320",
+    "AAE474",
+    "MARKETNG300",
+    "ECON350",
+    "PUBAFFR380",
+    "ECON102",
+    "AAE343",
+    "AAE671",
+    "FINANCE300",
+    "ECON325",
+    "AAE462",
+    "AAE561",
+    "AAE374",
+    "AAE373",
+    "PUBAFFR340",
+    "ECON340",
+    "AAE670",
+    "ECON321",
+    "AAE422",
+    "AAE473",
+    "ECON305",
+    "AAE319",
+    "ECON301",
+    "AAE250"
+  ],
+  "SLAVIC 278": [
+    "SLAVIC331"
+  ],
+  "COUNPSY, CHICLA 525": [
+    "COUNPSY590",
+    "COUNPSY575"
+  ],
+  "MATH 234": [
+    "CBE355",
+    "ATMOCN573",
+    "PHYSICS311",
+    "CIVENGR310",
+    "MATH571",
+    "MATH321",
+    "MATH431",
+    "MATH521",
+    "MATH415",
+    "MATH467",
+    "MEDPHYS569",
+    "CHEM361",
+    "CBE310",
+    "MATH309",
+    "ATMOCN630",
+    "COMPSCI532",
+    "MEDPHYS567",
+    "ME536",
+    "COMPSCI412",
+    "MEDPHYS575",
+    "MEDPHYS573",
+    "MATH570",
+    "ECE222",
+    "MEDPHYS563",
+    "MATH228",
+    "ECE377",
+    "ATMOCN330",
+    "ATMOCN310",
+    "MEDPHYS578",
+    "MATH551",
+    "PHYSICS361",
+    "CIVENGR324",
+    "MATH540",
+    "ATMOCN610",
+    "ATMOCN640",
+    "PHYSICS248",
+    "MATH421",
+    "MATH341",
+    "PHYSICS322",
+    "MATH541",
+    "PHYSICS623",
+    "ECE219",
+    "MATH461",
+    "STAT311"
+  ],
+  "ME 747": [
+    "ME733"
+  ],
+  "ITALIAN 205": [
+    "ITALIAN322",
+    "ITALIAN312",
+    "ITALIAN230",
+    "ITALIAN301",
+    "ITALIAN321",
+    "ITALIAN340",
+    "ITALIAN311"
+  ],
+  "ART 222": [
+    "ART322",
+    "ART242",
+    "ART336",
+    "ART302",
+    "ART452"
+  ],
+  "BIOLOGY, ZOOLOGY 102": [
+    "ZOOLOGY300",
+    "LANDARC668",
+    "PSYCH406",
+    "ZOOLOGY304",
+    "ZOOLOGY303",
+    "CBE560",
+    "BOTANY450",
+    "GEOSCI542",
+    "ZOOLOGY350",
+    "ZOOLOGY521",
+    "SOILSCI323",
+    "ENVIRST520",
+    "GENETICS466",
+    "PLANTSCI340",
+    "ZOOLOGY430",
+    "ENVIRST361",
+    "ENVIRST315",
+    "ZOOLOGY153",
+    "PSYCH505",
+    "GENETICS467",
+    "ENVIRST510",
+    "ZOOLOGY320",
+    "DYSCI373",
+    "BME550",
+    "DYSCI378",
+    "BOTANY460",
+    "DYSCI434",
+    "BOTANY575",
+    "ZOOLOGY520",
+    "ENTOM344",
+    "PSYCH454",
+    "ANSCI336",
+    "PLPATH315",
+    "BME517",
+    "ANSCI366",
+    "DYSCI361",
+    "F&WECOL306",
+    "FOODSCI301",
+    "PSYCH414",
+    "BME430",
+    "MICROBIO523",
+    "PATH-BIO307",
+    "F&WECOL660",
+    "MM&I301",
+    "F&WECOL360",
+    "DYSCI320",
+    "CRB675",
+    "ANSCI377",
+    "PSYCH449",
+    "SURGSCI548",
+    "FOODSCI305",
+    "ANSCI420",
+    "BOTANY151",
+    "F&WECOL401",
+    "ZOOLOGY415"
+  ],
+  "AAE 637": [
+    "AAE724"
+  ],
+  "MUSPERF 440": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "CHEM 104": [
+    "DERM602",
+    "SOILSCI324",
+    "GLE520",
+    "ZOOLOGY370",
+    "SOILSCI631",
+    "SOILSCI323",
+    "CHEM343",
+    "GEOSCI375",
+    "GENETICS466",
+    "PLANTSCI340",
+    "CHEM341",
+    "CIVENGR320",
+    "BSE460",
+    "CIVENGR500",
+    "GENETICS467",
+    "CIVENGR501",
+    "MS&E330",
+    "BSE349",
+    "SOILSCI451",
+    "GLE421",
+    "BIOCHEM301",
+    "CHEM108",
+    "BME330",
+    "CIVENGR324",
+    "MICROBIO523",
+    "MM&I528",
+    "CHEM344",
+    "CHEM327",
+    "MICROBIO545",
+    "CHEM329",
+    "CHEM375",
+    "MICROBIO303",
+    "CHEM311",
+    "BME310",
+    "DERM601",
+    "CHEM109",
+    "SOILSCI621",
+    "ZOOLOGY523"
+  ],
+  "ECON 111": [
+    "AAE322",
+    "AAE371",
+    "AAE419",
+    "AAE477",
+    "AAE306",
+    "ECON330",
+    "AAE320",
+    "ECON101",
+    "RMI300",
+    "HISTORY466",
+    "ECON310",
+    "AAE474",
+    "MARKETNG300",
+    "INTLBUS200",
+    "ECON350",
+    "CNSRSCI665",
+    "REALEST420",
+    "CNSRSCI477",
+    "ECON315",
+    "ECON311",
+    "ECON102",
+    "AAE343",
+    "AAE671",
+    "FINANCE300",
+    "ECON325",
+    "ECON100",
+    "AAE462",
+    "AAE561",
+    "AAE374",
+    "ECON370",
+    "AAE373",
+    "PUBAFFR340",
+    "ECON340",
+    "ECON205",
+    "ECON312",
+    "AAE670",
+    "ECON321",
+    "AAE422",
+    "AAE473",
+    "ECON302",
+    "ECON305",
+    "ECON465",
+    "AAE319",
+    "ECON301",
+    "AAE250",
+    "ECON390"
+  ],
+  "ARTHIST 201": [
+    "DS422",
+    "DS421"
+  ],
+  "PSYCH 202": [
+    "PSYCH464",
+    "PSYCH406",
+    "PSYCH210",
+    "PSYCH403",
+    "PSYCH505",
+    "PSYCH462",
+    "PSYCH454",
+    "PSYCH205",
+    "COUNPSY372",
+    "PSYCH225",
+    "PSYCH414",
+    "PSYCH501",
+    "PSYCH401",
+    "PSYCH456",
+    "SOC453",
+    "PSYCH450",
+    "PSYCH405",
+    "RP&SE520",
+    "PSYCH460",
+    "PSYCH449",
+    "PSYCH311"
+  ],
+  "MATH 96": [
+    "MATH114",
+    "PHILOS210",
+    "COMPSCI102",
+    "INTER-LS144",
+    "MATH112",
+    "ECON100",
+    "MATH171",
+    "MATH141"
+  ],
+  "COMPSCI, ECE 760": [
+    "COMPSCI762"
+  ],
+  "GENBUS 311": [
+    "MARKETNG735",
+    "MARKETNG710",
+    "MARKETNG755",
+    "LSC435",
+    "MARKETNG737",
+    "MARKETNG730",
+    "MARKETNG775",
+    "MARKETNG705",
+    "MARKETNG745"
+  ],
+  "OCCTHER 724": [
+    "OCCTHER727",
+    "OCCTHER725"
+  ],
+  "SLAVIC 101": [
+    "SLAVIC102"
+  ],
+  "ECE 305": [
+    "ECE466",
+    "ECE455"
+  ],
+  "GEOSCI 100": [
+    "GEOSCI551",
+    "GEOSCI204",
+    "GEOSCI320",
+    "GEOSCI106",
+    "GLE360",
+    "GEOSCI420",
+    "GEOSCI202",
+    "GLE627"
+  ],
+  "LANDARC 210": [
+    "DS333"
+  ],
+  "PLANTSCI 338": [
+    "PLANTSCI501",
+    "PLANTSCI502",
+    "PLPATH517"
+  ],
+  "DS 270": [
+    "DS570"
+  ],
+  "GENBUS 720": [
+    "GENBUS883",
+    "GENBUS740"
+  ],
+  "COMPSCI 764": [
+    "COMPSCI739"
+  ],
+  "CNP 306": [
+    "CNP519"
+  ],
+  "MS&E 360": [
+    "MS&E361",
+    "MS&E363"
+  ],
+  "ASTRON 335": [
+    "ASTRON500",
+    "ASTRON620"
+  ],
+  "GERMAN 311": [
+    "GERMAN312"
+  ],
+  "HISTORY, GEN&WS, CHICLA 245": [
+    "LEGALST440",
+    "LEGALST443",
+    "CHICLA501"
+  ],
+  "M&ENVTOX, PHMSCI, PHMCOL-M, POPHLTH, ONCOLOGY 625": [
+    "M&ENVTOX626"
+  ],
+  "ACCTIS 340": [
+    "ACCTIS730",
+    "ACCTIS640"
+  ],
+  "GLE, CIVENGR 532": [
+    "CIVENGR578",
+    "GLE479"
+  ],
+  "GEOG 370": [
+    "GEOG575",
+    "GEOG576",
+    "GEOG574",
+    "GEOG572"
+  ],
+  "ART 429": [
+    "ART529",
+    "ART629",
+    "ART428"
+  ],
+  "GENECSLR 741": [
+    "GENECSLR743"
+  ],
+  "NURSING 712": [
+    "NURSING830",
+    "NURSING713"
+  ],
+  "CHEM 329": [
+    "CHEM327",
+    "CHEM665",
+    "CHEM575",
+    "CHEM561",
+    "CHEM524",
+    "CBE250",
+    "CHEM563"
+  ],
+  "PSYCH 692": [
+    "PSYCH686"
+  ],
+  "STAT 324": [
+    "SOILSCI585",
+    "ISYE350",
+    "CBE324",
+    "ECON400",
+    "ISYE349",
+    "ISYE625",
+    "ISYE412",
+    "STAT424",
+    "COMPSCI561",
+    "ISYE512",
+    "CIVENGR515",
+    "STAT303",
+    "ISYE312",
+    "CIVENGR570",
+    "ME536",
+    "FINANCE300",
+    "ISYE320",
+    "ISYE620",
+    "ISYE574",
+    "PSYCH225",
+    "ISYE445",
+    "BOTANY563",
+    "ISYE521",
+    "ISYE649",
+    "STAT301",
+    "MATH310",
+    "PUBAFFR340",
+    "STAT371",
+    "COMPSCI566",
+    "CIVENGR516",
+    "BMI567",
+    "STAT333",
+    "ISYE315",
+    "CIVENGR370",
+    "F&WECOL458"
+  ],
+  "OCCTHER 727": [
+    "OCCTHER728"
+  ],
+  "PSYCH 454": [
+    "PSYCH513",
+    "PSYCH532",
+    "NEURODPT640",
+    "PSYCH603",
+    "NTP666",
+    "GENETICS520",
+    "PSYCH612",
+    "PSYCH515",
+    "NTP677"
+  ],
+  "ITALIAN 203": [
+    "ITALIAN204"
+  ],
+  "MUSPERF 405": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "NURSING 704": [
+    "NURSING601"
+  ],
+  "ART 575": [
+    "ART556"
+  ],
+  "ZOOLOGY 611": [
+    "ZOOLOGY612"
+  ],
+  "GEOSCI, ENVIRST 106": [
+    "GEOSCI551",
+    "GEOSCI204",
+    "GEOSCI320",
+    "GEOSCI100",
+    "GLE360",
+    "GEOSCI420",
+    "GEOSCI202",
+    "GLE627"
+  ],
+  "ECE 303": [
+    "ECE455"
+  ],
+  "MICROBIO 304": [
+    "MICROBIO102",
+    "MICROBIO324",
+    "MICROBIO527"
+  ],
+  "INTEGSCI 740": [
+    "INTEGSCI840"
+  ],
+  "GEN&WS, AFROAMER 333": [
+    "GEN&WS547",
+    "GEN&WS546"
+  ],
+  "DS 224": [
+    "DS561"
+  ],
+  "EP 568": [
+    "EP569"
+  ],
+  "GENBUS 206": [
+    "FINANCE300",
+    "MARKETNG310",
+    "GENBUS207"
+  ],
+  "CSCS 811": [
+    "CSCS812"
+  ],
+  "ACTSCI 655": [
+    "FINANCE320",
+    "FINANCE330"
+  ],
+  "EP 271": [
+    "EP476",
+    "NE412",
+    "EP471"
+  ],
+  "MUSPERF 541": [
+    "MUSIC531"
+  ],
+  "COMPSCI, ECE 352": [
+    "ECE553",
+    "ECE556",
+    "ECE555",
+    "COMPSCI552",
+    "ECE551"
+  ],
+  "PUBLHLTH 780": [
+    "PUBLHLTH786"
+  ],
+  "PSYCH 790": [
+    "PSYCH791"
+  ],
+  "PHARMACY 800": [
+    "OBS&GYN956"
+  ],
+  "ECE 313": [
+    "ECE455"
+  ],
+  "ECON 311": [
+    "ECON442",
+    "RMI530",
+    "ECON621",
+    "ECON448",
+    "AAE540",
+    "ECON666",
+    "POPHLTH548",
+    "ECON580",
+    "ECON521",
+    "ECON522",
+    "AAE531",
+    "ECON535",
+    "FINANCE503",
+    "AAE635",
+    "ECON570",
+    "REALEST706",
+    "AAE625",
+    "ECON475",
+    "ECON464",
+    "ECON455",
+    "ECON690",
+    "ECON435",
+    "ECON623",
+    "ECON450",
+    "ECON467",
+    "ECON301",
+    "ECON458",
+    "AAE520",
+    "ECON468",
+    "ECON441"
+  ],
+  "MICROBIO 101": [
+    "MICROBIO325",
+    "MICROBIO102",
+    "MM&I554",
+    "MICROBIO520",
+    "MICROBIO335",
+    "PHMSCI254",
+    "BSE349",
+    "MICROBIO100"
+  ],
+  "RP&SE 325": [
+    "RP&SE505",
+    "RP&SE535"
+  ],
+  "SLAVIC 352": [
+    "SLAVIC451"
+  ],
+  "MS&E 448": [
+    "MS&E648"
+  ],
+  "CURRIC 550": [
+    "CURRIC363"
+  ],
+  "DS 101": [
+    "DS319",
+    "DS227"
+  ],
+  "ASIALANG 140": [
+    "ASIALANG239"
+  ],
+  "JEWISH, HEBR-MOD 301": [
+    "JEWISH302"
+  ],
+  "JEWISH, HEBR-MOD 302": [
+    "JEWISH401"
+  ],
+  "GLE, CIVENGR 535": [
+    "CIVENGR578",
+    "GLE479"
+  ],
+  "MATH 114": [
+    "BSE380",
+    "BSE310",
+    "AAE430",
+    "MATH211",
+    "CHEM104",
+    "GLE371",
+    "BSE301",
+    "MATH221",
+    "F&WECOL655",
+    "PHYSICS103",
+    "BSE344",
+    "FOODSCI301",
+    "ENTOM490",
+    "F&WECOL395",
+    "STAT371",
+    "BSE367",
+    "CHEM103",
+    "MS&E260",
+    "ECE204",
+    "SOILSCI301",
+    "CHEM109"
+  ],
+  "SLAVIC 112": [
+    "SLAVIC207"
+  ],
+  "LANDARC 560": [
+    "LANDARC562"
+  ],
+  "LATIN 104": [
+    "LATIN391",
+    "LATIN305"
+  ],
+  "ENVIRST, GEOG 120": [
+    "BOTANY422",
+    "GEOSCI320",
+    "ENTOM490",
+    "SOILSCI526",
+    "GEOSCI420",
+    "ENVIRST127"
+  ],
+  "EDPSYCH 301": [
+    "EDPSYCH551"
+  ],
+  "ART 212": [
+    "ART242",
+    "ART336",
+    "ART232",
+    "ART334",
+    "ART302",
+    "ART312",
+    "ART326",
+    "ART222"
+  ],
+  "CURRIC 390": [
+    "CURRIC495",
+    "CURRIC590"
+  ],
+  "CURRIC 418": [
+    "CURRIC419"
+  ],
+  "FRENCH 228": [
+    "FRENCH312",
+    "INTLBUS313",
+    "FRENCH271",
+    "FRENCH590",
+    "PORTUG301",
+    "ITALIAN429",
+    "FRENCH311",
+    "INTLBUS314"
+  ],
+  "CNP 454": [
+    "CNP519"
+  ],
+  "ECON 705": [
+    "ECON706"
+  ],
+  "CBE 324": [
+    "CBE575",
+    "CBE424"
+  ],
+  "MUSPERF 990": [
+    "MUSIC632"
+  ],
+  "EDPSYCH 830": [
+    "EDPSYCH840"
+  ],
+  "ITALIAN 301": [
+    "ITALIAN452"
+  ],
+  "BME 201": [
+    "ME342",
+    "BME300",
+    "ME445",
+    "BME301"
+  ],
+  "AAE, REALEST, URBRPL, ECON 306": [
+    "REALEST410"
+  ],
+  "NURSING 316": [
+    "NURSING326"
+  ],
+  "LACIS, ANTHRO 361": [
+    "LACIS362"
+  ],
+  "ENGL 469": [
+    "ENGL508",
+    "ENGL409",
+    "ENGL410",
+    "ENGL509",
+    "ENGL307",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "ME 459": [
+    "ME468"
+  ],
+  "MEDSC-M 850": [
+    "MEDSC-M852",
+    "MEDSC-M853",
+    "MEDSC-M851"
+  ],
+  "INTEGSCI 650": [
+    "INTEGSCI750"
+  ],
+  "STAT 371": [
+    "SOILSCI585",
+    "SOC618",
+    "ISYE349",
+    "STAT424",
+    "STAT303",
+    "PLPATH315",
+    "FINANCE300",
+    "AAE421",
+    "ISYE320",
+    "PSYCH225",
+    "BOTANY563",
+    "F&WECOL565",
+    "SOC674",
+    "STAT301",
+    "MATH310",
+    "PUBAFFR340",
+    "SOC351",
+    "CNSRSCI201",
+    "FOODSCI412",
+    "COMPSCI566",
+    "F&WECOL458",
+    "KINES330",
+    "STAT333",
+    "ISYE315",
+    "PSYCH602",
+    "BMI567",
+    "PLPATH602",
+    "STAT324"
+  ],
+  "SPANISH 224": [
+    "SPANISH326",
+    "SPANISH469",
+    "SPANISH490",
+    "SPANISH324",
+    "SPANISH361",
+    "ENVIRST445",
+    "SPANISH464",
+    "SPANISH363",
+    "SPANISH467",
+    "SPANISH414",
+    "SPANISH479",
+    "SPANISH564",
+    "SPANISH453",
+    "SPANISH477",
+    "SPANISH451",
+    "SPANISH472",
+    "SPANISH460",
+    "SPANISH461",
+    "SPANISH435",
+    "SPANISH364",
+    "SPANISH478",
+    "SPANISH470",
+    "SPANISH480",
+    "SPANISH322",
+    "SPANISH455",
+    "SPANISH468"
+  ],
+  "ITALIAN 230": [
+    "ITALIAN452"
+  ],
+  "PHYSICS 415": [
+    "EP566"
+  ],
+  "INTER-LS 601": [
+    "INTER-LS602"
+  ],
+  "CNSRSCI 768": [
+    "CNSRSCI778"
+  ],
+  "MARKETNG 310": [
+    "MARKETNG460",
+    "MARKETNG450"
+  ],
+  "ART 514": [
+    "ART614"
+  ],
+  "GNS 432": [
+    "GNS531.00"
+  ],
+  "INTEGSCI 640": [
+    "INTEGSCI740"
+  ],
+  "MATH 221": [
+    "MATH240",
+    "MATH222",
+    "ECON468",
+    "BSE380",
+    "GLE520",
+    "SOILSCI631",
+    "ECON621",
+    "PHYSICS207",
+    "CIVENGR525",
+    "ECON111",
+    "ECON310",
+    "AAE430",
+    "ECON666",
+    "MATH211",
+    "CHEM104",
+    "STAT340",
+    "COMPSCI540",
+    "ISYE210",
+    "GLE421",
+    "F&WECOL655",
+    "CIVENGR415",
+    "GLE350",
+    "PHYSICS103",
+    "BSE249",
+    "PHYSICS201",
+    "BSE344",
+    "ENTOM490",
+    "ECON475",
+    "MATH228",
+    "NEURODPT640",
+    "PHYSICS202",
+    "PHYSICS208",
+    "ATMOCN532",
+    "SOILSCI622",
+    "COMPSCI534",
+    "GENBUS306",
+    "F&WECOL395",
+    "MATH213",
+    "BSE473",
+    "STAT371",
+    "ECON205",
+    "BSE367",
+    "AAE670",
+    "CHEM103",
+    "CIVENGR494",
+    "ECON661",
+    "ECON302",
+    "FOODSCI440",
+    "CIVENGR516",
+    "SOILSCI301",
+    "PHYSICS206",
+    "ISYE313",
+    "GLE444",
+    "ECE203",
+    "ECON301",
+    "AAE526",
+    "ECON664",
+    "GLE627",
+    "PLPATH602",
+    "CHEM109",
+    "ECON410",
+    "STAT324"
+  ],
+  "GERMAN 204": [
+    "GERMAN249",
+    "GERMAN285",
+    "GERMAN258",
+    "GERMAN262"
+  ],
+  "SOC, GEN&WS 200": [
+    "GEN&WS418",
+    "ENGL350"
+  ],
+  "ITALIAN, FRENCH, PORTUG, SPANISH 429": [
+    "LINGUIS303"
+  ],
+  "ART, THEATRE 372": [
+    "ART572"
+  ],
+  "SLAVIC 251": [
+    "SLAVIC252"
+  ],
+  "CURRIC 463": [
+    "CURRIC454",
+    "CURRIC468",
+    "CURRIC464"
+  ],
+  "SOCWORK 206": [
+    "SOCWORK420"
+  ],
+  "ENVIRST, GEOG 337": [
+    "ENVIRST112",
+    "SOC541",
+    "ENVIRST537"
+  ],
+  "CHEM 102": [
+    "CHEM344"
+  ],
+  "ASIALANG 111": [
+    "ASIALANG101",
+    "ASIALANG102"
+  ],
+  "ASIALANG 421": [
+    "ASIALANG422"
+  ],
+  "ECE 270": [
+    "ECE271"
+  ],
+  "MS&E 331": [
+    "NE536"
+  ],
+  "NURSING 317": [
+    "NURSING326"
+  ],
+  "COMARTS 360": [
+    "COMARTS570"
+  ],
+  "GERMAN 249": [
+    "GERMAN411",
+    "GERMAN262",
+    "GERMAN351",
+    "GERMAN385",
+    "GERMAN258",
+    "GERMAN305",
+    "GERMAN651",
+    "GERMAN337",
+    "GERMAN372",
+    "GERMAN362"
+  ],
+  "ASTRON 320": [
+    "ASTRON500",
+    "ASTRON540",
+    "ASTRON620"
+  ],
+  "ACCTIS 310": [
+    "ACCTIS771"
+  ],
+  "REALEST 851": [
+    "REALEST852"
+  ],
+  "PHYTHER 679": [
+    "PHYTHER706"
+  ],
+  "ANTHRO 322": [
+    "ANTHRO337",
+    "ANTHRO391",
+    "ANTHRO321",
+    "ANTHRO370"
+  ],
+  "ME 231": [
+    "ME311",
+    "ME310",
+    "CIVENGR392",
+    "ME331"
+  ],
+  "CIVENGR 159": [
+    "CIVENGR392"
+  ],
+  "CS&D 892": [
+    "CS&D893"
+  ],
+  "COMPSCI 319": [
+    "COMPSCI320"
+  ],
+  "HISTORY, MEDHIST, HISTSCI 508": [
+    "MEDHIST708"
+  ],
+  "COMPSCI 272": [
+    "COMPSCI472"
+  ],
+  "ART 463": [
+    "ART656",
+    "ART556",
+    "ART560",
+    "ART564"
+  ],
+  "COMARTS 250": [
+    "COMARTS350",
+    "GEN&WS418",
+    "COMARTS547",
+    "COMARTS351",
+    "COMARTS540",
+    "COMARTS608",
+    "COMARTS448",
+    "COMARTS359",
+    "COMARTS545",
+    "COMARTS450"
+  ],
+  "ECE 730": [
+    "ECE830"
+  ],
+  "CHEM 562": [
+    "CBE547",
+    "CHEM564"
+  ],
+  "ZOOLOGY 470": [
+    "ZOOLOGY555",
+    "BME520",
+    "BME556",
+    "GENETICS528"
+  ],
+  "PSYCH 682": [
+    "PSYCH686"
+  ],
+  "BME, MEDPHYS, HONCOL, PHYSICS 501": [
+    "MEDPHYS688",
+    "MEDPHYS674",
+    "MEDPHYS506",
+    "MEDPHYS566",
+    "MEDPHYS679",
+    "MEDPHYS580"
+  ],
+  "PHMPRAC 526": [
+    "PHMPRAC625"
+  ],
+  "ECE 551": [
+    "ECE554"
+  ],
+  "STAT 311": [
+    "ISYE350",
+    "ECON400",
+    "ISYE349",
+    "ISYE412",
+    "ISYE624",
+    "STAT312",
+    "COMPSCI561",
+    "ISYE512",
+    "MATH309",
+    "ECON666",
+    "CIVENGR515",
+    "COMPSCI541",
+    "ISYE312",
+    "CIVENGR570",
+    "MATH632",
+    "FINANCE300",
+    "STAT461",
+    "ISYE570",
+    "ISYE320",
+    "MATH616",
+    "ISYE574",
+    "ISYE521",
+    "CIVENGR572",
+    "MATH310",
+    "ISYE516",
+    "COMPSCI566",
+    "CIVENGR516",
+    "ISYE315",
+    "MATH535",
+    "CIVENGR370",
+    "BMI567",
+    "ISYE517"
+  ],
+  "SLAVIC 207": [
+    "SLAVIC208"
+  ],
+  "BOTANY, PLPATH 123": [
+    "AGROECOL370",
+    "AAE367"
+  ],
+  "SOILSCI, ENVIRST 101": [
+    "AGROECOL370"
+  ],
+  "CIVENGR 310": [
+    "CIVENGR411",
+    "EMA524",
+    "CIVENGR521",
+    "GLE511",
+    "EMA521",
+    "BSE464",
+    "BSE461",
+    "CIVENGR410",
+    "BSE474"
+  ],
+  "SCANDST 112": [
+    "SCANDST211"
+  ],
+  "OCCTHER 710": [
+    "OCCTHER711"
+  ],
+  "PORTUG 311": [
+    "PORTUG642"
+  ],
+  "DANCE 136": [
+    "DANCE236",
+    "DANCE330"
+  ],
+  "SOC, C&ESOC 222": [
+    "AAE367"
+  ],
+  "ENVIRST 113": [
+    "SOC541"
+  ],
+  "NURSING 313": [
+    "NURSING323",
+    "NURSING326"
+  ],
+  "PHYTHER 676": [
+    "PHYTHER679"
+  ],
+  "KINES 427": [
+    "KINES527",
+    "KINES300"
+  ],
+  "NURSING 437": [
+    "NURSING442",
+    "NURSING444",
+    "NURSING445",
+    "NURSING443"
+  ],
+  "GREEK 104": [
+    "GREEK305"
+  ],
+  "ISYE, POPHLTH 875": [
+    "AAE881"
+  ],
+  "BOTANY, PLPATH, ENTOM 505": [
+    "BOTANY473"
+  ],
+  "BMI, STAT 542": [
+    "NURSING705",
+    "BMI544"
+  ],
+  "BSE 301": [
+    "SOILSCI585"
+  ],
+  "GEN&WS 101": [
+    "LEGALST425",
+    "GEN&WS418",
+    "ENGL350",
+    "LEGALST406",
+    "SOC347"
+  ],
+  "ECON 410": [
+    "FINANCE330",
+    "GENBUS656",
+    "ACTSCI640",
+    "FINANCE320",
+    "ECON460",
+    "ECON400",
+    "STAT461",
+    "FINANCE325",
+    "GENBUS308",
+    "SOC362",
+    "ECON580"
+  ],
+  "PHMPRAC 553": [
+    "PHMPRAC554",
+    "PHMPRAC556"
+  ],
+  "MS&E 470": [
+    "MS&E471"
+  ],
+  "GENECSLR 745": [
+    "GENECSLR990"
+  ],
+  "PSYCH 450": [
+    "ANTHRO458",
+    "PSYCH532",
+    "PSYCH513",
+    "ANTHRO668",
+    "PSYCH503",
+    "PSYCH515",
+    "ANTHRO420"
+  ],
+  "ACTSCI 654": [
+    "FINANCE325",
+    "FINANCE320",
+    "FINANCE330"
+  ],
+  "PHYSICS 201": [
+    "PHYSICS104",
+    "ASTRON200",
+    "PHYSICS207",
+    "GLE474",
+    "EP271",
+    "CBE310",
+    "PHYSICS115",
+    "CHEM561",
+    "CIVENGR360",
+    "GLE535",
+    "PHYSICS103",
+    "CHEM665",
+    "ME361",
+    "PHYSICS202",
+    "PHYSICS208",
+    "BME330",
+    "BSE475",
+    "ATMOCN532",
+    "BSE476",
+    "CIVENGR324",
+    "ME451",
+    "ANAT&PHY435",
+    "FOODSCI440",
+    "PHYSICS206",
+    "GLE534",
+    "CBE320",
+    "PHYSICS106"
+  ],
+  "MUSPERF 505": [
+    "MUSIC463"
+  ],
+  "PORTUG 102": [
+    "PORTUG302",
+    "PORTUG201",
+    "PORTUG301"
+  ],
+  "ENVIRST, URBRPL, CIVENGR 718": [
+    "ENVIRST719"
+  ],
+  "ECON 400": [
+    "SOC362",
+    "FINANCE330",
+    "GENBUS656",
+    "ECON460",
+    "FINANCE320",
+    "FINANCE325",
+    "GENBUS308",
+    "ECON410"
+  ],
+  "ME 440": [
+    "EMA540",
+    "EMA610"
+  ],
+  "ISYE 315": [
+    "ISYE350",
+    "ISYE415",
+    "ISYE520",
+    "ISYE615",
+    "ISYE641",
+    "ISYE605",
+    "ISYE510"
+  ],
+  "DANCE 236": [
+    "DANCE237"
+  ],
+  "GERMAN 262": [
+    "GERMAN411",
+    "GERMAN285",
+    "GERMAN249",
+    "GERMAN385",
+    "GERMAN351",
+    "GERMAN305",
+    "GERMAN258",
+    "GERMAN651",
+    "GERMAN337",
+    "GERMAN372",
+    "GERMAN362"
+  ],
+  "MEDPHYS, BME 573": [
+    "MEDPHYS775",
+    "MEDPHYS580",
+    "MEDPHYS674"
+  ],
+  "ART 563": [
+    "ART556"
+  ],
+  "PLANTSCI 771": [
+    "PLANTSCI772"
+  ],
+  "HISTSCI 202": [
+    "ILS202"
+  ],
+  "ACTSCI 652": [
+    "ACTSCI653"
+  ],
+  "MATH 561": [
+    "MATH621"
+  ],
+  "KINES 362": [
+    "KINES364"
+  ],
+  "CHEM 103": [
+    "BSE380",
+    "GLE520",
+    "SOILSCI327",
+    "NUTRSCI332",
+    "CHEM361",
+    "CHEM104",
+    "MS&E351",
+    "MS&E350",
+    "FOODSCI301",
+    "ME361",
+    "MICROBIO101",
+    "SOILSCI372",
+    "GLE360",
+    "ANAT&PHY435",
+    "MS&E260",
+    "SOILSCI430",
+    "CHEM260",
+    "SOILSCI326",
+    "SOILSCI301",
+    "FOODSCI305",
+    "ANAT&PHY335",
+    "ANSCI508"
+  ],
+  "AFRICAN 340": [
+    "AFRICAN323",
+    "AFRICAN341"
+  ],
+  "PLPATH, PLANTSCI 261": [
+    "PLPATH262"
+  ],
+  "FISC 119": [
+    "FISC124",
+    "FISC123",
+    "FISC122"
+  ],
+  "GLE, CIVENGR 330": [
+    "GLE432",
+    "GLE530",
+    "GLE635",
+    "GLE430",
+    "GLE532",
+    "GLE434"
+  ],
+  "COMPSCI 536": [
+    "COMPSCI506"
+  ],
+  "CHEM 311": [
+    "CHEM512",
+    "CHEM575",
+    "CHEM653"
+  ],
+  "F&WECOL 318": [
+    "F&WECOL655",
+    "F&WECOL379"
+  ],
+  "ACCTIS 621": [
+    "ACCTIS725"
+  ],
+  "GEOG 572": [
+    "GEOG778",
+    "GEOG777"
+  ],
+  "ART 556": [
+    "ART656",
+    "ART560"
+  ],
+  "STAT, ME 424": [
+    "COMPSCI561"
+  ],
+  "CIVENGR 573": [
+    "CIVENGR578"
+  ],
+  "LINGUIS 351": [
+    "LINGUIS352"
+  ],
+  "MM&I 301": [
+    "MM&I696",
+    "MICROBIO325",
+    "MM&I554",
+    "MM&I575"
+  ],
+  "OCCTHER 722": [
+    "OCCTHER723"
+  ],
+  "MATH 521": [
+    "MATH561",
+    "MATH627",
+    "MATH514",
+    "MATH519",
+    "MATH570",
+    "MATH571",
+    "MATH541",
+    "MATH623",
+    "MATH551",
+    "MATH621",
+    "MATH522",
+    "MATH540",
+    "MATH531",
+    "MATH619",
+    "MATH635"
+  ],
+  "PSYCH 752": [
+    "PSYCH755"
+  ],
+  "DS 153": [
+    "DS154",
+    "DS215",
+    "ART226"
+  ],
+  "HISTSCI 201": [
+    "ILS201"
+  ],
+  "INTEGSCI 230": [
+    "INTEGSCI330"
+  ],
+  "GEOG 576": [
+    "GEOG778",
+    "GEOG777"
+  ],
+  "LANDARC 321": [
+    "LANDARC562",
+    "LANDARC561"
+  ],
+  "BME 200": [
+    "BME201"
+  ],
+  "AFRICAN 402": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "ZOOLOGY 570": [
+    "BME520",
+    "BME556",
+    "CRB640"
+  ],
+  "DYSCI 234": [
+    "DYSCI535"
+  ],
+  "PSYCH 462": [
+    "PSYCH515",
+    "PSYCH532",
+    "PSYCH510",
+    "PSYCH503",
+    "PSYCH502",
+    "PSYCH508"
+  ],
+  "RELIGST 101": [
+    "POLISCI433"
+  ],
+  "FRENCH 321": [
+    "FRENCH465",
+    "FRENCH431",
+    "FRENCH347",
+    "FRENCH461",
+    "FRENCH464",
+    "FRENCH462",
+    "FRENCH430",
+    "FRENCH467"
+  ],
+  "GLE, GEOSCI 627": [
+    "GLE612",
+    "CIVENGR412",
+    "GLE629"
+  ],
+  "GEOG 574": [
+    "GEOG778",
+    "GEOG777"
+  ],
+  "PHYSICS 371": [
+    "PHYSICS109"
+  ],
+  "STAT 240": [
+    "SOILSCI585",
+    "BOTANY563",
+    "ECON695",
+    "STAT303",
+    "STAT405",
+    "STAT340",
+    "ECON400",
+    "F&WECOL458",
+    "STAT424",
+    "STAT333",
+    "MATH310",
+    "BMI567",
+    "STAT436",
+    "PUBAFFR340",
+    "ECON570"
+  ],
+  "PHMPRAC 426": [
+    "PHMPRAC526"
+  ],
+  "GLE, GEOSCI 455": [
+    "GEOSCI557",
+    "GEOSCI459",
+    "GEOSCI456",
+    "GEOSCI556"
+  ],
+  "ACCTIS 702": [
+    "ACCTIS770",
+    "ACCTIS406",
+    "ACCTIS603"
+  ],
+  "ASIALANG 331": [
+    "ASIALANG332"
+  ],
+  "PHMPRAC 625": [
+    "PHMPRAC626"
+  ],
+  "ME 342": [
+    "BME414",
+    "ME455"
+  ],
+  "COMPSCI, LIS 472": [
+    "COMPSCI272"
+  ],
+  "REALEST 715": [
+    "REALEST750"
+  ],
+  "GEOSCI, ENVIRST, ATMOCN 102": [
+    "ENTOM490",
+    "ATMOCN201"
+  ],
+  "OCCTHER 881": [
+    "OCCTHER882"
+  ],
+  "ECE 454": [
+    "ECE554",
+    "ECE455",
+    "ECE453"
+  ],
+  "POLISCI 813": [
+    "POLISCI818",
+    "POLISCI917"
+  ],
+  "INTEGSCI 340": [
+    "INTEGSCI341"
+  ],
+  "ECE 355": [
+    "ECE411",
+    "ECE304"
+  ],
+  "MUSPERF 421": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "CHEM 343": [
+    "CHEM345",
+    "BME520",
+    "DYSCI311",
+    "MICROBIO425",
+    "FOODSCI410",
+    "MICROBIO626",
+    "CHEM575",
+    "CHEM421",
+    "BME430",
+    "CHEM341",
+    "CHEM524",
+    "ANSCI420",
+    "BSE460",
+    "BIOCHEM501"
+  ],
+  "BME 315": [
+    "ISYE564",
+    "BME415",
+    "BME400"
+  ],
+  "CS&D 424": [
+    "CS&D434"
+  ],
+  "ENGL 318": [
+    "ENGL715"
+  ],
+  "ESL 118": [
+    "ESL200",
+    "ENGL100",
+    "COMARTS181",
+    "COMARTS100",
+    "LSC100"
+  ],
+  "ASIALANG 228": [
+    "ASIALANG348"
+  ],
+  "ECE 453": [
+    "ECE454",
+    "ECE554",
+    "ECE455"
+  ],
+  "MEDSC-M 810": [
+    "NEUROL913",
+    "RADIOL920",
+    "FAMMED935",
+    "SURGERY912",
+    "SURGERY983",
+    "OBS&GYN909",
+    "POPHLTH918",
+    "ANESTHES911",
+    "EMERMED909",
+    "OBS&GYN935",
+    "MEDICINE920",
+    "MEDHIST741",
+    "MEDHIST742",
+    "MEDICINE928",
+    "MEDSC-M942",
+    "MEDICINE927",
+    "HONCOL911",
+    "SURGERY980",
+    "MEDSC-M913",
+    "OBS&GYN916",
+    "MEDICINE972",
+    "PATH913",
+    "MEDICINE905",
+    "OPHTHALM911",
+    "POPHLTH917",
+    "FAMMED920",
+    "SURGERY974",
+    "FAMMED941",
+    "PATH924",
+    "BMI901",
+    "PSYCHIAT931",
+    "MEDICINE913",
+    "UROLOGY938",
+    "PATH962",
+    "FAMMED938",
+    "FAMMED940",
+    "FAMMED919",
+    "MEDICINE923",
+    "SURGERY909",
+    "DERM955",
+    "PATH970",
+    "PSYCHIAT934",
+    "SURGERY975",
+    "PATH914",
+    "SURGERY976",
+    "EMERMED914",
+    "OBS&GYN938",
+    "EMERMED920",
+    "EMERMED940",
+    "SURGERY982",
+    "MEDICINE938",
+    "CRB860",
+    "FAMMED911",
+    "FAMMED926",
+    "MEDSC-M909",
+    "CRB810",
+    "MEDSC-M912",
+    "FAMMED790",
+    "HONCOL912",
+    "MEDSC-M914",
+    "MEDHIST746",
+    "NEUROL914",
+    "PEDIAT909",
+    "SURGERY911",
+    "FAMMED930",
+    "FAMMED931",
+    "RADIOL928",
+    "FAMMED910",
+    "PEDIAT921",
+    "MEDICINE911",
+    "MEDICINE880",
+    "PATH923",
+    "FAMMED937",
+    "MEDSC-M722",
+    "OBS&GYN917",
+    "MEDICINE932",
+    "PATH960",
+    "SURGERY913",
+    "MEDICINE914",
+    "FAMMED933",
+    "RADIOL912",
+    "FAMMED927",
+    "MDGENET911",
+    "RADIOL911",
+    "PATH916",
+    "PSYCHIAT922",
+    "PATH921",
+    "MEDICINE924",
+    "SURGERY973",
+    "UROLOGY910",
+    "RADIOL914",
+    "MEDHIST740",
+    "MEDHIST744",
+    "MM&I902",
+    "SURGERY984",
+    "FAMMED909",
+    "SURGERY938",
+    "CRB850",
+    "PEDIAT938",
+    "MM&I911",
+    "PATH922",
+    "DERM904",
+    "NEURODPT747",
+    "FAMMED943",
+    "FAMMED924",
+    "PATH915",
+    "MEDHIST750",
+    "MEDHIST745"
+  ],
+  "POLISCI 812": [
+    "POLISCI818",
+    "POLISCI917"
+  ],
+  "BMI, POPHLTH 551": [
+    "BMI567",
+    "BMI541",
+    "BMI552"
+  ],
+  "GLE, CIVENGR 530": [
+    "CIVENGR578",
+    "GLE479"
+  ],
+  "MM&I 341": [
+    "MM&I696"
+  ],
+  "LIS 602": [
+    "LIS651",
+    "LIS635",
+    "CURRIC620",
+    "LIS632",
+    "LIS655",
+    "LIS826"
+  ],
+  "EP 468": [
+    "EP469"
+  ],
+  "ASIALANG 339": [
+    "ASIALANG340"
+  ],
+  "COMPSCI 570": [
+    "COMPSCI506"
+  ],
+  "POLISCI 182": [
+    "POLISCI437",
+    "POLISCI339",
+    "POLISCI347",
+    "POLISCI635",
+    "POLISCI120",
+    "POLISCI329",
+    "POLISCI659",
+    "POLISCI529"
+  ],
+  "COMPSCI, ME, ECE 539": [
+    "ISYE570"
+  ],
+  "BOTANY, F&WECOL, ZOOLOGY 460": [
+    "F&WECOL655",
+    "F&WECOL565",
+    "BOTANY473",
+    "ANTHRO668",
+    "F&WECOL410"
+  ],
+  "MUSIC 201": [
+    "MUSIC306"
+  ],
+  "ECE, PHYSICS 235": [
+    "MS&E570",
+    "PHYSICS415",
+    "PHYSICS551",
+    "MS&E456",
+    "ECE535",
+    "PHYSICS406",
+    "ECE434",
+    "PHYSICS448",
+    "ECE335",
+    "PHYSICS531"
+  ],
+  "EMA 542": [
+    "EMA523",
+    "EMA569",
+    "EMA642"
+  ],
+  "NURSING 435": [
+    "NURSING442",
+    "NURSING444",
+    "NURSING445",
+    "NURSING443"
+  ],
+  "ASTRON 340": [
+    "ASTRON500",
+    "ASTRON620"
+  ],
+  "ART 438": [
+    "ART568",
+    "ART467",
+    "ART356",
+    "ART333",
+    "ART525",
+    "ART663",
+    "ART575",
+    "ART465",
+    "ART556",
+    "ART563",
+    "ART565",
+    "ART458",
+    "ART558",
+    "ART442",
+    "ART656",
+    "ART546",
+    "ART560",
+    "ART443",
+    "ART463"
+  ],
+  "NURSING 325": [
+    "NURSING435"
+  ],
+  "SPANISH 363": [
+    "SPANISH468",
+    "SPANISH469"
+  ],
+  "EDPSYCH 760": [
+    "EDPSYCH771",
+    "EDPSYCH740",
+    "EDPSYCH761"
+  ],
+  "ATMOCN 311": [
+    "ATMOCN660",
+    "ATMOCN453",
+    "ATMOCN405",
+    "ATMOCN460",
+    "ATMOCN522",
+    "ATMOCN637",
+    "ATMOCN575",
+    "ATMOCN425",
+    "ATMOCN452"
+  ],
+  "GENBUS 307": [
+    "FINANCE330",
+    "STAT303",
+    "GENBUS656",
+    "FINANCE320",
+    "ACCTIS640",
+    "AAE421",
+    "FINANCE325",
+    "GENBUS308"
+  ],
+  "ART 354": [
+    "ART414",
+    "ART554",
+    "ART334"
+  ],
+  "CBE 320": [
+    "NE520",
+    "CBE324",
+    "CBE426",
+    "CIVENGR521",
+    "BME505",
+    "CBE430",
+    "CBE326",
+    "EP566",
+    "NE565",
+    "NE536",
+    "BSE464",
+    "BSE461",
+    "BSE474",
+    "NE411"
+  ],
+  "PHMSCI 310": [
+    "PHMSCI510"
+  ],
+  "ANSCI 865": [
+    "PLANTSCI811",
+    "PLANTSCI771",
+    "PLANTSCI772"
+  ],
+  "LANDARC 562": [
+    "LANDARC563",
+    "LANDARC610"
+  ],
+  "ASIALANG 238": [
+    "ASIALANG337"
+  ],
+  "COMARTS 272": [
+    "COMARTS273"
+  ],
+  "MUSPERF 102": [
+    "MUSPERF108",
+    "MUSPERF103"
+  ],
+  "ISYE, ME 512": [
+    "ISYE612"
+  ],
+  "PHMSCI, PHMCOL-M 522": [
+    "PHMSCI623"
+  ],
+  "JOURN 201": [
+    "MARKETNG605",
+    "JOURN651",
+    "JOURN202"
+  ],
+  "MHR 434": [
+    "MHR438",
+    "MHR415"
+  ],
+  "ITALIAN 340": [
+    "ITALIAN452"
+  ],
+  "HEBR-MOD 101": [
+    "HEBR-MOD102"
+  ],
+  "LAW 732": [
+    "LAW838"
+  ],
+  "GERMAN 203": [
+    "GERMAN204"
+  ],
+  "ART, THEATRE 366": [
+    "THEATRE466"
+  ],
+  "GEOSCI, ATMOCN 105": [
+    "GLE627",
+    "GEOSCI551",
+    "ATMOCN201"
+  ],
+  "ISYE 320": [
+    "ISYE417",
+    "ISYE615",
+    "ISYE321",
+    "ISYE450"
+  ],
+  "MARKETNG 305": [
+    "MARKETNG460"
+  ],
+  "ART 452": [
+    "ART522",
+    "ART552"
+  ],
+  "OTM 300": [
+    "OTM451",
+    "OTM365",
+    "MARKETNG422",
+    "MARKETNG427",
+    "MARKETNG423",
+    "MARKETNG421",
+    "OTM453",
+    "OTM654",
+    "MARKETNG724",
+    "MARKETNG726",
+    "MARKETNG428",
+    "GENBUS400",
+    "OTM351"
+  ],
+  "GERMAN 285": [
+    "GERMAN411",
+    "GERMAN351",
+    "GERMAN385",
+    "GERMAN612",
+    "GERMAN305",
+    "GERMAN651",
+    "GERMAN337",
+    "GERMAN372",
+    "GERMAN362"
+  ],
+  "FRENCH 101": [
+    "FRENCH102"
+  ],
+  "ENGL 410": [
+    "ENGL508",
+    "ENGL409",
+    "ENGL411",
+    "ENGL509",
+    "ENGL307",
+    "ENGL695",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "INTEGSCI 750": [
+    "INTEGSCI850"
+  ],
+  "AFRICAN 371": [
+    "AFRICAN372"
+  ],
+  "ASIALANG 303": [
+    "ASIALANG376",
+    "ASIALANG304",
+    "ASIAN563",
+    "ASIALANG313",
+    "ASIALANG451",
+    "ASIALANG452",
+    "ASIAN573",
+    "ASIALANG375",
+    "ASIALANG377",
+    "ASIAN435"
+  ],
+  "BOTANY, BIOLOGY, ZOOLOGY 151": [
+    "PSYCH406",
+    "CBE560",
+    "CRB650",
+    "POPHLTH636",
+    "PSYCH505",
+    "DYSCI373",
+    "AGROECOL377",
+    "FOODSCI301",
+    "DYSCI370",
+    "MICROBIO345",
+    "F&WECOL450",
+    "MM&I341",
+    "F&WECOL448",
+    "ZOOLOGY523",
+    "PLANTSCI502",
+    "GENETICS466",
+    "NUTRSCI332",
+    "PLANTSCI501",
+    "GENETICS467",
+    "ANSCI336",
+    "BSE349",
+    "ZOOLOGY302",
+    "ZOOLOGY611",
+    "PATH404",
+    "BOTANY401",
+    "PSYCH414",
+    "BIOLOGY101",
+    "BOTANY563",
+    "BME430",
+    "DYSCI320",
+    "ANSCI377",
+    "MICROBIO303",
+    "DERM601",
+    "ANAT&PHY335",
+    "ZOOLOGY300",
+    "DERM602",
+    "BOTANY500",
+    "BME670",
+    "MICROBIO626",
+    "ZOOLOGY370",
+    "ENTOM351",
+    "BIOLOGY102",
+    "BOTANY400",
+    "BOTANY333",
+    "BME550",
+    "BOTANY330",
+    "BOTANY305",
+    "PLANTSCI338",
+    "AGROECOL370",
+    "ENTOM490",
+    "BOTANY152",
+    "F&WECOL449",
+    "F&WECOL360",
+    "NEURODPT674",
+    "ANAT&PHY435",
+    "CRB675",
+    "PSYCH449",
+    "BOTANY332",
+    "ZOOLOGY371",
+    "PLANTSCI370",
+    "PLANTSCI302",
+    "SURGSCI548",
+    "ANSCI420",
+    "BOTANY422",
+    "ONCOLOGY401",
+    "ZOOLOGY604",
+    "ZOOLOGY570",
+    "BOTANY300",
+    "BOTANY455",
+    "PHMSCI254",
+    "ENTOM344",
+    "PLANTSCI360",
+    "PSYCH454",
+    "BME517",
+    "ZOOLOGY603",
+    "DYSCI361",
+    "F&WECOL306",
+    "ZOOLOGY470",
+    "MM&I575",
+    "PSYCH450",
+    "MICROBIO523",
+    "MM&I528",
+    "PATH-BIO307",
+    "MICROBIO545",
+    "DYSCI378",
+    "F&WECOL401"
+  ],
+  "DS 421": [
+    "DS422"
+  ],
+  "CBE 326": [
+    "CBE470",
+    "CBE567",
+    "CBE450",
+    "CBE424"
+  ],
+  "F&WECOL 658": [
+    "F&WECOL590"
+  ],
+  "JOURN 203": [
+    "JOURN202"
+  ],
+  "FRENCH 271": [
+    "FRENCH325",
+    "FRENCH321",
+    "FRENCH350",
+    "FRENCH322",
+    "FRENCH348"
+  ],
+  "ARTHIST 202": [
+    "DS422",
+    "DS421"
+  ],
+  "CURRIC 671": [
+    "CURRIC625"
+  ],
+  "LACIS, ANTHRO 363": [
+    "LACIS364"
+  ],
+  "GNS 431": [
+    "GNS432.00"
+  ],
+  "MATH, STAT 431": [
+    "ISYE350",
+    "ECON400",
+    "ISYE349",
+    "ISYE412",
+    "ISYE615",
+    "ISYE624",
+    "STAT312",
+    "COMPSCI561",
+    "ISYE512",
+    "MATH309",
+    "COMPSCI541",
+    "RMI660",
+    "CIVENGR570",
+    "ACTSCI650",
+    "MATH632",
+    "FINANCE300",
+    "STAT461",
+    "ISYE570",
+    "ISYE320",
+    "MATH616",
+    "ISYE574",
+    "ISYE521",
+    "RMI655",
+    "CIVENGR572",
+    "MATH310",
+    "ISYE516",
+    "COMPSCI566",
+    "CIVENGR516",
+    "GENBUS317",
+    "MEDPHYS674",
+    "ISYE315",
+    "MATH535",
+    "OTM453",
+    "BMI567",
+    "STAT311",
+    "ISYE517"
+  ],
+  "ABT 705": [
+    "ABT740",
+    "ABT735",
+    "ABT745"
+  ],
+  "AFAERO 202": [
+    "AFAERO301"
+  ],
+  "GENBUS 106": [
+    "CNSRSCI201",
+    "GENBUS206",
+    "CNSRSCI564",
+    "GENBUS306",
+    "GENBUS307",
+    "REALEST560"
+  ],
+  "ANTHRO 300": [
+    "ANTHRO348",
+    "ANTHRO345",
+    "ANTHRO330"
+  ],
+  "F&WECOL, STAT 571": [
+    "SOILSCI585",
+    "F&WECOL565",
+    "ZOOLOGY540",
+    "F&WECOL572",
+    "BMI567",
+    "PLPATH602"
+  ],
+  "ASIALANG 124": [
+    "ASIALANG223"
+  ],
+  "MS&E 330": [
+    "MS&E331",
+    "MS&E451",
+    "CHEM562",
+    "MS&E530",
+    "NE433",
+    "MS&E434",
+    "CHEM563"
+  ],
+  "ECE 340": [
+    "ECE271",
+    "ECE370",
+    "ECE342",
+    "ECE313",
+    "ECE447",
+    "ECE317",
+    "ECE541",
+    "BME462",
+    "ECE555",
+    "ECE542",
+    "ECE455"
+  ],
+  "MATH 415": [
+    "MATH619",
+    "BMOLCHEM609"
+  ],
+  "MATH 376": [
+    "PHYSICS311",
+    "MATH514",
+    "MATH321",
+    "MATH431",
+    "MATH521",
+    "MATH415",
+    "MATH619",
+    "CBE310",
+    "MATH309",
+    "MATH519",
+    "ME578",
+    "ME536",
+    "MATH322",
+    "MS&E660",
+    "MEDPHYS573",
+    "ECE222",
+    "ECE377",
+    "MS&E331",
+    "EP471",
+    "MATH561",
+    "PHYSICS248",
+    "ME376",
+    "CBE255",
+    "ECE334",
+    "PHYSICS322",
+    "PHYSICS623",
+    "ECE219",
+    "CBE320",
+    "MATH531",
+    "STAT311",
+    "ATMOCN460"
+  ],
+  "MATH 443": [
+    "MATH525"
+  ],
+  "ASIALANG 325": [
+    "ASIALANG326"
+  ],
+  "ART 346": [
+    "ART564",
+    "ART568",
+    "ART446",
+    "ART467",
+    "ART356",
+    "ART333",
+    "ART525",
+    "ART663",
+    "ART348",
+    "ART465",
+    "ART575",
+    "ART438",
+    "ART556",
+    "ART563",
+    "ART565",
+    "ART458",
+    "ART558",
+    "ART442",
+    "ART656",
+    "ART546",
+    "ART560",
+    "ART443",
+    "ART463"
+  ],
+  "ASIALANG 240": [
+    "ASIALANG339"
+  ],
+  "COMPSCI, ECE 552": [
+    "COMPSCI506",
+    "ECE554"
+  ],
+  "CS&D 852": [
+    "CS&D845"
+  ],
+  "MUSPERF 431": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "GENBUS 306": [
+    "MARKETNG445",
+    "CNSRSCI201",
+    "STAT303",
+    "GENBUS307",
+    "RMI655",
+    "MARKETNG310",
+    "OTM453",
+    "FINANCE300",
+    "AAE421",
+    "RMI660"
+  ],
+  "CNP 446": [
+    "CNP519"
+  ],
+  "ECE 511": [
+    "ECE713"
+  ],
+  "REALEST 710": [
+    "REALEST540",
+    "REALEST412",
+    "REALEST411",
+    "REALEST770",
+    "REALEST750",
+    "REALEST841"
+  ],
+  "HEBR-MOD 102": [
+    "HEBR-MOD201"
+  ],
+  "SOC, POPHLTH 797": [
+    "POPHLTH798",
+    "ISYE875",
+    "POPHLTH806",
+    "POPHLTH801",
+    "POPHLTH847",
+    "POPHLTH805",
+    "NURSING705"
+  ],
+  "GERMAN 312": [
+    "GERMAN313"
+  ],
+  "ART 208": [
+    "ART376",
+    "ART232",
+    "ART512",
+    "ART518"
+  ],
+  "MHR 415": [
+    "MHR438"
+  ],
+  "LSC 314": [
+    "LSC614"
+  ],
+  "GEOSCI 109": [
+    "GEOSCI320",
+    "GLE627",
+    "GEOSCI420"
+  ],
+  "POLISCI 160": [
+    "POLISCI361",
+    "POLISCI460",
+    "POLISCI364",
+    "AFROAMER519",
+    "POLISCI360",
+    "POLISCI366"
+  ],
+  "MUSIC 262": [
+    "MUSPERF241",
+    "MUSPERF441"
+  ],
+  "GENECSLR 743": [
+    "GENECSLR748"
+  ],
+  "ECE 271": [
+    "ECE370",
+    "ECE317",
+    "ECE305",
+    "ECE313"
+  ],
+  "ASIALANG 135": [
+    "ASIALANG136"
+  ],
+  "SOCWORK 816": [
+    "SOCWORK818"
+  ],
+  "MUSPERF 101": [
+    "MUSPERF102"
+  ],
+  "DS 623": [
+    "DS626"
+  ],
+  "MUSPERF 203": [
+    "MUSPERF242",
+    "MUSPERF251"
+  ],
+  "CNSRSCI 477": [
+    "LSC435"
+  ],
+  "ASIALANG 121": [
+    "ASIALANG122",
+    "ASIALANG221"
+  ],
+  "MUSPERF 435": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "CIVENGR 445": [
+    "CIVENGR545",
+    "CIVENGR578"
+  ],
+  "GEN&WS 103": [
+    "LEGALST425",
+    "GEN&WS418",
+    "ENGL350",
+    "LEGALST406",
+    "GEN&WS522",
+    "GEN&WS530",
+    "SOC347"
+  ],
+  "KINES 622": [
+    "KINES623"
+  ],
+  "FRENCH 461": [
+    "FRENCH568",
+    "FRENCH569",
+    "FRENCH567"
+  ],
+  "ASIALANG 130": [
+    "ASIALANG229"
+  ],
+  "CNSRSCI 111": [
+    "CNSRSCI390"
+  ],
+  "ME 376": [
+    "ME445",
+    "ME368",
+    "ME455"
+  ],
+  "MUSIC 171": [
+    "MUSIC172",
+    "MUSIC122"
+  ],
+  "EPD 625": [
+    "EPD633"
+  ],
+  "AFRICAN 333": [
+    "AFRICAN334"
+  ],
+  "MHR 741": [
+    "MHR738"
+  ],
+  "GENBUS 317": [
+    "ACTSCI652",
+    "FINANCE330",
+    "STAT303",
+    "ACCTIS640",
+    "ACTSCI640",
+    "FINANCE320",
+    "GENBUS656",
+    "FINANCE325",
+    "GENBUS308"
+  ],
+  "SPANISH 226": [
+    "SPANISH223",
+    "SPANISH224",
+    "PORTUG301",
+    "ITALIAN429",
+    "SPANISH311",
+    "SPANISH325",
+    "SPANISH225",
+    "SPANISH222"
+  ],
+  "GLE, CIVENGR 430": [
+    "GLE479"
+  ],
+  "COMPSCI 774": [
+    "COMPSCI739"
+  ],
+  "HISTORY, HISTSCI 323": [
+    "HISTSCI201"
+  ],
+  "MUSIC 122": [
+    "MUSIC271",
+    "MUSIC221",
+    "MUSIC211",
+    "MUSIC172",
+    "MUSIC229",
+    "MUSIC212"
+  ],
+  "COMARTS 467": [
+    "COMARTS659"
+  ],
+  "CURRIC 393": [
+    "CURRIC394"
+  ],
+  "COMPSCI 320": [
+    "BMI576",
+    "COMPSCI532",
+    "COMPSCI544",
+    "COMPSCI565",
+    "COMPSCI102",
+    "COMPSCI542",
+    "ME468",
+    "COMPSCI540",
+    "ME459",
+    "MATH444",
+    "MATH345"
+  ],
+  "ENGL, MEDIEVAL 520": [
+    "ENGL521"
+  ],
+  "BSE 508": [
+    "BSE509"
+  ],
+  "NE 411": [
+    "NE550"
+  ],
+  "CBE 255": [
+    "CBE355",
+    "CBE310"
+  ],
+  "DS 123": [
+    "DS650"
+  ],
+  "CNP 441": [
+    "CNP519"
+  ],
+  "PHARMACY 770": [
+    "PHARMACY771",
+    "PHARMACY632"
+  ],
+  "COMARTS 350": [
+    "COMARTS358",
+    "COMARTS669",
+    "COMARTS461",
+    "COMARTS354",
+    "COMARTS552",
+    "COMARTS455",
+    "COMARTS462",
+    "COMARTS556",
+    "COMARTS463",
+    "COMARTS613",
+    "COMARTS454"
+  ],
+  "ASIALANG 137": [
+    "ASIALANG138"
+  ],
+  "PHMSCI 521": [
+    "PHMSCI522",
+    "PHARMACY640"
+  ],
+  "ECON 330": [
+    "ECON435"
+  ],
+  "BME 402": [
+    "BME640"
+  ],
+  "ITALIAN 322": [
+    "ITALIAN452",
+    "ITALIAN450",
+    "ITALIAN632",
+    "ITALIAN623",
+    "ITALIAN622",
+    "ITALIAN621",
+    "ITALIAN631",
+    "ITALIAN659",
+    "ITALIAN671",
+    "ITALIAN636"
+  ],
+  "ASIALANG 356": [
+    "ASIAN355",
+    "ASIAN358",
+    "ASIALANG203",
+    "ASIALANG357",
+    "ASIAN353",
+    "ASIAN631",
+    "ASIAN434"
+  ],
+  "PLANTSCI 310": [
+    "PLANTSCI510"
+  ],
+  "PORTUG 201": [
+    "PORTUG202",
+    "PORTUG302"
+  ],
+  "STAT 610": [
+    "STAT841",
+    "BMI727",
+    "STAT732",
+    "GENBUS775",
+    "STAT809",
+    "STAT760",
+    "BMI643",
+    "STAT834",
+    "STAT780"
+  ],
+  "RP&SE 505": [
+    "COUNPSY372"
+  ],
+  "PHYSICS 248": [
+    "BME310",
+    "PHYSICS311",
+    "MS&E456",
+    "PHYSICS104",
+    "PHYSICS307",
+    "SOILSCI631",
+    "NEURODPT610",
+    "PHYSICS241",
+    "ATMOCN630",
+    "PHYSICS249",
+    "ECE235",
+    "ME578",
+    "CHEM562",
+    "CIVENGR496",
+    "PHYSICS325",
+    "GLE594",
+    "MEDPHYS265",
+    "ECE222",
+    "NEURODPT640",
+    "PHYSICS202",
+    "PHYSICS208",
+    "ECE230",
+    "ATMOCN330",
+    "ATMOCN310",
+    "MEDPHYS568",
+    "MEDPHYS578",
+    "ECE377",
+    "CIVENGR497",
+    "PHYSICS361",
+    "MEDPHYS619",
+    "CHEM524",
+    "SOILSCI622",
+    "ATMOCN610",
+    "ATMOCN640",
+    "PHYSICS205",
+    "ME376",
+    "PHYSICS322",
+    "PHYSICS623",
+    "PHYSICS321",
+    "MEDPHYS535",
+    "BME651",
+    "ECE376",
+    "ECE220",
+    "PHYSICS301"
+  ],
+  "ASIALANG 301": [
+    "ASIALANG378",
+    "ASIALANG457",
+    "ASIALANG311",
+    "ASIALANG379",
+    "ASIAN642",
+    "ASIALANG454",
+    "ASIAN641",
+    "ASIALANG302"
+  ],
+  "SLAVIC 342": [
+    "SLAVIC449"
+  ],
+  "EPD 636": [
+    "EPD650"
+  ],
+  "ECE 427": [
+    "ECE714",
+    "ECE731",
+    "ECE511"
+  ],
+  "ASIALANG 212": [
+    "ASIALANG301"
+  ],
+  "NURSING 601": [
+    "NURSING726",
+    "NURSING736"
+  ],
+  "ME 240": [
+    "ASTRON550",
+    "CIVENGR310",
+    "EMA542",
+    "BSE475",
+    "BSE476",
+    "EMA521",
+    "EMA545",
+    "ME451",
+    "ME331",
+    "ME340",
+    "CBE310"
+  ],
+  "ASIALANG 142": [
+    "ASIALANG242",
+    "ASIALANG241"
+  ],
+  "ECON 704": [
+    "ECON724",
+    "MARKETNG779",
+    "AAE722",
+    "ECON705",
+    "ECON707"
+  ],
+  "CIVENGR 514": [
+    "GLE479"
+  ],
+  "MATH 211": [
+    "MATH222",
+    "BSE380",
+    "GLE520",
+    "SOILSCI631",
+    "ECON310",
+    "AAE430",
+    "STAT340",
+    "COMPSCI540",
+    "MATH221",
+    "PHYSICS103",
+    "ATMOCN532",
+    "SOILSCI622",
+    "GENBUS306",
+    "MATH213",
+    "STAT371",
+    "ECON205",
+    "CHEM103",
+    "AAE670",
+    "ECON302",
+    "GLE444",
+    "ECE203",
+    "ECON301",
+    "AAE526",
+    "ISYE210",
+    "STAT324"
+  ],
+  "HISTSCI 211": [
+    "HISTORY201",
+    "HISTORY600"
+  ],
+  "ASIALANG 227": [
+    "ASIALANG228"
+  ],
+  "COUNPSY 550": [
+    "COUNPSY575"
+  ],
+  "SLAVIC 315": [
+    "SLAVIC316"
+  ],
+  "ASTRON 103": [
+    "ASTRON150"
+  ],
+  "CIVENGR 311": [
+    "CIVENGR414",
+    "CIVENGR416",
+    "CIVENGR412",
+    "CIVENGR514",
+    "GLE612"
+  ],
+  "GENETICS 234": [
+    "GENETICS335"
+  ],
+  "GENBUS 110": [
+    "GENBUS360"
+  ],
+  "ECE 203": [
+    "COMPSCI532",
+    "ECE330",
+    "ECE340",
+    "GLE511",
+    "ECE401",
+    "COMPSCI300",
+    "ECE331",
+    "ECE303",
+    "ECE437",
+    "ECE537",
+    "ECE436"
+  ],
+  "ART 334": [
+    "ART414",
+    "ART534",
+    "ART354"
+  ],
+  "CIVENGR 447": [
+    "CIVENGR578",
+    "CIVENGR547"
+  ],
+  "SOCWORK 401": [
+    "SOCWORK800"
+  ],
+  "CIVENGR 414": [
+    "CIVENGR578",
+    "GLE479"
+  ],
+  "RELIGST 103": [
+    "POLISCI433"
+  ],
+  "GENBUS 780": [
+    "GENBUS883",
+    "GENBUS746"
+  ],
+  "ASIAN 631": [
+    "LINGUIS303"
+  ],
+  "MS&E 352": [
+    "MS&E550",
+    "MS&E461",
+    "MS&E470",
+    "MS&E463",
+    "NE545",
+    "MS&E451",
+    "ME311",
+    "MS&E441",
+    "ME313",
+    "MS&E465"
+  ],
+  "ART 104": [
+    "ART414",
+    "ART334",
+    "ART214",
+    "DS361",
+    "ART376",
+    "ART354"
+  ],
+  "F&WECOL 300": [
+    "F&WECOL305"
+  ],
+  "LANDARC 311": [
+    "SOILSCI695",
+    "LANDARC511"
+  ],
+  "LANDARC, PLANTSCI 263": [
+    "LANDARC560"
+  ],
+  "CS&D 850": [
+    "CS&D845"
+  ],
+  "ITALIAN 201": [
+    "ITALIAN203",
+    "ITALIAN205"
+  ],
+  "NURSING 324": [
+    "NURSING448",
+    "NURSING447",
+    "NURSING436"
+  ],
+  "BME 400": [
+    "BME402"
+  ],
+  "ACCTIS 710": [
+    "ACCTIS771"
+  ],
+  "SCANDST 212": [
+    "SCANDST434",
+    "SCANDST476",
+    "SCANDST475",
+    "SCANDST419",
+    "SCANDST261",
+    "SCANDST450",
+    "SCANDST427",
+    "SCANDST635",
+    "SCANDST424",
+    "SCANDST422",
+    "SCANDST373",
+    "SCANDST374"
+  ],
+  "SOC, F&WECOL, C&ESOC 248": [
+    "SOC541"
+  ],
+  "SCANDST, MEDIEVAL 407": [
+    "SCANDST409",
+    "SCANDST511",
+    "SCANDST408"
+  ],
+  "CHEM 563": [
+    "CHEM564",
+    "CHEM509"
+  ],
+  "DYSCI, ANSCI 361": [
+    "DYSCI362",
+    "ANSCI431",
+    "ANSCI432",
+    "DYSCI363"
+  ],
+  "GENECSLR 714": [
+    "GENECSLR813"
+  ],
+  "MATH 541": [
+    "MATH567",
+    "MATH542",
+    "MATH552"
+  ],
+  "MUSPERF 248": [
+    "MUSPERF347"
+  ],
+  "AFRICAN 391": [
+    "AFRICAN392"
+  ],
+  "PHMSCI 540": [
+    "PHMSCI542"
+  ],
+  "NURSING 724": [
+    "NURSING725"
+  ],
+  "HISTORY, LIS 734": [
+    "LIS818"
+  ],
+  "DS 228": [
+    "DS428"
+  ],
+  "BME 301": [
+    "BME400"
+  ],
+  "AFRICAN 201": [
+    "AFRICAN413",
+    "AFRICAN402",
+    "AFRICAN406",
+    "AFRICAN412"
+  ],
+  "MUSPERF 103": [
+    "MUSPERF104",
+    "MUSPERF108"
+  ],
+  "LINGUIS 310": [
+    "LINGUIS690",
+    "LINGUIS571",
+    "LINGUIS426",
+    "LINGUIS510",
+    "LINGUIS427"
+  ],
+  "SLAVIC 277": [
+    "SLAVIC278"
+  ],
+  "FINANCE, ECON 300": [
+    "FINANCE330",
+    "REALEST410",
+    "RMI655",
+    "FINANCE320",
+    "REALEST540",
+    "FINANCE310",
+    "FINANCE305",
+    "FINANCE457",
+    "FINANCE325",
+    "CNSRSCI635",
+    "GENBUS400"
+  ],
+  "LEGALST, SOC 131": [
+    "LEGALST425",
+    "LEGALST694",
+    "LEGALST477",
+    "LEGALST510",
+    "LEGALST406",
+    "SOC421",
+    "SOC441",
+    "LEGALST440",
+    "LEGALST325",
+    "LEGALST407",
+    "LEGALST443",
+    "SOC446",
+    "LEGALST409"
+  ],
+  "SLAVIC 141": [
+    "SLAVIC142"
+  ],
+  "MATH 340": [
+    "MATH514",
+    "STAT456",
+    "MATH571",
+    "STAT453",
+    "MATH321",
+    "MATH415",
+    "MATH467",
+    "ISYE624",
+    "COMPSCI561",
+    "CHEM361",
+    "COMPSCI541",
+    "MATH435",
+    "MATH513",
+    "COMPSCI532",
+    "MATH519",
+    "MATH525",
+    "STAT451",
+    "COMPSCI533",
+    "MATH425",
+    "BMOLCHEM609",
+    "EP548",
+    "ME536",
+    "ISYE524",
+    "MATH632",
+    "ME331",
+    "SOC376",
+    "ISYE320",
+    "ME441",
+    "MATH616",
+    "COMPSCI557",
+    "MATH443",
+    "MATH551",
+    "MATH522",
+    "MATH540",
+    "MATH444",
+    "STAT575",
+    "MATH345",
+    "MATH561",
+    "MATH475",
+    "COMPSCI566",
+    "MATH541",
+    "STAT433",
+    "ISYE323",
+    "BMI567",
+    "MATH535"
+  ],
+  "ASIALANG 113": [
+    "ASIALANG114"
+  ],
+  "RMI 300": [
+    "RMI637",
+    "RMI700",
+    "RMI655",
+    "RMI636",
+    "RMI645",
+    "RMI640",
+    "RMI635",
+    "RMI705",
+    "RMI660",
+    "RMI620"
+  ],
+  "STAT 304": [
+    "STAT305"
+  ],
+  "ANTHRO 102": [
+    "ANTHRO352",
+    "ANTHRO321",
+    "ANTHRO391",
+    "ANTHRO370",
+    "ANTHRO333",
+    "ANTHRO337"
+  ],
+  "BMI, POPHLTH 552": [
+    "BMI651",
+    "ISYE875"
+  ],
+  "MEDSC-V 576": [
+    "MEDSC-V577"
+  ],
+  "MATH, ISYE, COMPSCI, STAT 525": [
+    "ISYE526"
+  ],
+  "PHMSCI 531": [
+    "PHMSCI532"
+  ],
+  "ASIALANG 123": [
+    "ASIALANG124"
+  ],
+  "KINES 621": [
+    "KINES622"
+  ],
+  "ECON 714": [
+    "URBRPL845"
+  ],
+  "HISTORY 345": [
+    "HISTORY428",
+    "HISTORY427"
+  ],
+  "MUSPERF 402": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "PSYCH 405": [
+    "PSYCH532",
+    "PSYCH507",
+    "PSYCH526",
+    "PSYCH510"
+  ],
+  "PHMPRAC 464": [
+    "PHMPRAC465"
+  ],
+  "CS&D 704": [
+    "CS&D710"
+  ],
+  "ASIALANG 103": [
+    "ASIALANG114",
+    "ASIALANG113",
+    "ASIALANG104"
+  ],
+  "BIOLOGY, ZOOLOGY 101": [
+    "PSYCH406",
+    "CBE560",
+    "SOILSCI323",
+    "ZOOLOGY521",
+    "ENVIRST361",
+    "ENVIRST315",
+    "PSYCH505",
+    "ENVIRST510",
+    "DYSCI373",
+    "BOTANY575",
+    "BOTANY460",
+    "ZOOLOGY520",
+    "ANTHRO603",
+    "AGROECOL377",
+    "PLPATH315",
+    "FOODSCI301",
+    "DYSCI370",
+    "MICROBIO345",
+    "ZOOLOGY425",
+    "MM&I341",
+    "ZOOLOGY523",
+    "ZOOLOGY303",
+    "BOTANY450",
+    "GEOSCI542",
+    "ZOOLOGY350",
+    "GENETICS466",
+    "ZOOLOGY430",
+    "NUTRSCI332",
+    "GENETICS467",
+    "ZOOLOGY153",
+    "BOTANY516",
+    "DYSCI434",
+    "ANSCI336",
+    "BSE349",
+    "ZOOLOGY302",
+    "ANTHRO304",
+    "ZOOLOGY611",
+    "PATH404",
+    "BOTANY401",
+    "PSYCH414",
+    "BOTANY563",
+    "BME430",
+    "ANTHRO605",
+    "F&WECOL660",
+    "MM&I301",
+    "DYSCI320",
+    "ANSCI377",
+    "MICROBIO303",
+    "FOODSCI305",
+    "DERM601",
+    "ANAT&PHY335",
+    "BOTANY151",
+    "ZOOLOGY300",
+    "DERM602",
+    "BOTANY500",
+    "ZOOLOGY304",
+    "MICROBIO626",
+    "ZOOLOGY370",
+    "ENTOM351",
+    "BOTANY400",
+    "BOTANY333",
+    "BME550",
+    "BOTANY330",
+    "BOTANY305",
+    "ANSCI366",
+    "ENTOM450",
+    "ANTHRO458",
+    "ENTOM490",
+    "F&WECOL360",
+    "NEURODPT674",
+    "ANAT&PHY435",
+    "MM&I554",
+    "CRB675",
+    "ZOOLOGY444",
+    "PSYCH449",
+    "BOTANY332",
+    "ZOOLOGY371",
+    "PLANTSCI302",
+    "SURGSCI548",
+    "ANSCI420",
+    "BOTANY422",
+    "ONCOLOGY401",
+    "ZOOLOGY604",
+    "ZOOLOGY570",
+    "BOTANY300",
+    "ZOOLOGY320",
+    "BOTANY455",
+    "PHMSCI254",
+    "BOTANY410",
+    "ENTOM344",
+    "PLANTSCI360",
+    "PSYCH454",
+    "BME517",
+    "ZOOLOGY603",
+    "DYSCI361",
+    "F&WECOL306",
+    "ZOOLOGY470",
+    "PSYCH450",
+    "MM&I528",
+    "PATH-BIO307",
+    "MICROBIO545",
+    "DYSCI378",
+    "F&WECOL401",
+    "ZOOLOGY415"
+  ],
+  "ASIALANG 231": [
+    "ASIALANG232"
+  ],
+  "ANTHRO 105": [
+    "ANTHRO302",
+    "ANTHRO458",
+    "BOTANY410",
+    "ANTHRO603",
+    "ANTHRO411",
+    "ANTHRO303",
+    "ANTHRO605",
+    "ANTHRO420",
+    "ANTHRO304"
+  ],
+  "PHYSICS 448": [
+    "PHYSICS449",
+    "PHYSICS545",
+    "PHYSICS551",
+    "PHYSICS535"
+  ],
+  "MATH 375": [
+    "CBE355",
+    "MATH514",
+    "STAT456",
+    "CIVENGR310",
+    "MATH571",
+    "STAT453",
+    "MATH415",
+    "MATH467",
+    "MATH461",
+    "ISYE624",
+    "COMPSCI561",
+    "CHEM361",
+    "NE405",
+    "COMPSCI541",
+    "MATH435",
+    "MATH513",
+    "COMPSCI532",
+    "MATH519",
+    "MATH525",
+    "STAT451",
+    "MATH425",
+    "BMOLCHEM609",
+    "MATH376",
+    "ME536",
+    "ISYE524",
+    "MATH632",
+    "ME331",
+    "SOC376",
+    "MATH471",
+    "ME441",
+    "MATH616",
+    "BME556",
+    "MATH570",
+    "COMPSCI557",
+    "MATH443",
+    "BME330",
+    "MATH551",
+    "MATH522",
+    "MATH540",
+    "MATH444",
+    "ME340",
+    "STAT575",
+    "MATH345",
+    "MATH561",
+    "MATH475",
+    "COMPSCI566",
+    "MATH541",
+    "EP476",
+    "ME363",
+    "STAT433",
+    "ISYE323",
+    "BMI567",
+    "MATH535"
+  ],
+  "GEN&WS 446": [
+    "GEN&WS547",
+    "GEN&WS546"
+  ],
+  "GNS 531": [
+    "GNS532.00"
+  ],
+  "SLAVIC 305": [
+    "SLAVIC306"
+  ],
+  "PHYSICS 207": [
+    "PHYSICS104",
+    "ASTRON200",
+    "GLE474",
+    "EP271",
+    "CBE310",
+    "PHYSICS115",
+    "CHEM561",
+    "CIVENGR360",
+    "GLE535",
+    "PHYSICS201",
+    "PHYSICS103",
+    "CHEM665",
+    "ME361",
+    "PHYSICS202",
+    "PHYSICS208",
+    "BME330",
+    "BSE475",
+    "ATMOCN532",
+    "BSE476",
+    "CIVENGR324",
+    "ME451",
+    "ANAT&PHY435",
+    "FOODSCI440",
+    "PHYSICS206",
+    "GLE534",
+    "CBE320",
+    "PHYSICS106"
+  ],
+  "ME, ECE 439": [
+    "ME578"
+  ],
+  "ZOOLOGY 415": [
+    "GENETICS633"
+  ],
+  "MATH 222": [
+    "ME273",
+    "FINANCE330",
+    "ASTRON200",
+    "FINANCE320",
+    "MATH340",
+    "MATH467",
+    "MATH461",
+    "FINANCE457",
+    "ASTRON340",
+    "EP271",
+    "ISYE323",
+    "PHYSICS241",
+    "EMA201",
+    "ECON521",
+    "BME325",
+    "ECON311",
+    "ECE235",
+    "MS&E330",
+    "CHEM562",
+    "COMPSCI559",
+    "COMPSCI412",
+    "CHEM561",
+    "CIVENGR311",
+    "BSE349",
+    "MATH320",
+    "MS&E351",
+    "GLE594",
+    "AAE635",
+    "CHEM665",
+    "GLE629",
+    "MATH228",
+    "ECE230",
+    "MEDPHYS568",
+    "MATH319",
+    "ASTRON310",
+    "CHEM524",
+    "MATH234",
+    "FINANCE325",
+    "MATH331",
+    "MATH345",
+    "EMA303",
+    "BSE571",
+    "COMPSCI310",
+    "ECON312",
+    "BMI576",
+    "PHYSICS247",
+    "GLE537",
+    "ME240",
+    "ME306",
+    "ACTSCI303",
+    "ASTRON335",
+    "BME310",
+    "GLE291",
+    "ECE376",
+    "ASTRON320"
+  ],
+  "DS 140": [
+    "DS333",
+    "DS650"
+  ],
+  "MUSPERF 447": [
+    "MUSPERF448"
+  ],
+  "SPANISH 361": [
+    "SPANISH468",
+    "SPANISH469"
+  ],
+  "ELPA 735": [
+    "RP&SE835"
+  ],
+  "PATH 750": [
+    "PATH752"
+  ],
+  "CSCS 455": [
+    "CSCS555"
+  ],
+  "HISTORY 427": [
+    "HISTORY345"
+  ],
+  "PHMPRAC 550": [
+    "PHMPRAC668"
+  ],
+  "COMARTS 273": [
+    "COMARTS272"
+  ],
+  "NURSING 326": [
+    "NURSING430",
+    "NURSING448",
+    "NURSING447",
+    "NURSING432",
+    "NURSING431",
+    "NURSING434",
+    "NURSING433"
+  ],
+  "MEDSC-M 813": [
+    "NEUROL913",
+    "RADIOL920",
+    "FAMMED935",
+    "SURGERY912",
+    "SURGERY983",
+    "OBS&GYN909",
+    "POPHLTH918",
+    "ANESTHES911",
+    "EMERMED909",
+    "OBS&GYN935",
+    "MEDICINE920",
+    "MEDHIST741",
+    "MEDHIST742",
+    "MEDICINE928",
+    "MEDSC-M942",
+    "MEDICINE927",
+    "HONCOL911",
+    "SURGERY980",
+    "MEDSC-M913",
+    "OBS&GYN916",
+    "MEDICINE972",
+    "PATH913",
+    "MEDICINE905",
+    "OPHTHALM911",
+    "POPHLTH917",
+    "FAMMED920",
+    "SURGERY974",
+    "FAMMED941",
+    "PATH924",
+    "BMI901",
+    "PSYCHIAT931",
+    "MEDICINE913",
+    "UROLOGY938",
+    "PATH962",
+    "FAMMED938",
+    "FAMMED940",
+    "FAMMED919",
+    "MEDICINE923",
+    "SURGERY909",
+    "DERM955",
+    "PATH970",
+    "PSYCHIAT934",
+    "SURGERY975",
+    "PATH914",
+    "SURGERY976",
+    "EMERMED914",
+    "OBS&GYN938",
+    "EMERMED920",
+    "EMERMED940",
+    "SURGERY982",
+    "MEDICINE938",
+    "CRB860",
+    "FAMMED911",
+    "FAMMED926",
+    "MEDSC-M909",
+    "CRB810",
+    "MEDSC-M912",
+    "FAMMED790",
+    "HONCOL912",
+    "MEDSC-M914",
+    "MEDHIST746",
+    "NEUROL914",
+    "PEDIAT909",
+    "SURGERY911",
+    "FAMMED930",
+    "FAMMED931",
+    "RADIOL928",
+    "FAMMED910",
+    "PEDIAT921",
+    "MEDICINE911",
+    "MEDICINE880",
+    "PATH923",
+    "FAMMED937",
+    "MEDSC-M722",
+    "OBS&GYN917",
+    "MEDICINE932",
+    "PATH960",
+    "SURGERY913",
+    "MEDICINE914",
+    "FAMMED933",
+    "RADIOL912",
+    "FAMMED927",
+    "MDGENET911",
+    "RADIOL911",
+    "PATH916",
+    "PSYCHIAT922",
+    "PATH921",
+    "MEDICINE924",
+    "SURGERY973",
+    "UROLOGY910",
+    "RADIOL914",
+    "MEDHIST740",
+    "MEDHIST744",
+    "MM&I902",
+    "SURGERY984",
+    "FAMMED909",
+    "SURGERY938",
+    "CRB850",
+    "PEDIAT938",
+    "MM&I911",
+    "PATH922",
+    "DERM904",
+    "NEURODPT747",
+    "FAMMED943",
+    "FAMMED924",
+    "PATH915",
+    "MEDHIST750",
+    "MEDHIST745"
+  ],
+  "ENVIRST, ZOOLOGY 510": [
+    "ENVIRST511"
+  ],
+  "LAW 722": [
+    "LAW723"
+  ],
+  "CIVENGR 426": [
+    "CIVENGR578",
+    "CIVENGR621"
+  ],
+  "POLISCI 104": [
+    "POLISCI306",
+    "POLISCI359",
+    "POLISCI412",
+    "POLISCI304",
+    "POLISCI347",
+    "PUBAFFR419",
+    "POLISCI511",
+    "PUBAFFR335",
+    "POLISCI417",
+    "POLISCI311",
+    "POLISCI408",
+    "POLISCI414",
+    "POLISCI470",
+    "POLISCI320",
+    "POLISCI411"
+  ],
+  "OCCTHER 771": [
+    "OCCTHER770",
+    "OCCTHER772"
+  ],
+  "NURSING 811": [
+    "NURSING726",
+    "NURSING736"
+  ],
+  "ECE 420": [
+    "ECE547",
+    "ECE536"
+  ],
+  "ECE 330": [
+    "BME463",
+    "ECE334",
+    "COMPSCI533",
+    "ECE331",
+    "ECE332",
+    "ECE427",
+    "ECE431",
+    "ECE437",
+    "NE536",
+    "ECE432",
+    "ECE436"
+  ],
+  "PSYCH 456": [
+    "PSYCH532",
+    "PSYCH528",
+    "PSYCH503",
+    "PSYCH526",
+    "PSYCH508"
+  ],
+  "PSYCH 526": [
+    "PSYCH626"
+  ],
+  "ZOOLOGY 153": [
+    "ANAT&PHY435",
+    "PATH404",
+    "MEDPHYS410",
+    "ENTOM490",
+    "ZOOLOGY302",
+    "CBE560",
+    "BME550",
+    "ENTOM351",
+    "ZOOLOGY350",
+    "ZOOLOGY371",
+    "BME430",
+    "BSE349",
+    "ANAT&PHY335",
+    "BME517",
+    "ENVIRST361"
+  ],
+  "ECE 222": [
+    "ECE335",
+    "ECE320"
+  ],
+  "FOLKLORE, MUSIC 103": [
+    "MUSIC306"
+  ],
+  "SOCWORK 656": [
+    "SOCWORK462"
+  ],
+  "SOC, C&ESOC 140": [
+    "SOC475",
+    "SOC678",
+    "SOC617",
+    "SOC645",
+    "SOC347",
+    "SOC357",
+    "LEGALST440",
+    "AAE340",
+    "SOC573",
+    "SOC422",
+    "LEGALST443",
+    "SOC578",
+    "SOC650",
+    "SOC633",
+    "SOC540",
+    "SOC541",
+    "SOC670",
+    "SOC470",
+    "SOC533",
+    "SOC543"
+  ],
+  "ZOOLOGY, PSYCH 523": [
+    "CS&D503",
+    "BME556",
+    "NTP660",
+    "PSYCH513",
+    "PSYCH532",
+    "NEURODPT629",
+    "NEURODPT640",
+    "PSYCH603",
+    "ZOOLOGY500",
+    "NEURODPT610",
+    "ZOOLOGY555",
+    "ZOOLOGY620",
+    "NTP666",
+    "GENETICS520",
+    "ZOOLOGY655",
+    "PSYCH612",
+    "PHARMACY632",
+    "NTP677"
+  ],
+  "COMARTS 351": [
+    "COMARTS451",
+    "COMARTS547",
+    "COMARTS540",
+    "COMARTS556",
+    "COMARTS608",
+    "COMARTS458",
+    "COMARTS359"
+  ],
+  "ATMOCN 141": [
+    "ATMOCN201"
+  ],
+  "ASIALANG 235": [
+    "ASIALANG236"
+  ],
+  "EDPSYCH 642": [
+    "EDPSYCH643"
+  ],
+  "MHR 441": [
+    "MHR438"
+  ],
+  "ABT 725": [
+    "ABT760"
+  ],
+  "CIVENGR 574": [
+    "CIVENGR578"
+  ],
+  "DANCE 231": [
+    "DANCE331",
+    "DANCE232"
+  ],
+  "MUSIC 229": [
+    "MUSIC329"
+  ],
+  "MUSIC 221": [
+    "MUSIC222",
+    "MUSIC271",
+    "MUSIC272",
+    "MUSIC252",
+    "MUSIC253"
+  ],
+  "LITTRANS 201": [
+    "LITTRANS203"
+  ],
+  "MATH 522": [
+    "MATH621",
+    "MATH629"
+  ],
+  "PHYTHER 677": [
+    "PHYTHER679"
+  ],
+  "JEWISH, HEBR-BIB 513": [
+    "JEWISH514"
+  ],
+  "SOC, PSYCH 160": [
+    "SOC453"
+  ],
+  "MEDPHYS, BME 578": [
+    "MEDPHYS775",
+    "MEDPHYS710",
+    "MEDPHYS666",
+    "MEDPHYS665"
+  ],
+  "MHR 305": [
+    "MHR612",
+    "MHR611",
+    "MHR610"
+  ],
+  "GERMAN 337": [
+    "GERMAN676"
+  ],
+  "ANTHRO 302": [
+    "ANTHRO411"
+  ],
+  "RP&SE 300": [
+    "RP&SE330"
+  ],
+  "CBE 310": [
+    "CBE324",
+    "CBE440",
+    "CBE326",
+    "CHEM562",
+    "NE565",
+    "CBE512",
+    "CBE538",
+    "CBE311",
+    "BSE364",
+    "BSE464",
+    "CHEM629",
+    "CHEM563",
+    "CHEM654"
+  ],
+  "AFRICAN 412": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "CNP 407": [
+    "CNP519"
+  ],
+  "ECE 447": [
+    "ECE547",
+    "ECE545"
+  ],
+  "AFRICAN, FRENCH 440": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "GNS 440": [
+    "GNS529",
+    "GNS539"
+  ],
+  "ECE 548": [
+    "ECE549"
+  ],
+  "RELIGST 102": [
+    "POLISCI433"
+  ],
+  "NUTRSCI, BIOCHEM 510": [
+    "NUTRSCI500"
+  ],
+  "LACIS, ANTHRO 376": [
+    "LACIS377"
+  ],
+  "MUSIC 106": [
+    "MUSIC306"
+  ],
+  "ASIALANG 311": [
+    "ASIAN672",
+    "ASIALANG312"
+  ],
+  "ASIALANG 230": [
+    "ASIALANG329"
+  ],
+  "LANDARC 261": [
+    "LANDARC321",
+    "LANDARC460"
+  ],
+  "GERMAN 111": [
+    "GERMAN112"
+  ],
+  "ASIANAM 101": [
+    "ASIANAM420"
+  ],
+  "MHR 715": [
+    "MHR738"
+  ],
+  "CIVENGR 522": [
+    "CIVENGR578"
+  ],
+  "PHMSCI 432": [
+    "PHMSCI531"
+  ],
+  "LINGUIS 352": [
+    "LINGUIS353"
+  ],
+  "DANCE 331": [
+    "DANCE431"
+  ],
+  "ART 342": [
+    "ART542"
+  ],
+  "PHMPRAC 628": [
+    "PHMPRAC629"
+  ],
+  "MARKETNG 300": [
+    "MARKETNG415",
+    "MARKETNG340",
+    "MARKETNG755",
+    "MARKETNG305",
+    "MARKETNG442",
+    "INTLBUS420",
+    "MARKETNG737",
+    "MARKETNG765",
+    "MARKETNG726",
+    "MARKETNG428",
+    "MARKETNG422",
+    "MARKETNG450",
+    "MARKETNG410",
+    "MARKETNG430",
+    "LSC435",
+    "MARKETNG365",
+    "MARKETNG437",
+    "GENBUS400",
+    "MARKETNG375",
+    "MARKETNG605",
+    "MARKETNG710",
+    "MARKETNG423",
+    "MARKETNG424",
+    "MARKETNG421",
+    "MARKETNG310",
+    "MARKETNG335",
+    "MARKETNG705",
+    "MARKETNG355",
+    "MARKETNG460",
+    "MARKETNG745",
+    "MARKETNG735",
+    "MARKETNG445",
+    "MARKETNG427",
+    "MARKETNG730",
+    "MARKETNG775",
+    "MARKETNG724",
+    "MARKETNG425"
+  ],
+  "MEDSC-M 773": [
+    "MEDSC-M810"
+  ],
+  "MUSPERF 433": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "ASIALANG 315": [
+    "ASIALANG311",
+    "ASIALANG316"
+  ],
+  "RMI 635": [
+    "RMI636"
+  ],
+  "MATH 319": [
+    "MATH321",
+    "MATH415",
+    "NE405",
+    "MATH619",
+    "BME520",
+    "EP548",
+    "MS&E660",
+    "MEDPHYS575",
+    "MEDPHYS573",
+    "BME556",
+    "BME330",
+    "MS&E331",
+    "MEDPHYS578",
+    "EP471",
+    "ME340",
+    "ME446",
+    "ME376",
+    "CBE255",
+    "ECE334",
+    "ME363",
+    "CBE320",
+    "EP476",
+    "ATMOCN460"
+  ],
+  "FOLKLORE, ASIANAM, AFROAMER, CHICLA, AMERIND 102": [
+    "LEGALST440",
+    "LEGALST443",
+    "CHICLA501"
+  ],
+  "EMA 506": [
+    "EMA611",
+    "EMA569"
+  ],
+  "LANDARC 250": [
+    "LANDARC380"
+  ],
+  "CURRIC 396": [
+    "CURRIC596"
+  ],
+  "MUSPERF 999": [
+    "MUSIC632"
+  ],
+  "CSCS 300": [
+    "CSCS345",
+    "CSCS570"
+  ],
+  "LEGALST, POLISCI 217": [
+    "LEGALST510",
+    "LEGALST477",
+    "POLISCI304",
+    "LEGALST440",
+    "LEGALST325",
+    "LEGALST407",
+    "LEGALST443",
+    "POLISCI347",
+    "POLISCI511",
+    "PUBAFFR419",
+    "POLISCI417",
+    "POLISCI414",
+    "POLISCI470",
+    "POLISCI311",
+    "LEGALST409"
+  ],
+  "NURSING 847": [
+    "NURSING830"
+  ],
+  "THEATRE 100": [
+    "THEATRE234"
+  ],
+  "SOC, C&ESOC 360": [
+    "SOC365",
+    "SOC351",
+    "CNSRSCI201",
+    "STAT303",
+    "SOC674",
+    "SOC618",
+    "ISYE349",
+    "PSYCH602",
+    "AAE421",
+    "SOC375",
+    "SOC361",
+    "PUBAFFR340"
+  ],
+  "COMPSCI, ECE 354": [
+    "COMPSCI564",
+    "COMPSCI557",
+    "COMPSCI640",
+    "COMPSCI537",
+    "COMPSCI538",
+    "COMPSCI552",
+    "COMPSCI536"
+  ],
+  "EMA 521": [
+    "EMA523",
+    "EMA522",
+    "EMA569"
+  ],
+  "CURRIC 359": [
+    "CURRIC559"
+  ],
+  "ECE 353": [
+    "ECE315"
+  ],
+  "CS&D 320": [
+    "CS&D425"
+  ],
+  "ASIALANG 223": [
+    "ASIALANG224"
+  ],
+  "ECE 830": [
+    "COMPSCI861"
+  ],
+  "SCANDST 111": [
+    "SCANDST112"
+  ],
+  "ECE 332": [
+    "ME577",
+    "ME458",
+    "ME747"
+  ],
+  "MUSIC, CURRIC 337": [
+    "MUSIC302",
+    "MUSIC301"
+  ],
+  "MICROBIO 527": [
+    "MICROBIO551"
+  ],
+  "ABT 720": [
+    "ABT785",
+    "ABT760",
+    "ABT780"
+  ],
+  "ART 176": [
+    "ART348",
+    "ART376",
+    "ART476",
+    "ART428"
+  ],
+  "AFROAMER 151": [
+    "AFROAMER519",
+    "POLISCI304"
+  ],
+  "GENBUS 657": [
+    "GENBUS894",
+    "GENBUS891"
+  ],
+  "FRENCH 312": [
+    "FRENCH347"
+  ],
+  "ASIALANG 233": [
+    "ASIALANG234"
+  ],
+  "HDFS 262": [
+    "HDFS462",
+    "HDFS425",
+    "HDFS662",
+    "HDFS650",
+    "HDFS616",
+    "HDFS663",
+    "HDFS464",
+    "HDFS471"
+  ],
+  "PORTUG 312": [
+    "AFRICAN451",
+    "PORTUG642"
+  ],
+  "MATH 118": [
+    "MATH114",
+    "COMPSCI102",
+    "MATH112",
+    "MATH171",
+    "MATH141"
+  ],
+  "NURSING 727": [
+    "NURSING826",
+    "NURSING729"
+  ],
+  "GERMAN 102": [
+    "GERMAN203"
+  ],
+  "ENVIRST 112": [
+    "SOC541",
+    "ENVIRST337"
+  ],
+  "THEATRE 270": [
+    "THEATRE570"
+  ],
+  "KINES 314": [
+    "KINES614",
+    "KINES521",
+    "KINES615",
+    "KINES300"
+  ],
+  "S&APHM 411": [
+    "S&APHM652",
+    "S&APHM414"
+  ],
+  "KINES 623": [
+    "KINES624",
+    "KINES657"
+  ],
+  "MICROBIO 520": [
+    "MICROBIO525"
+  ],
+  "BSE 349": [
+    "FOODSCI301"
+  ],
+  "GENBUS 656": [
+    "ACTSCI655",
+    "FINANCE330",
+    "MARKETNG779",
+    "ACTSCI654",
+    "GENBUS657",
+    "FINANCE320",
+    "ACTSCI657"
+  ],
+  "ANAT&PHY 335": [
+    "NUTRSCI431",
+    "NUTRSCI675",
+    "KINES314",
+    "NEURODPT629",
+    "KINES427",
+    "PHMSCI581",
+    "M&ENVTOX625",
+    "KINES523",
+    "PHMSCI521",
+    "NUTRSCI525"
+  ],
+  "CNP 447": [
+    "CNP519"
+  ],
+  "CURRIC 500": [
+    "CURRIC976"
+  ],
+  "POLISCI 857": [
+    "POLISCI940"
+  ],
+  "MATH 551": [
+    "MATH552"
+  ],
+  "KINES 547": [
+    "KINES568"
+  ],
+  "EMERMED 961": [
+    "EMERMED970",
+    "EMERMED909"
+  ],
+  "GEOG 170": [
+    "GEOG576",
+    "GEOG574"
+  ],
+  "PHARMACY 126": [
+    "PHARMACY225"
+  ],
+  "ART 108": [
+    "ART376",
+    "ART232",
+    "ART512"
+  ],
+  "GEOSCI 202": [
+    "GLE455",
+    "GEOSCI459"
+  ],
+  "CURRIC 676": [
+    "CURRIC625"
+  ],
+  "CBE 311": [
+    "CBE547",
+    "CBE426",
+    "CBE430",
+    "ME561"
+  ],
+  "HEBR-BIB 323": [
+    "HEBR-BIB324"
+  ],
+  "ASIALANG 122": [
+    "ASIALANG222"
+  ],
+  "AFRICAN, AFROAMER 413": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "PHYSICS 531": [
+    "PHYSICS545",
+    "PHYSICS551",
+    "PHYSICS707",
+    "PHYSICS779",
+    "PHYSICS535"
+  ],
+  "CURRIC 340": [
+    "CURRIC367"
+  ],
+  "PHMSCI 420": [
+    "PHMSCI541"
+  ],
+  "HEBR-BIB 103": [
+    "HEBR-BIB391",
+    "HEBR-BIB104"
+  ],
+  "MEDSC-M 770": [
+    "MEDSC-M810"
+  ],
+  "SCANDST 122": [
+    "SCANDST221"
+  ],
+  "ECE 219": [
+    "ECE220"
+  ],
+  "ANAT&PHY 337": [
+    "KINES618",
+    "KINES318",
+    "KINES316",
+    "ANAT&PHY338"
+  ],
+  "ENGL 415": [
+    "ENGL616",
+    "ENGL614",
+    "ENGL617",
+    "ENGL618",
+    "ENGL515",
+    "ENGL615",
+    "ENGL613"
+  ],
+  "COMPSCI, LIS 612": [
+    "COMPSCI613"
+  ],
+  "AMERIND 309": [
+    "AMERIND405"
+  ],
+  "EMA, ME 307": [
+    "CIVENGR340",
+    "EMA611"
+  ],
+  "LITTRANS, ITALIAN, ILS, POLISCI 365": [
+    "ITALIAN452"
+  ],
+  "INFOSYS 371": [
+    "INFOSYS424",
+    "ISYE722"
+  ],
+  "DANCE 355": [
+    "DANCE455"
+  ],
+  "ATMOCN 810": [
+    "ATMOCN811"
+  ],
+  "MS&E 350": [
+    "MS&E456",
+    "MS&E553",
+    "MS&E352",
+    "NE423",
+    "MS&E332",
+    "MS&E351",
+    "MS&E660",
+    "ME313",
+    "MS&E550",
+    "NE541",
+    "MS&E461",
+    "MS&E360",
+    "NE424",
+    "MS&E448",
+    "NE545",
+    "MS&E333",
+    "ME437",
+    "ME311",
+    "MS&E401"
+  ],
+  "DS 154": [
+    "DS319",
+    "DS210",
+    "DS253"
+  ],
+  "MATH 217": [
+    "MATH240",
+    "MATH222",
+    "BSE380",
+    "BSE310",
+    "GLE520",
+    "SOILSCI631",
+    "ECON621",
+    "PHYSICS207",
+    "CIVENGR525",
+    "ECON310",
+    "STAT340",
+    "COMPSCI540",
+    "ISYE210",
+    "BSE301",
+    "GLE421",
+    "PHYSICS201",
+    "CIVENGR415",
+    "GLE350",
+    "BSE249",
+    "FOODSCI301",
+    "ECON475",
+    "PHYSICS202",
+    "PHYSICS208",
+    "ATMOCN532",
+    "SOILSCI622",
+    "COMPSCI534",
+    "GENBUS306",
+    "MATH213",
+    "BSE473",
+    "ECON205",
+    "BSE367",
+    "AAE670",
+    "CIVENGR494",
+    "ECON661",
+    "ECON302",
+    "FOODSCI440",
+    "CIVENGR516",
+    "PHYSICS206",
+    "ISYE313",
+    "GLE444",
+    "ECE203",
+    "ECON301",
+    "ECON664",
+    "GLE627",
+    "PLPATH602",
+    "ECON468",
+    "ECON410",
+    "STAT324"
+  ],
+  "CHEM 344": [
+    "CHEM346",
+    "CHEM605",
+    "CHEM342"
+  ],
+  "INTEREGR 397": [
+    "ISYE515",
+    "ISYE552",
+    "EPD398"
+  ],
+  "CURRIC 357": [
+    "CURRIC432"
+  ],
+  "THEATRE 150": [
+    "THEATRE352",
+    "THEATRE250",
+    "THEATRE440"
+  ],
+  "CHEM 341": [
+    "BME520",
+    "DYSCI311",
+    "MICROBIO425",
+    "CHEM342",
+    "MICROBIO626",
+    "CHEM421",
+    "BME430",
+    "ANSCI420",
+    "BSE460",
+    "BIOCHEM501"
+  ],
+  "HEBR-BIB 104": [
+    "HEBR-BIB391",
+    "HEBR-BIB323"
+  ],
+  "CBE 250": [
+    "CBE255",
+    "CBE538",
+    "BSE364",
+    "BSE461",
+    "CIVENGR322",
+    "CBE310",
+    "CBE554"
+  ],
+  "GREEK 306": [
+    "GREEK520",
+    "GREEK505",
+    "GREEK530",
+    "GREEK511",
+    "GREEK512",
+    "GREEK521",
+    "GREEK551",
+    "GREEK560",
+    "GREEK401",
+    "GREEK541",
+    "GREEK510",
+    "GREEK532"
+  ],
+  "CHEM 511": [
+    "ONCOLOGY673"
+  ],
+  "ECE 230": [
+    "ME368",
+    "ME576",
+    "ECE340",
+    "ECE376",
+    "ECE356",
+    "ME445",
+    "ECE270",
+    "ECE355",
+    "ECE335"
+  ],
+  "DS 210": [
+    "DS225"
+  ],
+  "LINGUIS 322": [
+    "LINGUIS427",
+    "LINGUIS690",
+    "LINGUIS522"
+  ],
+  "ATMOCN 340": [
+    "ATMOCN453",
+    "ATMOCN405",
+    "ATMOCN522",
+    "ATMOCN637",
+    "ATMOCN575",
+    "ATMOCN425",
+    "ATMOCN441",
+    "ATMOCN452"
+  ],
+  "COMARTS 262": [
+    "COMARTS570"
+  ],
+  "BIOCORE 384": [
+    "DYSCI361",
+    "ZOOLOGY444",
+    "BIOCORE401",
+    "PSYCH603",
+    "SOILSCI323",
+    "DYSCI434",
+    "PSYCH612",
+    "DYSCI378"
+  ],
+  "GNS 339": [
+    "GNS340.00"
+  ],
+  "AMERIND 301": [
+    "AMERIND302"
+  ],
+  "NURSING 802": [
+    "OBS&GYN956"
+  ],
+  "NURSING 314": [
+    "NURSING448",
+    "NURSING324",
+    "NURSING326",
+    "NURSING447"
+  ],
+  "GEN&WS 445": [
+    "GEN&WS547",
+    "GEN&WS546"
+  ],
+  "ITALIAN 204": [
+    "ITALIAN322",
+    "ITALIAN312",
+    "ITALIAN230",
+    "ITALIAN301",
+    "ITALIAN321",
+    "ITALIAN340",
+    "ITALIAN311",
+    "ITALIAN205"
+  ],
+  "NURSING 702": [
+    "NURSING723",
+    "NURSING720"
+  ],
+  "MEDHIST, HISTSCI 509": [
+    "MEDHIST709"
+  ],
+  "ITALIAN, ILS 350": [
+    "ITALIAN452"
+  ],
+  "ASIALANG 104": [
+    "ASIAN355",
+    "ASIAN376",
+    "ASIAN358",
+    "ASIAN354",
+    "ASIAN378",
+    "ASIALANG203",
+    "ASIAN353",
+    "ASIAN434"
+  ],
+  "ABT 710": [
+    "ABT740",
+    "ABT735",
+    "ABT745"
+  ],
+  "SOCWORK 800": [
+    "SOCWORK801",
+    "SOCWORK815"
+  ],
+  "JOURN 162": [
+    "JOURN651"
+  ],
+  "DS 221": [
+    "DS321",
+    "LANDARC321",
+    "DS650"
+  ],
+  "ASIALANG 110": [
+    "ASIALANG111"
+  ],
+  "KINES 370": [
+    "KINES327",
+    "KINES566",
+    "KINES371"
+  ],
+  "GENBUS 883": [
+    "GENBUS891",
+    "GENBUS894",
+    "GENBUS746",
+    "GENBUS884"
+  ],
+  "COMARTS 181": [
+    "COMARTS100"
+  ],
+  "SLAVIC 304": [
+    "SLAVIC305"
+  ],
+  "BSE 380": [
+    "BSE405"
+  ],
+  "MATH 171": [
+    "F&WECOL655",
+    "CHEM103",
+    "MS&E260",
+    "PHYSICS103",
+    "BSE344",
+    "BSE310",
+    "ENTOM490",
+    "CHEM104",
+    "ECE204",
+    "GLE371",
+    "MATH211",
+    "MATH217",
+    "SOILSCI301",
+    "F&WECOL395",
+    "AAE430",
+    "CHEM109",
+    "STAT371"
+  ],
+  "DYSCI, NUTRSCI, ANSCI 311": [
+    "DYSCI414",
+    "ANSCI431",
+    "ANSCI432",
+    "ANSCI415"
+  ],
+  "LITTRANS 263": [
+    "ASIAN353"
+  ],
+  "LIS 601": [
+    "LIS826",
+    "LIS655",
+    "LIS635",
+    "CURRIC620"
+  ],
+  "OCCTHER 711": [
+    "OCCTHER712"
+  ],
+  "ATMOCN 330": [
+    "ATMOCN401",
+    "ATMOCN405",
+    "ATMOCN340"
+  ],
+  "KINES 316": [
+    "KINES363",
+    "KINES362"
+  ],
+  "ASIALANG 358": [
+    "ASIALANG323",
+    "ASIALANG325",
+    "ASIALANG377",
+    "ASIALANG333",
+    "ASIALANG305",
+    "ASIALANG303",
+    "ASIALANG329",
+    "ASIALANG311",
+    "ASIALANG331",
+    "ASIALANG335",
+    "ASIALANG339",
+    "ASIALANG313",
+    "ASIALANG379",
+    "ASIALANG675",
+    "ASIALANG348",
+    "ASIALANG337",
+    "ASIALANG301"
+  ],
+  "GEOSCI, ASTRON 160": [
+    "GLE627"
+  ],
+  "MUSPERF 437": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "SLAVIC 321": [
+    "SLAVIC433",
+    "SLAVIC465",
+    "SLAVIC555",
+    "SLAVIC322"
+  ],
+  "ART 443": [
+    "ART556"
+  ],
+  "DS 253": [
+    "DS225"
+  ],
+  "MUSPERF 205": [
+    "MUSIC463"
+  ],
+  "BIOCORE 587": [
+    "GENETICS566",
+    "GENETICS564",
+    "GENETICS548",
+    "ZOOLOGY555",
+    "GENETICS520",
+    "GENETICS627",
+    "MDGENET565",
+    "BIOCHEM631"
+  ],
+  "DS 327": [
+    "DS427"
+  ],
+  "SOILSCI, ENVIRST, GEOG 230": [
+    "SOILSCI302",
+    "SOILSCI326",
+    "SOILSCI527"
+  ],
+  "CNSRSCI 201": [
+    "CNSRSCI301"
+  ],
+  "GNS 331": [
+    "GNS332.00"
+  ],
+  "COMPSCI 736": [
+    "COMPSCI739"
+  ],
+  "KINES 315": [
+    "KINES364"
+  ],
+  "MICROBIO 470": [
+    "MICROBIO668",
+    "MICROBIO612"
+  ],
+  "ASIALANG 114": [
+    "ASIALANG103",
+    "ASIALANG104"
+  ],
+  "CNSRSCI 257": [
+    "CNSRSCI567",
+    "CNSRSCI564",
+    "CNSRSCI562"
+  ],
+  "FOODSCI 602": [
+    "FOODSCI603",
+    "FOODSCI514"
+  ],
+  "SOC 170": [
+    "SOC470"
+  ],
+  "SOCWORK 612": [
+    "SOCWORK712",
+    "SOCWORK870"
+  ],
+  "ASIALANG 138": [
+    "ASIALANG237"
+  ],
+  "MUSPERF 413": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "KINES 652": [
+    "KINES671",
+    "KINES653"
+  ],
+  "COMPSCI 400": [
+    "COMPSCI520",
+    "GEOG576",
+    "COMPSCI537",
+    "COMPSCI536",
+    "COMPSCI620",
+    "COMPSCI564",
+    "COMPSCI542",
+    "COMPSCI640",
+    "COMPSCI559",
+    "COMPSCI506",
+    "COMPSCI544",
+    "COMPSCI571",
+    "COMPSCI538",
+    "ECE537",
+    "COMPSCI407",
+    "ISYE643",
+    "ECE454",
+    "BMI576",
+    "COMPSCI565",
+    "COMPSCI566",
+    "COMPSCI577"
+  ],
+  "EPD 622": [
+    "EPD623"
+  ],
+  "ART 100": [
+    "ART366",
+    "ART512",
+    "THEATRE328",
+    "ART232",
+    "THEATRE363",
+    "ART376"
+  ],
+  "CBE 430": [
+    "CBE470",
+    "CBE535",
+    "CBE450",
+    "CBE424"
+  ],
+  "ILS 201": [
+    "HISTSCI201"
+  ],
+  "ECE 740": [
+    "ECE749",
+    "ECE841"
+  ],
+  "ME 446": [
+    "ME458",
+    "ME447",
+    "ME747"
+  ],
+  "AFRICAN 403": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "DANCE 374": [
+    "DANCE379"
+  ],
+  "COMPSCI 577": [
+    "MATH535"
+  ],
+  "ECON 310": [
+    "ECON442",
+    "ECON400",
+    "SOC618",
+    "ECON666",
+    "ECON695",
+    "STAT303",
+    "ECON315",
+    "ECON535",
+    "FINANCE300",
+    "AAE421",
+    "SOC361",
+    "ECON570",
+    "RMI655",
+    "ECON370",
+    "SOC674",
+    "ECON355",
+    "MATH310",
+    "SOC375",
+    "ECON455",
+    "PUBAFFR340",
+    "SOC365",
+    "SOC351",
+    "CNSRSCI201",
+    "ECON661",
+    "ECON623",
+    "STAT333",
+    "OTM453",
+    "ECON664",
+    "RMI660",
+    "ECON410",
+    "RMI530"
+  ],
+  "ECE 356": [
+    "ECE411",
+    "ECE304"
+  ],
+  "GENETICS 467": [
+    "GENETICS588",
+    "PLANTSCI502",
+    "PLANTSCI550",
+    "GENETICS605",
+    "GENETICS545",
+    "GENETICS466",
+    "GENETICS520",
+    "PLANTSCI501",
+    "ENTOM624",
+    "PLANTSCI360",
+    "GENETICS525",
+    "PLANTSCI338",
+    "GENETICS528",
+    "PLPATH640",
+    "GENETICS527",
+    "GENETICS468",
+    "CRB640",
+    "MICROBIO657",
+    "MDGENET662"
+  ],
+  "CHEM 115": [
+    "BSE380",
+    "GEOSCI375",
+    "GENETICS466",
+    "SOILSCI327",
+    "NUTRSCI332",
+    "CHEM361",
+    "GENETICS467",
+    "CHEM104",
+    "MS&E330",
+    "MS&E351",
+    "ANSCI508",
+    "MS&E350",
+    "FOODSCI301",
+    "CHEM108",
+    "MICROBIO101",
+    "SOILSCI372",
+    "GLE360",
+    "ANAT&PHY435",
+    "CHEM103",
+    "MS&E260",
+    "CHEM116",
+    "SOILSCI430",
+    "CHEM260",
+    "SOILSCI326",
+    "SOILSCI301",
+    "FOODSCI305",
+    "ANAT&PHY335",
+    "CHEM109"
+  ],
+  "GERMAN 391": [
+    "GERMAN392"
+  ],
+  "HISTORY 428": [
+    "HISTORY345"
+  ],
+  "ART 532": [
+    "ART632"
+  ],
+  "SPANISH 203": [
+    "SPANISH317",
+    "SPANISH204"
+  ],
+  "DYSCI, ANSCI 434": [
+    "DYSCI534",
+    "ANSCI431",
+    "ANSCI432"
+  ],
+  "CIVENGR 428": [
+    "CIVENGR578"
+  ],
+  "EDPSYCH 640": [
+    "EDPSYCH641",
+    "EDPSYCH642"
+  ],
+  "CIVENGR 324": [
+    "NE565",
+    "CBE512"
+  ],
+  "COMARTS 325": [
+    "HDFS616"
+  ],
+  "CIVENGR 427": [
+    "CIVENGR578",
+    "GLE479"
+  ],
+  "ESL 115": [
+    "ESL116"
+  ],
+  "PSYCH 750": [
+    "PSYCH755"
+  ],
+  "AAE, POLISCI 835": [
+    "POLISCI837"
+  ],
+  "DANCE 131": [
+    "DANCE330"
+  ],
+  "PHMPRAC 556": [
+    "PHMPRAC668",
+    "PHMPRAC655"
+  ],
+  "SOC 134": [
+    "SOC470"
+  ],
+  "ART, DS 229": [
+    "DS429"
+  ],
+  "EMA 201": [
+    "ME240",
+    "ME306",
+    "PHYSICS104",
+    "ME361",
+    "EMA202",
+    "PHYSICS202",
+    "BME330",
+    "PHYSICS208",
+    "GLE534",
+    "GLE474",
+    "CIVENGR324",
+    "CIVENGR325",
+    "CBE320",
+    "EP271",
+    "CIVENGR360",
+    "EMA303",
+    "GLE535"
+  ],
+  "COMPSCI 744": [
+    "COMPSCI739"
+  ],
+  "ECON 301": [
+    "ECON442",
+    "RMI530",
+    "ECON621",
+    "ECON448",
+    "AAE540",
+    "ECON666",
+    "POPHLTH548",
+    "ECON580",
+    "ECON521",
+    "ECON522",
+    "AAE531",
+    "ECON311",
+    "ECON535",
+    "FINANCE503",
+    "AAE635",
+    "ECON570",
+    "REALEST706",
+    "AAE625",
+    "ECON475",
+    "ECON464",
+    "ECON455",
+    "ECON690",
+    "ECON435",
+    "ECON623",
+    "ECON450",
+    "ECON467",
+    "AAE526",
+    "ECON458",
+    "AAE520",
+    "ECON468",
+    "ECON441"
+  ],
+  "CIVENGR 721": [
+    "CIVENGR621"
+  ],
+  "COMPSCI 310": [
+    "COMPSCI539",
+    "MATH513",
+    "ISYE526",
+    "COMPSCI532",
+    "MATH514",
+    "ME472",
+    "COMPSCI300",
+    "COMPSCI638",
+    "ISYE524",
+    "COMPSCI412",
+    "COMPSCI402",
+    "ME331",
+    "EP476",
+    "MATH444",
+    "MATH345",
+    "NE412"
+  ],
+  "ECE 434": [
+    "ECE536",
+    "BME651"
+  ],
+  "SLAVIC 341": [
+    "SLAVIC342"
+  ],
+  "ACCTIS 701": [
+    "ACCTIS702",
+    "ACCTIS630"
+  ],
+  "SLAVIC 203": [
+    "SLAVIC204"
+  ],
+  "CHICLA, COMARTS 347": [
+    "ASIANAM420",
+    "COMARTS608"
+  ],
+  "ACCTIS 700": [
+    "ACCTIS640",
+    "ACCTIS701",
+    "ACCTIS710",
+    "GENBUS725"
+  ],
+  "SOC, C&ESOC 211": [
+    "SOC475",
+    "SOC678",
+    "SOC535",
+    "SOC441",
+    "SOC496",
+    "SOC210",
+    "SOC617",
+    "SOC645",
+    "SOC446",
+    "SOC347",
+    "SOC357",
+    "LEGALST440",
+    "AAE340",
+    "SOC573",
+    "SOC422",
+    "SOC647",
+    "LEGALST443",
+    "SOC578",
+    "SOC650",
+    "SOC633",
+    "SOC540",
+    "SOC541",
+    "SOC670",
+    "SOC470",
+    "SOC533",
+    "SOC543",
+    "SOC181",
+    "SOC421"
+  ],
+  "ABT 715": [
+    "ABT775",
+    "ABT770"
+  ],
+  "ACCTIS 302": [
+    "ACCTIS770",
+    "ACCTIS406",
+    "ACCTIS603"
+  ],
+  "HEBR-MOD 202": [
+    "JEWISH301"
+  ],
+  "ENVIRST, GEOG 339": [
+    "SOC541",
+    "ENVIRST537"
+  ],
+  "ZOOLOGY 300": [
+    "ZOOLOGY301"
+  ],
+  "NURSING 728": [
+    "NURSING726",
+    "NURSING727"
+  ],
+  "ASIALANG 106": [
+    "ASIALANG205"
+  ],
+  "RP&SE 316": [
+    "RP&SE520"
+  ],
+  "ME 313": [
+    "ME449",
+    "ME437",
+    "ME514",
+    "ME314"
+  ],
+  "OCCTHER 723": [
+    "OCCTHER726",
+    "OCCTHER724"
+  ],
+  "LINGUIS 101": [
+    "LINGUIS309",
+    "LINGUIS310",
+    "LINGUIS303",
+    "ANTHRO301",
+    "LINGUIS322",
+    "LINGUIS373",
+    "LINGUIS330",
+    "LINGUIS375"
+  ],
+  "MICROBIO, BIOCHEM, GENETICS 612": [
+    "MICROBIO668"
+  ],
+  "ASIALANG 306": [
+    "ASIALANG456",
+    "ASIALANG405",
+    "ASIALANG381"
+  ],
+  "ME 311": [
+    "ME449"
+  ],
+  "MATH 322": [
+    "MATH616",
+    "MATH561",
+    "MATH519",
+    "MATH514",
+    "MATH619",
+    "MATH521",
+    "EP548",
+    "MATH535"
+  ],
+  "ECE 334": [
+    "ME458"
+  ],
+  "OTM 700": [
+    "OTM758",
+    "GENBUS725",
+    "OTM751",
+    "MARKETNG724",
+    "MARKETNG726"
+  ],
+  "CS&D 891": [
+    "CS&D892"
+  ],
+  "OCCTHER 651": [
+    "OCCTHER652"
+  ],
+  "ASIALANG 206": [
+    "ASIALANG305"
+  ],
+  "NURSING 785": [
+    "NURSING787"
+  ],
+  "PHYSICS 249": [
+    "PHYSICS415",
+    "PHYSICS551",
+    "MEDPHYS563",
+    "ASTRON465",
+    "PHYSICS406",
+    "MEDPHYS567",
+    "MEDPHYS568",
+    "MEDPHYS569",
+    "ASTRON335",
+    "ASTRON310",
+    "ASTRON340",
+    "PHYSICS448",
+    "PHYSICS205",
+    "ASTRON320",
+    "NE305",
+    "PHYSICS241",
+    "PHYSICS531"
+  ],
+  "MATH, ISYE, STAT, OTM 632": [
+    "ISYE643",
+    "MATH635"
+  ],
+  "MUSPERF 411": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "MUSIC 332": [
+    "MUSIC531"
+  ],
+  "EDPSYCH 740": [
+    "EDPSYCH741"
+  ],
+  "FINANCE 635": [
+    "FINANCE650"
+  ],
+  "MUSPERF 148": [
+    "MUSPERF247"
+  ],
+  "ART 542": [
+    "ART642"
+  ],
+  "ASIALANG 134": [
+    "ASIALANG233"
+  ],
+  "REALEST, URBRPL, ECON 420": [
+    "REALEST425"
+  ],
+  "NURSING 806": [
+    "NURSING906"
+  ],
+  "KINES 654": [
+    "KINES672",
+    "KINES655"
+  ],
+  "HISTORY 109": [
+    "SOC670"
+  ],
+  "ASIALANG 239": [
+    "ASIALANG240"
+  ],
+  "COMARTS 470": [
+    "COMARTS570"
+  ],
+  "GEN&WS 102": [
+    "LEGALST425",
+    "GEN&WS418",
+    "ENGL350",
+    "LEGALST406",
+    "GEN&WS522",
+    "SOC347"
+  ],
+  "GLE, CIVENGR 432": [
+    "GLE479"
+  ],
+  "ANAT&PHY 338": [
+    "KINES318"
+  ],
+  "NUTRSCI 631": [
+    "NUTRSCI632",
+    "NUTRSCI642",
+    "NUTRSCI200",
+    "NUTRSCI641"
+  ],
+  "CHEM 108": [
+    "ANAT&PHY435",
+    "ANAT&PHY335",
+    "MICROBIO101",
+    "SOILSCI430"
+  ],
+  "ARTED 324": [
+    "ARTED424",
+    "ARTED425",
+    "ARTED423"
+  ],
+  "DYSCI, ANSCI 101": [
+    "ANSCI503",
+    "DYSCI205",
+    "ANSCI314",
+    "DYSCI370",
+    "PLANTSCI302",
+    "ANSCI315",
+    "DYSCI102",
+    "ANSCI512",
+    "ANSCI511",
+    "DYSCI233"
+  ],
+  "MUSIC 272": [
+    "MUSIC222"
+  ],
+  "CURRIC 464": [
+    "CURRIC463"
+  ],
+  "ISYE 562": [
+    "ISYE570"
+  ],
+  "GERMAN 351": [
+    "GERMAN352"
+  ],
+  "POPHLTH 798": [
+    "POPHLTH806",
+    "POPHLTH805"
+  ],
+  "ITALIAN 101": [
+    "ITALIAN102"
+  ],
+  "HEBR-BIB 303": [
+    "HEBR-BIB304"
+  ],
+  "SOCWORK 709": [
+    "SOCWORK836",
+    "SOCWORK921",
+    "SOCWORK875",
+    "SOCWORK920"
+  ],
+  "COMARTS 260": [
+    "COMARTS369",
+    "COMARTS360",
+    "COMARTS370"
+  ],
+  "PHMPRAC 611": [
+    "PHMPRAC612"
+  ],
+  "GNS, JEWISH 105": [
+    "GNS106.00"
+  ],
+  "FRENCH 203": [
+    "FRENCH301",
+    "FRENCH302",
+    "FRENCH204"
+  ],
+  "THEATRE 240": [
+    "THEATRE541"
+  ],
+  "STAT 612": [
+    "STAT780"
+  ],
+  "EDPSYCH 762": [
+    "EDPSYCH963"
+  ],
+  "SCANDST 121": [
+    "SCANDST122"
+  ],
+  "REALEST 415": [
+    "REALEST661",
+    "REALEST611",
+    "REALEST530",
+    "REALEST550"
+  ],
+  "POLISCI 140": [
+    "INTLST431",
+    "POLISCI377",
+    "POLISCI359",
+    "POLISCI347",
+    "POLISCI350",
+    "POLISCI348",
+    "POLISCI433",
+    "POLISCI345",
+    "INTLST325",
+    "POLISCI343",
+    "POLISCI529",
+    "POLISCI320",
+    "POLISCI349",
+    "POLISCI354"
+  ],
+  "CIVENGR 370": [
+    "CIVENGR678",
+    "CIVENGR571",
+    "CIVENGR570",
+    "CIVENGR572",
+    "CIVENGR574",
+    "CIVENGR573"
+  ],
+  "COMARTS 155": [
+    "COMARTS355",
+    "COMARTS468"
+  ],
+  "NE 427": [
+    "NE428"
+  ],
+  "COUNPSY 950": [
+    "COUNPSY951",
+    "COUNPSY960"
+  ],
+  "LATIN 401": [
+    "LATIN571"
+  ],
+  "AFRICAN 361": [
+    "AFRICAN362"
+  ],
+  "PHMPRAC 554": [
+    "PHMPRAC655"
+  ],
+  "CNSRSCI 657": [
+    "CNSRSCI561",
+    "MARKETNG305",
+    "CNSRSCI555"
+  ],
+  "MEDPHYS, BME 566": [
+    "MEDPHYS770",
+    "MEDPHYS772"
+  ],
+  "ME 548": [
+    "ME748"
+  ],
+  "NURSING 323": [
+    "NURSING436",
+    "NURSING430",
+    "NURSING448",
+    "NURSING447",
+    "NURSING437",
+    "NURSING432",
+    "NURSING431",
+    "NURSING434",
+    "NURSING433"
+  ],
+  "MATH, ISYE, COMPSCI, STAT 726": [
+    "MATH730"
+  ],
+  "ISYE, PSYCH 349": [
+    "ISYE564",
+    "ISYE348",
+    "ISYE450",
+    "ISYE653",
+    "ISYE649",
+    "ISYE549",
+    "ISYE557",
+    "ISYE417",
+    "ISYE552",
+    "ISYE555",
+    "ISYE510"
+  ],
+  "MUSIC 206": [
+    "MUSIC306"
+  ],
+  "MUSIC 205": [
+    "MUSIC306"
+  ],
+  "FOODSCI 301": [
+    "FOODSCI440",
+    "FOODSCI437",
+    "FOODSCI410"
+  ],
+  "MS&E 333": [
+    "MS&E570"
+  ],
+  "COUNPSY 575": [
+    "COUNPSY580"
+  ],
+  "FRENCH 431": [
+    "FRENCH568",
+    "FRENCH569",
+    "FRENCH567"
+  ],
+  "ART 324": [
+    "ART524"
+  ],
+  "KINES 373": [
+    "KINES375"
+  ],
+  "ASIALANG 133": [
+    "ASIALANG134"
+  ],
+  "MUSPERF 705": [
+    "MUSIC463"
+  ],
+  "SPANISH, CHICLA 222": [
+    "SPANISH326",
+    "SPANISH469",
+    "SPANISH490",
+    "SPANISH324",
+    "SPANISH361",
+    "ENVIRST445",
+    "SPANISH464",
+    "SPANISH363",
+    "SPANISH414",
+    "SPANISH479",
+    "SPANISH453",
+    "SPANISH477",
+    "SPANISH472",
+    "SPANISH460",
+    "SPANISH461",
+    "SPANISH435",
+    "SPANISH364",
+    "SPANISH478",
+    "SPANISH470",
+    "SPANISH480",
+    "SPANISH322",
+    "SPANISH455",
+    "SPANISH468"
+  ],
+  "SOC, C&ESOC 210": [
+    "SOC475",
+    "SOC678",
+    "SOC535",
+    "SOC441",
+    "SOC496",
+    "SOC617",
+    "SOC645",
+    "SOC211",
+    "SOC446",
+    "SOC347",
+    "SOC357",
+    "LEGALST440",
+    "SOC573",
+    "AAE340",
+    "SOC422",
+    "SOC647",
+    "LEGALST443",
+    "SOC578",
+    "SOC650",
+    "SOC633",
+    "SOC540",
+    "SOC541",
+    "SOC670",
+    "SOC470",
+    "SOC533",
+    "SOC543",
+    "SOC181",
+    "SOC421"
+  ],
+  "ECON 713": [
+    "URBRPL845"
+  ],
+  "MUSIC 543": [
+    "MUSIC544"
+  ],
+  "MATH 467": [
+    "MATH616",
+    "MATH570",
+    "MATH571",
+    "MATH541",
+    "MATH521",
+    "MATH551",
+    "MATH540",
+    "MATH535"
+  ],
+  "GEN&WS, PSYCH 522": [
+    "PSYCH532",
+    "PSYCH508"
+  ],
+  "KINES 656": [
+    "KINES674"
+  ],
+  "BOTANY, ENVIRST, ZOOLOGY 260": [
+    "ANTHRO458",
+    "ENVIRST413",
+    "ANTHRO603",
+    "ANTHRO605",
+    "BSE349",
+    "ANTHRO304"
+  ],
+  "MHR 604": [
+    "MHR704"
+  ],
+  "ACCTIS 211": [
+    "ACCTIS340",
+    "MHR427",
+    "ACCTIS310"
+  ],
+  "ECON 464": [
+    "ECON664"
+  ],
+  "HEBR-BIB 304": [
+    "HEBR-BIB323"
+  ],
+  "EDPOL 300": [
+    "LACIS342"
+  ],
+  "ISYE 210": [
+    "COMPSCI541",
+    "ISYE562",
+    "ISYE350",
+    "ISYE445",
+    "STAT303",
+    "ISYE312",
+    "ISYE521",
+    "ISYE649",
+    "ISYE575",
+    "ISYE349",
+    "ISYE625",
+    "ISYE412",
+    "ISYE315",
+    "ME536",
+    "STAT333",
+    "ISYE320"
+  ],
+  "REALEST 841": [
+    "REALEST842"
+  ],
+  "ENGL 407": [
+    "ENGL508",
+    "ENGL409",
+    "ENGL411",
+    "ENGL410",
+    "ENGL509",
+    "ENGL307",
+    "ENGL695",
+    "ENGL408"
+  ],
+  "STAT 701": [
+    "STAT801"
+  ],
+  "MATH 320": [
+    "MATH514",
+    "STAT456",
+    "MATH571",
+    "STAT453",
+    "MATH321",
+    "BME501",
+    "MATH415",
+    "MATH467",
+    "ISYE624",
+    "COMPSCI561",
+    "CHEM361",
+    "NE405",
+    "MATH619",
+    "COMPSCI541",
+    "MATH435",
+    "BME520",
+    "COMPSCI532",
+    "MATH519",
+    "MATH525",
+    "STAT451",
+    "COMPSCI533",
+    "MATH425",
+    "BMOLCHEM609",
+    "EP548",
+    "ME578",
+    "ME536",
+    "ISYE524",
+    "MATH632",
+    "ME331",
+    "SOC376",
+    "MEDPHYS575",
+    "ME441",
+    "ISYE320",
+    "MEDPHYS573",
+    "MATH616",
+    "MS&E660",
+    "BME556",
+    "COMPSCI557",
+    "MATH443",
+    "BME330",
+    "MS&E331",
+    "MEDPHYS578",
+    "EP471",
+    "MATH551",
+    "MATH522",
+    "MATH540",
+    "MATH444",
+    "ME340",
+    "STAT575",
+    "MATH345",
+    "ME446",
+    "MATH561",
+    "STAT433",
+    "ME376",
+    "CBE255",
+    "ECE334",
+    "MATH475",
+    "COMPSCI566",
+    "MATH541",
+    "ME363",
+    "CBE320",
+    "EP476",
+    "BMI567",
+    "MATH535",
+    "ATMOCN460"
+  ],
+  "SPANISH 223": [
+    "SPANISH326",
+    "SPANISH469",
+    "SPANISH490",
+    "SPANISH324",
+    "SPANISH361",
+    "ENVIRST445",
+    "SPANISH464",
+    "SPANISH363",
+    "SPANISH467",
+    "SPANISH414",
+    "SPANISH479",
+    "SPANISH564",
+    "SPANISH453",
+    "SPANISH477",
+    "SPANISH451",
+    "SPANISH472",
+    "SPANISH460",
+    "SPANISH461",
+    "SPANISH435",
+    "SPANISH364",
+    "SPANISH478",
+    "SPANISH470",
+    "SPANISH480",
+    "SPANISH322",
+    "SPANISH455",
+    "SPANISH468"
+  ],
+  "NUTRSCI 332": [
+    "NUTRSCI431",
+    "NUTRSCI132",
+    "NUTRSCI631",
+    "NUTRSCI550"
+  ],
+  "GERMAN 313": [
+    "GERMAN314"
+  ],
+  "MUSPERF 247": [
+    "MUSPERF248"
+  ],
+  "DANCE 762": [
+    "DANCE990"
+  ],
+  "NURSING 706": [
+    "NURSING906"
+  ],
+  "GENBUS 705": [
+    "RMI660",
+    "GENBUS740"
+  ],
+  "INTER-LS 301": [
+    "INTER-LS601"
+  ],
+  "ME 331": [
+    "ME449",
+    "ME342",
+    "ME351",
+    "ME349"
+  ],
+  "ECE 412": [
+    "ECE712",
+    "ECE714",
+    "ECE512"
+  ],
+  "FOODSCI 432": [
+    "FOODSCI535",
+    "FOODSCI532",
+    "FOODSCI602"
+  ],
+  "FISC 72": [
+    "FISC73"
+  ],
+  "ECE 335": [
+    "ECE466",
+    "ECE548",
+    "ECE536",
+    "ECE445",
+    "ECE305",
+    "ECE542",
+    "ECE549"
+  ],
+  "MUSPERF 732": [
+    "MUSIC632"
+  ],
+  "ME 364": [
+    "ME471",
+    "ME569",
+    "ME461",
+    "CBE567",
+    "ME564",
+    "ME370",
+    "EP566",
+    "NE536",
+    "NE520",
+    "NE411"
+  ],
+  "ART 112": [
+    "ART242",
+    "ART336",
+    "ART334",
+    "ART212",
+    "ART302",
+    "ART326",
+    "ART222"
+  ],
+  "COMPSCI 559": [
+    "COMPSCI506"
+  ],
+  "SOC 181": [
+    "SOC475",
+    "SOC678",
+    "SOC535",
+    "SOC441",
+    "SOC496",
+    "SOC210",
+    "SOC617",
+    "SOC645",
+    "SOC211",
+    "SOC446",
+    "SOC347",
+    "SOC357",
+    "LEGALST440",
+    "SOC573",
+    "AAE340",
+    "SOC422",
+    "SOC647",
+    "LEGALST443",
+    "SOC578",
+    "SOC650",
+    "SOC633",
+    "SOC540",
+    "SOC541",
+    "SOC670",
+    "SOC470",
+    "SOC533",
+    "SOC543",
+    "SOC421"
+  ],
+  "AFRICAN 322": [
+    "AFRICAN323",
+    "AFRICAN341"
+  ],
+  "STAT 611": [
+    "STAT780",
+    "STAT612",
+    "GENBUS775"
+  ],
+  "ART 316": [
+    "ART516",
+    "ART242",
+    "ART336",
+    "ART446",
+    "ART302",
+    "ART312",
+    "ART326",
+    "ART636",
+    "ART348"
+  ],
+  "COUNPSY 237": [
+    "COUNPSY372"
+  ],
+  "ASIALANG 242": [
+    "ASIALANG675"
+  ],
+  "ART 467": [
+    "ART656",
+    "ART556",
+    "ART560",
+    "ART564"
+  ],
+  "F&WECOL, STAT 572": [
+    "PLANTSCI811",
+    "PLANTSCI771",
+    "PLANTSCI772"
+  ],
+  "ACTSCI 303": [
+    "ACTSCI650",
+    "ACTSCI301"
+  ],
+  "CHEM 561": [
+    "CHEM653",
+    "CHEM665",
+    "CBE547",
+    "CHEM562",
+    "CHEM509",
+    "CHEM629",
+    "CHEM563",
+    "CHEM654"
+  ],
+  "SLAVIC 433": [
+    "SLAVIC434"
+  ],
+  "SCANDST 211": [
+    "SCANDST212"
+  ],
+  "NURSING 815": [
+    "NURSING818"
+  ],
+  "ART 565": [
+    "ART656",
+    "ART556",
+    "ART560",
+    "ART564"
+  ],
+  "ITALIAN 310": [
+    "ITALIAN452"
+  ],
+  "MUSIC 212": [
+    "MUSIC419",
+    "MUSIC513",
+    "MUSIC411",
+    "MUSIC413",
+    "MUSIC415",
+    "MUSIC417",
+    "MUSIC416",
+    "MUSIC412",
+    "MUSIC405",
+    "MUSIC414",
+    "MUSIC511",
+    "MUSIC252",
+    "MUSIC253"
+  ],
+  "GLE, GEOSCI 594": [
+    "GLE595"
+  ],
+  "ASIALANG 379": [
+    "ASIALANG457"
+  ],
+  "MHR 722": [
+    "MHR738"
+  ],
+  "ASIALANG 224": [
+    "ASIALANG323"
+  ],
+  "AFRICAN 323": [
+    "AFRICAN324",
+    "AFRICAN342"
+  ],
+  "MS&E 362": [
+    "MS&E470"
+  ],
+  "ASIALANG 405": [
+    "ASIALANG406"
+  ],
+  "SPANISH, CHICLA 364": [
+    "SPANISH468",
+    "SPANISH469"
+  ],
+  "BSE 461": [
+    "FOODSCI532"
+  ],
+  "SOCWORK 400": [
+    "SOCWORK401"
+  ],
+  "MEDPHYS, NE 569": [
+    "MEDPHYS506"
+  ],
+  "F&WECOL 410": [
+    "F&WECOL305",
+    "F&WECOL411"
+  ],
+  "F&WECOL 561": [
+    "F&WECOL599"
+  ],
+  "LITTRANS 204": [
+    "LITTRANS202"
+  ],
+  "ASIALANG 305": [
+    "ASIALANG456",
+    "ASIALANG381",
+    "ASIALANG306"
+  ],
+  "AFRICAN 324": [
+    "AFRICAN329",
+    "AFRICAN343"
+  ],
+  "BIOCORE 382": [
+    "PSYCH406",
+    "BIOCORE401",
+    "GEOSCI542",
+    "ZOOLOGY521",
+    "ENVIRST361",
+    "PSYCH505",
+    "ZOOLOGY320",
+    "DYSCI434",
+    "ZOOLOGY520",
+    "ANTHRO603",
+    "PSYCH454",
+    "ANTHRO304",
+    "DYSCI361",
+    "F&WECOL306",
+    "PSYCH414",
+    "ANTHRO458",
+    "DYSCI370",
+    "MM&I575",
+    "PSYCH450",
+    "ANTHRO605",
+    "LANDARC380",
+    "MM&I301",
+    "F&WECOL360",
+    "ZOOLOGY425",
+    "PSYCH449",
+    "DYSCI378",
+    "F&WECOL401"
+  ],
+  "SLAVIC 117": [
+    "SLAVIC118"
+  ],
+  "ART 314": [
+    "ART414",
+    "ART514"
+  ],
+  "FINANCE 410": [
+    "FINANCE610"
+  ],
+  "COMARTS 372": [
+    "COMARTS570"
+  ],
+  "AFRICAN 406": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "ASIALANG 304": [
+    "ASIALANG403",
+    "ASIAN563",
+    "ASIALANG451",
+    "ASIALANG452",
+    "ASIAN573",
+    "ASIALANG375"
+  ],
+  "OCCTHER 821": [
+    "OCCTHER822"
+  ],
+  "GENETICS 133": [
+    "GENETICS234"
+  ],
+  "ASIALANG 204": [
+    "ASIALANG376",
+    "ASIALANG303",
+    "ASIALANG313",
+    "ASIALANG377",
+    "ASIAN435"
+  ],
+  "GENECSLR 713": [
+    "GENECSLR714"
+  ],
+  "SLAVIC 204": [
+    "SLAVIC275",
+    "SLAVIC315"
+  ],
+  "MUSIC, CURRIC 300": [
+    "MUSIC301"
+  ],
+  "HEBR-MOD 201": [
+    "HEBR-MOD202"
+  ],
+  "LINGUIS 330": [
+    "LINGUIS690",
+    "LINGUIS340",
+    "LINGUIS571",
+    "LINGUIS427",
+    "LINGUIS530"
+  ],
+  "ENGL 509": [
+    "ENGL508",
+    "ENGL409",
+    "ENGL410",
+    "ENGL307",
+    "ENGL695",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "COMPSCI 564": [
+    "COMPSCI506"
+  ],
+  "EMA 469": [
+    "EMA569"
+  ],
+  "ART 322": [
+    "ART452",
+    "ART522"
+  ],
+  "GEOG, ENVIRST, CIVENGR 377": [
+    "SOILSCI585",
+    "SOILSCI695",
+    "GEOG576",
+    "ENVIRST532",
+    "LANDARC511",
+    "GEOG579",
+    "GEOG378",
+    "GEOG578",
+    "GEOG574"
+  ],
+  "ANTHRO, LINGUIS 301": [
+    "LINGUIS309",
+    "LINGUIS310",
+    "LINGUIS303",
+    "LINGUIS322",
+    "LINGUIS373",
+    "LINGUIS101",
+    "LINGUIS330",
+    "LINGUIS375"
+  ],
+  "PHYSICS 205": [
+    "MS&E570",
+    "PHYSICS415",
+    "PHYSICS551",
+    "ASTRON465",
+    "PHYSICS406",
+    "ASTRON335",
+    "ASTRON310",
+    "ASTRON340",
+    "PHYSICS448",
+    "ASTRON320",
+    "NE305",
+    "PHYSICS241",
+    "PHYSICS531"
+  ],
+  "ECE 315": [
+    "ECE455",
+    "ECE453"
+  ],
+  "THEATRE 140": [
+    "THEATRE440"
+  ],
+  "DS 241": [
+    "DS242"
+  ],
+  "SLAVIC 111": [
+    "LITTRANS361",
+    "SLAVIC112"
+  ],
+  "ART 544": [
+    "ART644"
+  ],
+  "FINANCE 835": [
+    "FINANCE836"
+  ],
+  "PHMSCI 623": [
+    "PHMPRAC656"
+  ],
+  "MUSPERF 419": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "GENBUS 310": [
+    "MHR422",
+    "CNSRSCI564"
+  ],
+  "SLAVIC 208": [
+    "SLAVIC277"
+  ],
+  "LAW 811": [
+    "ACCTIS329"
+  ],
+  "HEBR-BIB 324": [
+    "JEWISH513"
+  ],
+  "MUSPERF 425": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "PHYSICS 247": [
+    "PHYSICS104",
+    "ASTRON200",
+    "PHYSICS207",
+    "GLE474",
+    "EP271",
+    "CBE310",
+    "PHYSICS115",
+    "CHEM561",
+    "CIVENGR360",
+    "GLE535",
+    "PHYSICS201",
+    "PHYSICS103",
+    "CHEM665",
+    "ME361",
+    "PHYSICS202",
+    "PHYSICS208",
+    "BME330",
+    "BSE475",
+    "ATMOCN532",
+    "BSE476",
+    "ME451",
+    "PHYSICS248",
+    "PHYSICS206",
+    "CBE320",
+    "PHYSICS106"
+  ],
+  "AFRICAN 341": [
+    "AFRICAN324",
+    "AFRICAN342"
+  ],
+  "ASIALANG 102": [
+    "ASIAN351",
+    "ASIALANG201",
+    "ASIAN631"
+  ],
+  "EDPSYCH 763": [
+    "EDPSYCH965",
+    "EDPSYCH960",
+    "EDPSYCH964",
+    "EDPSYCH967",
+    "EDPSYCH963"
+  ],
+  "SLAVIC 217": [
+    "SLAVIC218"
+  ],
+  "ASIALANG 131": [
+    "ASIALANG132"
+  ],
+  "ECON 390": [
+    "ECON340"
+  ],
+  "AFRICAN 409": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "LANDARC 380": [
+    "LANDARC381"
+  ],
+  "SCANDST 102": [
+    "SCANDST201"
+  ],
+  "ACCTIS 301": [
+    "ACCTIS630",
+    "ACCTIS302",
+    "ACCTIS620",
+    "ACCTIS340",
+    "FINANCE457",
+    "FINANCE325"
+  ],
+  "SPANISH 101": [
+    "SPANISH102"
+  ],
+  "ITALIAN 321": [
+    "ITALIAN452",
+    "ITALIAN450",
+    "ITALIAN632",
+    "ITALIAN623",
+    "ITALIAN622",
+    "ITALIAN621",
+    "ITALIAN631",
+    "ITALIAN659",
+    "ITALIAN671",
+    "ITALIAN636"
+  ],
+  "COMPSCI, LIS 611": [
+    "COMPSCI612"
+  ],
+  "FRENCH 467": [
+    "FRENCH568",
+    "FRENCH569",
+    "FRENCH567"
+  ],
+  "FOODSCI 440": [
+    "FOODSCI432"
+  ],
+  "PHMPRAC 555": [
+    "PHMPRAC668",
+    "PHMPRAC554",
+    "NURSING674",
+    "PHMPRAC556"
+  ],
+  "URBRPL 791": [
+    "URBRPL912"
+  ],
+  "ECE 377": [
+    "ECE411"
+  ],
+  "ISYE, COMPSCI, ECE 524": [
+    "ISYE445",
+    "ISYE521",
+    "ISYE625",
+    "ISYE517",
+    "ISYE510"
+  ],
+  "INTER-HE 202": [
+    "INTER-HE601"
+  ],
+  "SOCWORK 708": [
+    "SOCWORK639",
+    "SOCWORK644"
+  ],
+  "SPANISH 225": [
+    "SPANISH430",
+    "SPANISH320",
+    "SPANISH327",
+    "SPANISH331",
+    "SPANISH446",
+    "SPANISH470",
+    "SPANISH321"
+  ],
+  "CURRIC 367": [
+    "CURRIC454",
+    "CURRIC463",
+    "CURRIC468",
+    "CURRIC464"
+  ],
+  "ASIALANG 313": [
+    "ASIAN533"
+  ],
+  "AAE 636": [
+    "AAE722",
+    "AAE721",
+    "AAE637",
+    "AAE774",
+    "AAE641",
+    "AAE643",
+    "AAE772",
+    "AAE642"
+  ],
+  "MS&E 451": [
+    "MS&E551"
+  ],
+  "AFAERO 302": [
+    "AFAERO401"
+  ],
+  "DANCE 237": [
+    "DANCE337"
+  ],
+  "ART 470": [
+    "ART570"
+  ],
+  "MUSPERF 415": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "PHYSICS 103": [
+    "ANAT&PHY435",
+    "PHYSICS115",
+    "PHYSICS104",
+    "PHYSICS202",
+    "FOODSCI440",
+    "PHYSICS208",
+    "PHYSICS206",
+    "ATMOCN532",
+    "PHYSICS106"
+  ],
+  "INTER-AG 288": [
+    "INTER-AG388"
+  ],
+  "MATH, STAT 310": [
+    "ISYE562",
+    "ACTSCI652",
+    "FINANCE330",
+    "GENBUS656",
+    "FINANCE320",
+    "SOC618",
+    "ISYE625",
+    "ISYE615",
+    "STAT424",
+    "STAT303",
+    "ME536",
+    "ISYE320",
+    "SOC361",
+    "ISYE620",
+    "BMI642",
+    "ISYE445",
+    "ISYE649",
+    "SOC674",
+    "ISYE575",
+    "COMPSCI471",
+    "FINANCE325",
+    "SOC375",
+    "SOC365",
+    "SOC351",
+    "ACTSCI640",
+    "BMI641"
+  ],
+  "REALEST 550": [
+    "REALEST851"
+  ],
+  "ECON 101": [
+    "AAE322",
+    "AAE371",
+    "AAE419",
+    "AAE477",
+    "AAE306",
+    "ECON330",
+    "AAE320",
+    "RMI300",
+    "HISTORY466",
+    "ECON310",
+    "AAE474",
+    "ECON111",
+    "MARKETNG300",
+    "INTLBUS200",
+    "ECON350",
+    "CNSRSCI665",
+    "REALEST420",
+    "CNSRSCI477",
+    "PUBAFFR380",
+    "ECON315",
+    "ECON311",
+    "ECON102",
+    "AAE343",
+    "AAE671",
+    "FINANCE300",
+    "ECON325",
+    "ECON100",
+    "AAE462",
+    "AAE561",
+    "AAE374",
+    "ECON370",
+    "GENBUS250",
+    "AAE373",
+    "PUBAFFR340",
+    "ECON340",
+    "ECON205",
+    "ECON312",
+    "AAE670",
+    "ECON321",
+    "AAE422",
+    "AAE473",
+    "ECON305",
+    "ECON465",
+    "AAE319",
+    "ECON301",
+    "AAE250",
+    "ECON390"
+  ],
+  "HISTORY 201": [
+    "HISTSCI211",
+    "HISTORY401",
+    "HISTORY500",
+    "HISTSCI555",
+    "HISTORY600"
+  ],
+  "ME 160": [
+    "CIVENGR392"
+  ],
+  "GNS 539": [
+    "GNS540.00"
+  ],
+  "MUSIC 222": [
+    "MUSIC523",
+    "MUSIC272"
+  ],
+  "PLPATH 300": [
+    "PLPATH559",
+    "PLPATH602",
+    "PLPATH517"
+  ],
+  "PHYSICS 322": [
+    "PHYSICS531",
+    "PHYSICS323",
+    "ECE434",
+    "NE536",
+    "PHYSICS325",
+    "ECE525",
+    "PHYSICS448",
+    "PHYSICS603",
+    "PHYSICS625",
+    "NE528"
+  ],
+  "NEURODPT, NTP 610": [
+    "NEURODPT640",
+    "NEURODPT611",
+    "NEUROL735"
+  ],
+  "FINANCE 305": [
+    "FINANCE340",
+    "FINANCE601",
+    "FINANCE410",
+    "FINANCE635",
+    "FINANCE420",
+    "FINANCE650",
+    "FINANCE503",
+    "INTLBUS445"
+  ],
+  "PUBLHLTH 787": [
+    "PUBLHLTH788"
+  ],
+  "SOC, C&ESOC 361": [
+    "SOC693",
+    "SOC362"
+  ],
+  "ENGL 408": [
+    "ENGL508",
+    "ENGL409",
+    "ENGL411",
+    "ENGL410",
+    "ENGL509",
+    "ENGL307",
+    "ENGL695",
+    "ENGL407"
+  ],
+  "ART 326": [
+    "ART526",
+    "ART242",
+    "ART336",
+    "ART446",
+    "ART302",
+    "ART312",
+    "ART636",
+    "ART348"
+  ],
+  "GEN&WS 449": [
+    "GEN&WS547",
+    "GEN&WS546"
+  ],
+  "KINES 372": [
+    "KINES373",
+    "KINES375"
+  ],
+  "CIVENGR 494": [
+    "PUBAFFR694"
+  ],
+  "DYSCI, ANSCI 102": [
+    "ANSCI324"
+  ],
+  "PORTUG 221": [
+    "PORTUG640",
+    "PORTUG468",
+    "AFRICAN451",
+    "PORTUG467",
+    "PORTUG411"
+  ],
+  "POLISCI 120": [
+    "POLISCI182",
+    "POLISCI437",
+    "POLISCI339",
+    "POLISCI347",
+    "POLISCI635",
+    "POLISCI329",
+    "POLISCI433",
+    "INTLST325",
+    "POLISCI659",
+    "POLISCI529",
+    "POLISCI349"
+  ],
+  "GREEK 305": [
+    "GREEK306"
+  ],
+  "CHEM 327": [
+    "CHEM329",
+    "CHEM665",
+    "CHEM575",
+    "CHEM561",
+    "CHEM524",
+    "CHEM563"
+  ],
+  "MUSPERF 104": [
+    "MUSIC304"
+  ],
+  "PSYCH 610": [
+    "PSYCH910",
+    "PSYCH752"
+  ],
+  "CIVENGR 576": [
+    "CIVENGR578"
+  ],
+  "SOC, PSYCH 453": [
+    "SOC160",
+    "PSYCH532",
+    "PSYCH508"
+  ],
+  "ECE 342": [
+    "ECE412"
+  ],
+  "EDPSYCH 709": [
+    "EDPSYCH710"
+  ],
+  "PORTUG 225": [
+    "PORTUG312",
+    "PORTUG330",
+    "PORTUG226",
+    "PORTUG311",
+    "PORTUG642"
+  ],
+  "ART 307": [
+    "ART507"
+  ],
+  "ABT 789": [
+    "ABT790"
+  ],
+  "GENETICS 702": [
+    "GENETICS808"
+  ],
+  "CIVENGR 340": [
+    "CIVENGR445",
+    "CIVENGR440",
+    "CIVENGR447"
+  ],
+  "CBE 660": [
+    "CBE720"
+  ],
+  "GENETICS 468": [
+    "GENETICS566",
+    "PLPATH517",
+    "BOTANY505",
+    "GENETICS564",
+    "MICROBIO612",
+    "GENETICS548",
+    "BIOCHEM631",
+    "GENETICS466",
+    "PLPATH622",
+    "BIOLOGY522",
+    "GENETICS627",
+    "MDGENET565",
+    "MDGENET677",
+    "GENETICS633"
+  ],
+  "ASIALANG 128": [
+    "ASIALANG227"
+  ],
+  "COUNPSY 650": [
+    "COUNPSY655"
+  ],
+  "ART 232": [
+    "ART332",
+    "ART336",
+    "ART302",
+    "ART312",
+    "ART326",
+    "ART452"
+  ],
+  "LITTRANS 203": [
+    "LITTRANS201"
+  ],
+  "BME 310": [
+    "ME445",
+    "ME455",
+    "BME550",
+    "BME400"
+  ],
+  "GERMAN 403": [
+    "GERMAN404"
+  ],
+  "MS&E 748": [
+    "MS&E758"
+  ],
+  "SOCWORK 815": [
+    "SOCWORK816"
+  ],
+  "AMERIND 308": [
+    "AMERIND309"
+  ],
+  "MUSPERF 409": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "SCANDST 202": [
+    "SCANDST251",
+    "SCANDST434",
+    "SCANDST476",
+    "SCANDST475",
+    "SCANDST419",
+    "SCANDST450",
+    "SCANDST427",
+    "SCANDST635",
+    "SCANDST424",
+    "SCANDST422",
+    "SCANDST373",
+    "SCANDST374"
+  ],
+  "ECON 711": [
+    "AAE760",
+    "AAE762",
+    "AAE747",
+    "AAE731",
+    "AAE730",
+    "AAE746",
+    "ECON713"
+  ],
+  "NE 305": [
+    "MEDPHYS506",
+    "NE536",
+    "NE408",
+    "NE405",
+    "NE411",
+    "NE427"
+  ],
+  "NURSING 436": [
+    "NURSING442",
+    "NURSING445",
+    "NURSING443",
+    "NURSING446",
+    "NURSING444"
+  ],
+  "ME 361": [
+    "ME469",
+    "ME368",
+    "ME472",
+    "EP566",
+    "ME561",
+    "NE565",
+    "CBE512",
+    "BSE476",
+    "BSE364",
+    "BSE464",
+    "ME363",
+    "NE520",
+    "ME364",
+    "NE411"
+  ],
+  "PHYSICS 241": [
+    "ASTRON465",
+    "PHYSICS406",
+    "MEDPHYS569",
+    "ASTRON340",
+    "PHYSICS448",
+    "PHYSICS531",
+    "MEDPHYS567",
+    "MS&E570",
+    "PHYSICS551",
+    "ECE535",
+    "MEDPHYS563",
+    "MEDPHYS578",
+    "MEDPHYS568",
+    "ASTRON310",
+    "PHYSICS205",
+    "PHYSICS415",
+    "ASTRON335",
+    "ASTRON320",
+    "NE305"
+  ],
+  "CS&D 201": [
+    "CS&D303",
+    "CS&D315",
+    "CS&D425",
+    "CS&D318"
+  ],
+  "MHR 704": [
+    "MHR604"
+  ],
+  "DANCE 118": [
+    "DANCE218"
+  ],
+  "ASIALANG 132": [
+    "ASIALANG231"
+  ],
+  "MATH 345": [
+    "COMPSCI541",
+    "STAT456",
+    "STAT453",
+    "STAT451",
+    "COMPSCI566",
+    "STAT433",
+    "BMI567"
+  ],
+  "MUSPERF 457": [
+    "MUSPERF458"
+  ],
+  "AFRICAN 321": [
+    "AFRICAN322",
+    "AFRICAN340"
+  ],
+  "OBS&GYN 955": [
+    "OBS&GYN956"
+  ],
+  "AFRICAN 329": [
+    "AFRICAN330",
+    "AFRICAN344"
+  ],
+  "AFRICAN 203": [
+    "AFRICAN413",
+    "AFRICAN402",
+    "AFRICAN406",
+    "AFRICAN412"
+  ],
+  "CHICLA 210": [
+    "LEGALST440",
+    "LEGALST443",
+    "SOC470"
+  ],
+  "ASIALANG 357": [
+    "ASIALANG204",
+    "ASIALANG358",
+    "ASIALANG230"
+  ],
+  "SOC 375": [
+    "SOC376"
+  ],
+  "ASIALANG 348": [
+    "ASIALANG328"
+  ],
+  "ASIALANG 203": [
+    "ASIAN355",
+    "ASIAN376",
+    "ASIAN358",
+    "ASIAN378",
+    "ASIAN353",
+    "ASIALANG204",
+    "ASIAN434"
+  ],
+  "ECON 312": [
+    "ECON442",
+    "ECON461",
+    "ECON435",
+    "ECON475",
+    "ECON661",
+    "ECON302",
+    "FINANCE503",
+    "ECON666",
+    "ECON580"
+  ],
+  "ART 343": [
+    "ART414"
+  ],
+  "ASIALANG 205": [
+    "ASIALANG206"
+  ],
+  "PHILOS 211": [
+    "PHILOS511",
+    "PHILOS512"
+  ],
+  "RP&SE 125": [
+    "RP&SE505",
+    "RP&SE535",
+    "RP&SE520"
+  ],
+  "F&WECOL, ENVIRST, ZOOLOGY 360": [
+    "ANTHRO458",
+    "ANTHRO603",
+    "ANTHRO605",
+    "ANTHRO668",
+    "ANTHRO304"
+  ],
+  "NURSING 726": [
+    "NURSING728",
+    "NURSING727"
+  ],
+  "ENGL 409": [
+    "ENGL508",
+    "ENGL411",
+    "ENGL410",
+    "ENGL509",
+    "ENGL307",
+    "ENGL695",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "LANDARC, ARTHIST, ANTHRO, HISTORY, DS 264": [
+    "DS650"
+  ],
+  "PSYCH 414": [
+    "PSYCH515",
+    "PSYCH513",
+    "PSYCH532",
+    "PSYCH528",
+    "PSYCH503",
+    "PSYCH521",
+    "PSYCH502"
+  ],
+  "JOURN 202": [
+    "JOURN335",
+    "HDFS616",
+    "JOURN203",
+    "JOURN345"
+  ],
+  "MS&E 530": [
+    "MS&E752"
+  ],
+  "ACTSCI 650": [
+    "ACTSCI651"
+  ],
+  "ITALIAN 102": [
+    "ITALIAN203",
+    "ITALIAN201",
+    "ITALIAN205"
+  ],
+  "REALEST 425": [
+    "REALEST530"
+  ],
+  "COMPSCI 300": [
+    "COMPSCI539",
+    "ISYE350",
+    "MATH514",
+    "ECE553",
+    "STAT405",
+    "GEOG576",
+    "ECE353",
+    "COMPSCI638",
+    "COMPSCI402",
+    "COMPSCI541",
+    "ISYE526",
+    "MATH513",
+    "COMPSCI532",
+    "COMPSCI540",
+    "ISYE524",
+    "COMPSCI412",
+    "ECE556",
+    "ME331",
+    "COMPSCI578",
+    "ISYE620",
+    "BME463",
+    "ME472",
+    "COMPSCI354",
+    "COMPSCI102",
+    "ISYE521",
+    "ME468",
+    "ECE453",
+    "COMPSCI534",
+    "ECE432",
+    "ISYE643",
+    "MATH444",
+    "ME459",
+    "MATH345",
+    "COMPSCI320",
+    "NE412",
+    "COMPSCI502",
+    "BSE405",
+    "EP476",
+    "COMPSCI400",
+    "ECE455"
+  ],
+  "MUSIC 271": [
+    "MUSIC252",
+    "MUSIC253"
+  ],
+  "ANAT&PHY 435": [
+    "NEURODPT629",
+    "PHMSCI581",
+    "M&ENVTOX625",
+    "KINES523",
+    "PHMSCI521",
+    "ANAT&PHY335"
+  ],
+  "FOODSCI 550": [
+    "FOODSCI551"
+  ],
+  "INTLBUS, FRENCH 313": [
+    "INTLBUS314"
+  ],
+  "ELPA 750": [
+    "ELPA755"
+  ],
+  "PSYCH 225": [
+    "PSYCH607",
+    "PSYCH380",
+    "PSYCH603",
+    "PSYCH601",
+    "PSYCH612",
+    "PSYCH626"
+  ],
+  "MUSIC, CURRIC 301": [
+    "MUSIC337",
+    "MUSIC302"
+  ],
+  "SCANDST 221": [
+    "SCANDST222"
+  ],
+  "STAT 303": [
+    "ECON695",
+    "STAT405",
+    "ECON400",
+    "STAT333",
+    "STAT436",
+    "STAT304",
+    "ECON570"
+  ],
+  "MUSPERF 427": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "CHICLA, POLISCI 231": [
+    "LEGALST440",
+    "SOC470",
+    "LEGALST443",
+    "CHICLA501"
+  ],
+  "CBE 620": [
+    "CBE720"
+  ],
+  "ASTRON 200": [
+    "ASTRON103",
+    "ASTRON104"
+  ],
+  "ECON 725": [
+    "ECON726",
+    "ECON771"
+  ],
+  "MATH, COMPSCI, STAT 475": [
+    "COMPSCI520",
+    "COMPSCI577"
+  ],
+  "ASIALANG 237": [
+    "ASIALANG238"
+  ],
+  "GENBUS 360": [
+    "GENBUS400"
+  ],
+  "ITALIAN 311": [
+    "ITALIAN452",
+    "PORTUG301",
+    "ITALIAN429"
+  ],
+  "PHYSICS 208": [
+    "BME310",
+    "PHYSICS311",
+    "MS&E456",
+    "MEDPHYS410",
+    "PHYSICS104",
+    "PHYSICS307",
+    "SOILSCI631",
+    "NEURODPT610",
+    "PHYSICS241",
+    "ATMOCN630",
+    "ECE235",
+    "MEDPHYS651",
+    "ME578",
+    "CHEM562",
+    "CIVENGR496",
+    "PHYSICS325",
+    "GLE594",
+    "MEDPHYS575",
+    "MEDPHYS265",
+    "MEDPHYS573",
+    "ECE535",
+    "ECE222",
+    "NEURODPT640",
+    "PHYSICS202",
+    "ECE230",
+    "ATMOCN330",
+    "ATMOCN310",
+    "MEDPHYS568",
+    "MEDPHYS578",
+    "ECE377",
+    "CIVENGR497",
+    "PHYSICS361",
+    "MEDPHYS619",
+    "CHEM524",
+    "SOILSCI622",
+    "ATMOCN610",
+    "ATMOCN640",
+    "PHYSICS205",
+    "ME376",
+    "PHYSICS322",
+    "PHYSICS623",
+    "PHYSICS321",
+    "MEDPHYS535",
+    "BME651",
+    "ECE376",
+    "ECE220",
+    "PHYSICS301"
+  ],
+  "PLANTSCI 334": [
+    "PLANTSCI335"
+  ],
+  "LSC 212": [
+    "LSC560"
+  ],
+  "COMPBIO, PATH-BIO 812": [
+    "OBS&GYN956"
+  ],
+  "ASIALANG 355": [
+    "ASIALANG138",
+    "ASIALANG126",
+    "ASIALANG124",
+    "ASIALANG356",
+    "ASIALANG140",
+    "ASIALANG128",
+    "ASIALANG132"
+  ],
+  "ME 310": [
+    "ME514",
+    "ME437"
+  ],
+  "MATH 519": [
+    "MATH619"
+  ],
+  "FISC 20": [
+    "FISC122"
+  ],
+  "MUSPERF 347": [
+    "MUSPERF348"
+  ],
+  "PSYCH 681": [
+    "PSYCH686"
+  ],
+  "ENVIRST, ILS 126": [
+    "ENTOM490"
+  ],
+  "CIVENGR 325": [
+    "CIVENGR495"
+  ],
+  "MATH 531": [
+    "COMPSCI541",
+    "MATH616",
+    "ISYE350",
+    "COMPSCI566",
+    "ISYE349",
+    "ISYE412",
+    "ISYE315",
+    "MATH632",
+    "COMPSCI561",
+    "MATH310",
+    "STAT312",
+    "STAT461",
+    "MATH535",
+    "ISYE320"
+  ],
+  "GEOG 579": [
+    "GEOG778",
+    "GEOG777"
+  ],
+  "ASIALANG 302": [
+    "ASIALANG401",
+    "ASIALANG457",
+    "ASIAN642",
+    "ASIALANG454",
+    "ASIAN641"
+  ],
+  "THEATRE 160": [
+    "THEATRE270",
+    "THEATRE221",
+    "THEATRE266",
+    "THEATRE379",
+    "THEATRE370",
+    "THEATRE222"
+  ],
+  "PHYASST 662": [
+    "PHYASST663"
+  ],
+  "ART 306": [
+    "ART336",
+    "ART446",
+    "ART302",
+    "ART326",
+    "ART636",
+    "ART348",
+    "ART506"
+  ],
+  "ECON 701": [
+    "ECON708"
+  ],
+  "FISC 57": [
+    "FISC133"
+  ],
+  "GENBUS 760": [
+    "GENBUS746"
+  ],
+  "COMPSCI, LIS 613": [
+    "COMPSCI614"
+  ],
+  "FRENCH 102": [
+    "FRENCH203",
+    "FRENCH105"
+  ],
+  "FRENCH 465": [
+    "FRENCH568",
+    "FRENCH569",
+    "FRENCH567"
+  ],
+  "SOCWORK 205": [
+    "SOCWORK639",
+    "SOC422",
+    "SOCWORK454",
+    "SOCWORK644"
+  ],
+  "ASIALANG 105": [
+    "ASIALANG106"
+  ],
+  "CURRIC 810": [
+    "CURRIC811"
+  ],
+  "ASIALANG 202": [
+    "ASIALANG378",
+    "ASIALANG379",
+    "ASIALANG311",
+    "ASIALANG301"
+  ],
+  "CS&D 210": [
+    "CS&D503"
+  ],
+  "GEOG 359": [
+    "ENVIRST537"
+  ],
+  "GLE, CIVENGR 434": [
+    "GLE479"
+  ],
+  "PSYCH 403": [
+    "PSYCH532",
+    "PSYCH528",
+    "PSYCH503",
+    "PSYCH526",
+    "PSYCH508"
+  ],
+  "ME 746": [
+    "ME732"
+  ],
+  "CBE 440": [
+    "MS&E553",
+    "MS&E333",
+    "MS&E332",
+    "MS&E660"
+  ],
+  "ITALIAN 312": [
+    "ITALIAN452"
+  ],
+  "AAE 719": [
+    "AAE724"
+  ],
+  "LAW 742": [
+    "ACCTIS724",
+    "ACCTIS725",
+    "LAW840",
+    "LAW870",
+    "LAW868"
+  ],
+  "EDPOL 209": [
+    "EDPOL605",
+    "EDPOL309"
+  ],
+  "CURRIC 314": [
+    "CURRIC315"
+  ],
+  "SCANDST 271": [
+    "SCANDST411",
+    "SCANDST401"
+  ],
+  "CSCS 255": [
+    "CSCS555"
+  ],
+  "BIOCHEM 507": [
+    "MICROBIO668",
+    "BIOCHEM625",
+    "MICROBIO357",
+    "CHEM665",
+    "MICROBIO626",
+    "BIOCHEM551",
+    "MICROBIO612",
+    "MICROBIO526",
+    "PLANTSCI550",
+    "CRB640",
+    "NUTRSCI510",
+    "BOTANY621",
+    "BIOCHEM601",
+    "BIOCHEM508",
+    "NUTRSCI560",
+    "CRB630"
+  ],
+  "AFRICAN 204": [
+    "AFRICAN407"
+  ],
+  "ASIALANG 211": [
+    "ASIALANG212"
+  ],
+  "MATH, COMPSCI 240": [
+    "COMPSCI520",
+    "MATH467",
+    "COMPSCI412",
+    "MATH461",
+    "COMPSCI577"
+  ],
+  "ME 340": [
+    "ME376",
+    "ME368",
+    "ME447",
+    "BME415",
+    "ME314",
+    "ME440",
+    "ME578",
+    "ME441",
+    "ME446"
+  ],
+  "PORTUG 202": [
+    "PORTUG221",
+    "PORTUG312",
+    "PORTUG225",
+    "PORTUG226",
+    "PORTUG311",
+    "PORTUG302"
+  ],
+  "ECE 317": [
+    "ECE455"
+  ],
+  "SLAVIC 115": [
+    "SLAVIC116"
+  ],
+  "ART 524": [
+    "ART624"
+  ],
+  "EDPSYCH 320": [
+    "HDFS462",
+    "HDFS425",
+    "HDFS662",
+    "HDFS650",
+    "HDFS616",
+    "HDFS663",
+    "HDFS464",
+    "HDFS471"
+  ],
+  "AFRICAN 435": [
+    "AFRICAN436"
+  ],
+  "ELPA, EDPSYCH, RP&SE, CURRIC, COUNPSY, EDPOL 719": [
+    "ELPA788"
+  ],
+  "GEOG 378": [
+    "GEOG573",
+    "GEOG778",
+    "GEOG576",
+    "GEOG575",
+    "GEOG777"
+  ],
+  "GENBUS 704": [
+    "FINANCE757",
+    "GENBUS740",
+    "RMI655",
+    "FINANCE720",
+    "FINANCE740",
+    "GENBUS725",
+    "OTM751",
+    "RMI660"
+  ],
+  "SOCWORK 441": [
+    "SOCWORK741",
+    "SOCWORK835",
+    "SOCWORK821",
+    "SOCWORK873",
+    "SOCWORK874"
+  ],
+  "ENGL 411": [
+    "ENGL508",
+    "ENGL409",
+    "ENGL410",
+    "ENGL509",
+    "ENGL695",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "BMI, STAT 541": [
+    "BMI567",
+    "BMI542",
+    "BMI552"
+  ],
+  "PUBAFFR 200": [
+    "PUBAFFR369"
+  ],
+  "ME 569": [
+    "ME774"
+  ],
+  "ENGL 695": [
+    "ENGL508",
+    "ENGL409",
+    "ENGL410",
+    "ENGL509",
+    "ENGL307",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "INTLST 101": [
+    "INTLST431",
+    "POLISCI377",
+    "POLISCI359",
+    "POLISCI347",
+    "POLISCI350",
+    "POLISCI348",
+    "POLISCI433",
+    "POLISCI345",
+    "INTLST325",
+    "POLISCI343",
+    "POLISCI529",
+    "POLISCI354"
+  ],
+  "FINANCE 725": [
+    "FINANCE650"
+  ],
+  "SCANDST 415": [
+    "LINGUIS303"
+  ],
+  "ECE, NE, PHYSICS 525": [
+    "ECE527",
+    "NE526"
+  ],
+  "ATMOCN 100": [
+    "ATMOCN201",
+    "ATMOCN101"
+  ],
+  "ELPA 841": [
+    "ELPA910"
+  ],
+  "ART 302": [
+    "ART222"
+  ],
+  "BIOCORE 485": [
+    "BIOCORE486",
+    "NTP660",
+    "M&ENVTOX625",
+    "BIOCORE587",
+    "ENVIRST520"
+  ],
+  "PSYCH 449": [
+    "PSYCH503",
+    "PSYCH515",
+    "PSYCH513",
+    "PSYCH532"
+  ],
+  "DANCE 255": [
+    "DANCE455"
+  ],
+  "MATH 341": [
+    "MATH514",
+    "STAT456",
+    "MATH571",
+    "STAT453",
+    "MATH321",
+    "MATH521",
+    "MATH415",
+    "ISYE624",
+    "COMPSCI561",
+    "COMPSCI541",
+    "MATH435",
+    "MATH513",
+    "COMPSCI532",
+    "MATH519",
+    "MATH525",
+    "STAT451",
+    "MATH425",
+    "BMOLCHEM609",
+    "ME536",
+    "ISYE524",
+    "MATH632",
+    "ME331",
+    "SOC376",
+    "MATH471",
+    "ME441",
+    "MATH616",
+    "MATH570",
+    "COMPSCI557",
+    "MATH443",
+    "MATH551",
+    "MATH522",
+    "MATH540",
+    "MATH444",
+    "STAT575",
+    "MATH345",
+    "MATH561",
+    "MATH475",
+    "COMPSCI566",
+    "MATH541",
+    "STAT433",
+    "ISYE323",
+    "BMI567",
+    "MATH535"
+  ],
+  "STAT 301": [
+    "SOILSCI585",
+    "SOC618",
+    "STAT424",
+    "STAT303",
+    "PLPATH315",
+    "FINANCE300",
+    "AAE421",
+    "SOC361",
+    "BOTANY563",
+    "F&WECOL565",
+    "SOC674",
+    "MATH310",
+    "SOC375",
+    "PUBAFFR340",
+    "SOC365",
+    "SOC351",
+    "CNSRSCI201",
+    "FOODSCI412",
+    "F&WECOL458",
+    "KINES330",
+    "STAT333",
+    "AAE526",
+    "BMI567",
+    "PLPATH602"
+  ],
+  "ISYE 350": [
+    "ISYE450"
+  ],
+  "MATH, STAT 710": [
+    "STAT841",
+    "STAT809",
+    "STAT834",
+    "STAT760"
+  ],
+  "CHEM 116": [
+    "SOILSCI324",
+    "ZOOLOGY370",
+    "SOILSCI631",
+    "SOILSCI323",
+    "CHEM343",
+    "CHEM341",
+    "CIVENGR320",
+    "CIVENGR500",
+    "CIVENGR501",
+    "CHEM561",
+    "BSE349",
+    "SOILSCI451",
+    "BIOCHEM301",
+    "CHEM665",
+    "BME330",
+    "CHEM524",
+    "MICROBIO523",
+    "CHEM344",
+    "CHEM563",
+    "CHEM375",
+    "CHEM311",
+    "BME310",
+    "PLANTSCI340",
+    "CBE250",
+    "SOILSCI621",
+    "ZOOLOGY523"
+  ],
+  "PHYSICS 311": [
+    "ASTRON550",
+    "PHYSICS415",
+    "EMA642",
+    "EMA542",
+    "EMA521",
+    "EMA545",
+    "PHYSICS448",
+    "PHYSICS603",
+    "PHYSICS531"
+  ],
+  "INTER-AG 140": [
+    "INTER-AG141"
+  ],
+  "AFRICAN 373": [
+    "AFRICAN374"
+  ],
+  "ACCTIS 100": [
+    "MHR422",
+    "ACCTIS300",
+    "ACCTIS211",
+    "ACCTIS640",
+    "FINANCE205",
+    "ACCTIS301",
+    "CNSRSCI564",
+    "FINANCE300",
+    "ACCTIS329"
+  ],
+  "ANTHRO 104": [
+    "ANTHRO340",
+    "ANTHRO348",
+    "ANTHRO477",
+    "ANTHRO456",
+    "ANTHRO345",
+    "ANTHRO343",
+    "ANTHRO330"
+  ],
+  "PHYSICS 449": [
+    "BME501"
+  ],
+  "EPD 645": [
+    "EPD646"
+  ],
+  "CNP 453": [
+    "CNP519"
+  ],
+  "PATH 404": [
+    "M&ENVTOX625",
+    "PHMSCI581",
+    "PHMSCI521"
+  ],
+  "BIOCORE 486": [
+    "M&ENVTOX625",
+    "PHMSCI581",
+    "PHMSCI521"
+  ],
+  "ABT 730": [
+    "ABT785",
+    "ABT780"
+  ],
+  "AFROAMER, HISTORY, POLISCI, AFRICAN, GEOG, SOC, ANTHRO 277": [
+    "POLISCI329"
+  ],
+  "PORTUG 226": [
+    "PORTUG312",
+    "PORTUG330",
+    "ITALIAN429",
+    "PORTUG311",
+    "PORTUG642"
+  ],
+  "ENVIRST, ATMOCN 171": [
+    "ENVIRST520",
+    "ATMOCN201"
+  ],
+  "AAE 721": [
+    "AAE723"
+  ],
+  "PHYSICS 323": [
+    "BME501"
+  ],
+  "SCANDST 251": [
+    "SCANDST411",
+    "SCANDST401"
+  ],
+  "EDPSYCH 795": [
+    "EDPSYCH796"
+  ],
+  "GNS 332": [
+    "GNS431.00"
+  ],
+  "AFRICAN 405": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "LATIN 391": [
+    "LATIN305"
+  ],
+  "GREEK 304": [
+    "GREEK305"
+  ],
+  "ECE 304": [
+    "ECE455"
+  ],
+  "GENECSLR 739": [
+    "GENECSLR990",
+    "GENECSLR745"
+  ],
+  "ART 546": [
+    "ART656",
+    "ART556",
+    "ART560",
+    "ART564"
+  ],
+  "AMERIND 100": [
+    "HISTORY380"
+  ],
+  "MEDPHYS, BME 568": [
+    "MEDPHYS710"
+  ],
+  "GNS 429": [
+    "GNS529",
+    "GNS460"
+  ],
+  "ABT 700": [
+    "ABT735",
+    "ABT775",
+    "ABT765",
+    "ABT715",
+    "ABT740",
+    "ABT770",
+    "ABT745"
+  ],
+  "DS 227": [
+    "DS427"
+  ],
+  "MUSIC 253": [
+    "MUSIC254"
+  ],
+  "KINES 624": [
+    "KINES625"
+  ],
+  "GLE, GEOSCI, LANDARC, F&WECOL, ENVIRST, GEOG 371": [
+    "ENVIRST931",
+    "SOILSCI585",
+    "ENVIRST971",
+    "ENVIRST956",
+    "ENVIRST556"
+  ],
+  "CNSRSCI 627": [
+    "CNSRSCI675"
+  ],
+  "GENBUS 725": [
+    "MHR776"
+  ],
+  "EMA 519": [
+    "EMA569"
+  ],
+  "PHYSICS 731": [
+    "PHYSICS779",
+    "PHYSICS716",
+    "PHYSICS707"
+  ],
+  "ELPA 701": [
+    "ELPA882"
+  ],
+  "SOILSCI 326": [
+    "SOILSCI332"
+  ],
+  "PHYSICS 104": [
+    "NEURODPT640",
+    "SOILSCI631",
+    "MEDPHYS651",
+    "PHYSICS361",
+    "SOILSCI622",
+    "MEDPHYS619",
+    "MEDPHYS265"
+  ],
+  "REALEST 540": [
+    "REALEST841"
+  ],
+  "ELPA 840": [
+    "ELPA910"
+  ],
+  "ENVIRST, GEOG 439": [
+    "ENVIRST537"
+  ],
+  "MATH 213": [
+    "MATH222",
+    "FINANCE330",
+    "MATH331",
+    "FINANCE320",
+    "ECON302",
+    "ACTSCI303",
+    "ECON301",
+    "FINANCE457",
+    "MATH221",
+    "FINANCE325"
+  ],
+  "INTER-AG 388": [
+    "INTER-AG488"
+  ],
+  "MICROBIO, FOODSCI 325": [
+    "FOODSCI432",
+    "MICROBIO324"
+  ],
+  "ATMOCN 310": [
+    "ATMOCN401",
+    "ATMOCN405",
+    "ATMOCN311"
+  ],
+  "ASTRON 104": [
+    "ASTRON150"
+  ],
+  "DANCE 373": [
+    "DANCE379"
+  ],
+  "ECE 455": [
+    "ECE454",
+    "ECE554",
+    "ECE453"
+  ],
+  "NURSING 713": [
+    "NURSING830"
+  ],
+  "CIVENGR 821": [
+    "CIVENGR621"
+  ],
+  "AMERIND 310": [
+    "AMERIND311"
+  ],
+  "ECE 320": [
+    "ECE420",
+    "ECE525",
+    "ECE447",
+    "ECE434",
+    "BME651",
+    "NE528"
+  ],
+  "OCCTHER 664": [
+    "OCCTHER883"
+  ],
+  "LEGALST, HISTORY 261": [
+    "LEGALST510",
+    "LEGALST477"
+  ],
+  "MEDSC-M 911": [
+    "RADIOL928"
+  ],
+  "ART 465": [
+    "ART656",
+    "ART556",
+    "ART560",
+    "ART564"
+  ],
+  "MATH 321": [
+    "PHYSICS311",
+    "EP547",
+    "STAT451",
+    "PHYSICS322",
+    "STAT453",
+    "MATH623",
+    "EMA521",
+    "MATH322",
+    "NE405"
+  ],
+  "ECON 709": [
+    "AAE760",
+    "AAE737",
+    "MARKETNG779",
+    "AAE762",
+    "GENBUS775",
+    "AAE747",
+    "ECON710",
+    "AAE731",
+    "AAE730",
+    "AAE746"
+  ],
+  "PUBAFFR 201": [
+    "PUBAFFR360"
+  ],
+  "AMERIND 303": [
+    "AMERIND304"
+  ],
+  "ART 312": [
+    "ART302",
+    "ART512"
+  ],
+  "PLANTSCI 501": [
+    "PLPATH517"
+  ],
+  "BSE 249": [
+    "CIVENGR322",
+    "BSE364",
+    "BSE461"
+  ],
+  "ENGL 307": [
+    "ENGL508",
+    "ENGL409",
+    "ENGL411",
+    "ENGL410",
+    "ENGL509",
+    "ENGL695",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "GLE, GEOSCI 629": [
+    "GLE479"
+  ],
+  "HISTSCI 623": [
+    "HISTORY323"
+  ],
+  "CURRIC 454": [
+    "CURRIC463"
+  ],
+  "EMA 710": [
+    "BME715"
+  ],
+  "BIOCORE 383": [
+    "GENETICS588",
+    "ONCOLOGY401",
+    "BIOCORE401",
+    "MICROBIO626",
+    "ZOOLOGY370",
+    "CBE560",
+    "GENETICS605",
+    "CRB650",
+    "PSYCH612",
+    "ZOOLOGY570",
+    "BME520",
+    "ENTOM624",
+    "DYSCI373",
+    "BME550",
+    "DYSCI434",
+    "ANSCI336",
+    "ZOOLOGY603",
+    "BME556",
+    "DYSCI361",
+    "BIOCORE485",
+    "CHEM665",
+    "BME430",
+    "CRB640",
+    "MM&I528",
+    "BIOCORE384",
+    "MDGENET677",
+    "NEURODPT674",
+    "MM&I554",
+    "DYSCI320",
+    "CRB675",
+    "MICROBIO545",
+    "ANSCI377",
+    "PSYCH603",
+    "MDGENET662",
+    "MICROBIO303",
+    "ZOOLOGY371",
+    "ANSCI420",
+    "DYSCI378",
+    "ZOOLOGY523"
+  ],
+  "NE 408": [
+    "MEDPHYS506"
+  ],
+  "PSYCH 401": [
+    "PSYCH532",
+    "PSYCH626",
+    "PSYCH526"
+  ],
+  "PHMPRAC 656": [
+    "PHMPRAC657"
+  ],
+  "JOURN 345": [
+    "JOURN417",
+    "JOURN449",
+    "JOURN447",
+    "JOURN445",
+    "JOURN464",
+    "JOURN456",
+    "JOURN411",
+    "JOURN457",
+    "JOURN463",
+    "JOURN475",
+    "JOURN455",
+    "JOURN465"
+  ],
+  "ART 224": [
+    "ART414",
+    "ART324",
+    "ART334",
+    "ART354"
+  ],
+  "NURSING 315": [
+    "NURSING435",
+    "NURSING325",
+    "NURSING326"
+  ],
+  "ECE 745": [
+    "ECE845"
+  ],
+  "DS, GENBUS 240": [
+    "DS650"
+  ],
+  "GREEK 103": [
+    "GREEK104"
+  ],
+  "MUSPERF 201": [
+    "MUSPERF342",
+    "MUSPERF242",
+    "MUSPERF251"
+  ],
+  "SPANISH 320": [
+    "SPANISH420"
+  ],
+  "ASIALANG 323": [
+    "ASIALANG324"
+  ],
+  "BIOCHEM 501": [
+    "BIOCHEM625",
+    "BME670",
+    "MICROBIO626",
+    "FOODSCI410",
+    "ANSCI415",
+    "PLANTSCI550",
+    "NUTRSCI675",
+    "PLPATH622",
+    "NUTRSCI631",
+    "CRB630",
+    "MICROBIO357",
+    "DYSCI311",
+    "BOTANY505",
+    "BIOCHEM551",
+    "MICROBIO526",
+    "NUTRSCI510",
+    "MDGENET620",
+    "NUTRSCI560",
+    "BIOCHEM301",
+    "PLPATH640",
+    "NUTRSCI645",
+    "CHEM665",
+    "MICROBIO612",
+    "CRB640",
+    "BOTANY621",
+    "BIOCHEM601",
+    "DYSCI414",
+    "MICROBIO668",
+    "MICROBIO657",
+    "M&ENVTOX625",
+    "DERM601",
+    "DYSCI378"
+  ],
+  "SCANDST 222": [
+    "SCANDST434",
+    "SCANDST476",
+    "SCANDST475",
+    "SCANDST419",
+    "SCANDST450",
+    "SCANDST271",
+    "SCANDST427",
+    "SCANDST635",
+    "SCANDST424",
+    "SCANDST422",
+    "SCANDST373",
+    "SCANDST374"
+  ],
+  "ASIALANG 222": [
+    "ASIALANG321"
+  ],
+  "ART 214": [
+    "ART414",
+    "ART334",
+    "ART343",
+    "ART354",
+    "ART314",
+    "ART521"
+  ],
+  "DS 622": [
+    "DS623"
+  ],
+  "SOC, C&ESOC 357": [
+    "SOC351",
+    "SOC693",
+    "SOC320",
+    "SOC674",
+    "SOC575"
+  ],
+  "AMERIND 302": [
+    "AMERIND401"
+  ],
+  "ISYE 415": [
+    "ISYE645"
+  ],
+  "ME 306": [
+    "EMA519",
+    "ME342",
+    "EMA541",
+    "EMA405",
+    "BME615",
+    "EP615",
+    "ME310",
+    "ME449",
+    "BME315",
+    "EMA630",
+    "EMA395",
+    "ME331",
+    "ME313",
+    "EMA506",
+    "ME368",
+    "EMA469",
+    "EMA570",
+    "BME516",
+    "ME444",
+    "EMA508",
+    "ME548",
+    "CIVENGR340",
+    "EMA307",
+    "ME460",
+    "ME311",
+    "ME440",
+    "EMA605",
+    "GLE330"
+  ],
+  "CURRIC 320": [
+    "CURRIC370"
+  ],
+  "BME 300": [
+    "BME400"
+  ],
+  "ASTRON 310": [
+    "ASTRON500",
+    "ASTRON330",
+    "ASTRON540",
+    "ASTRON620"
+  ],
+  "COMARTS 346": [
+    "COMARTS608",
+    "COMARTS547"
+  ],
+  "MS&E 332": [
+    "ME437"
+  ],
+  "COMARTS 355": [
+    "COMARTS651",
+    "COMARTS609",
+    "COMARTS466",
+    "COMARTS467",
+    "COMARTS465",
+    "COMARTS468"
+  ],
+  "SLAVIC 470": [
+    "SLAVIC472"
+  ],
+  "JOURN 335": [
+    "JOURN417",
+    "JOURN425",
+    "JOURN401",
+    "JOURN456",
+    "JOURN411",
+    "JOURN405",
+    "JOURN457",
+    "JOURN415",
+    "JOURN426",
+    "JOURN475",
+    "JOURN455",
+    "JOURN420"
+  ],
+  "JOURN 150": [
+    "JOURN450",
+    "JOURN651",
+    "MARKETNG410",
+    "JOURN350"
+  ],
+  "MEDSC-M 811": [
+    "NEUROL913",
+    "RADIOL920",
+    "FAMMED935",
+    "SURGERY912",
+    "SURGERY983",
+    "OBS&GYN909",
+    "POPHLTH918",
+    "ANESTHES911",
+    "EMERMED909",
+    "OBS&GYN935",
+    "MEDICINE920",
+    "MEDHIST741",
+    "MEDHIST742",
+    "MEDICINE928",
+    "MEDSC-M942",
+    "MEDICINE927",
+    "HONCOL911",
+    "SURGERY980",
+    "MEDSC-M913",
+    "OBS&GYN916",
+    "MEDICINE972",
+    "PATH913",
+    "MEDICINE905",
+    "OPHTHALM911",
+    "POPHLTH917",
+    "FAMMED920",
+    "SURGERY974",
+    "FAMMED941",
+    "PATH924",
+    "BMI901",
+    "PSYCHIAT931",
+    "MEDICINE913",
+    "UROLOGY938",
+    "PATH962",
+    "FAMMED938",
+    "FAMMED940",
+    "FAMMED919",
+    "MEDICINE923",
+    "SURGERY909",
+    "DERM955",
+    "PATH970",
+    "PSYCHIAT934",
+    "SURGERY975",
+    "PATH914",
+    "SURGERY976",
+    "EMERMED914",
+    "OBS&GYN938",
+    "EMERMED920",
+    "EMERMED940",
+    "SURGERY982",
+    "MEDICINE938",
+    "CRB860",
+    "FAMMED911",
+    "FAMMED926",
+    "MEDSC-M909",
+    "CRB810",
+    "MEDSC-M912",
+    "FAMMED790",
+    "HONCOL912",
+    "MEDSC-M914",
+    "MEDHIST746",
+    "NEUROL914",
+    "PEDIAT909",
+    "SURGERY911",
+    "FAMMED930",
+    "FAMMED931",
+    "FAMMED910",
+    "PEDIAT921",
+    "MEDICINE911",
+    "MEDICINE880",
+    "PATH923",
+    "FAMMED937",
+    "MEDSC-M722",
+    "OBS&GYN917",
+    "MEDICINE932",
+    "PATH960",
+    "SURGERY913",
+    "MEDICINE914",
+    "FAMMED933",
+    "RADIOL912",
+    "FAMMED927",
+    "MDGENET911",
+    "RADIOL911",
+    "PATH916",
+    "PSYCHIAT922",
+    "PATH921",
+    "MEDICINE924",
+    "SURGERY973",
+    "UROLOGY910",
+    "RADIOL914",
+    "MEDHIST740",
+    "MEDHIST744",
+    "MM&I902",
+    "SURGERY984",
+    "FAMMED909",
+    "SURGERY938",
+    "CRB850",
+    "PEDIAT938",
+    "MM&I911",
+    "PATH922",
+    "DERM904",
+    "NEURODPT747",
+    "FAMMED943",
+    "FAMMED924",
+    "PATH915",
+    "MEDHIST750",
+    "MEDHIST745"
+  ],
+  "PHYSICS 715": [
+    "PHYSICS716"
+  ],
+  "FINANCE 330": [
+    "FINANCE340",
+    "FINANCE601",
+    "FINANCE410",
+    "FINANCE635",
+    "FINANCE420",
+    "FINANCE650",
+    "FINANCE503",
+    "INTLBUS445"
+  ],
+  "GENBUS 791": [
+    "GENBUS792"
+  ],
+  "GERMAN 214": [
+    "GERMAN325"
+  ],
+  "MATH 421": [
+    "MATH616",
+    "MATH561",
+    "MATH519",
+    "MATH514",
+    "MATH570",
+    "MATH571",
+    "MATH619",
+    "MATH541",
+    "MATH521",
+    "MATH551",
+    "MATH632",
+    "MATH540",
+    "MATH531",
+    "MATH471",
+    "MATH535"
+  ],
+  "MS&E 441": [
+    "EMA541"
+  ],
+  "SPANISH 204": [
+    "SPANISH226"
+  ],
+  "ME 363": [
+    "NE411",
+    "EMA524",
+    "GLE511",
+    "BME505",
+    "ME370",
+    "ME364",
+    "EMA521",
+    "BSE464",
+    "ME572",
+    "BSE461",
+    "BSE474",
+    "ME573",
+    "ME563"
+  ],
+  "ENVIRST, GEOG 127": [
+    "BOTANY422",
+    "GEOSCI320",
+    "ENTOM490",
+    "ENVIRST120",
+    "GEOSCI420"
+  ],
+  "MUSPERF 144": [
+    "MUSIC463"
+  ],
+  "DANCE 101": [
+    "DANCE102"
+  ],
+  "ECON 712": [
+    "ECON714"
+  ],
+  "KINES 225": [
+    "KINES516"
+  ],
+  "GERMAN 101": [
+    "GERMAN102"
+  ],
+  "INFOSYS 322": [
+    "INFOSYS424"
+  ],
+  "GERMAN 402": [
+    "GERMAN403"
+  ],
+  "AFRICAN 407": [
+    "AFRICAN605",
+    "AFRICAN606"
+  ],
+  "AFRICAN 335": [
+    "AFRICAN336"
+  ],
+  "STAT 609": [
+    "MARKETNG779",
+    "STAT780",
+    "GENBUS775",
+    "BMI643"
+  ],
+  "SPANISH 102": [
+    "SPANISH103",
+    "SPANISH203"
+  ],
+  "ASIALANG 337": [
+    "ASIALANG338"
+  ],
+  "AMERIND 312": [
+    "AMERIND313"
+  ],
+  "MUSIC 172": [
+    "MUSIC122",
+    "MUSIC221",
+    "MUSIC211",
+    "MUSIC229",
+    "MUSIC212"
+  ],
+  "GLE, GEOSCI 370": [
+    "GEOSCI557",
+    "GEOSCI459",
+    "GEOSCI375",
+    "GLE455",
+    "GEOSCI515",
+    "GEOSCI610",
+    "GEOSCI457",
+    "GEOSCI430"
+  ],
+  "CHICLA 201": [
+    "POLISCI304",
+    "SOC470",
+    "LEGALST440",
+    "LEGALST443",
+    "CHICLA520",
+    "CHICLA501"
+  ],
+  "FOODSCI 412": [
+    "FOODSCI602"
+  ],
+  "GREEK 401": [
+    "GREEK571"
+  ],
+  "DS 120": [
+    "ART366",
+    "DS220",
+    "THEATRE328",
+    "THEATRE363",
+    "ART302",
+    "DS361",
+    "ART226",
+    "DS421",
+    "DS210"
+  ],
+  "ASIALANG 229": [
+    "ASIALANG230"
+  ],
+  "ATMOCN 101": [
+    "ATMOCN100",
+    "ENVIRST520",
+    "ATMOCN201"
+  ],
+  "KINES 527": [
+    "KINES528"
+  ],
+  "REALEST 410": [
+    "REALEST611",
+    "REALEST425",
+    "REALEST540",
+    "REALEST415",
+    "REALEST412",
+    "REALEST411",
+    "REALEST661",
+    "REALEST640",
+    "REALEST841"
+  ],
+  "PHYSICS 307": [
+    "PHYSICS407"
+  ],
+  "REALEST 412": [
+    "REALEST415"
+  ],
+  "BMI 883": [
+    "BMI884"
+  ],
+  "CHEM 665": [
+    "CHEM562",
+    "CHEM563",
+    "CHEM561"
+  ],
+  "BOTANY, ANTHRO, ZOOLOGY 410": [
+    "ANTHRO304",
+    "ANTHRO603",
+    "ANTHRO605",
+    "BIOLOGY522",
+    "ANTHRO668",
+    "GENETICS633"
+  ],
+  "DANCE 140": [
+    "DANCE240"
+  ],
+  "FOODSCI 150": [
+    "FOODSCI550"
+  ],
+  "KINES 150": [
+    "COUNPSY531",
+    "COUNPSY372"
+  ],
+  "SLAVIC 451": [
+    "SLAVIC452"
+  ],
+  "ASIALANG 335": [
+    "ASIALANG336"
+  ],
+  "SLAVIC 276": [
+    "SLAVIC321"
+  ],
+  "GEN&WS 441": [
+    "GEN&WS547",
+    "GEN&WS546"
+  ],
+  "LATIN 305": [
+    "LATIN306"
+  ],
+  "AAE 772": [
+    "AAE776"
+  ],
+  "CBE 426": [
+    "CBE450",
+    "CBE424"
+  ],
+  "ASIALANG 236": [
+    "ASIALANG335"
+  ],
+  "GEOSCI 110": [
+    "GLE627",
+    "GEOSCI542",
+    "GEOSCI551"
+  ],
+  "PUBAFFR 818": [
+    "PUBAFFR871",
+    "AAE881",
+    "PUBAFFR856",
+    "PUBAFFR819"
+  ],
+  "AGROECOL, ENVIRST, C&ESOC, ENTOM 103": [
+    "AGROECOL370",
+    "AGROECOL303",
+    "AGROECOL377",
+    "PLANTSCI300",
+    "AGROECOL503",
+    "AAE367"
+  ],
+  "MUSPERF 401": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "COUNPSY 531": [
+    "COUNPSY372"
+  ],
+  "COMPSCI, ECE 761": [
+    "COMPSCI861",
+    "ECE826",
+    "GENBUS775"
+  ],
+  "GERMAN 314": [
+    "GERMAN645",
+    "GERMAN625"
+  ],
+  "S&APHM 514": [
+    "S&APHM611"
+  ],
+  "CNSRSCI 275": [
+    "CNSRSCI675",
+    "CNSRSCI390",
+    "CNSRSCI627",
+    "CNSRSCI665",
+    "CNSRSCI635"
+  ],
+  "PHARMACY 125": [
+    "PHARMACY225",
+    "PHARMACY126"
+  ],
+  "COMPSCI, ME, ECE 532": [
+    "MATH535",
+    "ISYE570",
+    "COMPSCI561"
+  ],
+  "ENVIRST, GEOG 139": [
+    "ENTOM490",
+    "SOC541"
+  ],
+  "ESL 116": [
+    "ESL117"
+  ],
+  "DS 322": [
+    "DS624",
+    "DS622"
+  ],
+  "BME, ME 615": [
+    "BME715"
+  ],
+  "STAT 333": [
+    "STAT443",
+    "ACTSCI652",
+    "STAT456",
+    "FINANCE330",
+    "GENBUS656",
+    "FINANCE320",
+    "ACTSCI300",
+    "COMPSCI541",
+    "ECON695",
+    "ACTSCI654",
+    "ME536",
+    "STAT349",
+    "ACTSCI650",
+    "STAT461",
+    "STAT421",
+    "ECON570",
+    "ACTSCI655",
+    "BMI620",
+    "ACTSCI657",
+    "COMPSCI471",
+    "FINANCE325",
+    "STAT575",
+    "ACTSCI640",
+    "STAT351",
+    "COMPSCI566",
+    "STAT411",
+    "STAT433"
+  ],
+  "CIVENGR 415": [
+    "CIVENGR515"
+  ],
+  "PLANTSCI 350": [
+    "PLANTSCI351"
+  ],
+  "BMI, STAT 641": [
+    "BMI643"
+  ],
+  "ISYE 323": [
+    "ISYE445",
+    "ISYE450",
+    "ISYE645",
+    "ISYE521",
+    "ISYE625",
+    "ISYE615",
+    "ISYE517",
+    "ISYE510"
+  ],
+  "MARKETNG 700": [
+    "MARKETNG735",
+    "MARKETNG710",
+    "MARKETNG755",
+    "MARKETNG737",
+    "GENBUS725",
+    "MARKETNG730",
+    "MARKETNG775",
+    "MARKETNG765",
+    "MARKETNG724",
+    "MARKETNG705",
+    "MARKETNG726",
+    "MARKETNG745"
+  ],
+  "ASIALANG 125": [
+    "ASIALANG126"
+  ],
+  "COMPSCI 200": [
+    "COMPSCI539",
+    "ISYE350",
+    "MATH514",
+    "STAT405",
+    "COMPSCI300",
+    "COMPSCI638",
+    "COMPSCI402",
+    "COMPSCI541",
+    "ISYE526",
+    "MATH513",
+    "COMPSCI532",
+    "ISYE524",
+    "COMPSCI412",
+    "ME331",
+    "ISYE620",
+    "BME463",
+    "ME472",
+    "ISYE521",
+    "ME468",
+    "ME459",
+    "MATH444",
+    "ISYE643",
+    "MATH345"
+  ],
+  "EMA, CIVENGR 395": [
+    "CIVENGR495",
+    "CIVENGR575",
+    "CIVENGR576"
+  ],
+  "MEDSC-M 812": [
+    "NEUROL913",
+    "RADIOL920",
+    "FAMMED935",
+    "SURGERY912",
+    "SURGERY983",
+    "OBS&GYN909",
+    "POPHLTH918",
+    "ANESTHES911",
+    "EMERMED909",
+    "OBS&GYN935",
+    "MEDICINE920",
+    "MEDHIST741",
+    "MEDHIST742",
+    "MEDICINE928",
+    "MEDSC-M942",
+    "MEDICINE927",
+    "HONCOL911",
+    "SURGERY980",
+    "MEDSC-M913",
+    "OBS&GYN916",
+    "MEDICINE972",
+    "PATH913",
+    "MEDICINE905",
+    "OPHTHALM911",
+    "POPHLTH917",
+    "FAMMED920",
+    "SURGERY974",
+    "FAMMED941",
+    "PATH924",
+    "BMI901",
+    "PSYCHIAT931",
+    "MEDICINE913",
+    "UROLOGY938",
+    "PATH962",
+    "FAMMED938",
+    "FAMMED940",
+    "FAMMED919",
+    "MEDICINE923",
+    "SURGERY909",
+    "DERM955",
+    "PATH970",
+    "PSYCHIAT934",
+    "SURGERY975",
+    "PATH914",
+    "SURGERY976",
+    "EMERMED914",
+    "OBS&GYN938",
+    "EMERMED920",
+    "EMERMED940",
+    "SURGERY982",
+    "MEDICINE938",
+    "CRB860",
+    "FAMMED911",
+    "FAMMED926",
+    "MEDSC-M909",
+    "CRB810",
+    "MEDSC-M912",
+    "FAMMED790",
+    "HONCOL912",
+    "MEDSC-M914",
+    "MEDHIST746",
+    "NEUROL914",
+    "PEDIAT909",
+    "SURGERY911",
+    "FAMMED930",
+    "FAMMED931",
+    "RADIOL928",
+    "FAMMED910",
+    "PEDIAT921",
+    "MEDICINE911",
+    "MEDICINE880",
+    "PATH923",
+    "FAMMED937",
+    "MEDSC-M722",
+    "OBS&GYN917",
+    "MEDICINE932",
+    "PATH960",
+    "SURGERY913",
+    "MEDICINE914",
+    "FAMMED933",
+    "RADIOL912",
+    "FAMMED927",
+    "MDGENET911",
+    "RADIOL911",
+    "PATH916",
+    "PSYCHIAT922",
+    "PATH921",
+    "MEDICINE924",
+    "SURGERY973",
+    "UROLOGY910",
+    "RADIOL914",
+    "MEDHIST740",
+    "MEDHIST744",
+    "MM&I902",
+    "SURGERY984",
+    "FAMMED909",
+    "SURGERY938",
+    "CRB850",
+    "PEDIAT938",
+    "MM&I911",
+    "PATH922",
+    "DERM904",
+    "NEURODPT747",
+    "FAMMED943",
+    "FAMMED924",
+    "PATH915",
+    "MEDHIST750",
+    "MEDHIST745"
+  ],
+  "ISYE 313": [
+    "ISYE450"
+  ],
+  "EMA 545": [
+    "ME458",
+    "EMA610",
+    "EMA569",
+    "EMA540",
+    "ME446"
+  ],
+  "AFRICAN 339": [
+    "AFRICAN322",
+    "AFRICAN340"
+  ],
+  "GEN&WS 547": [
+    "GEN&WS546"
+  ],
+  "SLAVIC 301": [
+    "SLAVIC304"
+  ],
+  "SLAVIC 116": [
+    "SLAVIC217"
+  ],
+  "ACCTIS 620": [
+    "ACCTIS722",
+    "ACCTIS772",
+    "ACCTIS724",
+    "ACCTIS725",
+    "ACCTIS621"
+  ],
+  "COMARTS 100": [
+    "COMARTS181"
+  ],
+  "CSCS 742": [
+    "CSCS743"
+  ],
+  "AAE 635": [
+    "AAE706",
+    "AAE881",
+    "AAE641",
+    "AAE643",
+    "AAE642",
+    "AAE705"
+  ],
+  "MHR 723": [
+    "MHR724"
+  ],
+  "MEDPHYS, PHYSICS 265": [
+    "MEDPHYS535",
+    "MEDPHYS619",
+    "BME651"
+  ],
+  "ASIALANG 129": [
+    "ASIALANG130"
+  ],
+  "ENGL 417": [
+    "LINGUIS303"
+  ],
+  "NURSING 723": [
+    "NURSING730",
+    "NURSING721"
+  ],
+  "CURRIC 328": [
+    "CURRIC329"
+  ],
+  "PUBAFFR, URBRPL, POLISCI 878": [
+    "PUBAFFR885"
+  ],
+  "COMPSCI 407": [
+    "COMPSCI506"
+  ],
+  "BME 325": [
+    "ME536",
+    "STAT333",
+    "CIVENGR516",
+    "STAT303"
+  ],
+  "AFRICAN 372": [
+    "AFRICAN373"
+  ],
+  "ZOOLOGY, ENTOM 302": [
+    "ENTOM331",
+    "ENTOM432",
+    "ENTOM468",
+    "ENTOM321"
+  ],
+  "CURRIC 468": [
+    "CURRIC463"
+  ],
+  "AFRICAN 331": [
+    "AFRICAN332"
+  ],
+  "ASIALANG 232": [
+    "ASIALANG331"
+  ],
+  "PHMPRAC 461": [
+    "PHMPRAC462"
+  ],
+  "MUSPERF 407": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "ART 568": [
+    "ART656",
+    "ART556",
+    "ART560",
+    "ART564"
+  ],
+  "NEURODPT, NTP, PSYCH 611": [
+    "PHARMACY632",
+    "NEURODPT640",
+    "NTP660"
+  ],
+  "CS&D 240": [
+    "CS&D315",
+    "CS&D440",
+    "CS&D318"
+  ],
+  "STAT 340": [
+    "ISYE562",
+    "STAT443",
+    "ACTSCI652",
+    "STAT456",
+    "GENBUS656",
+    "ECON400",
+    "ACTSCI300",
+    "ISYE625",
+    "COMPSCI541",
+    "ECON695",
+    "ACTSCI654",
+    "ME536",
+    "STAT349",
+    "ACTSCI650",
+    "STAT461",
+    "STAT421",
+    "ECON570",
+    "ACTSCI655",
+    "ISYE445",
+    "BMI620",
+    "ACTSCI657",
+    "ISYE649",
+    "COMPSCI471",
+    "STAT575",
+    "ACTSCI640",
+    "STAT351",
+    "COMPSCI566",
+    "CIVENGR516",
+    "STAT411",
+    "STAT433"
+  ],
+  "GREEK 303": [
+    "GREEK304"
+  ],
+  "MEDSC-M 774": [
+    "MEDSC-M810"
+  ],
+  "ASIALANG 333": [
+    "ASIALANG334"
+  ],
+  "COMPSCI, LIS 102": [
+    "COMPSCI402",
+    "COMPSCI638"
+  ],
+  "ASIALANG 225": [
+    "ASIALANG226"
+  ],
+  "CHEM 109": [
+    "DERM602",
+    "BSE380",
+    "SOILSCI324",
+    "GLE520",
+    "ZOOLOGY370",
+    "SOILSCI631",
+    "SOILSCI323",
+    "CHEM343",
+    "GEOSCI375",
+    "GENETICS466",
+    "PLANTSCI340",
+    "CHEM341",
+    "SOILSCI327",
+    "NUTRSCI332",
+    "CHEM361",
+    "CIVENGR320",
+    "BSE460",
+    "CIVENGR500",
+    "GENETICS467",
+    "CHEM104",
+    "CIVENGR501",
+    "MS&E330",
+    "MS&E351",
+    "BSE349",
+    "SOILSCI451",
+    "BIOCHEM301",
+    "GLE421",
+    "MS&E350",
+    "FOODSCI301",
+    "ME361",
+    "CHEM108",
+    "MICROBIO101",
+    "BME330",
+    "SOILSCI372",
+    "GLE360",
+    "CIVENGR324",
+    "MICROBIO523",
+    "MM&I528",
+    "CHEM344",
+    "CHEM327",
+    "ANAT&PHY435",
+    "CHEM103",
+    "MS&E260",
+    "SOILSCI430",
+    "MICROBIO545",
+    "CHEM260",
+    "CHEM329",
+    "CHEM375",
+    "SOILSCI326",
+    "MICROBIO303",
+    "SOILSCI301",
+    "CHEM311",
+    "FOODSCI305",
+    "BME310",
+    "DERM601",
+    "ANAT&PHY335",
+    "ANSCI508",
+    "SOILSCI621",
+    "ZOOLOGY523"
+  ],
+  "COMARTS, RELIGST 374": [
+    "COMARTS570"
+  ],
+  "ATMOCN 610": [
+    "ATMOCN611"
+  ],
+  "NURSING 720": [
+    "NURSING721"
+  ],
+  "SPANISH 103": [
+    "SPANISH203"
+  ],
+  "LATIN 103": [
+    "LATIN391",
+    "LATIN104"
+  ],
+  "POLISCI 818": [
+    "GENBUS775"
+  ],
+  "MUSIC 553": [
+    "MUSIC554"
+  ],
+  "HISTORY, AMERIND 190": [
+    "HISTORY380"
+  ],
+  "EDPSYCH 761": [
+    "EDPSYCH762",
+    "EDPSYCH773",
+    "EDPSYCH763",
+    "EDPSYCH871",
+    "COUNPSY755"
+  ],
+  "ANTHRO 458": [
+    "ANTHRO668"
+  ],
+  "DANCE 274": [
+    "DANCE374",
+    "DANCE379"
+  ],
+  "FOODSCI 410": [
+    "FOODSCI432",
+    "FOODSCI412",
+    "FOODSCI515",
+    "FOODSCI535",
+    "FOODSCI611",
+    "FOODSCI511"
+  ],
+  "MUSIC 331": [
+    "MUSIC531",
+    "MUSIC332"
+  ],
+  "FINANCE, ECON 320": [
+    "FINANCE340",
+    "FINANCE601",
+    "FINANCE410",
+    "FINANCE635",
+    "FINANCE420",
+    "FINANCE650",
+    "FINANCE503",
+    "INTLBUS445"
+  ],
+  "SLAVIC 275": [
+    "SLAVIC276"
+  ],
+  "SCANDST 201": [
+    "SCANDST202"
+  ],
+  "FINANCE 700": [
+    "FINANCE757",
+    "FINANCE601",
+    "RMI655",
+    "FINANCE720",
+    "REALEST540",
+    "FINANCE725",
+    "FINANCE740",
+    "GENBUS725",
+    "FINANCE635",
+    "INTLBUS745",
+    "FINANCE650"
+  ],
+  "THEATRE 363": [
+    "THEATRE563"
+  ],
+  "RP&SE 871": [
+    "RP&SE872"
+  ],
+  "AAE 335": [
+    "CNSRSCI564",
+    "CNSRSCI201",
+    "AAE625"
+  ],
+  "MHR 706": [
+    "GENBUS725"
+  ],
+  "ECE 554": [
+    "ECE454",
+    "ECE455",
+    "ECE453"
+  ],
+  "BMI 881": [
+    "BMI882"
+  ],
+  "ART 348": [
+    "ART636"
+  ],
+  "GNS 340": [
+    "GNS429",
+    "GNS439"
+  ],
+  "ILS 205": [
+    "POLISCI361",
+    "POLISCI360",
+    "POLISCI460",
+    "POLISCI364"
+  ],
+  "PLANTSCI 110": [
+    "AGROECOL370",
+    "PLANTSCI320",
+    "PLANTSCI310",
+    "PLANTSCI370",
+    "PLANTSCI302",
+    "PLANTSCI510",
+    "PLANTSCI334",
+    "AGROECOL377",
+    "PLANTSCI300",
+    "AAE367"
+  ],
+  "DS 220": [
+    "DS222",
+    "ART334",
+    "DS650"
+  ],
+  "ART 318": [
+    "ART428",
+    "ART518"
+  ],
+  "BOTANY, BIOLOGY, ZOOLOGY 152": [
+    "ZOOLOGY300",
+    "LANDARC668",
+    "MEDPHYS410",
+    "ZOOLOGY304",
+    "PLANTSCI227",
+    "ZOOLOGY303",
+    "BOTANY450",
+    "GEOSCI542",
+    "BIOLOGY102",
+    "ZOOLOGY350",
+    "ZOOLOGY521",
+    "SOILSCI323",
+    "ENVIRST520",
+    "PLANTSCI334",
+    "ZOOLOGY430",
+    "PSYCH612",
+    "ENVIRST361",
+    "ENVIRST315",
+    "ENVIRST510",
+    "ZOOLOGY320",
+    "BOTANY516",
+    "BOTANY460",
+    "DYSCI434",
+    "BOTANY410",
+    "ZOOLOGY520",
+    "ANTHRO603",
+    "BOTANY575",
+    "ANSCI336",
+    "ENTOM344",
+    "PLPATH315",
+    "PLANTSCI338",
+    "ANSCI366",
+    "ENTOM450",
+    "ANTHRO304",
+    "PLANTSCI320",
+    "F&WECOL550",
+    "BIOLOGY101",
+    "ANTHRO458",
+    "PLANTSCI310",
+    "ATMOCN532",
+    "ANTHRO605",
+    "LANDARC380",
+    "F&WECOL660",
+    "MM&I301",
+    "MM&I554",
+    "CRB675",
+    "ZOOLOGY444",
+    "PSYCH603",
+    "PLANTSCI234",
+    "PLPATH300",
+    "ZOOLOGY425",
+    "FOODSCI305",
+    "PLANTSCI340",
+    "LANDARC263",
+    "ZOOLOGY415"
+  ],
+  "ANTHRO 212": [
+    "ANTHRO352",
+    "ANTHRO321",
+    "ANTHRO391",
+    "ANTHRO370",
+    "ANTHRO333",
+    "ANTHRO337"
+  ],
+  "AGROECOL 303": [
+    "AGROECOL503"
+  ],
+  "ECON 710": [
+    "AAE737"
+  ],
+  "CURRIC 704": [
+    "CURRIC829"
+  ],
+  "ASIALANG 234": [
+    "ASIALANG333"
+  ],
+  "ELPA, EDPSYCH, RP&SE, CURRIC, COUNPSY, EDPOL 788": [
+    "ELPA789"
+  ],
+  "SOC, ASIANAM 220": [
+    "SOC470"
+  ],
+  "CHEM 345": [
+    "BIOCHEM625",
+    "CHEM605",
+    "PHMSCI786",
+    "CBE505",
+    "CHEM346",
+    "CBE440",
+    "CHEM341",
+    "BIOCHEM601",
+    "CHEM344",
+    "CHEM511",
+    "CBE540",
+    "BIOCHEM507",
+    "CHEM654",
+    "CHEM547"
+  ],
+  "MUSIC 572": [
+    "MUSPERF740"
+  ],
+  "FINANCE 645": [
+    "FINANCE646"
+  ],
+  "KINES 318": [
+    "KINES618"
+  ],
+  "EPD 623": [
+    "EPD630"
+  ],
+  "GERMAN 112": [
+    "GERMAN213"
+  ],
+  "ART 242": [
+    "ART302",
+    "ART342"
+  ],
+  "INTER-LS 302": [
+    "INTER-LS601"
+  ],
+  "AFRICAN 343": [
+    "AFRICAN330",
+    "AFRICAN344"
+  ],
+  "DANCE 156": [
+    "DANCE255",
+    "DANCE274",
+    "DANCE355",
+    "DANCE374"
+  ],
+  "MHR 300": [
+    "MHR611",
+    "GENBUS400"
+  ],
+  "ISYE 624": [
+    "ISYE643"
+  ],
+  "SOCWORK 801": [
+    "SOCWORK817"
+  ],
+  "ANTHRO 100": [
+    "ANTHRO340",
+    "ANTHRO420",
+    "ANTHRO330",
+    "ANTHRO477"
+  ],
+  "FRENCH 322": [
+    "FRENCH465",
+    "FRENCH431",
+    "FRENCH347",
+    "FRENCH461",
+    "FRENCH464",
+    "FRENCH462",
+    "FRENCH430",
+    "FRENCH467"
+  ],
+  "MUSPERF 403": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "LSC 270": [
+    "LSC435"
+  ],
+  "DS 251": [
+    "DS561"
+  ],
+  "SLAVIC 118": [
+    "SLAVIC275",
+    "SLAVIC315"
+  ],
+  "PSYCH 691": [
+    "PSYCH686"
+  ],
+  "LSC 251": [
+    "HDFS616",
+    "LSC625",
+    "LSC515",
+    "LSC640"
+  ],
+  "ART 458": [
+    "ART656",
+    "ART556",
+    "ART560",
+    "ART564"
+  ],
+  "DS 222": [
+    "DS322",
+    "DS223"
+  ],
+  "GENETICS 466": [
+    "GENETICS588",
+    "PLANTSCI502",
+    "GENETICS564",
+    "PLANTSCI550",
+    "GENETICS605",
+    "GENETICS545",
+    "GENETICS520",
+    "PLPATH622",
+    "PLANTSCI501",
+    "GENETICS467",
+    "ENTOM624",
+    "GENETICS566",
+    "PLPATH517",
+    "BOTANY505",
+    "PLANTSCI360",
+    "BIOLOGY522",
+    "GENETICS525",
+    "PLANTSCI338",
+    "GENETICS528",
+    "BIOCHEM631",
+    "PLPATH640",
+    "GENETICS527",
+    "MICROBIO612",
+    "CRB640",
+    "ZOOLOGY655",
+    "GENETICS633",
+    "GENETICS627",
+    "MDGENET677",
+    "MICROBIO657",
+    "MDGENET662",
+    "GENETICS548",
+    "MDGENET565"
+  ],
+  "GENETICS 701": [
+    "GENETICS808",
+    "GENETICS702"
+  ],
+  "FRENCH 325": [
+    "FRENCH347"
+  ],
+  "MUSIC 101": [
+    "MUSIC306"
+  ],
+  "EP, EMA 547": [
+    "EP548"
+  ],
+  "AFRICAN 671": [
+    "AFRICAN670"
+  ],
+  "KINES 371": [
+    "KINES375"
+  ],
+  "BOTANY, BIOLOGY 130": [
+    "BOTANY422",
+    "LANDARC668",
+    "DERM602",
+    "ONCOLOGY401",
+    "BOTANY500",
+    "MICROBIO626",
+    "PLANTSCI227",
+    "PLANTSCI502",
+    "BOTANY450",
+    "SOILSCI323",
+    "BOTANY400",
+    "ENVIRST520",
+    "GENETICS466",
+    "PLANTSCI334",
+    "PLANTSCI340",
+    "PLANTSCI501",
+    "BOTANY333",
+    "ENVIRST361",
+    "ZOOLOGY153",
+    "GENETICS467",
+    "BOTANY300",
+    "BOTANY516",
+    "BOTANY455",
+    "BOTANY410",
+    "BOTANY330",
+    "BOTANY575",
+    "BOTANY460",
+    "ENTOM344",
+    "AGROECOL377",
+    "PLANTSCI360",
+    "BSE349",
+    "PLPATH315",
+    "BOTANY305",
+    "ANSCI366",
+    "PLANTSCI338",
+    "ZOOLOGY611",
+    "AGROECOL370",
+    "PLANTSCI320",
+    "BOTANY401",
+    "LANDARC263",
+    "F&WECOL550",
+    "BOTANY563",
+    "FOODSCI301",
+    "ENTOM490",
+    "PLANTSCI310",
+    "ZOOLOGY470",
+    "ATMOCN532",
+    "LANDARC380",
+    "MICROBIO523",
+    "PATH-BIO307",
+    "F&WECOL660",
+    "MICROBIO345",
+    "F&WECOL449",
+    "F&WECOL450",
+    "F&WECOL360",
+    "ANAT&PHY435",
+    "CRB675",
+    "MICROBIO545",
+    "PLANTSCI234",
+    "PLPATH300",
+    "ZOOLOGY425",
+    "BOTANY332",
+    "MICROBIO303",
+    "PLANTSCI370",
+    "SURGSCI548",
+    "ANSCI420",
+    "F&WECOL448",
+    "ANAT&PHY335",
+    "BOTANY151"
+  ],
+  "ENGL 508": [
+    "ENGL409",
+    "ENGL410",
+    "ENGL509",
+    "ENGL307",
+    "ENGL695",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "CURRIC 545": [
+    "CURRIC546"
+  ],
+  "ASIALANG 329": [
+    "ASIALANG330"
+  ],
+  "PSYCH 464": [
+    "PSYCH515",
+    "PSYCH532",
+    "PSYCH503",
+    "PSYCH502",
+    "PSYCH508"
+  ],
+  "THEATRE 379": [
+    "THEATRE579"
+  ],
+  "GERMAN 305": [
+    "GERMAN612"
+  ],
+  "ENGL 314": [
+    "ENGL516",
+    "ENGL514"
+  ],
+  "COMARTS 370": [
+    "COMARTS570"
+  ],
+  "NURSING 721": [
+    "NURSING724"
+  ],
+  "GLE, GEOSCI, MS&E, CIVENGR 474": [
+    "GLE596",
+    "GLE434"
+  ],
+  "OCCTHER 726": [
+    "OCCTHER727"
+  ],
+  "LACIS, ANTHRO 362": [
+    "LACIS363"
+  ],
+  "SLAVIC 142": [
+    "SLAVIC251"
+  ],
+  "PHMPRAC 655": [
+    "PHMPRAC654",
+    "PHMPRAC656",
+    "PHMPRAC679",
+    "PHMPRAC668",
+    "PHMPRAC659"
+  ],
+  "ASIALANG 226": [
+    "ASIALANG325"
+  ],
+  "AFRICAN 392": [
+    "AFRICAN393"
+  ],
+  "MS&E 361": [
+    "MS&E362"
+  ],
+  "SLAVIC 351": [
+    "SLAVIC352"
+  ],
+  "SPANISH, CHICLA 215": [
+    "SPANISH478"
+  ],
+  "GEOG 104": [
+    "GEOG101"
+  ],
+  "GERMAN 385": [
+    "GERMAN683"
+  ],
+  "NE 405": [
+    "NE428",
+    "NE571",
+    "MEDPHYS506",
+    "NE555",
+    "NE550",
+    "NE505",
+    "NE412"
+  ],
+  "MUSIC, CURRIC 302": [
+    "MUSIC337"
+  ],
+  "FOLKLORE, AFRICAN 210": [
+    "AFRICAN413",
+    "AFRICAN402",
+    "AFRICAN406",
+    "AFRICAN412"
+  ],
+  "SOILSCI, DYSCI, FOODSCI, ANSCI 472": [
+    "SOILSCI473"
+  ],
+  "PORTUG 101": [
+    "PORTUG301",
+    "PORTUG102"
+  ],
+  "KINES 127": [
+    "KINES487"
+  ],
+  "GEOG 575": [
+    "GEOG778",
+    "GEOG777"
+  ],
+  "MUSIC 121": [
+    "MUSIC171",
+    "MUSIC122"
+  ],
+  "GENBUS 884": [
+    "GENBUS895"
+  ],
+  "CS&D 893": [
+    "CS&D894"
+  ],
+  "GERMAN 213": [
+    "GERMAN214"
+  ],
+  "GERMAN 258": [
+    "GERMAN411",
+    "GERMAN285",
+    "GERMAN262",
+    "GERMAN249",
+    "GERMAN351",
+    "GERMAN385",
+    "GERMAN305",
+    "GERMAN651",
+    "GERMAN337",
+    "GERMAN372",
+    "GERMAN362"
+  ],
+  "GERMAN 650": [
+    "LINGUIS303"
+  ],
+  "ACCTIS 300": [
+    "ACCTIS100",
+    "ACCTIS211",
+    "FINANCE205",
+    "CNSRSCI564",
+    "ACCTIS301",
+    "FINANCE300",
+    "ACCTIS329"
+  ],
+  "EP 469": [
+    "EP568"
+  ],
+  "INTEGSCI 240": [
+    "INTEGSCI340"
+  ],
+  "FRENCH 464": [
+    "FRENCH568",
+    "FRENCH569",
+    "FRENCH567"
+  ],
+  "MATH 331": [
+    "COMPSCI541",
+    "RMI655",
+    "COMPSCI566",
+    "GENBUS317",
+    "ACTSCI300",
+    "ACTSCI650",
+    "OTM453",
+    "STAT461",
+    "FINANCE300",
+    "BMI567",
+    "CHEM361",
+    "RMI660",
+    "ISYE570"
+  ],
+  "DYSCI 233": [
+    "DYSCI234"
+  ],
+  "MHR 705": [
+    "MHR775",
+    "MHR776",
+    "MHR612",
+    "MHR610"
+  ],
+  "ENGL 207": [
+    "ENGL409",
+    "ENGL411",
+    "ENGL410",
+    "ENGL307",
+    "ENGL408",
+    "ENGL407"
+  ],
+  "GENBUS 882": [
+    "GENBUS884",
+    "GENBUS746"
+  ],
+  "RMI 700": [
+    "RMI637",
+    "RMI636",
+    "RMI645",
+    "RMI640",
+    "RMI635",
+    "RMI705"
+  ],
+  "ART 332": [
+    "ART532"
+  ],
+  "REALEST 411": [
+    "REALEST661",
+    "REALEST415"
+  ],
+  "KINES 650": [
+    "KINES656"
+  ],
+  "ASIALANG 141": [
+    "ASIALANG142"
+  ],
+  "BME, PHMSCI 430": [
+    "BME510",
+    "BME545",
+    "BME400"
+  ],
+  "THEATRE 130": [
+    "THEATRE363",
+    "ART366",
+    "THEATRE328",
+    "THEATRE230"
+  ],
+  "MHR 422": [
+    "MHR427",
+    "MHR438"
+  ],
+  "ENGL, THEATRE 120": [
+    "THEATRE631",
+    "THEATRE324"
+  ],
+  "ELPA 715": [
+    "ELPA880"
+  ],
+  "FOODSCI, ANSCI 305": [
+    "FOODSCI515"
+  ],
+  "PHMPRAC 653": [
+    "PHMPRAC654",
+    "PHMPRAC656"
+  ],
+  "CURRIC 503": [
+    "CURRIC976"
+  ],
+  "ECE 210": [
+    "ECE270"
+  ],
+  "COMPSCI 220": [
+    "COMPSCI539",
+    "ISYE350",
+    "ATMOCN573",
+    "MATH514",
+    "STAT405",
+    "GLE511",
+    "COMPSCI300",
+    "COMPSCI402",
+    "COMPSCI541",
+    "ISYE526",
+    "COMPSCI532",
+    "ISYE524",
+    "ME331",
+    "ISYE620",
+    "BME463",
+    "GEOG573",
+    "ME472",
+    "ISYE521",
+    "ME468",
+    "EP471",
+    "ME459",
+    "ISYE643",
+    "MATH444",
+    "MATH345",
+    "COMPSCI320",
+    "INFOSYS371",
+    "BSE405"
+  ],
+  "ME 368": [
+    "ME370"
+  ],
+  "MHR 640": [
+    "MHR641"
+  ],
+  "GLE, CIVENGR 635": [
+    "GLE479"
+  ],
+  "FISC 51": [
+    "FISC115"
+  ],
+  "AFRICAN 332": [
+    "AFRICAN333"
+  ],
+  "THEATRE 350": [
+    "THEATRE541"
+  ],
+  "MUSPERF 532": [
+    "MUSIC632"
+  ],
+  "BIOCHEM 508": [
+    "PLPATH640",
+    "NUTRSCI645",
+    "PHMSCI786",
+    "ONCOLOGY673",
+    "BOTANY505",
+    "PHMSCI581",
+    "PLPATH622",
+    "M&ENVTOX625",
+    "PHMSCI521",
+    "PHMSCI680",
+    "MDGENET620"
+  ],
+  "LSC 250": [
+    "LSC625",
+    "LSC660",
+    "LSC515",
+    "LSC640"
+  ],
+  "MATH, STAT 709": [
+    "MARKETNG779",
+    "STAT732",
+    "GENBUS775",
+    "MATH710"
+  ],
+  "EMA 202": [
+    "ASTRON550",
+    "CIVENGR310",
+    "EMA542",
+    "BSE475",
+    "BSE476",
+    "EMA521",
+    "EMA545",
+    "ME451",
+    "ME331",
+    "ME340",
+    "GLE594",
+    "CBE310"
+  ],
+  "ANAT&PHY 235": [
+    "KINES523"
+  ],
+  "MUSPERF 439": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "CURRIC 366": [
+    "CURRIC419"
+  ],
+  "LANDARC 610": [
+    "LANDARC611"
+  ],
+  "ECON 205": [
+    "ECON302",
+    "ECON301"
+  ],
+  "BME 330": [
+    "BME505"
+  ],
+  "HISTORY 102": [
+    "SOC670"
+  ],
+  "ART 244": [
+    "ART544",
+    "ART414",
+    "ART334",
+    "ART343",
+    "ART354"
+  ],
+  "BOTANY 100": [
+    "AGROECOL370",
+    "PLANTSCI227",
+    "PLANTSCI234",
+    "LANDARC380",
+    "LANDARC263"
+  ],
+  "ANTHRO 321": [
+    "ANTHRO352",
+    "ANTHRO391",
+    "ANTHRO370",
+    "ANTHRO333",
+    "ANTHRO337"
+  ],
+  "ASIALANG 201": [
+    "ASIALANG202",
+    "ASIAN351",
+    "ASIAN631"
+  ],
+  "EMA 303": [
+    "EMA519",
+    "ME342",
+    "EMA541",
+    "EMA405",
+    "BME615",
+    "EP615",
+    "ME310",
+    "ME449",
+    "BME315",
+    "EMA630",
+    "EMA395",
+    "ME331",
+    "ME313",
+    "EMA506",
+    "ME368",
+    "EMA469",
+    "EMA570",
+    "BME516",
+    "ME444",
+    "EMA508",
+    "ME548",
+    "CIVENGR340",
+    "EMA307",
+    "ME460",
+    "ME311",
+    "ME440",
+    "EMA605",
+    "GLE330"
+  ],
+  "ENGL 315": [
+    "ENGL709"
+  ],
+  "POPHLTH, MEDHIST, HISTSCI 553": [
+    "MEDHIST753"
+  ],
+  "GEN&WS 546": [
+    "GEN&WS547"
+  ],
+  "MEDSC-M 771": [
+    "MEDSC-M810"
+  ],
+  "LATIN 306": [
+    "LATIN563",
+    "LATIN401"
+  ],
+  "ECE 411": [
+    "ECE713",
+    "ECE711",
+    "ECE504",
+    "ECE511"
+  ],
+  "ASTRON 330": [
+    "ASTRON500",
+    "ASTRON620"
+  ],
+  "ART 476": [
+    "ART576"
+  ],
+  "AMERIND 401": [
+    "AMERIND402"
+  ],
+  "AFRICAN 342": [
+    "AFRICAN329",
+    "AFRICAN343"
+  ],
+  "CIVENGR 320": [
+    "CIVENGR422",
+    "GLE520",
+    "CIVENGR521",
+    "CIVENGR325",
+    "CIVENGR322"
+  ],
+  "NURSING 784": [
+    "NURSING787"
+  ],
+  "FRENCH 311": [
+    "FRENCH347",
+    "INTLBUS314",
+    "INTLBUS313"
+  ],
+  "GENBUS 893": [
+    "GENBUS895"
+  ],
+  "MUSIC 42": [
+    "MUSIC465"
+  ],
+  "PSYCH 460": [
+    "PSYCH515",
+    "HDFS462",
+    "HDFS425",
+    "PSYCH532",
+    "PSYCH502",
+    "PSYCH510",
+    "HDFS662",
+    "HDFS650",
+    "HDFS616",
+    "PSYCH503",
+    "PSYCH521",
+    "HDFS464",
+    "HDFS471",
+    "PSYCH508"
+  ],
+  "OCCTHER 772": [
+    "OCCTHER773"
+  ],
+  "ACTSCI 640": [
+    "ACTSCI654",
+    "ACTSCI657",
+    "ACTSCI655"
+  ],
+  "AMERIND 311": [
+    "AMERIND407"
+  ],
+  "NURSING 828": [
+    "NURSING829"
+  ],
+  "RP&SE 880": [
+    "RP&SE900"
+  ],
+  "ART 512": [
+    "ART612"
+  ],
+  "SOCWORK 817": [
+    "SOCWORK818"
+  ],
+  "HISTSCI 404": [
+    "ILS202"
+  ],
+  "THEATRE 370": [
+    "THEATRE570",
+    "THEATRE466"
+  ],
+  "ECON 102": [
+    "ECON205",
+    "ECON312",
+    "ECON330",
+    "AAE374",
+    "ECON311",
+    "ECON302",
+    "ECON370",
+    "ECON305",
+    "ECON310",
+    "ECON111",
+    "INTLBUS200",
+    "ECON100",
+    "AAE373"
+  ],
+  "ECON 302": [
+    "ECON442",
+    "ECON312",
+    "ECON461",
+    "ECON435",
+    "ECON475",
+    "ECON661",
+    "FINANCE503",
+    "ECON666",
+    "ECON580"
+  ],
+  "SOILSCI, ATMOCN 132": [
+    "AGROECOL370",
+    "ATMOCN201"
+  ],
+  "ASIALANG 139": [
+    "ASIALANG140"
+  ],
+  "DANCE 235": [
+    "DANCE337"
+  ],
+  "EDPSYCH 828": [
+    "EDPSYCH829"
+  ],
+  "MHR 734": [
+    "MHR738"
+  ],
+  "PUBLHLTH 783": [
+    "PUBLHLTH784"
+  ],
+  "ASIALANG 127": [
+    "ASIALANG128"
+  ],
+  "BIOCHEM 301": [
+    "DYSCI414",
+    "DYSCI311",
+    "NUTRSCI631",
+    "MICROBIO626",
+    "ANSCI415",
+    "NUTRSCI510",
+    "NUTRSCI675",
+    "ANSCI420",
+    "DYSCI378"
+  ],
+  "NURSING 729": [
+    "NURSING826",
+    "NURSING828",
+    "NURSING727"
+  ],
+  "EMA, ME 540": [
+    "ME440"
+  ],
+  "FRENCH 430": [
+    "FRENCH568",
+    "FRENCH569",
+    "FRENCH567"
+  ],
+  "PHMSCI 541": [
+    "PHMSCI542"
+  ],
+  "LITTRANS 202": [
+    "LITTRANS204"
+  ],
+  "SLAVIC 331": [
+    "SLAVIC332"
+  ],
+  "SOCWORK 646": [
+    "SOCWORK462"
+  ],
+  "GENECSLR 813": [
+    "GENECSLR814"
+  ],
+  "ENVIRST, AMERIND, GEOG 345": [
+    "ENVIRST537"
+  ],
+  "ISYE 521": [
+    "ISYE570"
+  ],
+  "MATH 461": [
+    "MATH471"
+  ],
+  "MUSPERF 423": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "HDFS 263": [
+    "HDFS471",
+    "HDFS425"
+  ],
+  "F&WECOL 550": [
+    "F&WECOL551",
+    "F&WECOL565",
+    "F&WECOL410"
+  ],
+  "JEWISH, HEBR-MOD 401": [
+    "JEWISH402"
+  ],
+  "OCCTHER 725": [
+    "OCCTHER728"
+  ],
+  "ISYE 468": [
+    "ISYE478"
+  ],
+  "MEDSC-M 772": [
+    "MEDSC-M810"
+  ],
+  "ENVIRST, ENTOM 205": [
+    "ENTOM570"
+  ],
+  "MUSPERF 417": [
+    "MUSIC346",
+    "MUSIC340",
+    "MUSPERF499"
+  ],
+  "PSYCH 210": [
+    "SOC365",
+    "PSYCH225",
+    "SOC351",
+    "CNSRSCI201",
+    "STAT303",
+    "SOC674",
+    "SOC618",
+    "ISYE349",
+    "KINES330",
+    "PSYCH602",
+    "FINANCE300",
+    "AAE421",
+    "SOC375",
+    "SOC361",
+    "PUBAFFR340"
+  ],
+  "THEATRE 250": [
+    "THEATRE352",
+    "THEATRE451"
+  ],
+  "MATH, STAT 309": [
+    "ISYE350",
+    "ECON400",
+    "ACTSCI300",
+    "ISYE349",
+    "ISYE412",
+    "ISYE624",
+    "STAT312",
+    "COMPSCI561",
+    "ISYE512",
+    "COMPSCI541",
+    "ISYE312",
+    "RMI660",
+    "ACTSCI650",
+    "MATH632",
+    "FINANCE300",
+    "STAT461",
+    "ISYE570",
+    "ISYE320",
+    "MATH616",
+    "ISYE574",
+    "ISYE521",
+    "RMI655",
+    "MATH310",
+    "ISYE516",
+    "COMPSCI566",
+    "CIVENGR516",
+    "GENBUS317",
+    "MEDPHYS674",
+    "ISYE315",
+    "MATH535",
+    "OTM453",
+    "BMI567",
+    "STAT311",
+    "ISYE517",
+    "SOC362"
+  ],
+  "RP&SE 890": [
+    "RP&SE900"
+  ],
+  "RP&SE 630": [
+    "RP&SE501"
+  ],
+  "MHR 322": [
+    "MHR422",
+    "MHR438",
+    "MHR415"
+  ],
+  "ELPA 832": [
+    "ELPA960"
+  ],
+  "ECE 376": [
+    "ME368",
+    "ME576",
+    "ECE377",
+    "ECE356",
+    "ME445",
+    "ECE355"
+  ],
+  "MUSPERF 348": [
+    "MUSPERF447"
+  ],
+  "CS&D 202": [
+    "CS&D303",
+    "CS&D318",
+    "CS&D425",
+    "CS&D320"
+  ],
+  "DANCE 135": [
+    "DANCE235",
+    "DANCE375",
+    "DANCE330"
+  ],
+  "ESL 114": [
+    "ESL115"
+  ],
+  "GEOSCI 204": [
+    "GEOSCI320",
+    "GEOSCI542",
+    "GEOSCI304",
+    "GLE455",
+    "GEOSCI514",
+    "GEOSCI515",
+    "GEOSCI430",
+    "GLE431"
+  ],
+  "BOTANY, PLPATH 332": [
+    "PLPATH559"
+  ],
+  "ART 107": [
+    "ART564",
+    "ART568",
+    "ART428",
+    "ART467",
+    "ART356",
+    "ART333",
+    "ART525",
+    "ART663",
+    "ART463",
+    "ART348",
+    "ART465",
+    "ART575",
+    "ART438",
+    "ART309",
+    "ART556",
+    "ART346",
+    "ART409",
+    "ART563",
+    "ART565",
+    "ART458",
+    "ART558",
+    "ART442",
+    "ART476",
+    "ART376",
+    "ART656",
+    "ART546",
+    "ART560",
+    "ART302",
+    "ART443",
+    "ART429"
+  ],
+  "RP&SE 945": [
+    "RP&SE955"
+  ],
+  "PHYSICS 709": [
+    "PHYSICS765",
+    "PHYSICS707"
+  ],
+  "MHR 423": [
+    "MHR415"
+  ],
+  "ART 529": [
+    "ART629",
+    "ART428"
+  ],
+  "EPD 640": [
+    "EPD650"
+  ],
+  "ACCTIS 630": [
+    "ACCTIS730"
+  ],
+  "GEOG 101": [
+    "SOC541",
+    "GEOG104"
+  ],
+  "PUBAFFR 873": [
+    "PUBAFFR860",
+    "PUBAFFR869"
+  ],
+  "CHEM, MS&E 421": [
+    "MS&E521",
+    "EPD650"
+  ],
+  "GENECSLR 721": [
+    "GENECSLR740",
+    "GENECSLR742",
+    "GENECSLR731",
+    "GENECSLR724"
+  ],
+  "STAT 601": [
+    "STAT780",
+    "STAT602",
+    "STAT801"
+  ],
+  "OCCTHER 880": [
+    "OCCTHER881"
+  ],
+  "PORTUG 301": [
+    "PORTUG312",
+    "PORTUG201",
+    "PORTUG311",
+    "PORTUG302"
+  ],
+  "GLE, CIVENGR 291": [
+    "CIVENGR465",
+    "GLE511",
+    "CIVENGR414"
+  ],
+  "SOILSCI 301": [
+    "SOILSCI230",
+    "SOILSCI302",
+    "SOILSCI326",
+    "SOILSCI622",
+    "SOILSCI527"
+  ],
+  "BIOCORE 381": [
+    "PSYCH406",
+    "BIOCORE401",
+    "ZOOLOGY521",
+    "ENVIRST361",
+    "ENVIRST315",
+    "PSYCH505",
+    "ENVIRST510",
+    "BOTANY575",
+    "BOTANY460",
+    "ZOOLOGY520",
+    "AGROECOL377",
+    "PLPATH315",
+    "DYSCI370",
+    "MICROBIO345",
+    "F&WECOL450",
+    "ZOOLOGY425",
+    "MM&I341",
+    "F&WECOL448",
+    "PLANTSCI502",
+    "ZOOLOGY303",
+    "BOTANY450",
+    "GEOSCI542",
+    "ZOOLOGY350",
+    "ENVIRST520",
+    "GENETICS466",
+    "ZOOLOGY430",
+    "NUTRSCI332",
+    "PLANTSCI501",
+    "GENETICS467",
+    "BOTANY516",
+    "ZOOLOGY302",
+    "BIOLOGY522",
+    "GENETICS528",
+    "ZOOLOGY611",
+    "PATH404",
+    "BOTANY401",
+    "PSYCH414",
+    "BOTANY563",
+    "PLANTSCI310",
+    "ATMOCN532",
+    "F&WECOL660",
+    "GENETICS633",
+    "MM&I301",
+    "PLPATH300",
+    "ANAT&PHY335",
+    "ZOOLOGY300",
+    "DERM602",
+    "BOTANY500",
+    "ZOOLOGY304",
+    "ENTOM351",
+    "BOTANY400",
+    "BIOCORE382",
+    "BOTANY333",
+    "BOTANY330",
+    "BOTANY305",
+    "ANSCI366",
+    "ENTOM450",
+    "PLANTSCI338",
+    "BIOCORE383",
+    "AGROECOL370",
+    "ANTHRO458",
+    "ENTOM490",
+    "GENETICS527",
+    "F&WECOL449",
+    "F&WECOL360",
+    "ANAT&PHY435",
+    "PSYCH449",
+    "BOTANY332",
+    "PLANTSCI370",
+    "PLANTSCI302",
+    "SURGSCI548",
+    "PLANTSCI340",
+    "BOTANY422",
+    "LANDARC668",
+    "ZOOLOGY604",
+    "BOTANY300",
+    "ZOOLOGY320",
+    "BOTANY455",
+    "PHMSCI254",
+    "BOTANY410",
+    "PLANTSCI360",
+    "PSYCH454",
+    "BME517",
+    "F&WECOL306",
+    "ZOOLOGY470",
+    "MM&I575",
+    "PSYCH450",
+    "LANDARC380",
+    "PATH-BIO307",
+    "F&WECOL401",
+    "ZOOLOGY415"
+  ],
+  "ASIALANG 101": [
+    "ASIALANG111",
+    "ASIALANG102"
+  ],
+  "FRENCH 462": [
+    "FRENCH568",
+    "FRENCH569",
+    "FRENCH567"
+  ],
+  "KINES 330": [
+    "KINES560"
+  ],
+  "MS&E 351": [
+    "MS&E456",
+    "MS&E553",
+    "MS&E361",
+    "MS&E352",
+    "NE423",
+    "MS&E332",
+    "MS&E660",
+    "ME313",
+    "MS&E550",
+    "MS&E570",
+    "NE541",
+    "MS&E350",
+    "MS&E360",
+    "NE424",
+    "MS&E448",
+    "NE545",
+    "MS&E333",
+    "MS&E363",
+    "ME311",
+    "MS&E401",
+    "MS&E434"
+  ],
+  "POLISCI 683": [
+    "POLISCI684"
+  ],
+  "SPANISH 311": [
+    "SPANISH319",
+    "SPANISH223",
+    "INTLBUS329",
+    "SPANISH224",
+    "SPANISH470",
+    "SPANISH325",
+    "SPANISH359",
+    "SPANISH328",
+    "SPANISH226",
+    "SPANISH225",
+    "SPANISH222"
+  ],
+  "GENBUS 881": [
+    "GENBUS884",
+    "GENBUS740"
+  ],
+  "THEATRE 367": [
+    "THEATRE368"
+  ],
+  "GNS 439": [
+    "GNS440.00"
+  ],
+  "SOCWORK 442": [
+    "SOCWORK840",
+    "SOCWORK874"
+  ],
+  "MATH 112": [
+    "BSE380",
+    "GENBUS206",
+    "ECON111",
+    "MATH113",
+    "AAE430",
+    "KINES318",
+    "MATH211",
+    "CHEM104",
+    "MATH221",
+    "ECON100",
+    "F&WECOL655",
+    "PHYSICS103",
+    "BSE344",
+    "FOODSCI301",
+    "ENTOM490",
+    "KINES308",
+    "STAT371",
+    "BSE367",
+    "CHEM103",
+    "ECE204",
+    "INTER-LS144",
+    "SOILSCI301",
+    "KINES330"
+  ],
+  "NUTRSCI 431": [
+    "NUTRSCI631",
+    "NUTRSCI500",
+    "NUTRSCI540"
+  ],
+  "MEDSC-M 775": [
+    "MEDSC-M810"
+  ],
+  "EDPSYCH 829": [
+    "EDPSYCH830"
+  ],
+  "EDPOL 308": [
+    "EDPOL618"
+  ],
+  "BME 510": [
+    "BME556",
+    "BME511"
+  ],
+  "PHARMACY 423": [
+    "PHMPRAC426"
+  ],
+  "LIS, COMARTS 705": [
+    "LIS706"
+  ],
+  "ART 336": [
+    "ART536",
+    "ART242",
+    "ART446",
+    "ART302",
+    "ART326",
+    "ART636",
+    "ART348"
+  ],
+  "ECE 220": [
+    "ECE222",
+    "ECE335",
+    "ECE320",
+    "ECE535"
+  ],
+  "GEOSCI, ATMOCN 140": [
+    "GLE627",
+    "ATMOCN201"
+  ],
+  "CLASSICS, JEWISH, LITTRANS, RELIGST 227": [
+    "RELIGST332"
+  ],
+  "SCANDST 261": [
+    "SCANDST411",
+    "SCANDST401"
+  ],
+  "ASIALANG 136": [
+    "ASIALANG235"
+  ],
+  "NURSING 786": [
+    "NURSING787"
+  ],
+  "AFAERO 401": [
+    "AFAERO402"
+  ],
+  "AFRICAN 231": [
+    "AFRICAN413",
+    "AFRICAN402",
+    "AFRICAN406",
+    "AFRICAN412"
+  ],
+  "ART 376": [
+    "ART348",
+    "ART446"
+  ],
+  "CURRIC 319": [
+    "CURRIC320"
+  ],
+  "NURSING 434": [
+    "NURSING442",
+    "NURSING445",
+    "NURSING443",
+    "NURSING448",
+    "NURSING447",
+    "NURSING444"
+  ],
+  "AFRICAN 393": [
+    "AFRICAN394"
+  ],
+  "PHYSICS 202": [
+    "BME310",
+    "PHYSICS311",
+    "MS&E456",
+    "MEDPHYS410",
+    "PHYSICS104",
+    "PHYSICS307",
+    "SOILSCI631",
+    "NEURODPT610",
+    "PHYSICS241",
+    "ATMOCN630",
+    "ECE235",
+    "MEDPHYS651",
+    "ME578",
+    "CHEM562",
+    "CIVENGR496",
+    "PHYSICS325",
+    "GLE594",
+    "MEDPHYS575",
+    "MEDPHYS265",
+    "MEDPHYS573",
+    "ECE535",
+    "ECE222",
+    "NEURODPT640",
+    "PHYSICS208",
+    "ECE230",
+    "ATMOCN330",
+    "ATMOCN310",
+    "MEDPHYS568",
+    "MEDPHYS578",
+    "ECE377",
+    "CIVENGR497",
+    "PHYSICS361",
+    "MEDPHYS619",
+    "CHEM524",
+    "SOILSCI622",
+    "ATMOCN610",
+    "ATMOCN640",
+    "PHYSICS205",
+    "ME376",
+    "PHYSICS322",
+    "PHYSICS623",
+    "PHYSICS321",
+    "MEDPHYS535",
+    "BME651",
+    "ECE376",
+    "ECE220",
+    "PHYSICS301"
+  ],
+  "INTER-HE 940": [
+    "INTEREGR941"
+  ],
+  "ASIALANG 126": [
+    "ASIALANG225"
+  ],
+  "CURRIC 318": [
+    "CURRIC604",
+    "CURRIC504"
+  ],
+  "ECE 331": [
+    "ISYE562",
+    "ISYE312",
+    "ISYE649",
+    "CIVENGR516",
+    "ISYE349",
+    "ISYE625",
+    "CIVENGR570",
+    "ISYE315",
+    "CIVENGR572",
+    "ISYE412",
+    "ME536",
+    "ISYE320",
+    "COMPSCI561",
+    "MATH535",
+    "ISYE570"
+  ],
+  "ESL 117": [
+    "ESL118"
+  ],
+  "GERMAN 401": [
+    "GERMAN402"
+  ],
+  "KINES 620": [
+    "KINES621"
+  ],
+  "NURSING, PHMPRAC 605": [
+    "NURSING726",
+    "NURSING736"
+  ],
+  "GLE, GEOSCI 360": [
+    "GLE431",
+    "GEOSCI375",
+    "GLE370"
+  ],
+  "STAT 312": [
+    "ISYE562",
+    "ISYE445",
+    "FINANCE330",
+    "STAT303",
+    "ACTSCI640",
+    "FINANCE320",
+    "ISYE649",
+    "ISYE575",
+    "ISYE625",
+    "ISYE615",
+    "ME536",
+    "STAT424",
+    "STAT333",
+    "FINANCE325",
+    "ISYE320",
+    "ISYE620"
+  ],
+  "DANCE 376": [
+    "DANCE476"
+  ],
+  "MUSIC 105": [
+    "MUSIC306"
+  ],
+  "SLAVIC 102": [
+    "SLAVIC117",
+    "SLAVIC203"
+  ],
+  "ENVIRST, ZOOLOGY 315": [
+    "ZOOLOGY316"
+  ],
+  "MEDPHYS, BME 580": [
+    "MEDPHYS581",
+    "MEDPHYS663",
+    "MEDPHYS662",
+    "MEDPHYS665"
+  ],
+  "COMPSCI, ECE 252": [
+    "COMPSCI354",
+    "ECE353",
+    "COMPSCI352",
+    "COMPSCI300"
+  ],
+  "ASIALANG 321": [
+    "ASIALANG322"
+  ],
+  "MICROBIO 102": [
+    "MICROBIO324"
+  ],
+  "SCANDST 101": [
+    "SCANDST102"
+  ],
+  "AFRICAN 334": [
+    "AFRICAN435"
+  ],
+  "FRENCH 204": [
+    "FRENCH301",
+    "FRENCH228",
+    "FRENCH302"
+  ],
+  "PUBAFFR 880": [
+    "PUBAFFR856",
+    "PUBAFFR891",
+    "AAE881",
+    "PUBAFFR873",
+    "PUBAFFR854",
+    "POPHLTH548"
+  ],
+  "DANCE 337": [
+    "DANCE476"
+  ],
+  "MICROBIO 303": [
+    "MICROBIO325",
+    "MICROBIO102",
+    "MICROBIO357",
+    "MICROBIO657",
+    "CIVENGR425",
+    "MICROBIO425",
+    "MM&I554",
+    "MICROBIO520",
+    "BOTANY505",
+    "MICROBIO305",
+    "MICROBIO101",
+    "MICROBIO450",
+    "MICROBIO335",
+    "PHMSCI254",
+    "MICROBIO304",
+    "PLPATH622",
+    "MICROBIO100",
+    "MICROBIO470"
+  ],
+  "ART 102": [
+    "ART564",
+    "ART568",
+    "ART467",
+    "ART356",
+    "ART333",
+    "ART525",
+    "ART663",
+    "ART348",
+    "ART465",
+    "ART575",
+    "ART438",
+    "ART556",
+    "ART346",
+    "ART563",
+    "ART326",
+    "ART565",
+    "ART458",
+    "ART558",
+    "ART442",
+    "ART336",
+    "ART376",
+    "ART656",
+    "ART222",
+    "ART546",
+    "ART560",
+    "ART302",
+    "ART443",
+    "ART463"
+  ]
+}

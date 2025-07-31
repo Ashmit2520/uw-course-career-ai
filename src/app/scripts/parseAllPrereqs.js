@@ -1,66 +1,68 @@
 const fs = require('fs');
 const path = require('path');
-const csv = require('csv-parser');
+const parse = require('csv-parse/sync');
 
-// Import your parser
-const parsePrereq = require('./prereqParser');
+// ---- 1. Load CSV Data ----
 
-const gradesCsvPath = path.join(__dirname, '../db/grades.csv');
-const outputJsonPath = path.join(__dirname, '../db/parsedPrereqs.json');
-const outliersPath = path.join(__dirname, '../db/parseOutliers.json');
+const dbPath = path.join(__dirname, '../db/grades.csv'); // Update to your actual data filename if needed
+const csv = fs.readFileSync(dbPath, 'utf-8');
+const records = parse.parse(csv, {
+  columns: true,
+  skip_empty_lines: true,
+});
 
-let outlierCount = 0;
-const parsedResults = {};
-const outliers = [];
+// ---- 2. Build Reverse Prerequisite Map ----
 
-let rowNum = 0;
+const prereqForMap = {}; // { 'COMPSCI 537': ['COMPSCI642', 'COMPSCI506'], ... }
+const allCourses = new Set();
 
-fs.createReadStream(gradesCsvPath)
-  .pipe(csv())
-  .on('data', (row) => {
-    rowNum++;
+records.forEach((row) => {
+  const course = row['course_name']?.trim();
+  allCourses.add(course);
+  const satisfies = row['satisfies']?.trim();
+  if (!course) return;
+  if (!satisfies) return;
 
-    const courseId = row.id || row['id'];
-    const courseName = row.course_name || row['course_name'];
-    const prereqText = row.prerequisites || row['prerequisites'];
-
-    const parsed = parsePrereq(prereqText);
-
-    parsedResults[courseId] = {
-      course_name: courseName,
-      prerequisites: prereqText,
-      parsed,
-    };
-
-    // Only log ambiguous or "empty" parses as outliers
-    const isOutlier =
-      parsed.type === "ambiguous" ||
-      (
-        (!parsed.requirements || parsed.requirements.length === 0) &&
-        (!parsed.nonCourseRequirements || parsed.nonCourseRequirements.length === 0)
-      );
-
-    if (isOutlier) {
-      outlierCount++;
-      outliers.push({
-        row: rowNum,
-        course_id: courseId,
-        course_name: courseName,
-        prerequisites: prereqText,
-        parsed,
-      });
-
-      // Print in the requested format:
-      console.log(`⚠️ Outlier at row ${rowNum}: [${courseName}] "${prereqText}"`);
-      console.log(`   Parsed Output: ${JSON.stringify(parsed, null, 2)}`);
-    }
-  })
-  .on('end', () => {
-    fs.writeFileSync(outputJsonPath, JSON.stringify(parsedResults, null, 2));
-    fs.writeFileSync(outliersPath, JSON.stringify(outliers, null, 2));
-    console.log(`\n✅ Done. Parsed ${Object.keys(parsedResults).length} courses.`);
-    console.log(`⚠️  Outlier/flagged cases: ${outlierCount}`);
-    if (outlierCount > 0) {
-      console.log(`🔎 See flagged outliers at ${outliersPath}`);
-    }
+  // supports multi-course: "COMPSCI642; COMPSCI506"
+  satisfies.split(';').forEach((target) => {
+    const cleanTarget = target.trim();
+    if (!cleanTarget) return;
+    if (!prereqForMap[course]) prereqForMap[course] = [];
+    prereqForMap[course].push(cleanTarget);
   });
+});
+
+// ---- 3. Build Prerequisite Map (corrected logic) ----
+const prereqMap = {}; // { 'COMPSCI642': [ 'COMPSCI 537', ...], ... }
+
+allCourses.forEach((targetCourse) => {
+  // targetCourse could be "COMPSCI 642" or "MATH 141"
+  // Need to check for matches in satisfies, even if the satisfies omits the space
+  const canonical = targetCourse.replace(/\s+/g, ''); // e.g. COMPSCI642
+  prereqMap[targetCourse] = [];
+  Object.entries(prereqForMap).forEach(([prereq, satisfiesList]) => {
+    satisfiesList.forEach((sat) => {
+      const satCanonical = sat.replace(/\s+/g, '');
+      if (satCanonical === canonical) {
+        prereqMap[targetCourse].push(prereq);
+      }
+    });
+  });
+});
+
+
+// ---- 4. Save JSON Files ----
+
+fs.writeFileSync(
+  path.join(__dirname, '../db/prereqForMap.json'),
+  JSON.stringify(prereqForMap, null, 2)
+);
+
+fs.writeFileSync(
+  path.join(__dirname, '../db/prereqMap.json'),
+  JSON.stringify(prereqMap, null, 2)
+);
+
+console.log('✅ Prerequisite mappings generated!');
+console.log(`- Prereq-for map: src/app/db/prereqForMap.json`);
+console.log(`- Prereq map: src/app/db/prereqMap.json`);
