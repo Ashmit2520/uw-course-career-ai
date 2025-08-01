@@ -1,11 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
-import { validateFourYearPlan } from "../../utils/validatePlan";
+import { validateFourYearPlan } from "@/utils/validatePlan";
 import prereqMap from "@/app/db/prereqMap.json";
 
 const STORAGE_KEY = "uwmadison_four_year_plan";
 
+// --- Credits check ---
 function getSemesterStatus(courses) {
   const credits = semesterCredits(courses);
   if (credits < 12) return { status: "low", message: "Below 12 credits" };
@@ -16,44 +17,91 @@ function getSemesterStatus(courses) {
 function savePlanToStorage(plan) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
 }
-
 function loadPlanFromStorage(defaultPlan) {
   if (typeof window === "undefined") return defaultPlan;
   const data = localStorage.getItem(STORAGE_KEY);
   return data ? JSON.parse(data) : defaultPlan;
 }
 
+// --- ALL IDS AND NAMES ARE THE OFFICIAL COURSE CODE ---
 const INITIAL_PLAN = [
-  /* ... your default plan, same as before ... */
-  // Copy your INITIAL_PLAN from your file here; omitted for brevity
+  {
+    year: 1,
+    fall: [
+      { id: "COMP SCI 300", name: "COMP SCI 300", credits: 3 },
+      { id: "MATH 221", name: "MATH 221", credits: 5 },
+      { id: "COMM-A", name: "Communications Part A", credits: 3 },
+      { id: "ETHNIC", name: "Ethnic Studies", credits: 3 },
+    ],
+    spring: [
+      { id: "COMP SCI 240", name: "COMP SCI 240", credits: 3 },
+      { id: "MATH 222", name: "MATH 222", credits: 4 },
+      { id: "LANG2", name: "Second Semester Language", credits: 4 },
+      { id: "BIO-SCI", name: "Natural Science (Biological)", credits: 3 },
+    ],
+  },
+  {
+    year: 2,
+    fall: [
+      { id: "COMP SCI 354", name: "COMP SCI 354", credits: 3 },
+      { id: "COMP SCI 400", name: "COMP SCI 400", credits: 3 },
+      { id: "LINEAR", name: "Linear Algebra", credits: 3 },
+      { id: "HUM1", name: "Humanities/Literature", credits: 3 },
+      { id: "NAT-SCI2", name: "Natural Science (Physical)", credits: 3 },
+    ],
+    spring: [
+      { id: "COMP SCI 407", name: "COMP SCI 407", credits: 3 },
+      { id: "PROB-STAT", name: "Probability/Statistics", credits: 3 },
+      { id: "LANG3", name: "Third Semester Language", credits: 3 },
+      { id: "SOCSCI1", name: "Social Science", credits: 3 },
+      { id: "HUM2", name: "Humanities", credits: 3 },
+    ],
+  },
+  {
+    year: 3,
+    fall: [
+      { id: "COMP SCI 537", name: "COMP SCI 537", credits: 3 },
+      { id: "APP1", name: "Applications Requirement", credits: 3 },
+      { id: "COMP SCI 577", name: "COMP SCI 577", credits: 3 },
+      { id: "SOCSCI2", name: "Social Science", credits: 3 },
+      { id: "ELECTIVE1", name: "Comp Sci Elective", credits: 3 },
+    ],
+    spring: [
+      { id: "COMP SCI 540", name: "COMP SCI 540", credits: 3 },
+      { id: "COMP SCI 564", name: "COMP SCI 564", credits: 3 },
+      { id: "ELECTIVE2", name: "Comp Sci Elective", credits: 3 },
+      { id: "HUM3", name: "Humanities/Literature", credits: 3 },
+      { id: "SOCSCI3", name: "Social Science", credits: 3 },
+    ],
+  },
+  {
+    year: 4,
+    fall: [
+      { id: "COMP SCI 620", name: "COMP SCI 620", credits: 3 },
+      { id: "ELECTIVE3", name: "Comp Sci Elective", credits: 3 },
+      { id: "UPPERLVL", name: "Upper-level Elective", credits: 3 },
+      { id: "NAT-SCI3", name: "Natural Science", credits: 3 },
+      { id: "FREE1", name: "Free Elective", credits: 3 },
+    ],
+    spring: [
+      { id: "ELECTIVE4", name: "Comp Sci Elective", credits: 3 },
+      { id: "SOCSCI4", name: "Social Science", credits: 3 },
+      { id: "FREE2", name: "Free Elective", credits: 3 },
+      { id: "UPPERLVL2", name: "Upper-level Elective", credits: 3 },
+      { id: "FREE3", name: "Free Elective", credits: 3 },
+    ],
+  },
 ];
 
 function semesterCredits(courses) {
   return courses.reduce((sum, c) => sum + (c.credits || 0), 0);
 }
 
-// Flatten plan into a linear array of course codes in order taken
-function getPlanArray(plan) {
-  const arr = [];
-  plan.forEach((year) => {
-    ["fall", "spring"].forEach((sem) => {
-      year[sem].forEach((c) => {
-        // Extract just the code (e.g. "COMP SCI 300") from the course name
-        const match = c.name.match(/^([A-Z ]+\d+)/);
-        arr.push(match ? match[1].replace(/\s+/g, " ").trim() : c.name);
-      });
-    });
-  });
-  return arr;
-}
-
 export default function FourYearPlan() {
   const [plan, setPlan] = useState(() => loadPlanFromStorage(INITIAL_PLAN));
   const [hydrated, setHydrated] = useState(false);
   const [dragged, setDragged] = useState(null);
-
-  // For validation
-  const [violations, setViolations] = useState([]);
+  const [warnings, setWarnings] = useState([]);
 
   useEffect(() => {
     setPlan(loadPlanFromStorage(INITIAL_PLAN));
@@ -68,11 +116,13 @@ export default function FourYearPlan() {
     savePlanToStorage(plan);
   }, [plan]);
 
-  // Recalculate validation on plan change
+  // Prereq warnings
   useEffect(() => {
-    const planArray = getPlanArray(plan);
-    setViolations(validateFourYearPlan(planArray, prereqMap, []));
+    const _warnings = validateFourYearPlan(plan);
+    setWarnings(_warnings);
+    console.log("Current warnings:", _warnings); // <--- See what's not being satisfied!
   }, [plan]);
+
 
   // Remove course
   const removeCourse = (yearIdx, sem, courseIdx) => {
@@ -117,7 +167,23 @@ export default function FourYearPlan() {
     setDragged(null);
   };
 
+  // Show nothing until hydrated
   if (!hydrated) return null;
+
+  // Helper for warning display
+  function getWarning(course) {
+    const found = warnings.find(
+      (w) => w.courseId === course.id
+    );
+    if (found) {
+      return (
+        <span className="text-xs font-bold text-red-500 ml-2">
+          Prereqs not met: {found.unmet.join(", ")}
+        </span>
+      );
+    }
+    return null;
+  }
 
   return (
     <div
@@ -133,26 +199,6 @@ export default function FourYearPlan() {
       <h3 className="text-2xl font-extrabold mb-6 text-gray-900 text-center">
         4-Year Academic Plan (Computer Science)
       </h3>
-
-      {/* Validation UI */}
-      {violations.length > 0 && (
-        <div className="mb-6 p-3 bg-yellow-50 border-l-4 border-yellow-500 rounded">
-          <div className="font-semibold text-yellow-800 mb-1">
-            ⚠️ Prerequisite Issues Detected:
-          </div>
-          <ul className="text-sm text-yellow-700 ml-4 list-disc">
-            {violations.map((v, i) => (
-              <li key={i}>
-                <span className="font-semibold">{v.course}</span> (Semester {v.semester}): Missing&nbsp;
-                <span className="font-mono text-red-600">
-                  {v.missing.join(", ")}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
       <div className="grid grid-cols-4 gap-6">
         {plan.map((year, yIdx) => (
           <div
@@ -198,7 +244,7 @@ export default function FourYearPlan() {
                   )}
                   {year[sem].map((course, cIdx) => (
                     <div
-                      key={course.id}
+                      key={course.id + cIdx}
                       className="bg-blue-50 mb-2 px-2 py-1 rounded text-base cursor-move border flex items-center justify-between group"
                       draggable
                       onDragStart={() => onDragStart(yIdx, sem, cIdx)}
@@ -208,6 +254,7 @@ export default function FourYearPlan() {
                         <span className="text-xs text-gray-500">
                           ({course.credits} cr)
                         </span>
+                        {getWarning(course)}
                       </span>
                       <button
                         onClick={() => removeCourse(yIdx, sem, cIdx)}

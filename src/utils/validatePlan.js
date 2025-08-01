@@ -1,31 +1,67 @@
-// src/app/utils/validatePlan.js
+import prereqMap from "../app/db/prereqMap.json";
 
 /**
- * Validates a course plan against the prereqMap.
- * 
- * @param {string[]} planArray - Array of course codes in order taken (e.g. ["MATH 221", "COMP SCI 300", ...])
- * @param {Object} prereqMap - Object: course code -> [array of required prereqs]
- * @param {string[]} alreadySatisfied - Extra satisfied prereqs (AP, transfer, etc.)
- * @returns {Array<{course: string, semester: number, missing: string[]}>}
+ * Normalize course code to strip spaces, special chars for fuzzy matching.
+ * E.g., "COMP SCI 400" => "COMPSCI400"
  */
-function validateFourYearPlan(planArray, prereqMap, alreadySatisfied = []) {
-  const completed = new Set(alreadySatisfied);
-  const violations = [];
-  for (let i = 0; i < planArray.length; i++) {
-    const course = planArray[i];
-    if (!course) continue;
-    const prereqs = prereqMap[course] || [];
-    const missing = prereqs.filter(prereq => !completed.has(prereq));
-    if (missing.length > 0) {
-      violations.push({
-        course,
-        semester: i + 1,
-        missing,
-      });
-    }
-    completed.add(course);
-  }
-  return violations;
+function normalizeCourseId(id) {
+  return id.replace(/[^A-Z0-9]/gi, "").toUpperCase();
 }
 
-export { validateFourYearPlan };
+/**
+ * Given a plan, returns array of {courseId, unmet: [prereq, ...]}
+ */
+export function validateFourYearPlan(plan) {
+  // Build a timeline: all courses taken so far, in order
+  let taken = [];
+  let warnings = [];
+
+  // Flatten the plan into [course, year, sem, idx] with order
+  const orderedCourses = [];
+  plan.forEach((yearObj, yearIdx) => {
+    ["fall", "spring"].forEach((sem) => {
+      yearObj[sem].forEach((course, idx) => {
+        orderedCourses.push({
+          ...course,
+          year: yearIdx,
+          sem,
+          idx,
+        });
+      });
+    });
+  });
+
+  // For each course, check its prereqs
+  for (let i = 0; i < orderedCourses.length; ++i) {
+    const course = orderedCourses[i];
+    const idNorm = normalizeCourseId(course.id);
+
+    // Find prereqs for this course
+    let prereqs = [];
+    // prereqMap is assumed to be an object { "COMP SCI 400": [...] }
+    for (const [target, requiredArr] of Object.entries(prereqMap)) {
+      if (normalizeCourseId(target) === idNorm) {
+        prereqs = requiredArr;
+        break;
+      }
+    }
+    if (!prereqs || prereqs.length === 0) continue;
+
+    // For each prereq, see if it's in taken[] so far
+    const takenNormIds = taken.map((c) => normalizeCourseId(c.id));
+    const unmet = prereqs.filter((pr) => {
+      const prNorm = normalizeCourseId(pr);
+      return !takenNormIds.includes(prNorm);
+    });
+
+    if (unmet.length > 0) {
+      warnings.push({
+        courseId: course.id,
+        unmet,
+      });
+    }
+
+    taken.push(course); // Now add course to taken list
+  }
+  return warnings;
+}
