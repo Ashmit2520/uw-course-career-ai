@@ -5,14 +5,7 @@ import { validateFourYearPlan } from "@/utils/validatePlan";
 import prereqMap from "@/app/db/prereqMap.json";
 
 const STORAGE_KEY = "uwmadison_four_year_plan";
-
-// --- Credits check ---
-function getSemesterStatus(courses) {
-  const credits = semesterCredits(courses);
-  if (credits < 12) return { status: "low", message: "Below 12 credits" };
-  if (credits > 18) return { status: "high", message: "Above 18 credits" };
-  return { status: "ok", message: "" };
-}
+const OVERRIDES_KEY = "uwmadison_prereq_overrides";
 
 function savePlanToStorage(plan) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
@@ -22,8 +15,15 @@ function loadPlanFromStorage(defaultPlan) {
   const data = localStorage.getItem(STORAGE_KEY);
   return data ? JSON.parse(data) : defaultPlan;
 }
+function saveOverridesToStorage(overrides) {
+  localStorage.setItem(OVERRIDES_KEY, JSON.stringify(overrides));
+}
+function loadOverridesFromStorage() {
+  if (typeof window === "undefined") return {};
+  const data = localStorage.getItem(OVERRIDES_KEY);
+  return data ? JSON.parse(data) : {};
+}
 
-// --- ALL IDS AND NAMES ARE THE OFFICIAL COURSE CODE ---
 const INITIAL_PLAN = [
   {
     year: 1,
@@ -97,34 +97,41 @@ function semesterCredits(courses) {
   return courses.reduce((sum, c) => sum + (c.credits || 0), 0);
 }
 
+function getSemesterStatus(courses) {
+  const credits = semesterCredits(courses);
+  if (credits < 12) return { status: "low", message: "Below 12 credits" };
+  if (credits > 18) return { status: "high", message: "Above 18 credits" };
+  return { status: "ok", message: "" };
+}
+
 export default function FourYearPlan() {
   const [plan, setPlan] = useState(() => loadPlanFromStorage(INITIAL_PLAN));
   const [hydrated, setHydrated] = useState(false);
   const [dragged, setDragged] = useState(null);
+  const [overrides, setOverrides] = useState(() => loadOverridesFromStorage());
   const [warnings, setWarnings] = useState([]);
 
+  // Hydrate plan and overrides from storage
   useEffect(() => {
     setPlan(loadPlanFromStorage(INITIAL_PLAN));
+    setOverrides(loadOverridesFromStorage());
     setHydrated(true);
   }, []);
 
+  // Save to localStorage on change
   useEffect(() => {
     if (hydrated) savePlanToStorage(plan);
   }, [plan, hydrated]);
-
   useEffect(() => {
-    savePlanToStorage(plan);
+    if (hydrated) saveOverridesToStorage(overrides);
+  }, [overrides, hydrated]);
+
+  // Compute warnings when plan changes
+  useEffect(() => {
+    setWarnings(validateFourYearPlan(plan));
   }, [plan]);
 
-  // Prereq warnings
-  useEffect(() => {
-    const _warnings = validateFourYearPlan(plan);
-    setWarnings(_warnings);
-    console.log("Current warnings:", _warnings); // <--- See what's not being satisfied!
-  }, [plan]);
-
-
-  // Remove course
+  // Remove course from semester
   const removeCourse = (yearIdx, sem, courseIdx) => {
     setPlan((prevPlan) => {
       const newPlan = prevPlan.map((y, yi) =>
@@ -167,23 +174,44 @@ export default function FourYearPlan() {
     setDragged(null);
   };
 
-  // Show nothing until hydrated
-  if (!hydrated) return null;
-
-  // Helper for warning display
+  // Helper for warning display and override
   function getWarning(course) {
-    const found = warnings.find(
-      (w) => w.courseId === course.id
-    );
-    if (found) {
+    const found = warnings.find((w) => w.courseId === course.id);
+    const isOverridden = overrides[course.id];
+    if (found && !isOverridden) {
       return (
-        <span className="text-xs font-bold text-red-500 ml-2">
+        <span className="text-xs font-bold text-red-500 ml-2 flex items-center gap-2">
           Prereqs not met: {found.unmet.join(", ")}
+          <button
+            className="ml-1 text-blue-600 underline text-xs"
+            onClick={() => setOverrides((prev) => ({ ...prev, [course.id]: true }))}
+          >
+            Override (AP/Transfer Credit)
+          </button>
+        </span>
+      );
+    }
+    if (found && isOverridden) {
+      return (
+        <span className="text-xs font-bold text-green-500 ml-2 flex items-center gap-2">
+          Overridden (AP/Transfer Credit)
+          <button
+            className="ml-1 text-blue-600 underline text-xs"
+            onClick={() => setOverrides((prev) => {
+              const copy = { ...prev };
+              delete copy[course.id];
+              return copy;
+            })}
+          >
+            Undo
+          </button>
         </span>
       );
     }
     return null;
   }
+
+  if (!hydrated) return null;
 
   return (
     <div
