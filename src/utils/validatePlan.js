@@ -1,67 +1,52 @@
-import prereqMap from "../app/db/prereqMap.json";
+// src/utils/validatePlan.js
 
-/**
- * Normalize course code to strip spaces, special chars for fuzzy matching.
- * E.g., "COMP SCI 400" => "COMPSCI400"
- */
-function normalizeCourseId(id) {
-  return id.replace(/[^A-Z0-9]/gi, "").toUpperCase();
+import prereqMap from "@/app/db/prereqMap.json";
+
+function normalizeCourseName(str) {
+  return str.replace(/\s+/g, "").toUpperCase();
 }
 
 /**
- * Given a plan, returns array of {courseId, unmet: [prereq, ...]}
+ * Accepts the flattened list of completed course IDs (["COMP SCI 300", ...])
+ * and returns true if any of the alternate options are satisfied
  */
-export function validateFourYearPlan(plan) {
-  // Build a timeline: all courses taken so far, in order
-  let taken = [];
-  let warnings = [];
-
-  // Flatten the plan into [course, year, sem, idx] with order
-  const orderedCourses = [];
-  plan.forEach((yearObj, yearIdx) => {
-    ["fall", "spring"].forEach((sem) => {
-      yearObj[sem].forEach((course, idx) => {
-        orderedCourses.push({
-          ...course,
-          year: yearIdx,
-          sem,
-          idx,
-        });
-      });
-    });
+function isPrereqMet(prereqStr, completedSet) {
+  // Support: "COMPSCI, ECE 354" or "CHICLA/SPANISH 222"
+  const options = prereqStr
+    .split(/[\/,]/) // split on "/" or ","
+    .map(s => s.trim().replace(/\s+/g, " "));
+  return options.some(option => {
+    // Try both "COMP SCI 354" and "COMPSCI 354" as IDs
+    const normalized = normalizeCourseName(option);
+    for (let completed of completedSet) {
+      const completedNormalized = normalizeCourseName(completed);
+      if (completedNormalized === normalized) return true;
+    }
+    return false;
   });
+}
 
-  // For each course, check its prereqs
-  for (let i = 0; i < orderedCourses.length; ++i) {
-    const course = orderedCourses[i];
-    const idNorm = normalizeCourseId(course.id);
-
-    // Find prereqs for this course
-    let prereqs = [];
-    // prereqMap is assumed to be an object { "COMP SCI 400": [...] }
-    for (const [target, requiredArr] of Object.entries(prereqMap)) {
-      if (normalizeCourseId(target) === idNorm) {
-        prereqs = requiredArr;
-        break;
+export function validateFourYearPlan(plan) {
+  // Flatten plan into array of semesters
+  let completed = new Set();
+  let warnings = [];
+  for (const year of plan) {
+    for (const sem of ["fall", "spring"]) {
+      for (const course of year[sem]) {
+        const courseId = course.id;
+        const prereqs = prereqMap[courseId] || [];
+        const unmet = [];
+        for (const prereq of prereqs) {
+          if (!isPrereqMet(prereq, completed)) {
+            unmet.push(prereq);
+          }
+        }
+        if (unmet.length) {
+          warnings.push({ courseId, unmet });
+        }
+        completed.add(courseId);
       }
     }
-    if (!prereqs || prereqs.length === 0) continue;
-
-    // For each prereq, see if it's in taken[] so far
-    const takenNormIds = taken.map((c) => normalizeCourseId(c.id));
-    const unmet = prereqs.filter((pr) => {
-      const prNorm = normalizeCourseId(pr);
-      return !takenNormIds.includes(prNorm);
-    });
-
-    if (unmet.length > 0) {
-      warnings.push({
-        courseId: course.id,
-        unmet,
-      });
-    }
-
-    taken.push(course); // Now add course to taken list
   }
   return warnings;
 }
