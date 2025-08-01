@@ -1,91 +1,94 @@
 "use client";
 import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
+import { validateFourYearPlan } from "@/utils/validatePlan";
+import prereqMap from "@/app/db/prereqMap.json";
 
 const STORAGE_KEY = "uwmadison_four_year_plan";
-
-function getSemesterStatus(courses) {
-  const credits = semesterCredits(courses);
-  if (credits < 12) return { status: "low", message: "Below 12 credits" };
-  if (credits > 18) return { status: "high", message: "Above 18 credits" };
-  return { status: "ok", message: "" };
-}
+const OVERRIDES_KEY = "uwmadison_prereq_overrides";
 
 function savePlanToStorage(plan) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
 }
-
 function loadPlanFromStorage(defaultPlan) {
   if (typeof window === "undefined") return defaultPlan;
   const data = localStorage.getItem(STORAGE_KEY);
   return data ? JSON.parse(data) : defaultPlan;
+}
+function saveOverridesToStorage(overrides) {
+  localStorage.setItem(OVERRIDES_KEY, JSON.stringify(overrides));
+}
+function loadOverridesFromStorage() {
+  if (typeof window === "undefined") return {};
+  const data = localStorage.getItem(OVERRIDES_KEY);
+  return data ? JSON.parse(data) : {};
 }
 
 const INITIAL_PLAN = [
   {
     year: 1,
     fall: [
-      { id: "cs300", name: "COMP SCI 300 (Programming II)", credits: 3 },
-      { id: "math221", name: "MATH 221 (Calc I)", credits: 5 },
-      { id: "commA", name: "Communications Part A", credits: 3 },
-      { id: "ethnic", name: "Ethnic Studies", credits: 3 },
+      { id: "COMP SCI 300", name: "COMP SCI 300", credits: 3 },
+      { id: "MATH 221", name: "MATH 221", credits: 5 },
+      { id: "COMM-A", name: "Communications Part A", credits: 3 },
+      { id: "ETHNIC", name: "Ethnic Studies", credits: 3 },
     ],
     spring: [
-      { id: "cs240", name: "COMP SCI 240 (Discrete Math)", credits: 3 },
-      { id: "math222", name: "MATH 222 (Calc II)", credits: 4 },
-      { id: "lang2", name: "Second Semester Language", credits: 4 },
-      { id: "bioSci", name: "Natural Science (Biological)", credits: 3 },
+      { id: "COMP SCI 240", name: "COMP SCI 240", credits: 3 },
+      { id: "MATH 222", name: "MATH 222", credits: 4 },
+      { id: "LANG2", name: "Second Semester Language", credits: 4 },
+      { id: "BIO-SCI", name: "Natural Science (Biological)", credits: 3 },
     ],
   },
   {
     year: 2,
     fall: [
-      { id: "cs354", name: "COMP SCI 354 (Machine Org)", credits: 3 },
-      { id: "cs400", name: "COMP SCI 400 (Programming III)", credits: 3 },
-      { id: "linear", name: "Linear Algebra", credits: 3 },
-      { id: "hum1", name: "Humanities/Literature", credits: 3 },
-      { id: "natSci2", name: "Natural Science (Physical)", credits: 3 },
+      { id: "COMP SCI 354", name: "COMP SCI 354", credits: 3 },
+      { id: "COMP SCI 400", name: "COMP SCI 400", credits: 3 },
+      { id: "LINEAR", name: "Linear Algebra", credits: 3 },
+      { id: "HUM1", name: "Humanities/Literature", credits: 3 },
+      { id: "NAT-SCI2", name: "Natural Science (Physical)", credits: 3 },
     ],
     spring: [
-      { id: "cs407", name: "COMP SCI 407 (Mobile Systems)", credits: 3 },
-      { id: "probstat", name: "Probability/Statistics", credits: 3 },
-      { id: "lang3", name: "Third Semester Language", credits: 3 },
-      { id: "socSci1", name: "Social Science", credits: 3 },
-      { id: "hum2", name: "Humanities", credits: 3 },
+      { id: "COMP SCI 407", name: "COMP SCI 407", credits: 3 },
+      { id: "PROB-STAT", name: "Probability/Statistics", credits: 3 },
+      { id: "LANG3", name: "Third Semester Language", credits: 3 },
+      { id: "SOCSCI1", name: "Social Science", credits: 3 },
+      { id: "HUM2", name: "Humanities", credits: 3 },
     ],
   },
   {
     year: 3,
     fall: [
-      { id: "cs537", name: "COMP SCI 537 (Operating Systems)", credits: 3 },
-      { id: "app1", name: "Applications Requirement", credits: 3 },
-      { id: "cs577", name: "COMP SCI 577 (Algorithms)", credits: 3 },
-      { id: "socSci2", name: "Social Science", credits: 3 },
-      { id: "elective1", name: "Comp Sci Elective", credits: 3 },
+      { id: "COMP SCI 537", name: "COMP SCI 537", credits: 3 },
+      { id: "APP1", name: "Applications Requirement", credits: 3 },
+      { id: "COMP SCI 577", name: "COMP SCI 577", credits: 3 },
+      { id: "SOCSCI2", name: "Social Science", credits: 3 },
+      { id: "ELECTIVE1", name: "Comp Sci Elective", credits: 3 },
     ],
     spring: [
-      { id: "cs540", name: "COMP SCI 540 (AI)", credits: 3 },
-      { id: "cs564", name: "COMP SCI 564 (DBMS)", credits: 3 },
-      { id: "elective2", name: "Comp Sci Elective", credits: 3 },
-      { id: "hum3", name: "Humanities/Literature", credits: 3 },
-      { id: "socSci3", name: "Social Science", credits: 3 },
+      { id: "COMP SCI 540", name: "COMP SCI 540", credits: 3 },
+      { id: "COMP SCI 564", name: "COMP SCI 564", credits: 3 },
+      { id: "ELECTIVE2", name: "Comp Sci Elective", credits: 3 },
+      { id: "HUM3", name: "Humanities/Literature", credits: 3 },
+      { id: "SOCSCI3", name: "Social Science", credits: 3 },
     ],
   },
   {
     year: 4,
     fall: [
-      { id: "capstone", name: "COMP SCI 620 (Capstone)", credits: 3 },
-      { id: "elective3", name: "Comp Sci Elective", credits: 3 },
-      { id: "upperLvl", name: "Upper-level Elective", credits: 3 },
-      { id: "natSci3", name: "Natural Science", credits: 3 },
-      { id: "free1", name: "Free Elective", credits: 3 },
+      { id: "COMP SCI 620", name: "COMP SCI 620", credits: 3 },
+      { id: "ELECTIVE3", name: "Comp Sci Elective", credits: 3 },
+      { id: "UPPERLVL", name: "Upper-level Elective", credits: 3 },
+      { id: "NAT-SCI3", name: "Natural Science", credits: 3 },
+      { id: "FREE1", name: "Free Elective", credits: 3 },
     ],
     spring: [
-      { id: "elective4", name: "Comp Sci Elective", credits: 3 },
-      { id: "socSci4", name: "Social Science", credits: 3 },
-      { id: "free2", name: "Free Elective", credits: 3 },
-      { id: "upperLvl2", name: "Upper-level Elective", credits: 3 },
-      { id: "free3", name: "Free Elective", credits: 3 },
+      { id: "ELECTIVE4", name: "Comp Sci Elective", credits: 3 },
+      { id: "SOCSCI4", name: "Social Science", credits: 3 },
+      { id: "FREE2", name: "Free Elective", credits: 3 },
+      { id: "UPPERLVL2", name: "Upper-level Elective", credits: 3 },
+      { id: "FREE3", name: "Free Elective", credits: 3 },
     ],
   },
 ];
@@ -94,28 +97,41 @@ function semesterCredits(courses) {
   return courses.reduce((sum, c) => sum + (c.credits || 0), 0);
 }
 
+function getSemesterStatus(courses) {
+  const credits = semesterCredits(courses);
+  if (credits < 12) return { status: "low", message: "Below 12 credits" };
+  if (credits > 18) return { status: "high", message: "Above 18 credits" };
+  return { status: "ok", message: "" };
+}
+
 export default function FourYearPlan() {
   const [plan, setPlan] = useState(() => loadPlanFromStorage(INITIAL_PLAN));
   const [hydrated, setHydrated] = useState(false);
   const [dragged, setDragged] = useState(null);
+  const [overrides, setOverrides] = useState(() => loadOverridesFromStorage());
+  const [warnings, setWarnings] = useState([]);
 
-
-   useEffect(() => {
-    // Only load from localStorage after mount
+  // Hydrate plan and overrides from storage
+  useEffect(() => {
     setPlan(loadPlanFromStorage(INITIAL_PLAN));
+    setOverrides(loadOverridesFromStorage());
     setHydrated(true);
   }, []);
 
+  // Save to localStorage on change
   useEffect(() => {
     if (hydrated) savePlanToStorage(plan);
   }, [plan, hydrated]);
-
-  // Persist plan to localStorage whenever it changes
   useEffect(() => {
-    savePlanToStorage(plan);
+    if (hydrated) saveOverridesToStorage(overrides);
+  }, [overrides, hydrated]);
+
+  // Compute warnings when plan changes
+  useEffect(() => {
+    setWarnings(validateFourYearPlan(plan));
   }, [plan]);
 
-  // Remove course
+  // Remove course from semester
   const removeCourse = (yearIdx, sem, courseIdx) => {
     setPlan((prevPlan) => {
       const newPlan = prevPlan.map((y, yi) =>
@@ -158,7 +174,43 @@ export default function FourYearPlan() {
     setDragged(null);
   };
 
-  // Show nothing until hydrated
+  // Helper for warning display and override
+  function getWarning(course) {
+    const found = warnings.find((w) => w.courseId === course.id);
+    const isOverridden = overrides[course.id];
+    if (found && !isOverridden) {
+      return (
+        <span className="text-xs font-bold text-red-500 ml-2 flex items-center gap-2">
+          Prereqs not met: {found.unmet.join(", ")}
+          <button
+            className="ml-1 text-blue-600 underline text-xs"
+            onClick={() => setOverrides((prev) => ({ ...prev, [course.id]: true }))}
+          >
+            Override (AP/Transfer Credit)
+          </button>
+        </span>
+      );
+    }
+    if (found && isOverridden) {
+      return (
+        <span className="text-xs font-bold text-green-500 ml-2 flex items-center gap-2">
+          Overridden (AP/Transfer Credit)
+          <button
+            className="ml-1 text-blue-600 underline text-xs"
+            onClick={() => setOverrides((prev) => {
+              const copy = { ...prev };
+              delete copy[course.id];
+              return copy;
+            })}
+          >
+            Undo
+          </button>
+        </span>
+      );
+    }
+    return null;
+  }
+
   if (!hydrated) return null;
 
   return (
@@ -220,7 +272,7 @@ export default function FourYearPlan() {
                   )}
                   {year[sem].map((course, cIdx) => (
                     <div
-                      key={course.id}
+                      key={course.id + cIdx}
                       className="bg-blue-50 mb-2 px-2 py-1 rounded text-base cursor-move border flex items-center justify-between group"
                       draggable
                       onDragStart={() => onDragStart(yIdx, sem, cIdx)}
@@ -230,6 +282,7 @@ export default function FourYearPlan() {
                         <span className="text-xs text-gray-500">
                           ({course.credits} cr)
                         </span>
+                        {getWarning(course)}
                       </span>
                       <button
                         onClick={() => removeCourse(yIdx, sem, cIdx)}

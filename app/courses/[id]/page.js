@@ -12,7 +12,8 @@ import {
 } from "recharts";
 
 const GRADE_KEYS = [
-  "A", "AB", "B", "BC", "C", "D", "F", "S", "U", "CR", "N", "P", "I", "NW", "NR", "Other"
+  "grade_a", "grade_ab", "grade_b", "grade_bc",
+  "grade_c", "grade_d", "grade_f"
 ];
 
 export default function CourseDetailsPage() {
@@ -38,7 +39,7 @@ export default function CourseDetailsPage() {
   const chartData = GRADE_KEYS
     .map((k) =>
       course[k] !== undefined && course[k] !== "NA"
-        ? { grade: k, value: Number(course[k]) }
+        ? { grade: k.replace("grade_", "").toUpperCase(), value: Number(course[k]) }
         : null
     )
     .filter((d) => d && !isNaN(d.value));
@@ -47,20 +48,18 @@ export default function CourseDetailsPage() {
     <main className="flex flex-col items-center p-8">
       <div className="bg-white rounded-xl shadow p-8 max-w-xl w-full">
         <h1 className="text-2xl font-bold mb-2 text-gray-900">
-          {course.subject_name_section}
+          {course.course_name}
         </h1>
-        <p className="text-lg text-gray-700 mb-4">{course.class_description}</p>
+        <p className="text-lg text-gray-700 mb-4">{course.description}</p>
         <div className="grid grid-cols-2 gap-2 text-gray-600 mb-2">
-          <span className="font-semibold">Department:</span>
-          <span>{course.department}</span>
-          <span className="font-semibold">College:</span>
-          <span>{course.college}</span>
-          <span className="font-semibold">Subject Code:</span>
-          <span>{course.subject_code}</span>
+          <span className="font-semibold">Subject:</span>
+          <span>{course.subject_name}</span>
           <span className="font-semibold">Average GPA:</span>
-          <span>{course.ave_gpa ?? "N/A"}</span>
-          <span className="font-semibold">Number of Grades:</span>
-          <span>{course.num_grades ?? "N/A"}</span>
+          <span>{course.avg_gpa ?? "N/A"}</span>
+          <span className="font-semibold">Students:</span>
+          <span>{course.students ?? "N/A"}</span>
+          <span className="font-semibold">Prerequisites:</span>
+          <span>{course.prerequisites || "None"}</span>
         </div>
         <div className="mt-6">
           <h2 className="font-extrabold text-lg mb-2 text-black">
@@ -76,16 +75,16 @@ export default function CourseDetailsPage() {
                     value: "Grade",
                     position: "insideBottom",
                     offset: -4,
-                    fill: "#374151", // Tailwind gray-700
+                    fill: "#374151",
                     fontSize: 14,
                     fontWeight: 600,
                   }}
                 />
                 <YAxis
                   label={{
-                    value: "Percentage of students",
+                    value: "Number of Students",
                     angle: -90,
-                    position: "outsideLeft", // <--- move label outside
+                    position: "outsideLeft",
                     offset: 35,
                     fill: "#374151",
                     fontSize: 13,

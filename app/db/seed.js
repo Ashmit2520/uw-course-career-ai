@@ -11,11 +11,35 @@ const majorsCsv = path.join(__dirname, 'salaries_by_college_major.csv');
 // Connect to DB
 const db = new Database(dbFile);
 
-// --- Seed courses table ---
+// --- Create courses table for new schema ---
+db.exec(`
+  DROP TABLE IF EXISTS courses;
+  CREATE TABLE IF NOT EXISTS courses (
+    id TEXT PRIMARY KEY,
+    course_name TEXT,
+    subject_name TEXT,
+    description TEXT,
+    prerequisites TEXT,
+    satisfies TEXT,
+    students INTEGER,
+    avg_gpa REAL,
+    grade_a INTEGER,
+    grade_ab INTEGER,
+    grade_b INTEGER,
+    grade_bc INTEGER,
+    grade_c INTEGER,
+    grade_d INTEGER,
+    grade_f INTEGER,
+    terms_offered TEXT,
+    filename TEXT
+  );
+`);
+
 const insertCourse = db.prepare(`
   INSERT OR REPLACE INTO courses (
-    college, department, subject_code, subject_name_section, class_description, num_grades, ave_gpa, A, AB, B, BC, C, D, F, S, U, CR, N, P, I, NW, NR, Other
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    id, course_name, subject_name, description, prerequisites, satisfies, students, avg_gpa,
+    grade_a, grade_ab, grade_b, grade_bc, grade_c, grade_d, grade_f, terms_offered, filename
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 let courseRowCount = 0;
@@ -23,29 +47,23 @@ fs.createReadStream(gradesCsv)
   .pipe(csv())
   .on('data', (row) => {
     insertCourse.run(
-      row['College Name'],
-      row['Department Name'],
-      row['Subject Code'],
-      row['Subject Name + First Section'],
-      row['Class Description'],
-      row['# Grades'],
-      row['Ave GPA'],
-      row['A'],
-      row['AB'],
-      row['B'],
-      row['BC'],
-      row['C'],
-      row['D'],
-      row['F'],
-      row['S'],
-      row['U'],
-      row['CR'],
-      row['N'],
-      row['P'],
-      row['I'],
-      row['NW'],
-      row['NR'],
-      row['Other']
+      row['id'],
+      row['course_name'],
+      row['subject_name'],
+      row['description'],
+      row['prerequisites'],
+      row['satisfies'],
+      parseInt(row['students']) || 0,
+      parseFloat(row['avg_gpa']) || null,
+      parseInt(row['grade_a']) || 0,
+      parseInt(row['grade_ab']) || 0,
+      parseInt(row['grade_b']) || 0,
+      parseInt(row['grade_bc']) || 0,
+      parseInt(row['grade_c']) || 0,
+      parseInt(row['grade_d']) || 0,
+      parseInt(row['grade_f']) || 0,
+      row['terms_offered'],
+      row['filename']
     );
     courseRowCount++;
   })
