@@ -105,7 +105,7 @@ function getSemesterStatus(courses) {
 }
 
 export default function FourYearPlan() {
-  const [plan, setPlan] = useState(() => loadPlanFromStorage(INITIAL_PLAN));
+  const [plan, setPlan] = useState(INITIAL_PLAN);
   const [hydrated, setHydrated] = useState(false);
   const [dragged, setDragged] = useState(null);
   const [overrides, setOverrides] = useState(() => loadOverridesFromStorage());
@@ -113,18 +113,18 @@ export default function FourYearPlan() {
 
   // Hydrate plan and overrides from storage
   useEffect(() => {
-    setPlan(loadPlanFromStorage(INITIAL_PLAN));
-    setOverrides(loadOverridesFromStorage());
+    setPlan(INITIAL_PLAN);
+    setOverrides({});
     setHydrated(true);
   }, []);
 
   // Save to localStorage on change
-  useEffect(() => {
-    if (hydrated) savePlanToStorage(plan);
-  }, [plan, hydrated]);
-  useEffect(() => {
-    if (hydrated) saveOverridesToStorage(overrides);
-  }, [overrides, hydrated]);
+  // useEffect(() => {
+  //   if (hydrated) savePlanToStorage(plan);
+  // }, [plan, hydrated]);
+  // useEffect(() => {
+  //   if (hydrated) saveOverridesToStorage(overrides);
+  // }, [overrides, hydrated]);
 
   // Compute warnings when plan changes
   useEffect(() => {
@@ -184,7 +184,9 @@ export default function FourYearPlan() {
           Prereqs not met: {found.unmet.join(", ")}
           <button
             className="ml-1 text-blue-600 underline text-xs"
-            onClick={() => setOverrides((prev) => ({ ...prev, [course.id]: true }))}
+            onClick={() =>
+              setOverrides((prev) => ({ ...prev, [course.id]: true }))
+            }
           >
             Override (AP/Transfer Credit)
           </button>
@@ -197,11 +199,13 @@ export default function FourYearPlan() {
           Overridden (AP/Transfer Credit)
           <button
             className="ml-1 text-blue-600 underline text-xs"
-            onClick={() => setOverrides((prev) => {
-              const copy = { ...prev };
-              delete copy[course.id];
-              return copy;
-            })}
+            onClick={() =>
+              setOverrides((prev) => {
+                const copy = { ...prev };
+                delete copy[course.id];
+                return copy;
+              })
+            }
           >
             Undo
           </button>
@@ -234,7 +238,10 @@ export default function FourYearPlan() {
             className="border rounded-lg bg-gray-50 p-3 flex flex-col"
             style={{ minWidth: 150, maxWidth: 210 }}
           >
-            <div className="font-bold text-lg text-gray-900 mb-2 text-center" style={{ color: "#1a202c" }}>
+            <div
+              className="font-bold text-lg text-gray-900 mb-2 text-center"
+              style={{ color: "#1a202c" }}
+            >
               Year {year.year}
             </div>
             {["fall", "spring"].map((sem) => {

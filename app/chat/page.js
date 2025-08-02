@@ -95,7 +95,11 @@ export default function ChatbotPage() {
     >
       <div
         className="bg-white shadow rounded-xl p-10 flex flex-col items-center"
-        style={{ width: "60px", minWidth: "600px", maxWidth: "600px" }}
+        style={{
+          width: "420px",
+          minWidth: "350px",
+          maxWidth: "480px",
+        }}
       >
         <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
           Course Selection and Career Advising Chatbot
