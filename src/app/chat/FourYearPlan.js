@@ -280,11 +280,11 @@ export default function FourYearPlan() {
       <h3 className="text-2xl font-extrabold mb-6 text-gray-900 text-center">
         4-Year Academic Plan (Computer Science)
       </h3>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-4 gap-6 w-full">
         {plan.map((year, yIdx) => (
           <div
             key={yIdx}
-            className="border rounded-lg bg-gray-50 p-3 flex flex-col"
+            className="border rounded-lg bg-gray-50 p-3 flex flex-col flex-1 min-w-[180px]"
             style={{ minWidth: 150, maxWidth: 210 }}
           >
             <div className="font-bold text-lg text-gray-900 mb-2 text-center" style={{ color: "#1a202c" }}>
@@ -295,7 +295,7 @@ export default function FourYearPlan() {
               return (
                 <div
                   key={sem}
-                  className={`mb-4 rounded p-2 min-h-[120px] flex-1 border-2 ${
+                  className={`mb-4 rounded p-2 flex flex-col flex-1 border-2 w-full ${
                     status === "low"
                       ? "border-red-400 bg-red-100"
                       : status === "high"
@@ -323,30 +323,34 @@ export default function FourYearPlan() {
                       Drop courses here
                     </div>
                   )}
-                  {year[sem].map((course, cIdx) => (
-                    <div
-                      key={course.id + cIdx}
-                      className="bg-blue-50 mb-2 px-2 py-1 rounded text-base cursor-move border flex items-center justify-between group"
-                      draggable
-                      onDragStart={() => onDragStart(yIdx, sem, cIdx)}
-                    >
-                      <span className="text-gray-900 font-medium">
-                        {course.name}{" "}
-                        <span className="text-xs text-gray-500">
-                          ({course.credits} cr)
-                        </span>
-                        {getWarning(course, plan)}
-                      </span>
-                      <button
-                        onClick={() => removeCourse(yIdx, sem, cIdx)}
-                        className="ml-2 p-1 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition"
-                        aria-label="Remove course"
-                        tabIndex={0}
+                  {/* This flex-col + gap-2 replaces mb-2 on cards */}
+                  <div className="flex flex-col gap-2 w-full">
+                    {year[sem].map((course, cIdx) => (
+                      <div
+                        key={course.id + cIdx}
+                        className="bg-blue-50 px-2 py-2 rounded text-base cursor-move border flex items-center justify-between group w-full"
+                        draggable
+                        onDragStart={() => onDragStart(yIdx, sem, cIdx)}
+                        style={{ minHeight: 44, wordBreak: "break-word", whiteSpace: "normal" }}
                       >
-                        <IoClose size={20} />
-                      </button>
-                    </div>
-                  ))}
+                        <span className="text-gray-900 font-medium w-full break-words">
+                          {course.name}{" "}
+                          <span className="text-xs text-gray-500">
+                            ({course.credits} cr)
+                          </span>
+                          {getWarning(course, plan)}
+                        </span>
+                        <button
+                          onClick={() => removeCourse(yIdx, sem, cIdx)}
+                          className="ml-2 p-1 text-gray-400 hover:text-red-600 opacity-100 group-hover:opacity-100 transition"
+                          aria-label="Remove course"
+                          tabIndex={0}
+                        >
+                          <IoClose size={20} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               );
             })}
