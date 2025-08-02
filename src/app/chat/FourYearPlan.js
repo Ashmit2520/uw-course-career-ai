@@ -7,6 +7,7 @@ import prereqMap from "@/app/db/prereqMap.json";
 const STORAGE_KEY = "uwmadison_four_year_plan";
 const OVERRIDES_KEY = "uwmadison_prereq_overrides";
 
+// --- Local storage helpers ---
 function savePlanToStorage(plan) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
 }
@@ -96,12 +97,35 @@ const INITIAL_PLAN = [
 function semesterCredits(courses) {
   return courses.reduce((sum, c) => sum + (c.credits || 0), 0);
 }
-
 function getSemesterStatus(courses) {
   const credits = semesterCredits(courses);
   if (credits < 12) return { status: "low", message: "Below 12 credits" };
   if (credits > 18) return { status: "high", message: "Above 18 credits" };
   return { status: "ok", message: "" };
+}
+
+function normalizeCourseId(id) {
+  return id.replace(/[^A-Z0-9]/gi, "").toUpperCase();
+}
+
+// Helper: does a given course exist anywhere in the plan?
+function isCourseInPlan(plan, courseId) {
+  // Handle multi-subject courses like "COMPSCI, ECE 354"
+  const splitIds = courseId.split(/[,/]/).map(s => s.trim());
+  if (!Array.isArray(plan)) return false;
+
+  for (const yearObj of plan) {
+    for (const sem of ["fall", "spring"]) {
+      for (const c of yearObj[sem]) {
+        for (const base of splitIds) {
+          if (normalizeCourseId(c.id).includes(normalizeCourseId(base))) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+  return false;
 }
 
 export default function FourYearPlan() {
@@ -128,8 +152,8 @@ export default function FourYearPlan() {
 
   // Compute warnings when plan changes
   useEffect(() => {
-    setWarnings(validateFourYearPlan(plan));
-  }, [plan]);
+    setWarnings(validateFourYearPlan(plan, overrides));
+  }, [plan, overrides]);
 
   // Remove course from semester
   const removeCourse = (yearIdx, sem, courseIdx) => {
@@ -174,42 +198,71 @@ export default function FourYearPlan() {
     setDragged(null);
   };
 
-  // Helper for warning display and override
-  function getWarning(course) {
+  // Warning display, override button, and AP credit message
+  function getWarning(course, plan) {
     const found = warnings.find((w) => w.courseId === course.id);
-    const isOverridden = overrides[course.id];
-    if (found && !isOverridden) {
-      return (
-        <span className="text-xs font-bold text-red-500 ml-2 flex items-center gap-2">
-          Prereqs not met: {found.unmet.join(", ")}
-          <button
-            className="ml-1 text-blue-600 underline text-xs"
-            onClick={() => setOverrides((prev) => ({ ...prev, [course.id]: true }))}
-          >
-            Override (AP/Transfer Credit)
-          </button>
-        </span>
-      );
-    }
-    if (found && isOverridden) {
-      return (
-        <span className="text-xs font-bold text-green-500 ml-2 flex items-center gap-2">
-          Overridden (AP/Transfer Credit)
-          <button
-            className="ml-1 text-blue-600 underline text-xs"
-            onClick={() => setOverrides((prev) => {
-              const copy = { ...prev };
-              delete copy[course.id];
-              return copy;
-            })}
-          >
-            Undo
-          </button>
-        </span>
-      );
-    }
-    return null;
+    if (!found) return null;
+
+    return (
+      <span className="text-xs font-bold text-red-500 ml-2 flex flex-col gap-1">
+        Prereqs not met:&nbsp;
+        {found.unmet.map((pr) => {
+          const isOverridden = overrides[pr];
+          const inPlan = isCourseInPlan(plan, pr);
+
+          // Debugging: See what we're checking
+          console.log(
+            "Looking for", pr,
+            "normalized as", normalizeCourseId(pr),
+            "in plan?", inPlan
+          );
+
+          return (
+            <span key={pr} className="inline-block mr-2">
+              {pr}
+              {isOverridden ? (
+                <>
+                  {" "}
+                  <span className="text-green-600">(Overridden)</span>
+                  <button
+                    onClick={() => {
+                      setOverrides((prev) => {
+                        const copy = { ...prev };
+                        delete copy[pr];
+                        return copy;
+                      });
+                    }}
+                    className="ml-1 p-0.5 rounded-full bg-gray-200 hover:bg-red-200 text-xs text-gray-700 inline-flex items-center"
+                    aria-label={`Remove override for ${pr}`}
+                    tabIndex={0}
+                  >
+                    &times;
+                  </button>
+                  {inPlan && (
+                    <span className="block text-xs text-blue-700 mt-1">
+                      You have already overridden {pr} through transfer/AP credit, you don't need to have it in the plan.
+                    </span>
+                  )}
+                </>
+              ) : (
+                <button
+                  onClick={() =>
+                    setOverrides((prev) => ({ ...prev, [pr]: true }))
+                  }
+                  className="ml-2 px-2 py-0.5 rounded bg-blue-100 hover:bg-blue-200 text-blue-700 text-xs"
+                  aria-label={`Override prereq ${pr} with AP/Transfer credit`}
+                  tabIndex={0}
+                >
+                  Override (AP/Transfer) &times;
+                </button>
+              )}
+            </span>
+          );
+        })}
+      </span>
+    );
   }
+
 
   if (!hydrated) return null;
 
@@ -282,7 +335,7 @@ export default function FourYearPlan() {
                         <span className="text-xs text-gray-500">
                           ({course.credits} cr)
                         </span>
-                        {getWarning(course)}
+                        {getWarning(course, plan)}
                       </span>
                       <button
                         onClick={() => removeCourse(yIdx, sem, cIdx)}
