@@ -38,7 +38,7 @@ export default function NavBar() {
                 `transition font-medium px-2 py-1 rounded 
                 ${isActive
                   ? 'text-white font-bold bg-blue-950'
-                  : 'text-card-foreground hover:text-white'}` // tweakcn
+                  : 'text-gray-700 hover:text-white'}` // tweakcn
               }
               aria-current={isActive ? 'page' : undefined}
             >
