@@ -14,9 +14,9 @@ function findRelevantCourses(query, limit = 10) {
   const q = `%${query.toLowerCase()}%`;
   const sql = `
     SELECT * FROM courses
-    WHERE LOWER(subject_name_section) LIKE ?
-      OR LOWER(class_description) LIKE ?
-      OR LOWER(department) LIKE ?
+    WHERE LOWER(course_name) LIKE ?
+      OR LOWER(subject_name) LIKE ?
+      OR LOWER(description) LIKE ?
     LIMIT ?
   `;
   return db.prepare(sql).all(q, q, q, limit);
@@ -58,16 +58,14 @@ export async function POST(req) {
       .find((m) => m.role === "user")?.content || "";
 
     // Find relevant courses
-    const relevantCourses = userMsg
-      ? findRelevantCourses(userMsg)
-      : [];
+    const relevantCourses = userMsg ? findRelevantCourses(userMsg) : [];
 
     // Build a course info summary for the AI
     const courseList = relevantCourses.length
       ? relevantCourses
           .map(
             (c, i) =>
-              `${i + 1}. ${c.subject_name_section} — ${c.class_description} (GPA: ${c.ave_gpa || "N/A"})`
+              `${i + 1}. ${c.course_name} (${c.subject_name}) — ${c.description} (GPA: ${c.avg_gpa || "N/A"})`
           )
           .join("\n")
       : "No matching courses were found in the UW-Madison course catalog.";
@@ -80,7 +78,7 @@ export async function POST(req) {
         careerList = majors
           .map(
             (m, i) =>
-              `${i + 1}. ${m.major} — Median Salary: $${m.median_pay || "N/A"}`
+              `${i + 1}. ${m.major} — Median Salary: $${m.mid_career_median_salary || "N/A"}`
           )
           .join("\n");
       } else {

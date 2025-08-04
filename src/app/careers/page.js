@@ -43,7 +43,7 @@ export default function CareersPage() {
         />
         <button
           type="submit"
-          className="px-6 py-2 bg-blue-600 rounded-r flex items-center justify-center hover:bg-blue-700 transition"
+          className="px-6 py-2 bg-theme-primary rounded-r flex items-center justify-center hover:bg-primary/90 transition"
         >
           {/* White SVG magnifying glass */}
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
