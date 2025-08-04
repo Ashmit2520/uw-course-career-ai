@@ -5,7 +5,7 @@ export const metadata = { title: 'UW-Madison Course Selector', description: 'Sma
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body>
         <NavBar />
         {children}
