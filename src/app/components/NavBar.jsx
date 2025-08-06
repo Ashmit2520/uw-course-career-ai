@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,20 +12,19 @@ export default function NavBar() {
     { name: 'Home', href: '/' },
     { name: 'Chatbot', href: '/chat' },
     { name: 'Courses', href: '/courses' },
-    { name: 'Recommendations', href: '/recommendations' },
+    //{ name: 'Recommendations', href: '/recommendations' },
     { name: 'Careers', href: '/careers' },
     { name: 'Sign Up', href: '/signup' },
     { name: 'Log In', href: '/login' }
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow flex items-center justify-between px-4 md:px-12 h-16">
+    <nav className=" sticky top-0 z-50 bg-theme-card shadow flex items-center justify-between px-4 md:px-12 h-16">
       {/* Logo and Site Name */}
       <Link href="/" className="flex items-center gap-2 group">
-        <div className="h-8 w-8 min-w-8 min-h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold group-hover:brightness-90 transition"></div>
-        <span className="text-xl font-bold tracking-tight text-gray-900 group-hover:text-blue-600 transition">
-          Course Selector
-        </span>
+        <div>
+          <Image src="/Sift_AI_Logo.png" alt="Sift_AI_Logo" height={55} width={55}/>
+        </div>
       </Link>
       {/* Desktop Nav */}
       <div className="hidden md:flex gap-6 items-center">
@@ -37,8 +37,8 @@ export default function NavBar() {
               className={
                 `transition font-medium px-2 py-1 rounded 
                 ${isActive
-                  ? 'text-blue-600 font-bold bg-blue-100'
-                  : 'text-gray-700 hover:text-blue-600'}`
+                  ? 'text-white font-bold bg-blue-950'
+                  : 'text-gray-700 hover:text-white'}` // tweakcn
               }
               aria-current={isActive ? 'page' : undefined}
             >
@@ -50,7 +50,7 @@ export default function NavBar() {
       {/* Hamburger Menu for Mobile */}
       <div className="md:hidden flex items-center">
         <button
-          className="text-gray-700 hover:text-blue-600 focus:outline-none"
+          className="text-gray-700 hover:text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Open menu"
         >
@@ -64,7 +64,7 @@ export default function NavBar() {
           </svg>
         </button>
         {menuOpen && (
-          <div className="absolute top-16 right-4 w-44 bg-white rounded shadow-md flex flex-col py-2 animate-fade-in z-50">
+          <div className="border border-theme absolute top-16 right-4 w-44 bg-theme-card rounded shadow-md flex flex-col py-2 animate-fade-in z-50">
             {pages.map((page) => {
               const isActive = pathname === page.href;
               return (
@@ -74,8 +74,8 @@ export default function NavBar() {
                   className={
                     `px-4 py-2 rounded transition font-medium 
                     ${isActive
-                      ? 'text-blue-600 bg-blue-100 font-bold'
-                      : 'text-gray-700 hover:text-blue-600'}`
+                      ? 'text-white bg-blue-950 font-bold'
+                      : 'text-gray-700 hover:text-white'}`
                   }
                   aria-current={isActive ? 'page' : undefined}
                   onClick={() => setMenuOpen(false)}

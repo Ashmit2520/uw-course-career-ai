@@ -4,6 +4,7 @@ import FourYearPlan from "./FourYearPlan";
 import ChatMessages from "../components/ChatMessages";
 import ChatInput from "../components/ChatInput";
 import SuggestedQuestions from "../components/SuggestedQuestions";
+import Vapi from "@vapi-ai/web";
 
 const STORAGE_KEY = "uwmadison_chat_history";
 const SUGGESTED_QUESTIONS = [
@@ -24,8 +25,10 @@ export default function ChatbotPage() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
+  const vapiRef = useRef(null);
 
   useEffect(() => {
     setHydrated(true);
@@ -37,6 +40,25 @@ export default function ChatbotPage() {
         saved ? JSON.parse(saved) : [{ role: "assistant", content: greeting }]
       );
     }
+
+    const vapi = new Vapi({ apiKey: "VAPI_API_KEY",
+                            assistant: "VAPI_ASSISTANT_ID",
+    });
+
+    console.log("✅ Vapi initialized:", vapi);
+
+    
+    vapiRef.current = vapi;
+
+    vapi.on("transcript", (transcript) => {
+      const spoken = transcript.text;
+      setInput(spoken);
+      sendMessage(spoken);
+    });
+
+    return () => {
+      vapi.stop();
+    };
   }, []);
 
   useEffect(() => {
@@ -49,9 +71,11 @@ export default function ChatbotPage() {
   //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   // }, [messages]);
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
-    const userMsg = { role: "user", content: input };
+  const sendMessage = async (overrideInput = null) => {
+    const messageToSend = overrideInput ?? input;
+    if (!messageToSend.trim()) return;
+
+    const userMsg = { role: "user", content: messageToSend };
     const newMsgs = [...messages, userMsg];
     setMessages(newMsgs);
     setInput("");
@@ -64,20 +88,16 @@ export default function ChatbotPage() {
         body: JSON.stringify({ messages: newMsgs }),
       });
       const data = await res.json();
-      setMessages([
-        ...newMsgs,
-        {
-          role: "assistant",
-          content: data.text || "Sorry, I couldn’t find any courses!",
-        },
-      ]);
-    } catch (err) {
-      console.error("Fetch error:", err);
+      const reply = data.response || "Sorry, I couldn’t find any courses!";
+      setMessages([...newMsgs, { role: "assistant", content: reply }]);
+      vapiRef.current?.tts(reply);
+    } catch {
       setMessages([
         ...newMsgs,
         { role: "assistant", content: "Sorry, something went wrong." },
       ]);
     }
+
     setLoading(false);
   };
 
@@ -88,11 +108,28 @@ export default function ChatbotPage() {
     }
   };
 
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = e.target.scrollHeight + "px";
+  };
+
   const handleSuggested = (q) => {
     setInput(q);
     setTimeout(() => {
       textareaRef.current?.focus();
     }, 50);
+  };
+
+  const toggleMic = () => {
+    const vapi = vapiRef.current;
+    if (!isListening) {
+      vapi?.start();
+      setIsListening(true);
+    } else {
+      vapi?.stop();
+      setIsListening(false);
+    }
   };
 
   if (!hydrated) return null;
@@ -110,27 +147,94 @@ export default function ChatbotPage() {
           maxWidth: "600",
         }}
       >
-        <ChatMessages messages={messages} messagesEndRef={messagesEndRef} />
-        <ChatInput
-          input={input}
-          setInput={setInput}
-          loading={loading}
-          textareaRef={textareaRef}
-          sendMessage={sendMessage}
-          handleKeyDown={handleKeyDown}
-        />
+        <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
+          Course Selection and Career Advising Chatbot
+        </h2>
+        <div
+          className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto"
+          style={{ minHeight: "260px" }}
+        >
+          {messages.map((msg, i) => (
+            <div
+              key={i}
+              className={`rounded-lg px-4 py-2 text-base whitespace-pre-line ${
+                msg.role === "assistant"
+                  ? "bg-gray-100 text-gray-800 self-start"
+                  : "bg-blue-100 text-gray-900 self-end"
+              }`}
+            >
+              {msg.content}
+            </div>
+          ))}
+          <div ref={messagesEndRef} />
+        </div>
+
+        <div className="w-full flex items-center gap-2">
+          <textarea
+            ref={textareaRef}
+            className="flex-1 border rounded px-3 py-2 text-black resize-none overflow-y-auto"
+            value={input}
+            placeholder="Type your message..."
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            disabled={loading}
+            rows={1}
+            style={{ minHeight: "40px", maxHeight: "120px" }}
+          />
+          <button
+            onClick={() => sendMessage()}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold"
+            disabled={loading}
+          >
+            {loading ? "..." : "Send"}
+          </button>
+          <button
+            type="button"
+            onClick={toggleMic}
+            className={`ml-1 ${
+              isListening ? "bg-red-500" : "bg-gray-200"
+            } hover:bg-gray-300 text-gray-700 rounded-full p-2 flex items-center justify-center`}
+            aria-label="Toggle voice input"
+          >
+            <FiMic size={22} />
+          </button>
+        </div>
+
         <div className="mt-2 text-xs text-gray-400 text-center">
           Hint: Press{" "}
           <span className="font-semibold bg-gray-200 px-1 rounded">Enter</span>{" "}
           to send your message.
           <br />
-          Voice input coming soon
+          Voice input is now available!
         </div>
-        <SuggestedQuestions
-          suggestions={SUGGESTED_QUESTIONS}
-          onSelect={handleSuggested}
-        />
+
+        {/* Inject the widget */}
+      <div dangerouslySetInnerHTML={{ __html: `
+        <vapi-widget
+          public-key="${process.env.NEXT_PUBLIC_VAPI_API_KEY}"
+          assistant-id="${process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID}"
+          mode="chat"
+        ></vapi-widget>
+      ` }} />
+
+        <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
+          <div className="font-semibold mb-2 text-gray-700">
+            Try these questions:
+          </div>
+          <div className="flex flex-row flex-nowrap gap-2 overflow-x-auto">
+            {SUGGESTED_QUESTIONS.map((q) => (
+              <button
+                key={q}
+                onClick={() => handleSuggested(q)}
+                className="bg-blue-100 hover:bg-blue-300 text-blue-900 px-3 py-1 rounded transition whitespace-nowrap"
+              >
+                {q}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
+
       <div className="ml-8" style={{ minWidth: "950px" }}>
         <FourYearPlan />
       </div>

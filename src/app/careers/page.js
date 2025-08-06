@@ -1,75 +1,71 @@
+// src/app/careers/page.js
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function CareersPage() {
-  const [query, setQuery] = useState("");          // The string to search
-  const [majors, setMajors] = useState([]);        // The array of careers/majors
-  const [searchInput, setSearchInput] = useState(""); // What's typed in the input
+  const [query, setQuery] = useState("");
+  const [careers, setCareers] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
-  // Fetch all majors on page load
   useEffect(() => {
-    fetchMajors(""); // Show all majors on load
+    fetchCareers("");
   }, []);
 
-  const fetchMajors = async (searchString) => {
-    const res = await fetch(`/api/majors?q=${encodeURIComponent(searchString)}`);
-    setMajors(await res.json());
+  const fetchCareers = async (searchString) => {
+    const res = await fetch(`/api/careers?q=${encodeURIComponent(searchString)}`);
+    setCareers(await res.json());
   };
 
-  // Only search when button or Enter is pressed
   const handleSearch = (e) => {
     e.preventDefault();
     setQuery(searchInput);
-    fetchMajors(searchInput);
+    fetchCareers(searchInput);
   };
 
   return (
-    <main className="flex flex-col items-center p-8 min-h-screen bg-black text-black">
-      <h1 className="text-3xl font-bold mb-4 text-center text-white">
-        Career Path Suggestions
-      </h1>
-      {/* Search bar */}
+    <main className="flex flex-col items-center p-8 min-h-screen bg-[#0f0f1a] text-white">
+      <h1 className="text-3xl font-bold mb-4 text-center">Explore Career Paths</h1>
       <form
-        className="w-full max-w-md flex mb-8"
+        className="w-full max-w-md flex mb-8 border border-theme"
         onSubmit={handleSearch}
         autoComplete="off"
       >
+        {/*Search bar*/}
         <input
-          className="w-full px-4 py-2 rounded-l border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 rounded-l border border-theme bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="text"
-          placeholder="Search by major..."
+          placeholder="Search careers..."
           value={searchInput}
           onChange={e => setSearchInput(e.target.value)}
         />
         <button
           type="submit"
-          className="px-6 py-2 bg-blue-600 rounded-r flex items-center justify-center hover:bg-blue-700 transition"
+          className="px-6 py-2 bg-theme-primary rounded-r flex items-center justify-center hover:bg-primary/90 transition"
         >
-          {/* White SVG magnifying glass */}
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <circle cx="11" cy="11" r="7" stroke="white" strokeWidth="2"/>
             <line x1="16" y1="16" x2="21" y2="21" stroke="white" strokeWidth="2" strokeLinecap="round"/>
           </svg>
         </button>
       </form>
-      {/* Results */}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
-        {majors.length === 0 && (
-          <div className="col-span-full text-gray-500 text-center">No majors found.</div>
+        {careers.length === 0 && (
+          <div className="col-span-full text-gray-500 text-center">No results found.</div>
         )}
-        {majors.map((major, idx) => (
-          <div
+        {careers.map((career, idx) => (
+          <Link
+            href={`/careers/${encodeURIComponent(career.major)}`}
             key={idx}
-            className="block bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 p-6 border border-gray-200"
+            className="block bg-theme-card rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 p-6 border border-gray-200"
           >
-            <h2 className="text-xl font-bold mb-1 text-black">{major.major}</h2>
-            <div className="text-gray-700 mb-2">
-              <span className="font-semibold">Starting Median Salary: </span>${Number(major.starting_median_salary).toLocaleString()}
-            </div>
-            <div className="text-gray-700 mb-2">
-              <span className="font-semibold">Mid-Career Median Salary: </span>${Number(major.mid_career_median_salary).toLocaleString()}
-            </div>
-          </div>
+            <h2 className="text-xl font-bold mb-2 text-white">{career.major}</h2>
+            <p className="text-sm text-gray-400">
+              Early Career Salary: ${career.early_career_salary.toLocaleString()}<br/>
+              Mid Career Salary: ${career.mid_career_salary.toLocaleString()}
+            </p>
+          </Link>
         ))}
       </div>
     </main>
