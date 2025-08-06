@@ -35,13 +35,12 @@ export async function POST(req) {
           text: "Could you please tell me a bit about your academic interestss?",
         });
       }
-      const p0 = await getReqs(userInfo, messages, supabase);
-      console.log(p0);
+      const r0 = await getReqs(userInfo, messages, supabase);
+      console.log(r0);
 
       const a0 = await getAddtlCourses(userInfo, supabase);
-      const combined = `${p0}\n\nAdditional Courses:\n${a0}`;
 
-      const finalPlan = await combineReqsAndAddtl(userInfo, p0, a0);
+      const finalPlan = await combineReqsAndAddtl(userInfo, r0, a0);
       return NextResponse.json({ text: finalPlan });
 
     case "2":

@@ -12,8 +12,13 @@ import {
 } from "recharts";
 
 const GRADE_KEYS = [
-  "grade_a", "grade_ab", "grade_b", "grade_bc",
-  "grade_c", "grade_d", "grade_f"
+  "grade_a",
+  "grade_ab",
+  "grade_b",
+  "grade_bc",
+  "grade_c",
+  "grade_d",
+  "grade_f",
 ];
 
 export default function CourseDetailsPage() {
@@ -36,17 +41,18 @@ export default function CourseDetailsPage() {
     return <div className="p-8 text-center">Course not found.</div>;
 
   // Prepare grade data for the bar chart
-  const chartData = GRADE_KEYS
-    .map((k) =>
-      course[k] !== undefined && course[k] !== "NA"
-        ? { grade: k.replace("grade_", "").toUpperCase(), value: Number(course[k]) }
-        : null
-    )
-    .filter((d) => d && !isNaN(d.value));
+  const chartData = GRADE_KEYS.map((k) =>
+    course[k] !== undefined && course[k] !== "NA"
+      ? {
+          grade: k.replace("grade_", "").toUpperCase(),
+          value: Number(course[k]),
+        }
+      : null
+  ).filter((d) => d && !isNaN(d.value));
 
   return (
     <main className="flex flex-col items-center p-8">
-      <div className="bg-white rounded-xl shadow p-8 max-w-xl w-full">
+      <div className="bg-white rounded-xl shadow p-8 max-w-xl w-full ">
         <h1 className="text-2xl font-bold mb-2 text-gray-900">
           {course.course_name}
         </h1>
@@ -67,14 +73,14 @@ export default function CourseDetailsPage() {
           </h2>
           <div style={{ width: "100%", height: 240 }}>
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData} >
+              <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
                   dataKey="grade"
                   label={{
                     value: "Grade",
                     position: "insideBottom",
-                    offset: -4,
+                    dy: 10,
                     fill: "#374151",
                     fontSize: 14,
                     fontWeight: 600,
@@ -84,10 +90,11 @@ export default function CourseDetailsPage() {
                   label={{
                     value: "Number of Students",
                     angle: -90,
-                    position: "outsideLeft",
-                    offset: 35,
+                    position: "insideLeft",
+                    dy: 60,
+                    dx: 15,
                     fill: "#374151",
-                    fontSize: 13,
+                    fontSize: 14,
                     fontWeight: 600,
                   }}
                 />

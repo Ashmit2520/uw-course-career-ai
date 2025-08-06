@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function ChatMessages({ messages, messagesEndRef }) {
   return (
@@ -15,7 +16,26 @@ export default function ChatMessages({ messages, messagesEndRef }) {
               : "bg-blue-100 text-gray-900 self-end"
           }`}
         >
-          {msg.content}
+          {msg.role === "assistant" ? (
+            <ReactMarkdown
+              components={{
+                a: ({ href, children }) => (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-0.1 py-0 bg-blue-50 text-blue-700 rounded-md font-medium hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200"
+                  >
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {msg.content}
+            </ReactMarkdown>
+          ) : (
+            msg.content
+          )}
         </div>
       ))}
       <div ref={messagesEndRef} />

@@ -29,9 +29,14 @@ export default function ChatbotPage() {
 
   useEffect(() => {
     setHydrated(true);
-    const greeting =
-      GREETING_MESSAGES[Math.floor(Math.random() * GREETING_MESSAGES.length)];
-    setMessages([{ role: "assistant", content: greeting }]);
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const greeting =
+        GREETING_MESSAGES[Math.floor(Math.random() * GREETING_MESSAGES.length)];
+      setMessages(
+        saved ? JSON.parse(saved) : [{ role: "assistant", content: greeting }]
+      );
+    }
   }, []);
 
   useEffect(() => {

@@ -3,26 +3,13 @@ import { zodTextFormat } from "openai/helpers/zod";
 import { OpenAI } from "openai";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
 import { OpenAIEmbeddings } from "@langchain/openai";
-// import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { SupabaseHybridSearch } from "@langchain/community/retrievers/supabase";
+import { getLastExchange } from "@/utils/llmUtils";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function router(conversation) {
-  const reversed = [...conversation].reverse();
-  let userMsg = null;
-  let assistantMsg = null;
-
-  for (const message of reversed) {
-    if (message.role === "user" && !userMsg) {
-      userMsg = message;
-    } else if (message.role === "assistant" && userMsg && !assistantMsg) {
-      assistantMsg = message;
-      break;
-    }
-  }
-
-  const lastExchange = [assistantMsg, userMsg].filter(Boolean); // remove nulls
+  const lastExchange = getLastExchange(conversation);
   // const lastUserMessage =
   //   conversation
   //     .slice()
@@ -161,20 +148,7 @@ export async function getReqs(userInfo, conversation, client) {
 
   const major_req_data = result.data[0].major_reqs;
 
-  const reversed = [...conversation].reverse();
-  let userMsg = null;
-  let assistantMsg = null;
-
-  for (const message of reversed) {
-    if (message.role === "user" && !userMsg) {
-      userMsg = message;
-    } else if (message.role === "assistant" && userMsg && !assistantMsg) {
-      assistantMsg = message;
-      break;
-    }
-  }
-
-  const lastExchange = [assistantMsg, userMsg].filter(Boolean); // remove nulls
+  const lastExchange = getLastExchange(conversation);
 
   console.log("QUERY PERFORMED", userInfo.major);
   console.log("DATA EXTRACTED", major_req_data);
@@ -216,10 +190,6 @@ export async function getReqs(userInfo, conversation, client) {
 }
 
 export async function getAddtlCourses(userInfo, client) {
-  // const client = createSupabaseClient(
-  //   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  //   process.env.SUPABASE_SERVICE_ROLE_KEY
-  // );
   const embeddings = new OpenAIEmbeddings({
     modelName: "text-embedding-3-small",
   });
@@ -479,7 +449,7 @@ export async function searchCourses(userInfo, client, conversation) {
     You would reformulate the user's query to:
     "COMPSCI 540, COMPSCI 300"
 
-    Not CS, compsci, etc. should be rephrased to COMPSCI, since this is the way COMPSCI courses
+    CS, compsci, etc. should be rephrased to COMPSCI, since this is the way COMPSCI courses
     are stored in the database.
     `;
 
@@ -499,34 +469,32 @@ export async function searchCourses(userInfo, client, conversation) {
     reformulationCompletion.choices[0].message.content.trim();
   console.log(rewrittenQuery);
 
-  const embeddings = new OpenAIEmbeddings({
-    modelName: "text-embedding-3-small",
+  const embeddingResponse = await openai.embeddings.create({
+    model: "text-embedding-3-small",
+    input: rewrittenQuery,
   });
 
-  const retriever = new SupabaseHybridSearch(embeddings, {
-    client: client,
-    similarityK: 8,
-    keywordK: 8,
-    tableName: "courses_new",
-    similarityQueryName: "match_courses_new",
-    keywordQueryName: "kw_match_courses_new",
+  const embedding = embeddingResponse.data[0].embedding;
+
+  const filter = { needs_grad_standing: !userInfo.isUndergrad };
+  const count = 10;
+
+  const similarity_output = await client.rpc("match_courses_new", {
+    query_embedding: embedding,
+    match_count: count,
+    filter: filter,
   });
-  console.log("Sending filter:", retriever.filter);
+  const kwd_output = await client.rpc("kw_match_courses_new", {
+    query_text: rewrittenQuery,
+    match_count: count,
+    filter: filter,
+  });
 
-  const output = await retriever.invoke(rewrittenQuery, {
-    filter: { needs_grad_standing: false },
-    verbose: true,
-  }); // const vectorstore = await SupabaseVectorStore.fromExistingIndex(embeddings, {
-  //   client: client,
-  //   tableName: "courses_new",
-  //   queryName: "match_courses_new", // your custom SQL function
-  // });
-
-  // const output = await vectorstore.similaritySearch(rewrittenQuery, 5);
-
+  console.log("KWD", kwd_output, similarity_output);
   const courses = [];
   const courseDescriptions = [];
-  for (const r of output) {
+
+  for (const r of similarity_output.data) {
     const meta = r.metadata;
     const courseStr = `${meta.course_name}${
       meta.subject_name ? ` ${meta.subject_name}` : ""
@@ -537,6 +505,16 @@ export async function searchCourses(userInfo, client, conversation) {
     courseDescriptions.push(courseDescrAndName);
   }
 
+  for (const r of kwd_output.data) {
+    const meta = r.metadata;
+    const courseStr = `${meta.course_name}${
+      meta.subject_name ? ` ${meta.subject_name}` : ""
+    }`;
+    const courseDescrAndName = `${courseStr}: ${meta.description}`;
+    console.log("COURSE DESCR AND NAME", courseDescrAndName);
+    courses.push(courseStr);
+    courseDescriptions.push(courseDescrAndName);
+  }
   const coursesSchema = z.object({
     courses: z.array(z.string()),
   });
@@ -580,7 +558,24 @@ export async function searchCourses(userInfo, client, conversation) {
     messages: openaiMessages,
   });
 
-  return chatCompletion.choices[0].message.content.trim();
+  let finalOutput = chatCompletion.choices[0].message.content.trim();
+
+  for (const r of similarity_output.data) {
+    const meta = r.metadata;
+
+    const courseStr = `${meta.course_name}${
+      meta.subject_name ? ` ${meta.subject_name}` : ""
+    }`;
+
+    const course_id = r.id;
+    const regex = new RegExp(`\\b${courseStr}\\b`, "g");
+    finalOutput = finalOutput.replace(
+      regex,
+      `[${courseStr}](http://localhost:3000/courses/${course_id})`
+    );
+  }
+
+  return finalOutput;
 }
 
 // export async function runQueryAndParse(userInfo, client) {
