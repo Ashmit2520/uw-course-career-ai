@@ -54,7 +54,7 @@ export async function POST(req) {
 
     case "3":
       const normalResponse = await getNormalResponse(messages);
-
+      console.log("NORMAL", normalResponse);
       return NextResponse.json({ text: normalResponse });
 
     // // case "3":

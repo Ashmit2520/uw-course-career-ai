@@ -5,6 +5,8 @@ import ChatMessages from "../components/ChatMessages";
 import ChatInput from "../components/ChatInput";
 import SuggestedQuestions from "../components/SuggestedQuestions";
 import Vapi from "@vapi-ai/web";
+import { FiMic } from "react-icons/fi";
+import ReactMarkdown from "react-markdown";
 
 const STORAGE_KEY = "uwmadison_chat_history";
 const SUGGESTED_QUESTIONS = [
@@ -41,13 +43,13 @@ export default function ChatbotPage() {
       );
     }
 
-    const vapi = new Vapi({ apiKey: "VAPI_API_KEY",
-                            assistant: "VAPI_ASSISTANT_ID",
+    const vapi = new Vapi({
+      apiKey: "VAPI_API_KEY",
+      assistant: "VAPI_ASSISTANT_ID",
     });
 
     console.log("✅ Vapi initialized:", vapi);
 
-    
     vapiRef.current = vapi;
 
     vapi.on("transcript", (transcript) => {
@@ -72,34 +74,44 @@ export default function ChatbotPage() {
   // }, [messages]);
 
   const sendMessage = async (overrideInput = null) => {
-    const messageToSend = overrideInput ?? input;
-    if (!messageToSend.trim()) return;
+  const messageToSend = overrideInput ?? input;
+  if (!messageToSend.trim()) return;
 
-    const userMsg = { role: "user", content: messageToSend };
-    const newMsgs = [...messages, userMsg];
-    setMessages(newMsgs);
-    setInput("");
-    setLoading(true);
+  const userMsg = { role: "user", content: messageToSend };
+  const newMsgs = [...messages, userMsg];
+  setMessages(newMsgs);
+  setInput("");
+  setLoading(true);
+
+  try {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: newMsgs }),
+    });
+
+    const data = await res.json();
+    console.log("DATAAAA", data);
+
+    const reply = data.text || "Sorry, I couldn’t find any courses!";
+    setMessages([...newMsgs, { role: "assistant", content: reply }]);
 
     try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newMsgs }),
-      });
-      const data = await res.json();
-      const reply = data.response || "Sorry, I couldn’t find any courses!";
-      setMessages([...newMsgs, { role: "assistant", content: reply }]);
       vapiRef.current?.tts(reply);
-    } catch {
-      setMessages([
-        ...newMsgs,
-        { role: "assistant", content: "Sorry, something went wrong." },
-      ]);
+    } catch (speechError) {
+      console.warn("Vapi TTS error (ignored):", speechError);
     }
+  } catch (error) {
+    console.error("❌ API Error:", error);
+    setMessages([
+      ...newMsgs,
+      { role: "assistant", content: "Sorry, something went wrong." },
+    ]);
+  }
 
-    setLoading(false);
-  };
+  setLoading(false);
+};
+
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -163,7 +175,26 @@ export default function ChatbotPage() {
                   : "bg-blue-100 text-gray-900 self-end"
               }`}
             >
-              {msg.content}
+              {msg.role === "assistant" ? (
+                <ReactMarkdown
+                  components={{
+                    a: ({ href, children }) => (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-0.1 py-0 bg-blue-50 text-blue-700 rounded-md font-medium hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200"
+                      >
+                        {children}
+                      </a>
+                    ),
+                  }}
+                >
+                  {msg.content}
+                </ReactMarkdown>
+              ) : (
+                msg.content
+              )}
             </div>
           ))}
           <div ref={messagesEndRef} />
@@ -209,13 +240,17 @@ export default function ChatbotPage() {
         </div>
 
         {/* Inject the widget */}
-      <div dangerouslySetInnerHTML={{ __html: `
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `
         <vapi-widget
           public-key="${process.env.NEXT_PUBLIC_VAPI_API_KEY}"
           assistant-id="${process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID}"
           mode="chat"
         ></vapi-widget>
-      ` }} />
+      `,
+          }}
+        />
 
         <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
           <div className="font-semibold mb-2 text-gray-700">

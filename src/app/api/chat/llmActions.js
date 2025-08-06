@@ -369,7 +369,8 @@ export async function combineReqsAndAddtl(userInfo, reqCourses, addtlCourses) {
 }
 
 export async function getNormalResponse(conversation) {
-  const systemPrompt = `You are part of an academic planning agent at UW-Madison.
+  try {
+    const systemPrompt = `You are part of an academic planning agent at UW-Madison.
   You are answering academic planning questions, and return insightful responses
   from the user. Keep your responses brief and to the point. Do not generate a plan, ever.
   Instead, direct the user towards a plan by asking questions about creating a plan. 
@@ -379,17 +380,21 @@ export async function getNormalResponse(conversation) {
   Remember, the goal for the user is to generate a creative academic plan for a major.
   `;
 
-  const openaiMessages = [
-    { role: "system", content: systemPrompt },
-    ...conversation,
-  ];
+    const openaiMessages = [
+      { role: "system", content: systemPrompt },
+      ...conversation,
+    ];
 
-  const chatCompletion = await openai.chat.completions.create({
-    model: "gpt-4.1-nano",
-    messages: openaiMessages,
-  });
+    const chatCompletion = await openai.chat.completions.create({
+      model: "gpt-4.1-nano",
+      messages: openaiMessages,
+    });
 
-  return chatCompletion.choices[0].message.content.trim();
+    return chatCompletion.choices[0].message.content.trim();
+  } catch (err) {
+    console.error("❌ Error in getNormalResponse:", err); // 👈 Print real error
+    return "Sorry, something went wrong."; // Fallback
+  }
 }
 function formatAcademicPlan(plan) {
   return plan.yearPlans
