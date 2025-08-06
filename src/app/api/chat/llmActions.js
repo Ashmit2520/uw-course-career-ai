@@ -3,7 +3,7 @@ import { zodTextFormat } from "openai/helpers/zod";
 import { OpenAI } from "openai";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
 import { OpenAIEmbeddings } from "@langchain/openai";
-import { SupabaseHybridSearch } from "@langchain/community/retrievers/supabase";
+
 import { getLastExchange } from "@/utils/llmUtils";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });

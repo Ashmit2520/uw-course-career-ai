@@ -111,7 +111,7 @@ function normalizeCourseId(id) {
 // Helper: does a given course exist anywhere in the plan?
 function isCourseInPlan(plan, courseId) {
   // Handle multi-subject courses like "COMPSCI, ECE 354"
-  const splitIds = courseId.split(/[,/]/).map(s => s.trim());
+  const splitIds = courseId.split(/[,/]/).map((s) => s.trim());
   if (!Array.isArray(plan)) return false;
 
   for (const yearObj of plan) {
@@ -212,9 +212,12 @@ export default function FourYearPlan() {
 
           // Debugging: See what we're checking
           console.log(
-            "Looking for", pr,
-            "normalized as", normalizeCourseId(pr),
-            "in plan?", inPlan
+            "Looking for",
+            pr,
+            "normalized as",
+            normalizeCourseId(pr),
+            "in plan?",
+            inPlan
           );
 
           return (
@@ -240,7 +243,8 @@ export default function FourYearPlan() {
                   </button>
                   {inPlan && (
                     <span className="block text-xs text-blue-700 mt-1">
-                      You have already overridden {pr} through transfer/AP credit, you don't need to have it in the plan.
+                      You have already overridden {pr} through transfer/AP
+                      credit, you don't need to have it in the plan.
                     </span>
                   )}
                 </>
@@ -262,7 +266,6 @@ export default function FourYearPlan() {
       </span>
     );
   }
-
 
   if (!hydrated) return null;
 
@@ -334,7 +337,11 @@ export default function FourYearPlan() {
                         className="bg-blue-50 px-2 py-2 rounded text-base cursor-move border flex items-center justify-between group w-full"
                         draggable
                         onDragStart={() => onDragStart(yIdx, sem, cIdx)}
-                        style={{ minHeight: 44, wordBreak: "break-word", whiteSpace: "normal" }}
+                        style={{
+                          minHeight: 44,
+                          wordBreak: "break-word",
+                          whiteSpace: "normal",
+                        }}
                       >
                         <span className="text-gray-900 font-medium w-full break-words">
                           {course.name}{" "}
