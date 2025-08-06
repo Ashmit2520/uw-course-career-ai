@@ -1,4 +1,4 @@
-import { createClient } from "@/app/api/supabase/server";
+// import { createClient } from "@/app/api/supabase/server";
 import { NextResponse } from "next/server";
 import {
   router,
@@ -6,12 +6,18 @@ import {
   getReqs,
   getAddtlCourses,
   getNormalResponse,
+  combineReqsAndAddtl,
+  searchCourses,
 } from "./llmActions";
+import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req) {
   const { messages } = await req.json();
-  const supabase = await createClient();
 
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
   const courseOfAction = await router(messages);
 
   console.log(courseOfAction);
@@ -24,15 +30,30 @@ export async function POST(req) {
           text: "Could you please tell me what major you're interested in?",
         });
       }
-      const p0 = await getReqs(userInfo, supabase);
+      if (userInfo.academicInterests.length === 0) {
+        return NextResponse.json({
+          text: "Could you please tell me a bit about your academic interestss?",
+        });
+      }
+      const p0 = await getReqs(userInfo, messages, supabase);
       console.log(p0);
 
-      const a0 = await getAddtlCourses(userInfo, p0, supabase);
+      const a0 = await getAddtlCourses(userInfo, supabase);
       const combined = `${p0}\n\nAdditional Courses:\n${a0}`;
 
-      return NextResponse.json({ text: combined });
+      const finalPlan = await combineReqsAndAddtl(userInfo, p0, a0);
+      return NextResponse.json({ text: finalPlan });
 
     case "2":
+      const userInfo2 = await extractUserInfo(messages, supabase);
+      const responseToCourses = await searchCourses(
+        userInfo2,
+        supabase,
+        messages
+      );
+      return NextResponse.json({ text: responseToCourses });
+
+    case "3":
       const normalResponse = await getNormalResponse(messages);
 
       return NextResponse.json({ text: normalResponse });

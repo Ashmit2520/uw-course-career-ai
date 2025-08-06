@@ -11,6 +11,13 @@ const SUGGESTED_QUESTIONS = [
   "What career paths fit someone who loves biology?",
   "I want a major with high pay and good job outlook—what courses should I take?",
 ];
+const GREETING_MESSAGES = [
+  "Hi there! What can I help you plan today?",
+  "Hello! Ready to design your academic future?",
+  "Hey! What academic plan can I help create?",
+  "Welcome! Need help picking courses or a major?",
+  "Hi! Let’s get started with your academic planning.",
+];
 
 export default function ChatbotPage() {
   const [messages, setMessages] = useState([]);
@@ -22,12 +29,9 @@ export default function ChatbotPage() {
 
   useEffect(() => {
     setHydrated(true);
-    setMessages([
-      {
-        role: "assistant",
-        content: "Hello! How can I help you?",
-      },
-    ]);
+    const greeting =
+      GREETING_MESSAGES[Math.floor(Math.random() * GREETING_MESSAGES.length)];
+    setMessages([{ role: "assistant", content: greeting }]);
   }, []);
 
   useEffect(() => {
@@ -36,9 +40,9 @@ export default function ChatbotPage() {
     }
   }, [messages, hydrated]);
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  // useEffect(() => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // }, [messages]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -96,14 +100,11 @@ export default function ChatbotPage() {
       <div
         className="bg-white shadow rounded-xl p-10 flex flex-col items-center"
         style={{
-          width: "420px",
-          minWidth: "350px",
-          maxWidth: "480px",
+          width: "600",
+          minWidth: "800px",
+          maxWidth: "600",
         }}
       >
-        <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
-          Course Selection and Career Advising Chatbot
-        </h2>
         <ChatMessages messages={messages} messagesEndRef={messagesEndRef} />
         <ChatInput
           input={input}
