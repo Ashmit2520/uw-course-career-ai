@@ -1,7 +1,11 @@
 import './globals.css'
 import NavBar from './components/NavBar'
 
-export const metadata = { title: 'UW-Madison Course Selector', description: 'Smart course selection app' }
+export const metadata = { 
+  icon: 'public/Sift_AI_Logo.png',
+  title: 'SiftAI', 
+  description: "From Classrooms to Careers, SiftAI has you covered." 
+}
 
 export default function RootLayout({ children }) {
   return (
