@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { FiMic } from "react-icons/fi";
 import FourYearPlan from "./FourYearPlan";
+import Vapi from "@vapi-ai/web";
 
 const STORAGE_KEY = "uwmadison_chat_history";
 
@@ -16,8 +17,10 @@ export default function ChatbotPage() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
+  const vapiRef = useRef(null);
 
   // On mount: load messages from localStorage
   useEffect(() => {
@@ -36,6 +39,25 @@ export default function ChatbotPage() {
             ]
       );
     }
+
+    const vapi = new Vapi({ apiKey: "VAPI_API_KEY",
+                            assistant: "VAPI_ASSISTANT_ID",
+    });
+
+    console.log("✅ Vapi initialized:", vapi);
+
+    
+    vapiRef.current = vapi;
+
+    vapi.on("transcript", (transcript) => {
+      const spoken = transcript.text;
+      setInput(spoken);
+      sendMessage(spoken);
+    });
+
+    return () => {
+      vapi.stop();
+    };
   }, []);
 
   // Save messages to localStorage every time they change
@@ -50,10 +72,11 @@ export default function ChatbotPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Send user message to API
-  const sendMessage = async () => {
-    if (!input.trim()) return;
-    const userMsg = { role: "user", content: input };
+  const sendMessage = async (overrideInput = null) => {
+    const messageToSend = overrideInput ?? input;
+    if (!messageToSend.trim()) return;
+
+    const userMsg = { role: "user", content: messageToSend };
     const newMsgs = [...messages, userMsg];
     setMessages(newMsgs);
     setInput("");
@@ -66,19 +89,16 @@ export default function ChatbotPage() {
         body: JSON.stringify({ messages: newMsgs }),
       });
       const data = await res.json();
-      setMessages([
-        ...newMsgs,
-        {
-          role: "assistant",
-          content: data.response || "Sorry, I couldn’t find any courses!",
-        },
-      ]);
+      const reply = data.response || "Sorry, I couldn’t find any courses!";
+      setMessages([...newMsgs, { role: "assistant", content: reply }]);
+      vapiRef.current?.tts(reply);
     } catch {
       setMessages([
         ...newMsgs,
         { role: "assistant", content: "Sorry, something went wrong." },
       ]);
     }
+
     setLoading(false);
   };
 
@@ -87,30 +107,34 @@ export default function ChatbotPage() {
       e.preventDefault();
       sendMessage();
     }
-    // Allow Shift+Enter for multiline
   };
 
-  // For textarea auto-grow
   const handleChange = (e) => {
     setInput(e.target.value);
     e.target.style.height = "auto";
     e.target.style.height = e.target.scrollHeight + "px";
   };
 
-  // Handle suggested questions click
   const handleSuggested = (q) => {
     setInput(q);
     setTimeout(() => {
-      if (textareaRef.current) {
-        textareaRef.current.focus();
-      }
+      textareaRef.current?.focus();
     }, 50);
   };
 
-  // Render nothing until hydrated
+  const toggleMic = () => {
+    const vapi = vapiRef.current;
+    if (!isListening) {
+      vapi?.start();
+      setIsListening(true);
+    } else {
+      vapi?.stop();
+      setIsListening(false);
+    }
+  };
+
   if (!hydrated) return null;
 
-  // Layout: Chat left, FourYearPlan right (side-by-side)
   return (
     <main
       className="flex flex-row items-start justify-center min-h-screen w-full bg-black px-2 md:px-8 py-8 gap-8"
@@ -146,6 +170,7 @@ export default function ChatbotPage() {
           ))}
           <div ref={messagesEndRef} />
         </div>
+
         <div className="w-full flex items-center gap-2">
           <textarea
             ref={textareaRef}
@@ -159,7 +184,7 @@ export default function ChatbotPage() {
             style={{ minHeight: "40px", maxHeight: "120px" }}
           />
           <button
-            onClick={sendMessage}
+            onClick={() => sendMessage()}
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold"
             disabled={loading}
           >
@@ -167,23 +192,33 @@ export default function ChatbotPage() {
           </button>
           <button
             type="button"
-            className="ml-1 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full p-2 flex items-center justify-center"
-            aria-label="Voice input coming soon"
-            disabled
+            onClick={toggleMic}
+            className={`ml-1 ${
+              isListening ? "bg-red-500" : "bg-gray-200"
+            } hover:bg-gray-300 text-gray-700 rounded-full p-2 flex items-center justify-center`}
+            aria-label="Toggle voice input"
           >
             <FiMic size={22} />
           </button>
         </div>
+
         <div className="mt-2 text-xs text-gray-400 text-center">
           Hint: Press{" "}
-          <span className="font-semibold bg-gray-200 px-1 rounded">
-            Enter
-          </span>{" "}
+          <span className="font-semibold bg-gray-200 px-1 rounded">Enter</span>{" "}
           to send your message.
           <br />
-          Voice input coming soon
+          Voice input is now available!
         </div>
-        {/* SUGGESTED QUESTIONS SECTION */}
+
+        {/* Inject the widget */}
+      <div dangerouslySetInnerHTML={{ __html: `
+        <vapi-widget
+          public-key="${process.env.NEXT_PUBLIC_VAPI_API_KEY}"
+          assistant-id="${process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID}"
+          mode="chat"
+        ></vapi-widget>
+      ` }} />
+
         <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
           <div className="font-semibold mb-2 text-gray-700">
             Try these questions:
@@ -201,7 +236,7 @@ export default function ChatbotPage() {
           </div>
         </div>
       </div>
-      {/* FourYearPlan to the right */}
+
       <div className="ml-8" style={{ minWidth: "950px" }}>
         <FourYearPlan />
       </div>

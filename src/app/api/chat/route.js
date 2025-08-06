@@ -10,17 +10,32 @@ const db = new Database(dbPath, { readonly: true });
 
 // Helper: find courses matching some keywords
 function findRelevantCourses(query, limit = 10) {
-  if (!query) return [];
+  console.log("🔍 FINDING COURSES FOR:", query);
+
   const q = `%${query.toLowerCase()}%`;
+
   const sql = `
     SELECT * FROM courses
-    WHERE LOWER(course_name) LIKE ?
-      OR LOWER(subject_name) LIKE ?
-      OR LOWER(description) LIKE ?
+    WHERE LOWER(subject_name) LIKE ?
+       OR LOWER(course_name) LIKE ?
+       OR LOWER(description) LIKE ?
+       OR LOWER(subject_name || ' ' || course_name) LIKE ?
     LIMIT ?
   `;
-  return db.prepare(sql).all(q, q, q, limit);
+
+  const results = db.prepare(sql).all(q, q, q, q, limit);
+  console.log("📊 Matched results:", results);
+  return results;
 }
+
+
+function normalizeQuery(input) {
+  return input
+    .toLowerCase()
+    .replace(/computer science/g, "comp sci")
+    .replace(/\bcs\b/g, "comp sci");
+}
+
 
 // Helper: find majors/careers matching keywords (for career advising)
 function findRelevantMajors(query, limit = 5) {
@@ -51,14 +66,26 @@ export async function POST(req) {
   try {
     const { messages } = await req.json();
 
-    // Find user’s latest message
-    const userMsg = messages
+    // Find raw latest message
+    const rawMsg = messages
       .slice()
       .reverse()
       .find((m) => m.role === "user")?.content || "";
 
-    // Find relevant courses
+    // Normalize the raw message
+    const userMsg = normalizeQuery(rawMsg);
+    
+
+    console.log('🔤 Raw:', rawMsg);
+    console.log('🗣️ User message:', userMsg);
+
+    // Check if we’re even calling the function
+    console.log('📞 Calling findRelevantCourses');
+    
+      // Find relevant courses
     const relevantCourses = userMsg ? findRelevantCourses(userMsg) : [];
+
+    console.log('✅ Matched courses:', relevantCourses);
 
     // Build a course info summary for the AI
     const courseList = relevantCourses.length

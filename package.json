@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/supabase-js": "^2.50.3",
+    "@vapi-ai/web": "^2.3.8",
     "better-sqlite3": "^12.2.0",
     "csv-parse": "^6.1.0",
     "csv-parser": "^3.2.0",

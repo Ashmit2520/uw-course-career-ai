@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,10 +22,9 @@ export default function NavBar() {
     <nav className=" sticky top-0 z-50 bg-theme-card shadow flex items-center justify-between px-4 md:px-12 h-16">
       {/* Logo and Site Name */}
       <Link href="/" className="flex items-center gap-2 group">
-        <div className="h-8 w-8 min-w-8 min-h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold group-hover:brightness-90 transition"></div>
-        <span className="text-xl font-bold tracking-tight text-card-foreground group-hover:text-white transition"> 
-          Course Selector
-        </span>
+        <div>
+          <Image src="/Sift_AI_Logo.png" alt="Sift_AI_Logo" height={55} width={55}/>
+        </div>
       </Link>
       {/* Desktop Nav */}
       <div className="hidden md:flex gap-6 items-center">
