@@ -9,7 +9,7 @@ const STORAGE_KEY = "uwmadison_chat_history";
 const SUGGESTED_QUESTIONS = [
   "What are some interesting computer science courses?",
   "What career paths fit someone who loves biology?",
-  "I want a major with high pay and good job outlook—what courses should I take?",
+  "I want a major with high pay and good job outlook. What courses should I take?",
 ];
 
 export default function ChatbotPage() {
@@ -34,7 +34,7 @@ export default function ChatbotPage() {
               {
                 role: "assistant",
                 content:
-                  "Hi! Tell me about your interests and what you want in a course.",
+                  "Hi! Tell me about your interests and what you want in a course. We can also talk about your career if you like",
               },
             ]
       );
@@ -142,15 +142,15 @@ export default function ChatbotPage() {
     >
       {/* Chatbox */}
       <div
-        className="bg-white shadow rounded-xl p-10 flex flex-col items-center"
+        className="bg-[#1a1a2e] shadow rounded-xl p-10 flex flex-col items-center border border-grey-200"
         style={{
           width: "420px",
           minWidth: "350px",
           maxWidth: "480px",
         }}
       >
-        <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
-          Course Selection and Career Advising Chatbot
+        <h2 className="text-3xl font-bold mb-4 text-center text-white">
+          SiftAI Chatbot
         </h2>
         <div
           className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto"
@@ -161,8 +161,8 @@ export default function ChatbotPage() {
               key={i}
               className={`rounded-lg px-4 py-2 text-base whitespace-pre-line ${
                 msg.role === "assistant"
-                  ? "bg-gray-100 text-gray-800 self-start"
-                  : "bg-blue-100 text-gray-900 self-end"
+                  ? "bg-[#222244] text-gray-300 self-start"
+                  : "bg-[#a48fff] text-[#0f0f1a] self-end"
               }`}
             >
               {msg.content}
@@ -174,7 +174,7 @@ export default function ChatbotPage() {
         <div className="w-full flex items-center gap-2">
           <textarea
             ref={textareaRef}
-            className="flex-1 border rounded px-3 py-2 text-black resize-none overflow-y-auto"
+            className="flex-1 border border-[#303052] rounded px-3 py-2 text-white resize-none overflow-y-auto"
             value={input}
             placeholder="Type your message..."
             onChange={handleChange}
@@ -185,29 +185,30 @@ export default function ChatbotPage() {
           />
           <button
             onClick={() => sendMessage()}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold"
+            className="bg-[#a48fff] hover:bg-violet-500 text-[#0f0f1a] px-4 py-2 focus-visible:ring-ring rounded font-semibold"
             disabled={loading}
           >
             {loading ? "..." : "Send"}
           </button>
-          <button
+          {/* Microphone button */}
+          {/* <button
             type="button"
             onClick={toggleMic}
             className={`ml-1 ${
-              isListening ? "bg-red-500" : "bg-gray-200"
-            } hover:bg-gray-300 text-gray-700 rounded-full p-2 flex items-center justify-center`}
+              isListening ? "bg-red-500" : "bg-[#a48fff]"
+            } hover:bg-violet-500 text-gray-700 rounded-full p-2 flex items-center justify-center`}
             aria-label="Toggle voice input"
           >
             <FiMic size={22} />
-          </button>
+          </button> */}
         </div>
 
         <div className="mt-2 text-xs text-gray-400 text-center">
           Hint: Press{" "}
-          <span className="font-semibold bg-gray-200 px-1 rounded">Enter</span>{" "}
+          <span className="font-semibold bg-[#a48fff] text-black px-1 rounded">Enter</span>{" "}
           to send your message.
           <br />
-          Voice input is now available!
+          {/*Voice input is now available!*/}
         </div>
 
         {/* Inject the widget */}
@@ -219,16 +220,16 @@ export default function ChatbotPage() {
         ></vapi-widget>
       ` }} />
 
-        <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
-          <div className="font-semibold mb-2 text-gray-700">
+        <div className="mt-8 bg-[#303060] rounded-lg p-4 w-full border border-grey-200">
+          <div className="font-semibold mb-2 text-grey-200">
             Try these questions:
           </div>
-          <div className="flex flex-row flex-nowrap gap-2 overflow-x-auto">
+          <div className="flex flex-row gap-2 overflow-x-auto">
             {SUGGESTED_QUESTIONS.map((q) => (
               <button
                 key={q}
                 onClick={() => handleSuggested(q)}
-                className="bg-blue-100 hover:bg-blue-300 text-blue-900 px-3 py-1 rounded transition whitespace-nowrap"
+                className="bg-theme-primary hover:bg-blue-300 text-[#0f0f1a] px-3 py-1 rounded transition whitespace-nowrap"
               >
                 {q}
               </button>

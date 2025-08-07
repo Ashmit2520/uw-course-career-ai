@@ -204,18 +204,18 @@ export default function FourYearPlan() {
     if (!found) return null;
 
     return (
-      <span className="text-xs font-bold text-red-500 ml-2 flex flex-col gap-1">
+      <span className="text-xs font-bold text-[#ff5470] ml-2 flex flex-col gap-1">
         Prereqs not met:&nbsp;
         {found.unmet.map((pr) => {
           const isOverridden = overrides[pr];
           const inPlan = isCourseInPlan(plan, pr);
 
           // Debugging: See what we're checking
-          console.log(
-            "Looking for", pr,
-            "normalized as", normalizeCourseId(pr),
-            "in plan?", inPlan
-          );
+          // console.log(
+          //   "Looking for", pr,
+          //   "normalized as", normalizeCourseId(pr),
+          //   "in plan?", inPlan
+          // );
 
           return (
             <span key={pr} className="inline-block mr-2">
@@ -223,7 +223,7 @@ export default function FourYearPlan() {
               {isOverridden ? (
                 <>
                   {" "}
-                  <span className="text-green-600">(Overridden)</span>
+                  <span className="text-[#4db6ac]">(Overridden)</span>
                   <button
                     onClick={() => {
                       setOverrides((prev) => {
@@ -239,7 +239,7 @@ export default function FourYearPlan() {
                     &times;
                   </button>
                   {inPlan && (
-                    <span className="block text-xs text-blue-700 mt-1">
+                    <span className="block text-xs text-[#64b5f6] mt-1">
                       You have already overridden {pr} through transfer/AP credit, you don't need to have it in the plan.
                     </span>
                   )}
@@ -249,7 +249,7 @@ export default function FourYearPlan() {
                   onClick={() =>
                     setOverrides((prev) => ({ ...prev, [pr]: true }))
                   }
-                  className="ml-2 px-2 py-0.5 rounded bg-blue-100 hover:bg-blue-200 text-blue-700 text-xs"
+                  className="ml-2 px-2 py-0.5 rounded bg-[#64b5f6] hover:bg-blue-200 text-black text-xs"
                   aria-label={`Override prereq ${pr} with AP/Transfer credit`}
                   tabIndex={0}
                 >
