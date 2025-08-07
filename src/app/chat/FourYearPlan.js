@@ -249,7 +249,7 @@ export default function FourYearPlan() {
                   onClick={() =>
                     setOverrides((prev) => ({ ...prev, [pr]: true }))
                   }
-                  className="ml-2 px-2 py-0.5 rounded bg-[#64b5f6] hover:bg-blue-200 text-black text-xs"
+                  className="ml-2 px-2 py-0.5 rounded bg-[#64b5f6] hover:bg-blue-200 text-zinc-900 text-xs"
                   aria-label={`Override prereq ${pr} with AP/Transfer credit`}
                   tabIndex={0}
                 >
@@ -268,7 +268,7 @@ export default function FourYearPlan() {
 
   return (
     <div
-      className="bg-white shadow-xl rounded-xl px-6 py-8 flex flex-col"
+      className="bg-theme-card shadow-xl rounded-xl px-6 py-8 flex flex-col border border-grey-200"
       style={{
         minWidth: 650,
         maxWidth: 900,
@@ -277,17 +277,17 @@ export default function FourYearPlan() {
         marginRight: 0,
       }}
     >
-      <h3 className="text-2xl font-extrabold mb-6 text-gray-900 text-center">
-        4-Year Academic Plan (Computer Science)
+      <h3 className="text-2xl font-extrabold mb-6 text-white text-center">
+        4-Year Academic Plan
       </h3>
       <div className="grid grid-cols-4 gap-6 w-full">
         {plan.map((year, yIdx) => (
           <div
             key={yIdx}
-            className="border rounded-lg bg-gray-50 p-3 flex flex-col flex-1 min-w-[180px]"
+            className="border border-grey-200 rounded-lg bg-indigo-950 p-3 flex flex-col flex-1 min-w-[180px]"
             style={{ minWidth: 150, maxWidth: 210 }}
           >
-            <div className="font-bold text-lg text-gray-900 mb-2 text-center" style={{ color: "#1a202c" }}>
+            <div className="font-bold text-lg text-white mb-2 text-center">
               Year {year.year}
             </div>
             {["fall", "spring"].map((sem) => {
@@ -328,12 +328,12 @@ export default function FourYearPlan() {
                     {year[sem].map((course, cIdx) => (
                       <div
                         key={course.id + cIdx}
-                        className="bg-blue-50 px-2 py-2 rounded text-base cursor-move border flex items-center justify-between group w-full"
+                        className="bg-white px-2 py-2 rounded text-base cursor-move border flex items-center justify-between group w-full"
                         draggable
                         onDragStart={() => onDragStart(yIdx, sem, cIdx)}
                         style={{ minHeight: 44, wordBreak: "break-word", whiteSpace: "normal" }}
                       >
-                        <span className="text-gray-900 font-medium w-full break-words">
+                        <span className="text-slate-700 font-medium w-full break-words">
                           {course.name}{" "}
                           <span className="text-xs text-gray-500">
                             ({course.credits} cr)
