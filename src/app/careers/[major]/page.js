@@ -1,9 +1,8 @@
 // src/app/careers/[major]/page.js
 import { notFound } from "next/navigation";
-import { promises as fs } from "fs";
 import path from "path";
 import Database from "better-sqlite3";
-import { Bar } from "@/components/ui/BarChart"; // You can customize or replace this with another chart lib
+import DemographicBarChart from "../../components/ui/BarChart";
 
 const dbPath = path.join(process.cwd(), "courses.db");
 
@@ -14,9 +13,12 @@ export async function generateStaticParams() {
 }
 
 export default async function CareerDetailPage({ params }) {
+  const encodedMajor = params.major;
+  const major = decodeURIComponent(encodedMajor);
+
   const db = new Database(dbPath);
-  const major = decodeURIComponent(params.major);
   const data = db.prepare("SELECT * FROM career_stats WHERE major = ?").get(major);
+
   if (!data) notFound();
 
   const demographicData = [
@@ -30,14 +32,14 @@ export default async function CareerDetailPage({ params }) {
     { label: "White", value: data.white_grads },
     { label: "Multiracial", value: data.multiracial_grads },
     { label: "Unknown", value: data.unknown_grads },
-    { label: "International", value: data.intl_grads }
+    { label: "International", value: data.intl_grads },
   ];
 
   return (
     <main className="min-h-screen bg-[#0f0f1a] text-white p-8">
       <h1 className="text-4xl font-bold mb-4">{data.major}</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start px-4">
         <div className="space-y-2">
           <p><span className="font-semibold">Unemployment Rate:</span> {data.unemployment_rate}%</p>
           <p><span className="font-semibold">Underemployment Rate:</span> {data.underemployment_rate}%</p>
@@ -46,9 +48,9 @@ export default async function CareerDetailPage({ params }) {
           <p><span className="font-semibold">Mid Career Salary:</span> ${data.mid_career_salary.toLocaleString()}</p>
         </div>
 
-        <div className="bg-[#1f2333] p-4 rounded-lg shadow">
+        <div className="bg-[#1f2333] p-4 rounded-lg shadow mt-4 md:mt-0">
           <h2 className="text-2xl font-semibold mb-4">Demographic Breakdown</h2>
-          <Bar data={demographicData} />
+          <DemographicBarChart data={demographicData} />
         </div>
       </div>
     </main>
