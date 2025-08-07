@@ -36,9 +36,9 @@ export default function CourseDetailsPage() {
       });
   }, [id]);
 
-  if (loading) return <div className="p-8 text-center">Loading...</div>;
+  if (loading) return <div className="p-8 text-center text-[#a0a0c0]">Loading...</div>;
   if (!course || course.error)
-    return <div className="p-8 text-center">Course not found.</div>;
+    return <div className="p-8 text-center text-[#a0a0c0]">Course not found.</div>;
 
   // Prepare grade data for the bar chart
   const chartData = GRADE_KEYS.map((k) =>
@@ -52,23 +52,23 @@ export default function CourseDetailsPage() {
 
   return (
     <main className="flex flex-col items-center p-8">
-      <div className="bg-white rounded-xl shadow p-6 max-w-xl w-full ">
-        <h1 className="text-2xl font-bold mb-2 text-gray-900">
+      <div className="bg-theme-card rounded-xl shadow p-8 max-w-xl w-full border-2 border-gray-200">
+        <h1 className="text-2xl font-bold mb-2 text-white">
           {course.course_name}
         </h1>
-        <p className="text-lg text-gray-700 mb-4">{course.description}</p>
+        <p className="text-lg text-[#a0a0c0] mb-4">{course.description}</p>
         <div className="grid grid-cols-2 gap-2 text-gray-600 mb-2">
-          <span className="font-semibold">Subject:</span>
-          <span>{course.subject_name}</span>
-          <span className="font-semibold">Average GPA:</span>
-          <span>{course.avg_gpa ?? "N/A"}</span>
-          <span className="font-semibold">Students:</span>
-          <span>{course.students ?? "N/A"}</span>
-          <span className="font-semibold">Prerequisites:</span>
-          <span>{course.prerequisites || "None"}</span>
+          <span className="font-semibold text-[#a0a0c0]">Subject:</span>
+          <span className="text-[#a0a0c0]">{course.subject_name}</span>
+          <span className="font-semibold text-[#a0a0c0]">Average GPA:</span>
+          <span className="text-[#a0a0c0]">{course.avg_gpa ?? "N/A"}</span>
+          <span className="font-semibold text-[#a0a0c0]">Students:</span>
+          <span className="text-[#a0a0c0]">{course.students ?? "N/A"}</span>
+          <span className="font-semibold text-[#a0a0c0]">Prerequisites:</span>
+          <span className="text-[#a0a0c0]">{course.prerequisites || "None"}</span>
         </div>
         <div className="mt-6">
-          <h2 className="font-extrabold text-lg mb-2 text-black">
+          <h2 className="font-bold text-lg mb-2 text-white">
             Grade Distribution
           </h2>
           <div style={{ width: "100%", height: 240 }}>
@@ -80,26 +80,30 @@ export default function CourseDetailsPage() {
                   label={{
                     value: "Grade",
                     position: "insideBottom",
-                    dy: 9,
-                    fill: "#374151",
+                    offset: -4,
+                    fill: "#a0a0c0",
                     fontSize: 14,
                     fontWeight: 600,
                   }}
+                  tick={{ fill: "#a0a0c0" }}
                 />
                 <YAxis
                   label={{
                     value: "Number of Students",
                     angle: -90,
-                    position: "insideLeft",
-                    dy: 60,
-                    dx: -3,
-                    fill: "#374151",
+                    position: "outsideLeft",
+                    offset: 50,
+                    dx: -30,
+                    fill: "#a0a0c0",
                     fontSize: 14,
                     fontWeight: 600,
                   }}
+                  tick={{ fill: "#a0a0c0" }}
                 />
-                <Tooltip />
-                <Bar dataKey="value" fill="#2563eb" radius={[4, 4, 0, 0]} />
+                <Tooltip 
+                labelStyle={{ color: '#a78bfa' }} // Styles the "Grade" label
+                />
+                <Bar dataKey="value" fill="#a78bfa" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

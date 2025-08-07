@@ -3,11 +3,14 @@ const path = require('path');
 const Database = require('better-sqlite3');
 const csv = require('csv-parser');
 
+// Paths
 const dbFile = path.join(__dirname, '../../../courses.db');
-const db = new Database(dbFile);
-const careerCsv = path.join(__dirname, 'career_data.csv');
+const careerCsv = path.join(__dirname, 'career_data_clean.csv');
 
-// Drop and create table (in two steps)
+// Open SQLite database
+const db = new Database(dbFile);
+
+// Drop and recreate career_stats table
 db.exec(`DROP TABLE IF EXISTS career_stats;`);
 db.exec(`
   CREATE TABLE IF NOT EXISTS career_stats (
@@ -32,6 +35,7 @@ db.exec(`
   );
 `);
 
+// Prepare the insert statement
 const insertCareer = db.prepare(`
   INSERT INTO career_stats (
     major, unemployment_rate, underemployment_rate, early_career_salary, mid_career_salary,
@@ -41,7 +45,8 @@ const insertCareer = db.prepare(`
   ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
-let careerRowCount = 0;
+// Seed the data
+let rowCount = 0;
 
 fs.createReadStream(careerCsv)
   .pipe(csv())
@@ -50,8 +55,8 @@ fs.createReadStream(careerCsv)
       row["major"]?.trim() || "Unknown",
       parseFloat(row["unemployment_rate"]) || 0,
       parseFloat(row["underemployment_rate"]) || 0,
-      parseInt((row["early_career_salary"] || "").replace(/[^0-9]/g, "")) || 0,
-      parseInt((row["mid_career_salary"] || "").replace(/[^0-9]/g, "")) || 0,
+      parseInt(row["early_career_salary"]) || 0,
+      parseInt(row["mid_career_salary"]) || 0,
       parseFloat(row["grad_degree_share"]) || 0,
       parseInt(row["female_grads"]) || 0,
       parseInt(row["male_grads"]) || 0,
@@ -65,10 +70,10 @@ fs.createReadStream(careerCsv)
       parseInt(row["unknown_grads"]) || 0,
       parseInt(row["intl_grads"]) || 0
     );
-    careerRowCount++;
+    rowCount++;
   })
   .on('end', () => {
-    console.log(`✅ Loaded ${careerRowCount} career rows into SQLite!`);
+    console.log(`✅ Loaded ${rowCount} career rows into SQLite!`);
     db.close();
   })
   .on('error', (err) => {

@@ -25,6 +25,7 @@ function loadOverridesFromStorage() {
   return data ? JSON.parse(data) : {};
 }
 
+//clear this out - default plan should be blank
 const INITIAL_PLAN = [
   {
     year: 1,
@@ -224,7 +225,7 @@ export default function FourYearPlan() {
     if (!found) return null;
 
     return (
-      <span className="text-xs font-bold text-red-500 ml-2 flex flex-col gap-1">
+      <span className="text-xs font-bold text-[#ff5470] ml-2 flex flex-col gap-1">
         Prereqs not met:&nbsp;
         {found.unmet.map((pr) => {
           const isOverridden = overrides[pr];
@@ -236,7 +237,7 @@ export default function FourYearPlan() {
               {isOverridden ? (
                 <>
                   {" "}
-                  <span className="text-green-600">(Overridden)</span>
+                  <span className="text-[#4db6ac]">(Overridden)</span>
                   <button
                     onClick={() => {
                       setOverrides((prev) => {
@@ -252,9 +253,9 @@ export default function FourYearPlan() {
                     &times;
                   </button>
                   {inPlan && (
-                    <span className="block text-xs text-blue-700 mt-1">
+                    <span className="block text-xs text-[#64b5f6] mt-1">
                       You have already overridden {pr} through transfer/AP
-                      credit, you don't need to have it in the plan.
+                      credit, you don&apos;t need to have it in the plan.
                     </span>
                   )}
                 </>
@@ -263,7 +264,7 @@ export default function FourYearPlan() {
                   onClick={() =>
                     setOverrides((prev) => ({ ...prev, [pr]: true }))
                   }
-                  className="ml-2 px-2 py-0.5 rounded bg-blue-100 hover:bg-blue-200 text-blue-700 text-xs"
+                  className="ml-2 px-2 py-0.5 rounded bg-[#a48fff] hover:bg-blue-200 text-zinc-900 text-xs"
                   aria-label={`Override prereq ${pr} with AP/Transfer credit`}
                   tabIndex={0}
                 >
@@ -281,7 +282,7 @@ export default function FourYearPlan() {
 
   return (
     <div
-      className="bg-white shadow-xl rounded-xl px-8 py-8 flex flex-col"
+      className="bg-[#1a1a2e] shadow-xl rounded-xl px-6 py-8 flex flex-col border border-gray"
       style={{
         minWidth: 650,
         maxWidth: 900,
@@ -290,13 +291,13 @@ export default function FourYearPlan() {
         marginRight: 0,
       }}
     >
-      <h3 className="text-2xl font-extrabold mb-6 text-gray-900 text-center">
-        4-Year Academic Plan (Computer Science)
-      </h3>
+      <h2 className="text-3xl font-bold mb-6 text-white text-center">
+        Academic Plan
+      </h2>
       <div className="flex flex-col w-full gap-6">
         {plan.map((year, yIdx) => (
           <div key={yIdx} className="flex flex-col gap-2">
-            <div className="font-bold text-lg text-gray-900 mb-1 text-center">
+            <div className="font-bold text-lg text-white mb-2 text-center">
               Year {year.year}
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -307,23 +308,23 @@ export default function FourYearPlan() {
                     key={sem}
                     className={`rounded p-2 flex flex-col flex-1 border-2 w-full ${
                       status === "low"
-                        ? "border-red-400 bg-red-100"
+                        ? "border-red-400 bg-red-200"
                         : status === "high"
-                        ? "border-orange-400 bg-orange-100"
-                        : "border-gray-200 bg-gray-200"
+                        ? "border-orange-400 bg-orange-200"
+                        : "border-gray-500 bg-[#303060]"
                     }`}
                     onDragOver={(e) => e.preventDefault()}
                     onDrop={() => onDrop(yIdx, sem)}
                   >
-                    <div className="font-semibold text-gray-800 mb-1 flex items-center justify-between">
+                    <div className="font-semibold text-gray-100 mb-1 flex items-center justify-between">
                       <span>
                         {sem[0].toUpperCase() + sem.slice(1)}{" "}
-                        <span className="text-xs text-gray-600">
+                        <span className="text-xs text-gray-400">
                           ({semesterCredits(year[sem])} cr)
                         </span>
                       </span>
                       {status !== "ok" && (
-                        <span className="text-xs font-bold text-red-500 ml-2">
+                        <span className="text-xs font-bold text-red-400 ml-2">
                           {message}
                         </span>
                       )}
@@ -337,7 +338,7 @@ export default function FourYearPlan() {
                       {year[sem].map((course, cIdx) => (
                         <div
                           key={course.id + cIdx}
-                          className="bg-blue-50 px-2 py-2 rounded text-base cursor-move border flex items-center justify-between group w-full"
+                          className="bg-[#222244] px-2 py-2 rounded text-base cursor-move border border-gray-500 flex items-center justify-between group w-full"
                           draggable
                           onDragStart={() => onDragStart(yIdx, sem, cIdx)}
                           style={{
@@ -346,9 +347,9 @@ export default function FourYearPlan() {
                             whiteSpace: "normal",
                           }}
                         >
-                          <span className="text-gray-900 font-medium w-full break-words">
+                          <span className="text-white font-medium w-full break-words">
                             {course.name}{" "}
-                            <span className="text-xs text-gray-500">
+                            <span className="text-xs text-gray-400">
                               ({course.credits} cr)
                             </span>
                             {getWarning(course, plan)}

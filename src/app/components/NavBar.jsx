@@ -23,7 +23,11 @@ export default function NavBar() {
       {/* Logo and Site Name */}
       <Link href="/" className="flex items-center gap-2 group">
         <div>
-          <Image src="/Sift_AI_Logo.png" alt="Sift_AI_Logo" height={55} width={55}/>
+          <Image src="/Sift_AI_Logo.png" alt="Sift_AI_Logo" height={55} width={55}/> 
+        
+        </div>
+        <div className="text-2xl font-bold">
+          SiftAI
         </div>
       </Link>
       {/* Desktop Nav */}

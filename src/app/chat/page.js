@@ -9,13 +9,14 @@ import { FiMic } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import { XMarkIcon } from "@heroicons/react/24/solid"; // Make sure this is at the top
 import { emitGeneratedPlan } from "./FourYearPlan";
+// import Vapi from "@vapi-ai/web"; // ❌ Vapi temporarily disabled
 
 const STORAGE_KEY = "uwmadison_chat_history";
 
 const SUGGESTED_QUESTIONS = [
   "What are some interesting computer science courses?",
   "What career paths fit someone who loves biology?",
-  "I want a major with high pay and good job outlook—what courses should I take?",
+  "I want a major with high pay and good job outlook. What courses should I take?",
 ];
 const GREETING_MESSAGES = [
   "Hi there! What can I help you plan today?",
@@ -45,26 +46,28 @@ export default function ChatbotPage() {
         saved ? JSON.parse(saved) : [{ role: "assistant", content: greeting }]
       );
     }
+  }, []); // ✅ <-- Add this
 
-    const vapi = new Vapi({
-      apiKey: "VAPI_API_KEY",
-      assistant: "VAPI_ASSISTANT_ID",
-    });
+  //   const vapi = new Vapi({
+  //     apiKey: "VAPI_API_KEY",
+  //     assistant: "VAPI_ASSISTANT_ID",
+  //   });
 
-    console.log("✅ Vapi initialized:", vapi);
+  //   console.log("✅ Vapi initialized:", vapi);
 
-    vapiRef.current = vapi;
+  //   vapiRef.current = vapi;
 
-    vapi.on("transcript", (transcript) => {
-      const spoken = transcript.text;
-      setInput(spoken);
-      sendMessage(spoken);
-    });
+  //   vapi.on("transcript", (transcript) => {
+  //     const spoken = transcript.text;
+  //     setInput(spoken);
+  //     sendMessage(spoken);
+  //   });
 
-    return () => {
-      vapi.stop();
-    };
-  }, []);
+  //   return () => {
+  //     vapi.stop();
+  //   };
+  //
+  // }, []);
 
   const clearChat = () => {
     const greeting =
@@ -121,6 +124,9 @@ export default function ChatbotPage() {
       }
     } catch (error) {
       console.error("API Error:", error);
+
+      // vapiRef.current?.tts(reply); // ❌ Vapi voice response disabled
+
       setMessages([
         ...newMsgs,
         { role: "assistant", content: "Sorry, something went wrong." },
@@ -151,6 +157,7 @@ export default function ChatbotPage() {
   };
 
   const toggleMic = () => {
+    /*
     const vapi = vapiRef.current;
     if (!isListening) {
       vapi?.start();
@@ -159,6 +166,7 @@ export default function ChatbotPage() {
       vapi?.stop();
       setIsListening(false);
     }
+    */
   };
 
   if (!hydrated) return null;
@@ -168,8 +176,17 @@ export default function ChatbotPage() {
       className="flex flex-row items-start justify-center min-h-screen w-full bg-black px-2 md:px-8 py-8 gap-8"
       style={{ background: "#111" }}
     >
+      <style jsx global>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
       <div
-        className="bg-white shadow rounded-xl p-10 flex flex-col items-center"
+        className="bg-[#1a1a2e] shadow rounded-xl p-10 flex flex-col items-center border border-grey-200"
         style={{
           width: "600",
           minWidth: "800px",
@@ -179,7 +196,7 @@ export default function ChatbotPage() {
         <div className="relative w-full mb-4">
           <button
             onClick={clearChat}
-            className="absolute left-0 top-1 group bg-blue-600 rounded-full text-white p-1 cursor-pointer"
+            className="absolute left-0 top-1 group bg-[#a48fff] text-[#0f0f1a] rounded-full p-1 cursor-pointer"
             aria-label="Clear chat"
           >
             <XMarkIcon className="w-5 h-5 font-bold" />
@@ -188,23 +205,23 @@ export default function ChatbotPage() {
             </div>
           </button>
 
-          <h2 className="text-3xl font-extrabold text-black text-center">
+          <h2 className="text-3xl font-bold mb-4 text-center text-white">
             SiftAI Chatbot
           </h2>
         </div>
 
         <div
-          className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto"
+          className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto hide-scrollbar"
           style={{ minHeight: "260px" }}
-          ref={messagesEndRef} // ✅ Attach ref to container
+          ref={messagesEndRef}
         >
           {messages.map((msg, i) => (
             <div
               key={i}
               className={`rounded-lg px-4 py-2 text-base whitespace-pre-line ${
                 msg.role === "assistant"
-                  ? "bg-gray-100 text-gray-800 self-start"
-                  : "bg-blue-100 text-gray-900 self-end"
+                  ? "bg-[#222244] text-gray-300 self-start"
+                  : "bg-[#a48fff] text-[#0f0f1a] self-end"
               }`}
             >
               {msg.role === "assistant" ? (
@@ -215,7 +232,7 @@ export default function ChatbotPage() {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-0.1 py-0 bg-blue-50 text-blue-700 rounded-md font-medium hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200"
+                        className="inline-block px-0.1 py-0 bg-[#303060] text-whtie rounded-md font-medium hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200"
                       >
                         {children}
                       </a>
@@ -230,7 +247,7 @@ export default function ChatbotPage() {
             </div>
           ))}
           {loading && (
-            <div className="rounded-lg px-4 py-2 text-base whitespace-pre-line bg-gray-100 text-blue-500 self-start">
+            <div className="rounded-lg px-4 py-2 text-base whitespace-pre-line bg-[#222244] text-gray-300 self-start">
               Sifting
               <LoadingDots />
             </div>
@@ -240,7 +257,7 @@ export default function ChatbotPage() {
         <div className="w-full flex items-center gap-2">
           <textarea
             ref={textareaRef}
-            className="flex-1 border rounded px-3 py-2 text-black resize-none overflow-y-auto"
+            className="flex-1 border border-[#303052] rounded px-3 py-2 text-white resize-none overflow-y-auto"
             value={input}
             placeholder="Type your message..."
             onChange={handleChange}
@@ -252,29 +269,33 @@ export default function ChatbotPage() {
 
           <button
             onClick={() => sendMessage()}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold"
+            className="bg-[#a48fff] hover:bg-violet-500 text-[#0f0f1a] px-4 py-2 focus-visible:ring-ring rounded font-semibold"
             disabled={loading}
           >
             {loading ? "..." : "Send"}
           </button>
-          <button
+
+          {/* Microphone button */}
+          {/* <button
             type="button"
             onClick={toggleMic}
             className={`ml-1 ${
-              isListening ? "bg-red-500" : "bg-gray-200"
-            } hover:bg-gray-300 text-gray-700 rounded-full p-2 flex items-center justify-center`}
+              isListening ? "bg-red-500" : "bg-[#a48fff]"
+            } hover:bg-violet-500 text-gray-700 rounded-full p-2 flex items-center justify-center`}
             aria-label="Toggle voice input"
           >
             <FiMic size={22} />
-          </button>
+          </button> */}
         </div>
 
         <div className="mt-2 text-xs text-gray-400 text-center">
           Hint: Press{" "}
-          <span className="font-semibold bg-gray-200 px-1 rounded">Enter</span>{" "}
+          <span className="font-semibold bg-[#303060] text-gray-400 px-1 rounded">
+            Enter
+          </span>{" "}
           to send your message.
           <br />
-          Voice input is now available!
+          {/*Voice input is now available!*/}
         </div>
 
         {/* Inject the widget */}
@@ -290,16 +311,16 @@ export default function ChatbotPage() {
           }}
         />
 
-        <div className="mt-8 bg-gray-100 rounded-lg p-4 w-full">
-          <div className="font-semibold mb-2 text-gray-700">
+        <div className="mt-8 bg-[#303060] rounded-lg p-4 w-full border border-grey-200">
+          <div className="font-semibold mb-2 text-grey-200">
             Try these questions:
           </div>
-          <div className="flex flex-row flex-nowrap gap-2 overflow-x-auto">
+          <div className="flex flex-row gap-2 overflow-x-auto">
             {SUGGESTED_QUESTIONS.map((q) => (
               <button
                 key={q}
                 onClick={() => handleSuggested(q)}
-                className="bg-blue-100 hover:bg-blue-300 text-blue-900 px-3 py-1 rounded transition whitespace-nowrap"
+                className="bg-theme-primary hover:bg-blue-300 text-[#0f0f1a] px-3 py-1 rounded transition whitespace-nowrap"
               >
                 {q}
               </button>
@@ -327,9 +348,9 @@ export default function ChatbotPage() {
 function LoadingDots() {
   return (
     <span className="inline-flex gap-1 ml-2">
-      <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:0ms]"></span>
-      <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:150ms]"></span>
-      <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:300ms]"></span>
+      <span className="w-2 h-2 bg-[#a48fff] rounded-full animate-bounce [animation-delay:0ms]"></span>
+      <span className="w-2 h-2 bg-[#a48fff] rounded-full animate-bounce [animation-delay:150ms]"></span>
+      <span className="w-2 h-2 bg-[#a48fff] rounded-full animate-bounce [animation-delay:300ms]"></span>
     </span>
   );
 }

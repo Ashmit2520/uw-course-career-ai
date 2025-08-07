@@ -31,11 +31,11 @@ export default function LoginPage() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-[80vh] px-4">
-      <div className="bg-white shadow rounded-xl p-8 w-full max-w-sm">
-        <h2 className="text-3xl text-black font-bold mb-4 text-center">Log In</h2>
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      <div className="bg-theme-card shadow rounded-xl p-8 w-full max-w-sm border border-grey-200">
+        <h2 className="text-3xl text-white font-bold mb-4 text-center">Log In</h2>
+        <form className="flex flex-col gap-4 " onSubmit={handleSubmit}>
           <input
-            className="px-4 py-2 text-black rounded border focus:outline-none focus:ring placeholder-gray-700"
+            className="px-4 py-2 text-grey-300 rounded border border-white focus:outline-none focus:ring placeholder-gray-700"
             type="email"
             placeholder="Email"
             required
@@ -43,7 +43,7 @@ export default function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className="px-4 py-2 text-black rounded border focus:outline-none focus:ring placeholder-gray-700"
+            className="px-4 py-2 text-grey-300 rounded border border-white focus:outline-none focus:ring placeholder-gray-700"
             type="password"
             placeholder="Password"
             required
@@ -52,7 +52,7 @@ export default function LoginPage() {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white rounded py-2 font-semibold hover:bg-blue-700 transition"
+            className="bg-[#a48fff] text-[#0f0f1a] rounded py-2 font-semibold hover:violet-700 transition"
             disabled={loading}
           >
             {loading ? "Logging in..." : "Log In"}
@@ -61,7 +61,7 @@ export default function LoginPage() {
         {message && (
           <div className="mt-3 text-center text-sm text-black">{message}</div>
         )}
-        <div className="text-sm text-black text-center mt-4">
+        <div className="text-sm text-white text-center mt-4">
           Don&apos;t have an account?{" "}
           <Link href="/signup" className="text-blue-600 hover:underline">
             Sign Up
