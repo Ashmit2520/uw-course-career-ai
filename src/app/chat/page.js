@@ -69,10 +69,14 @@ export default function ChatbotPage() {
     }
   }, [messages, hydrated]);
 
-  // Scroll to bottom after new message
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  // Scroll only the chat window after new message
+  // useEffect(() => {
+  //   const container = messagesEndRef.current?.parentNode;
+  //   if (container) {
+  //     container.scrollTop = container.scrollHeight;
+  //   }
+  // }, [messages]);
+
 
   const sendMessage = async (overrideInput = null) => {
     const messageToSend = overrideInput ?? input;
