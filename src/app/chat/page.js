@@ -196,7 +196,7 @@ export default function ChatbotPage() {
         <div className="relative w-full mb-4">
           <button
             onClick={clearChat}
-            className="absolute left-0 top-1 group bg-[#a48fff] text-[#0f0f1a] rounded-full p-1 cursor-pointer"
+            className="absolute left-0 top-1 group bg-[#a48fff] hover:bg-violet-500 text-[#0f0f1a] rounded-full p-1 cursor-pointer"
             aria-label="Clear chat"
           >
             <XMarkIcon className="w-5 h-5 font-bold" />
@@ -320,7 +320,7 @@ export default function ChatbotPage() {
               <button
                 key={q}
                 onClick={() => handleSuggested(q)}
-                className="bg-theme-primary hover:bg-blue-300 text-[#0f0f1a] px-3 py-1 rounded transition whitespace-nowrap"
+                className="bg-[#a48fff] hover:bg-violet-500 text-[#0f0f1a] px-4 py-2 focus-visible:ring-ring rounded"
               >
                 {q}
               </button>

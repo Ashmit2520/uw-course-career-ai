@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { validateFourYearPlan } from "@/utils/validatePlan";
 import prereqMap from "@/app/db/prereqMap.json";
+import { XMarkIcon } from "@heroicons/react/24/solid"; // Make sure this is at the top
 
 const STORAGE_KEY = "uwmadison_four_year_plan";
 const OVERRIDES_KEY = "uwmadison_prereq_overrides";
@@ -25,75 +26,82 @@ function loadOverridesFromStorage() {
   return data ? JSON.parse(data) : {};
 }
 
-//clear this out - default plan should be blank
 const INITIAL_PLAN = [
-  {
-    year: 1,
-    fall: [
-      { id: "COMP SCI 300", name: "COMP SCI 300", credits: 3 },
-      { id: "MATH 221", name: "MATH 221", credits: 5 },
-      { id: "COMM-A", name: "Communications Part A", credits: 3 },
-      { id: "ETHNIC", name: "Ethnic Studies", credits: 3 },
-    ],
-    spring: [
-      { id: "COMP SCI 240", name: "COMP SCI 240", credits: 3 },
-      { id: "MATH 222", name: "MATH 222", credits: 4 },
-      { id: "LANG2", name: "Second Semester Language", credits: 4 },
-      { id: "BIO-SCI", name: "Natural Science (Biological)", credits: 3 },
-    ],
-  },
-  {
-    year: 2,
-    fall: [
-      { id: "COMP SCI 354", name: "COMP SCI 354", credits: 3 },
-      { id: "COMP SCI 400", name: "COMP SCI 400", credits: 3 },
-      { id: "LINEAR", name: "Linear Algebra", credits: 3 },
-      { id: "HUM1", name: "Humanities/Literature", credits: 3 },
-      { id: "NAT-SCI2", name: "Natural Science (Physical)", credits: 3 },
-    ],
-    spring: [
-      { id: "COMP SCI 407", name: "COMP SCI 407", credits: 3 },
-      { id: "PROB-STAT", name: "Probability/Statistics", credits: 3 },
-      { id: "LANG3", name: "Third Semester Language", credits: 3 },
-      { id: "SOCSCI1", name: "Social Science", credits: 3 },
-      { id: "HUM2", name: "Humanities", credits: 3 },
-    ],
-  },
-  {
-    year: 3,
-    fall: [
-      { id: "COMP SCI 537", name: "COMP SCI 537", credits: 3 },
-      { id: "APP1", name: "Applications Requirement", credits: 3 },
-      { id: "COMP SCI 577", name: "COMP SCI 577", credits: 3 },
-      { id: "SOCSCI2", name: "Social Science", credits: 3 },
-      { id: "ELECTIVE1", name: "Comp Sci Elective", credits: 3 },
-    ],
-    spring: [
-      { id: "COMP SCI 540", name: "COMP SCI 540", credits: 3 },
-      { id: "COMP SCI 564", name: "COMP SCI 564", credits: 3 },
-      { id: "ELECTIVE2", name: "Comp Sci Elective", credits: 3 },
-      { id: "HUM3", name: "Humanities/Literature", credits: 3 },
-      { id: "SOCSCI3", name: "Social Science", credits: 3 },
-    ],
-  },
-  {
-    year: 4,
-    fall: [
-      { id: "COMP SCI 620", name: "COMP SCI 620", credits: 3 },
-      { id: "ELECTIVE3", name: "Comp Sci Elective", credits: 3 },
-      { id: "UPPERLVL", name: "Upper-level Elective", credits: 3 },
-      { id: "NAT-SCI3", name: "Natural Science", credits: 3 },
-      { id: "FREE1", name: "Free Elective", credits: 3 },
-    ],
-    spring: [
-      { id: "ELECTIVE4", name: "Comp Sci Elective", credits: 3 },
-      { id: "SOCSCI4", name: "Social Science", credits: 3 },
-      { id: "FREE2", name: "Free Elective", credits: 3 },
-      { id: "UPPERLVL2", name: "Upper-level Elective", credits: 3 },
-      { id: "FREE3", name: "Free Elective", credits: 3 },
-    ],
-  },
+  { year: 1, fall: [], spring: [] },
+  { year: 2, fall: [], spring: [] },
+  { year: 3, fall: [], spring: [] },
+  { year: 4, fall: [], spring: [] },
 ];
+
+//clear this out - default plan should be blank
+// const INITIAL_PLAN = [
+//   {
+//     year: 1,
+//     fall: [
+//       { id: "COMP SCI 300", name: "COMP SCI 300", credits: 3 },
+//       { id: "MATH 221", name: "MATH 221", credits: 5 },
+//       { id: "COMM-A", name: "Communications Part A", credits: 3 },
+//       { id: "ETHNIC", name: "Ethnic Studies", credits: 3 },
+//     ],
+//     spring: [
+//       { id: "COMP SCI 240", name: "COMP SCI 240", credits: 3 },
+//       { id: "MATH 222", name: "MATH 222", credits: 4 },
+//       { id: "LANG2", name: "Second Semester Language", credits: 4 },
+//       { id: "BIO-SCI", name: "Natural Science (Biological)", credits: 3 },
+//     ],
+//   },
+//   {
+//     year: 2,
+//     fall: [
+//       { id: "COMP SCI 354", name: "COMP SCI 354", credits: 3 },
+//       { id: "COMP SCI 400", name: "COMP SCI 400", credits: 3 },
+//       { id: "LINEAR", name: "Linear Algebra", credits: 3 },
+//       { id: "HUM1", name: "Humanities/Literature", credits: 3 },
+//       { id: "NAT-SCI2", name: "Natural Science (Physical)", credits: 3 },
+//     ],
+//     spring: [
+//       { id: "COMP SCI 407", name: "COMP SCI 407", credits: 3 },
+//       { id: "PROB-STAT", name: "Probability/Statistics", credits: 3 },
+//       { id: "LANG3", name: "Third Semester Language", credits: 3 },
+//       { id: "SOCSCI1", name: "Social Science", credits: 3 },
+//       { id: "HUM2", name: "Humanities", credits: 3 },
+//     ],
+//   },
+//   {
+//     year: 3,
+//     fall: [
+//       { id: "COMP SCI 537", name: "COMP SCI 537", credits: 3 },
+//       { id: "APP1", name: "Applications Requirement", credits: 3 },
+//       { id: "COMP SCI 577", name: "COMP SCI 577", credits: 3 },
+//       { id: "SOCSCI2", name: "Social Science", credits: 3 },
+//       { id: "ELECTIVE1", name: "Comp Sci Elective", credits: 3 },
+//     ],
+//     spring: [
+//       { id: "COMP SCI 540", name: "COMP SCI 540", credits: 3 },
+//       { id: "COMP SCI 564", name: "COMP SCI 564", credits: 3 },
+//       { id: "ELECTIVE2", name: "Comp Sci Elective", credits: 3 },
+//       { id: "HUM3", name: "Humanities/Literature", credits: 3 },
+//       { id: "SOCSCI3", name: "Social Science", credits: 3 },
+//     ],
+//   },
+//   {
+//     year: 4,
+//     fall: [
+//       { id: "COMP SCI 620", name: "COMP SCI 620", credits: 3 },
+//       { id: "ELECTIVE3", name: "Comp Sci Elective", credits: 3 },
+//       { id: "UPPERLVL", name: "Upper-level Elective", credits: 3 },
+//       { id: "NAT-SCI3", name: "Natural Science", credits: 3 },
+//       { id: "FREE1", name: "Free Elective", credits: 3 },
+//     ],
+//     spring: [
+//       { id: "ELECTIVE4", name: "Comp Sci Elective", credits: 3 },
+//       { id: "SOCSCI4", name: "Social Science", credits: 3 },
+//       { id: "FREE2", name: "Free Elective", credits: 3 },
+//       { id: "UPPERLVL2", name: "Upper-level Elective", credits: 3 },
+//       { id: "FREE3", name: "Free Elective", credits: 3 },
+//     ],
+//   },
+// ];
 
 function semesterCredits(courses) {
   return courses.reduce((sum, c) => sum + (c.credits || 0), 0);
@@ -282,7 +290,7 @@ export default function FourYearPlan() {
 
   return (
     <div
-      className="bg-[#1a1a2e] shadow-xl rounded-xl px-6 py-8 flex flex-col border border-gray"
+      className="bg-[#1a1a2e] shadow-xl rounded-xl px-6 py-8 flex flex-col border border-gray relative"
       style={{
         minWidth: 650,
         maxWidth: 900,
@@ -294,6 +302,27 @@ export default function FourYearPlan() {
       <h2 className="text-3xl font-bold mb-6 text-white text-center">
         Academic Plan
       </h2>
+      <div className="flex justify-end mb-4">
+        <button
+          onClick={() => {
+            setPlan(INITIAL_PLAN);
+            setOverrides({});
+            localStorage.removeItem(STORAGE_KEY);
+            localStorage.removeItem(OVERRIDES_KEY);
+            window.dispatchEvent(
+              new CustomEvent("new-four-year-plan", { detail: INITIAL_PLAN })
+            );
+          }}
+          className="absolute left-1 top-1 group bg-[#a48fff] text-[#0f0f1a] hover:bg-violet-500 rounded-full p-1 cursor-pointer"
+          aria-label="Clear plan"
+        >
+          <XMarkIcon className="w-5 h-5 font-bold" />
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 text-xs bg-gray-800 text-white px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none select-none">
+            Clear plan
+          </div>
+        </button>
+      </div> 
+
       <div className="flex flex-col w-full gap-6">
         {plan.map((year, yIdx) => (
           <div key={yIdx} className="flex flex-col gap-2">
