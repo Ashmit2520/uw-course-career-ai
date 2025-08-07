@@ -1,4 +1,3 @@
-// import { createClient } from "@/app/api/supabase/server";
 import { NextResponse } from "next/server";
 import {
   router,
@@ -8,12 +7,12 @@ import {
   getNormalResponse,
   combineReqsAndAddtl,
   searchCourses,
+  generateDraftPlan,
 } from "./llmActions";
 import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req) {
   const { messages } = await req.json();
-
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -28,20 +27,35 @@ export async function POST(req) {
       if (!userInfo.major || userInfo.major.trim() === "") {
         return NextResponse.json({
           text: "Could you please tell me what major you're interested in?",
+          updatePlan: false,
         });
       }
       if (userInfo.academicInterests.length === 0) {
         return NextResponse.json({
           text: "Could you please tell me a bit about your academic interestss?",
+          updatePlan: false,
         });
       }
-      const r0 = await getReqs(userInfo, messages, supabase);
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(
+          new CustomEvent("plan-generation-loading", {
+            detail: { isLoading: true },
+          })
+        );
+      }
+      const r0 = await getReqs(userInfo, supabase);
       console.log(r0);
 
       const a0 = await getAddtlCourses(userInfo, supabase);
 
-      const finalPlan = await combineReqsAndAddtl(userInfo, r0, a0);
-      return NextResponse.json({ text: finalPlan });
+      const combinedCourses = await combineReqsAndAddtl(userInfo, r0, a0);
+
+      const draftPlan = await generateDraftPlan(userInfo, combinedCourses);
+      return NextResponse.json({
+        text: "I've created a plan!",
+        updatePlan: true,
+        generatedPlan: draftPlan,
+      });
 
     case "2":
       const userInfo2 = await extractUserInfo(messages, supabase);
@@ -50,12 +64,13 @@ export async function POST(req) {
         supabase,
         messages
       );
-      return NextResponse.json({ text: responseToCourses });
+      console.log(responseToCourses);
+      return NextResponse.json({ text: responseToCourses, updatePlan: false });
 
     case "3":
       const normalResponse = await getNormalResponse(messages);
       console.log("NORMAL", normalResponse);
-      return NextResponse.json({ text: normalResponse });
+      return NextResponse.json({ text: normalResponse, updatePlan: true });
 
     // // case "3":
     //   // Statements to execute if expression matches value3

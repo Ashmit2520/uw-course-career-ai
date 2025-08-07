@@ -142,6 +142,16 @@ export default function FourYearPlan() {
     setHydrated(true);
   }, []);
 
+  useEffect(() => {
+    function handleNewPlan(event) {
+      setPlan(event.detail);
+    }
+
+    window.addEventListener("new-four-year-plan", handleNewPlan);
+    return () =>
+      window.removeEventListener("new-four-year-plan", handleNewPlan);
+  }, []);
+
   // Save to localStorage on change
   // useEffect(() => {
   //   if (hydrated) savePlanToStorage(plan);
@@ -154,7 +164,17 @@ export default function FourYearPlan() {
   useEffect(() => {
     setWarnings(validateFourYearPlan(plan, overrides));
   }, [plan, overrides]);
+  useEffect(() => {
+    function handleGeneratedPlan(e) {
+      const newPlan = e.detail;
+      setPlan(newPlan);
+      setOverrides({});
+    }
 
+    window.addEventListener("add-generated-plan", handleGeneratedPlan);
+    return () =>
+      window.removeEventListener("add-generated-plan", handleGeneratedPlan);
+  }, []);
   // Remove course from semester
   const removeCourse = (yearIdx, sem, courseIdx) => {
     setPlan((prevPlan) => {
@@ -210,16 +230,6 @@ export default function FourYearPlan() {
           const isOverridden = overrides[pr];
           const inPlan = isCourseInPlan(plan, pr);
 
-          // Debugging: See what we're checking
-          console.log(
-            "Looking for",
-            pr,
-            "normalized as",
-            normalizeCourseId(pr),
-            "in plan?",
-            inPlan
-          );
-
           return (
             <span key={pr} className="inline-block mr-2">
               {pr}
@@ -271,7 +281,7 @@ export default function FourYearPlan() {
 
   return (
     <div
-      className="bg-white shadow-xl rounded-xl px-6 py-8 flex flex-col"
+      className="bg-white shadow-xl rounded-xl px-8 py-8 flex flex-col"
       style={{
         minWidth: 650,
         maxWidth: 900,
@@ -283,90 +293,111 @@ export default function FourYearPlan() {
       <h3 className="text-2xl font-extrabold mb-6 text-gray-900 text-center">
         4-Year Academic Plan (Computer Science)
       </h3>
-      <div className="grid grid-cols-4 gap-6 w-full">
+      <div className="flex flex-col w-full gap-6">
         {plan.map((year, yIdx) => (
-          <div
-            key={yIdx}
-            className="border rounded-lg bg-gray-50 p-3 flex flex-col flex-1 min-w-[180px]"
-            style={{ minWidth: 150, maxWidth: 210 }}
-          >
-            <div
-              className="font-bold text-lg text-gray-900 mb-2 text-center"
-              style={{ color: "#1a202c" }}
-            >
+          <div key={yIdx} className="flex flex-col gap-2">
+            <div className="font-bold text-lg text-gray-900 mb-1 text-center">
               Year {year.year}
             </div>
-            {["fall", "spring"].map((sem) => {
-              const { status, message } = getSemesterStatus(year[sem]);
-              return (
-                <div
-                  key={sem}
-                  className={`mb-4 rounded p-2 flex flex-col flex-1 border-2 w-full ${
-                    status === "low"
-                      ? "border-red-400 bg-red-100"
-                      : status === "high"
-                      ? "border-orange-400 bg-orange-100"
-                      : "border-gray-200 bg-gray-200"
-                  }`}
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={() => onDrop(yIdx, sem)}
-                >
-                  <div className="font-semibold text-gray-800 mb-1 flex items-center justify-between">
-                    <span>
-                      {sem[0].toUpperCase() + sem.slice(1)}{" "}
-                      <span className="text-xs text-gray-600">
-                        ({semesterCredits(year[sem])} cr)
-                      </span>
-                    </span>
-                    {status !== "ok" && (
-                      <span className="text-xs font-bold text-red-500 ml-2">
-                        {message}
-                      </span>
-                    )}
-                  </div>
-                  {year[sem].length === 0 && (
-                    <div className="text-gray-400 text-xs italic">
-                      Drop courses here
-                    </div>
-                  )}
-                  {/* This flex-col + gap-2 replaces mb-2 on cards */}
-                  <div className="flex flex-col gap-2 w-full">
-                    {year[sem].map((course, cIdx) => (
-                      <div
-                        key={course.id + cIdx}
-                        className="bg-blue-50 px-2 py-2 rounded text-base cursor-move border flex items-center justify-between group w-full"
-                        draggable
-                        onDragStart={() => onDragStart(yIdx, sem, cIdx)}
-                        style={{
-                          minHeight: 44,
-                          wordBreak: "break-word",
-                          whiteSpace: "normal",
-                        }}
-                      >
-                        <span className="text-gray-900 font-medium w-full break-words">
-                          {course.name}{" "}
-                          <span className="text-xs text-gray-500">
-                            ({course.credits} cr)
-                          </span>
-                          {getWarning(course, plan)}
+            <div className="grid grid-cols-2 gap-4">
+              {["fall", "spring"].map((sem) => {
+                const { status, message } = getSemesterStatus(year[sem]);
+                return (
+                  <div
+                    key={sem}
+                    className={`rounded p-2 flex flex-col flex-1 border-2 w-full ${
+                      status === "low"
+                        ? "border-red-400 bg-red-100"
+                        : status === "high"
+                        ? "border-orange-400 bg-orange-100"
+                        : "border-gray-200 bg-gray-200"
+                    }`}
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={() => onDrop(yIdx, sem)}
+                  >
+                    <div className="font-semibold text-gray-800 mb-1 flex items-center justify-between">
+                      <span>
+                        {sem[0].toUpperCase() + sem.slice(1)}{" "}
+                        <span className="text-xs text-gray-600">
+                          ({semesterCredits(year[sem])} cr)
                         </span>
-                        <button
-                          onClick={() => removeCourse(yIdx, sem, cIdx)}
-                          className="ml-2 p-1 text-gray-400 hover:text-red-600 opacity-100 group-hover:opacity-100 transition"
-                          aria-label="Remove course"
-                          tabIndex={0}
-                        >
-                          <IoClose size={20} />
-                        </button>
+                      </span>
+                      {status !== "ok" && (
+                        <span className="text-xs font-bold text-red-500 ml-2">
+                          {message}
+                        </span>
+                      )}
+                    </div>
+                    {year[sem].length === 0 && (
+                      <div className="text-gray-400 text-xs italic">
+                        Drop courses here
                       </div>
-                    ))}
+                    )}
+                    <div className="flex flex-col gap-2 w-full">
+                      {year[sem].map((course, cIdx) => (
+                        <div
+                          key={course.id + cIdx}
+                          className="bg-blue-50 px-2 py-2 rounded text-base cursor-move border flex items-center justify-between group w-full"
+                          draggable
+                          onDragStart={() => onDragStart(yIdx, sem, cIdx)}
+                          style={{
+                            minHeight: 44,
+                            wordBreak: "break-word",
+                            whiteSpace: "normal",
+                          }}
+                        >
+                          <span className="text-gray-900 font-medium w-full break-words">
+                            {course.name}{" "}
+                            <span className="text-xs text-gray-500">
+                              ({course.credits} cr)
+                            </span>
+                            {getWarning(course, plan)}
+                          </span>
+                          <button
+                            onClick={() => removeCourse(yIdx, sem, cIdx)}
+                            className="ml-2 p-1 text-gray-400 hover:text-red-600 opacity-100 group-hover:opacity-100 transition"
+                            aria-label="Remove course"
+                            tabIndex={0}
+                          >
+                            <IoClose size={20} />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         ))}
       </div>
     </div>
   );
+}
+
+export function emitGeneratedPlan(plan) {
+  plan = plan.yearPlans.map((yearObj) => {
+    const fallCourses =
+      yearObj.semesters.find((s) => s.name === "Fall")?.courses || [];
+    const springCourses =
+      yearObj.semesters.find((s) => s.name === "Spring")?.courses || [];
+
+    return {
+      year: yearObj.year,
+      fall: fallCourses.map((courseName) => ({
+        id: courseName,
+        name: courseName,
+        credits: 3, // or infer if you can
+      })),
+      spring: springCourses.map((courseName) => ({
+        id: courseName,
+        name: courseName,
+        credits: 3,
+      })),
+    };
+  });
+  const event = new CustomEvent("new-four-year-plan", { detail: plan });
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(event);
+  }
 }

@@ -52,7 +52,7 @@ export default function CourseDetailsPage() {
 
   return (
     <main className="flex flex-col items-center p-8">
-      <div className="bg-white rounded-xl shadow p-8 max-w-xl w-full ">
+      <div className="bg-white rounded-xl shadow p-6 max-w-xl w-full ">
         <h1 className="text-2xl font-bold mb-2 text-gray-900">
           {course.course_name}
         </h1>
@@ -80,7 +80,7 @@ export default function CourseDetailsPage() {
                   label={{
                     value: "Grade",
                     position: "insideBottom",
-                    dy: 10,
+                    dy: 9,
                     fill: "#374151",
                     fontSize: 14,
                     fontWeight: 600,
@@ -92,7 +92,7 @@ export default function CourseDetailsPage() {
                     angle: -90,
                     position: "insideLeft",
                     dy: 60,
-                    dx: 15,
+                    dx: -3,
                     fill: "#374151",
                     fontSize: 14,
                     fontWeight: 600,

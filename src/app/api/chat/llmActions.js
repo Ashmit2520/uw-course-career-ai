@@ -1,20 +1,21 @@
-import { z } from "zod";
 import { zodTextFormat } from "openai/helpers/zod";
 import { OpenAI } from "openai";
-import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
-import { OpenAIEmbeddings } from "@langchain/openai";
-
-import { getLastExchange } from "@/utils/llmUtils";
+import {
+  userInfo,
+  coursesSchema,
+  fourYearPlanSchema,
+} from "@/utils/llmSchemas";
+import {
+  getLastExchange,
+  formatAcademicPlan,
+  kwd_similarity_search,
+  vector_similarity_search,
+} from "@/utils/llmUtils";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function router(conversation) {
   const lastExchange = getLastExchange(conversation);
-  // const lastUserMessage =
-  //   conversation
-  //     .slice()
-  //     .reverse()
-  //     .find((m) => m.role === "user") || null;
 
   console.log(lastExchange);
   const systemPrompt = `You are a router that determines whether the user wants to engage in academic planning.
@@ -33,17 +34,6 @@ export async function router(conversation) {
     "Hey, how's it going", "Hi!", "What's the weather like?")
 
     Only return "1", "2", or "3".`;
-  // const systemPrompt = `You are a router that determines the best course of action (next function call)
-  // by analyzing a user's message as follows:
-
-  // ${lastUserMessage}
-
-  // A user's message can fall under two categories, namely:
-  // 1. A message about creating or changing an academic plan (i.e, "I want to major in Math", "Could you add Math 340", "I dont like Spanish")
-  // 2. A message about something non-academic or course related (i.e, "What's the weather today?")
-
-  // Please output a number (1-2) corresponding with the appropriate category.
-  //  `;
 
   const openaiMessages = [
     { role: "system", content: systemPrompt },
@@ -57,23 +47,13 @@ export async function router(conversation) {
   });
 
   const result = chatCompletion.choices[0].message.content.trim();
-  const decision =
-    result === "1" || result === "2" || result === "3" ? result : "3"; // fallback to 2
+  const decision = ["1", "2", "3"].includes(result) ? result : "3";
 
   return decision;
 }
 
-export async function extractUserInfo(conversation, client) {
-  const userInfo = z.object({
-    major: z.string(),
-    academicInterests: z.array(z.string()),
-    specificDetails: z.array(z.string()),
-    targetYears: z.number(),
-    startingCredits: z.number(),
-    isUndergrad: z.boolean(),
-  });
-
-  const allMajors = await client.from("majors").select("major_name");
+export async function extractUserInfo(conversation, supabaseClient) {
+  const allMajors = await supabaseClient.from("majors").select("major_name");
   const majorList = allMajors.data.map((m) => m.major_name).join(", ");
 
   const systemPrompt = `You are extracting key information from a list of messages, where the latest messages may override earlier ones.
@@ -84,7 +64,7 @@ export async function extractUserInfo(conversation, client) {
      "academicInterests": User indicated general academic interests (i.e., "probability", "art", "Spanish literature", "geometry", "pianos"),
      "specificDetails": User indicated specfic preferences (i.e., "I dont like Math 340", "I already have taken Comp Sci 300", "I want two more courses related to ML", etc.)
      "targetYears": Number of years by which user wants to graduate,
-     "startingCredits": Number of credits a has (default of 0)
+     "credits": Number of credits a has (default of 0)
      "isUndergrad": True if user is an undergraduate, False otherwise. This defaults to True if a user hasn't explicity said anything 
 
    }
@@ -94,17 +74,15 @@ export async function extractUserInfo(conversation, client) {
    be converted to "data science", "math". Make sure to cover each category, separately, even if they are semantically similar. For example,
    "I like Romance languages, like Spanish and Italian" should map to three places: "Romance languages", "Spanish", and "Italian".
 
-   Try to look for acronyms, like CS = Computer Science, etc.
+   Try to look for acronyms, like CS = Computer Science, and only match majors in this list:
 
    ${majorList}
-
-   Additionally, only match the course_code field 
-   
 
    If you cannot find targetYears, default to 4 years. If you cannot find the rest of the information, 
    leave the respective fields blank (""), except for isUndergrad, which defaults to True.
    `;
 
+  console.log(systemPrompt);
   const userOnlyMessages = conversation.filter((m) => m.role === "user");
 
   const openaiMessages = [
@@ -122,7 +100,7 @@ export async function extractUserInfo(conversation, client) {
   const info = chatCompletion.output_parsed;
 
   const major = info.major?.toUpperCase();
-  const course_data = await client
+  const course_data = await supabaseClient
     .from("majors")
     .select("course_code")
     .eq("major_name", major)
@@ -140,22 +118,16 @@ export async function extractUserInfo(conversation, client) {
   return userInfoWithCode;
 }
 
-export async function getReqs(userInfo, conversation, client) {
-  const result = await client
+export async function getReqs(userInfo, supabaseClient) {
+  const result = await supabaseClient
     .from("majors")
     .select("major_reqs")
     .eq("major_name", userInfo.major);
 
   const major_req_data = result.data[0].major_reqs;
 
-  const lastExchange = getLastExchange(conversation);
-
   console.log("QUERY PERFORMED", userInfo.major);
   console.log("DATA EXTRACTED", major_req_data);
-
-  const coursesSchema = z.object({
-    courses: z.array(z.string()),
-  });
 
   const systemPrompt = `Given the following course requirements for the major ${userInfo.major}:
   ${major_req_data} 
@@ -170,11 +142,23 @@ export async function getReqs(userInfo, conversation, client) {
   SHOULD BE IN CAPITAL LETTERS (CAPS LOCK).
    `;
 
-  // console.log(systemPrompt);
-  const openaiMessages = [
-    { role: "system", content: systemPrompt },
-    ...lastExchange,
+  //placeholder until we can retrieve courses by specific L&S breadth
+  // (i.e., literature, social science, biological science)
+  const breadth_courses = [
+    "ENGL 140 COMM B TOPICS IN ENGLISH LITERATURE",
+    "ASIAN AM, ​ENGL 150 LITERATURE & CULTURE OF ASIAN AMERICA",
+    "ECON 101 PRINCIPLES OF MICROECONOMICS",
+    "PHILOS 101 INTRODUCTION TO PHILOSOPHY",
+    "SOC 134 SOCIOLOGY OF RACE & ETHNICITY IN THE UNITED STATES",
+    "CURRIC 277 VIDEOGAMES & LEARNING",
+    "ANTHRO 105 PRINCIPLES OF BIOLOGICAL ANTHROPOLOGY",
+    "BIOCHEM 104 MOLECULES TO LIFE AND THE NATURE OF SCIENCE",
+    "PHYSICS 103 GENERAL PHYSICS",
+    "CHEM 103 GENERAL CHEMISTRY I",
   ];
+
+  console.log(systemPrompt);
+  const openaiMessages = [{ role: "system", content: systemPrompt }];
 
   const chatCompletion = await openai.responses.parse({
     model: "gpt-4o-mini",
@@ -184,21 +168,16 @@ export async function getReqs(userInfo, conversation, client) {
     },
   });
 
-  const info = chatCompletion.output_parsed;
+  const req_courses = [
+    ...breadth_courses,
+    ...chatCompletion.output_parsed.courses,
+  ];
 
-  return info.courses.join("\n");
+  return req_courses;
+  // return info.courses.join("\n");
 }
 
-export async function getAddtlCourses(userInfo, client) {
-  const embeddings = new OpenAIEmbeddings({
-    modelName: "text-embedding-3-small",
-  });
-  const vectorstore = await SupabaseVectorStore.fromExistingIndex(embeddings, {
-    client: client,
-    tableName: "courses_new",
-    queryName: "match_courses_new", // your custom SQL function
-  });
-
+export async function getAddtlCourses(userInfo, supabaseClient) {
   const interests = userInfo.academicInterests;
   const allResults = [];
 
@@ -217,20 +196,24 @@ export async function getAddtlCourses(userInfo, client) {
   console.log("No course_name filter:", noCourseNameFilter);
 
   for (const interest of interests) {
-    const results_major_specific = await vectorstore.similaritySearch(
+    const results_major_specific = await vector_similarity_search(
+      openai,
+      supabaseClient,
       interest,
-      5,
+      10,
       fullFilter
     );
 
-    const results_non_major_specific = await vectorstore.similaritySearch(
+    const results_non_major_specific = await vector_similarity_search(
+      openai,
+      supabaseClient,
       interest,
-      3,
+      10,
       noCourseNameFilter
     );
 
-    allResults.push(...results_major_specific);
-    allResults.push(...results_non_major_specific);
+    allResults.push(...results_major_specific.data);
+    allResults.push(...results_non_major_specific.data);
   }
 
   const seen = new Set();
@@ -248,13 +231,11 @@ export async function getAddtlCourses(userInfo, client) {
     }
   }
 
-  const coursesSchema = z.object({
-    courses: z.array(z.string()),
-  });
+  const addtl_courses = coursesSchema.parse({ courses: uniqueCourses }).courses;
 
-  const parsed = coursesSchema.parse({ courses: uniqueCourses });
-
-  return parsed.courses.join("\n");
+  console.log("ADDTL Courses", addtl_courses);
+  // return parsed.courses.join("\n");
+  return addtl_courses;
   // const coursesSchema = z.object({
   //   courses: z.array(z.string()),
   // });
@@ -305,117 +286,153 @@ export async function getAddtlCourses(userInfo, client) {
 }
 
 export async function combineReqsAndAddtl(userInfo, reqCourses, addtlCourses) {
-  const semesterSchema = z.object({
-    name: z.enum(["Fall", "Spring"]),
-    courses: z.array(z.string()),
-  });
+  const userCredits = userInfo.credits;
+  const needsCredits = 120 - userCredits;
+  let creditsFromPlan = 0;
+  //assumming 12-18 credits a semester, then
 
-  const yearPlanSchema = z.object({
-    year: z.number(), // e.g., 1 for Freshman year
-    semesters: z.array(semesterSchema),
-  });
+  const reqsInPlan = [];
 
-  const fourYearPlanSchema = z.object({
-    yearPlans: z.array(yearPlanSchema),
-  });
+  while (creditsFromPlan < needsCredits && reqCourses.length > 0) {
+    // add left courses from left to right,
+    reqsInPlan.push(reqCourses.shift());
+    creditsFromPlan += 3; //default credit amount (until we get credit data)
+  }
 
-  const systemPrompt = `You are part of a step in an academic planning agent that creates a course plan
-  for a user at UW-Madison. Your job is to combine a list of required courses and a list of additional
-  courses into a four year plan structure. This structure should not contain any duplicates, and should be ordered
-  chronologically, in semesters and years.
-  
-  In general, please order classes logically. For instance, COMP SCI 300 should come before COMP SCI 400 because 
-  400 > 300. In general, higher number classes tend to come later in the plan, and lower number courses tend to come 
-  earlier in the plan.
+  //now coursesInPlan either contains all required courses OR has meet the necessary credit limit
+  const remaining = needsCredits - creditsFromPlan;
+  const num_classes = Math.floor(remaining / 3); //default credit amount (until we get credit data)
+  let addtlInPlan = [];
 
-  The required courses are here:
-  ${reqCourses}
+  if (remaining > 0) {
+    const systemPrompt = `You are part of an academic planning agent. Here is the user's info:
+    
+    ${JSON.stringify(userInfo, null, 2)}
+    
+    Required courses for their major have already been selected. Now, the user needs ${num_classes} classes
+    of additional courses needed for graduation. Please select them from the list below:
 
-  And the additional courses are here:
-  ${addtlCourses}
+    ${addtlCourses.join("\n")}
 
-  Please also consider the userInfo:
-  ${JSON.stringify(userInfo, null, 2)}
+    And return your answer as a list of classes as requested in JSON format. Course names should be
+    followed by the title (i.e., ECON 101 PRINCIPLES OF MICROECONOMICS"). ALL COURSES SHOULD BE IN CAPITAL 
+    LETTERS (CAPS LOCK). Also, **only use courses mentioned in the provided list**.
+    `;
+    const openaiMessages = [{ role: "system", content: systemPrompt }];
 
-  In general, each course has 3-4 credits. Please keep in mind that in order to graduate, the user's credits should
-  ultimately be at least 120. The goal is such that the student has 120 credits in their entire plan. However, they can 
-  graduate in fewer than 4 years if this is accomplished. For each year, please separate classes into the Fall and Spring semester only.
-  Each year should be enumerated in the range 1-N, where N is the number of years the user will be at school for. In general,
-  each semester should contain 12-18 credits( 3-5 classes)
+    const chatCompletion = await openai.responses.parse({
+      model: "gpt-4.1-nano",
+      input: openaiMessages,
+      text: {
+        format: zodTextFormat(coursesSchema, "pickedCourses"),
+      },
+    });
 
-  Course Names should be followed by the title (i.e., ECON 101 PRINCIPLES OF MICROECONOMICS"). ALL COURSES 
-  SHOULD BE IN CAPITAL LETTERS (CAPS LOCK).
+    addtlInPlan = chatCompletion.output_parsed.courses;
+  }
 
-  Also, **only use courses mentioned in the addiitonal courses or required courses**. 
-  Give priority to the req courses, and then fill the schedule with the additional courses up until the limit.
+  const reqs_and_addtl = [...reqsInPlan, ...addtlInPlan];
+  return reqs_and_addtl;
+}
+export async function generateDraftPlan(userInfo, courses) {
+  const systemPrompt = `You are part of an academic planning agent. Here is the user's info:
+    
+    ${JSON.stringify(userInfo, null, 2)}
+    
+    A list of courses for their major has already been created:
 
-  Ensure that the number of courses * 4 is at least 120.
-  `;
+    ${courses.join("\n")}
 
-  console.log(systemPrompt);
+    Please order these classes into a schema provided:
+    {
+    "yearPlans": [
+      { "year": 1, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] },
+      { "year": 2, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] },
+      { "year": 3, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] },
+      { "year": 4, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] }
+    ]
+    }
+
+    Each semester should have between 3-5 classes. Please add **all** the classes provided into the schema, leaving no 
+    gap semesters (unless the user has said so). Additionally, please note any user preferences in the specificDetails 
+    parameter, such as "I don't want Math 240 in my plan" or "I would like only 3 classes in my 2nd year fall semester".
+    `;
   const openaiMessages = [{ role: "system", content: systemPrompt }];
 
   const chatCompletion = await openai.responses.parse({
-    model: "gpt-4.1-nano",
+    model: "gpt-4o",
     input: openaiMessages,
     text: {
-      format: zodTextFormat(fourYearPlanSchema, "academicPlan"),
+      format: zodTextFormat(fourYearPlanSchema, "draftPlan"),
     },
   });
 
-  const info = chatCompletion.output_parsed;
-  const formatted = formatAcademicPlan(info);
-  return formatted;
+  const draftPlan = chatCompletion.output_parsed;
+  const formatted = formatAcademicPlan(draftPlan);
+  console.log(formatted);
+  return draftPlan;
 }
 
-export async function getNormalResponse(conversation) {
-  try {
-    const systemPrompt = `You are part of an academic planning agent at UW-Madison.
-  You are answering academic planning questions, and return insightful responses
-  from the user. Keep your responses brief and to the point. Do not generate a plan, ever.
-  Instead, direct the user towards a plan by asking questions about creating a plan. 
-  Never, give an academic answer. Never mention course names, schools, or any other specific
-  things because you are not an expert.
+//this plan nw
+// needs 80 credits, over 3 years
+// --> 26.66 credits a year
+// 14 credits a semester (assuming each class is 3 credits)
 
-  Remember, the goal for the user is to generate a creative academic plan for a major.
-  `;
+// const systemPrompt = `You are part of a step in an academic planning agent that creates a course plan
+// for a user at UW-Madison. Your job is to combine a list of required courses and a list of additional
+// courses into a four year plan structure. This structure should not contain any duplicates, and should be ordered
+// chronologically, in semesters and years.
 
-    const openaiMessages = [
-      { role: "system", content: systemPrompt },
-      ...conversation,
-    ];
+// In general, please order classes logically. For instance, COMP SCI 300 should come before COMP SCI 400 because
+// 400 > 300. In general, higher number classes tend to come later in the plan, and lower number courses tend to come
+// earlier in the plan.
 
-    const chatCompletion = await openai.chat.completions.create({
-      model: "gpt-4.1-nano",
-      messages: openaiMessages,
-    });
+// The required courses are here:
+// ${reqCourses}
 
-    return chatCompletion.choices[0].message.content.trim();
-  } catch (err) {
-    console.error("❌ Error in getNormalResponse:", err); // 👈 Print real error
-    return "Sorry, something went wrong."; // Fallback
-  }
-}
-function formatAcademicPlan(plan) {
-  return plan.yearPlans
-    .map((yearPlan) => {
-      const yearHeader = `Year ${yearPlan.year}`;
-      const semestersText = yearPlan.semesters
-        .map((sem) => {
-          const courses = sem.courses.length
-            ? sem.courses.map((c) => `    - ${c}`).join("\n")
-            : "    (No courses)";
-          return `  ${sem.name} Semester:\n${courses}`;
-        })
-        .join("\n");
-      return `${yearHeader}:\n${semestersText}`;
-    })
-    .join("\n\n");
-}
+// And the additional courses are here:
+// ${addtlCourses}
+
+// Please also consider the userInfo:
+// ${JSON.stringify(userInfo, null, 2)}
+
+// Please generate an academic plan for the user. Return your response in a structured form as requested.
+// The goal is such that the student has 120 credits in their entire plan. However, they can graduate in fewer than 4
+// years if this is accomplished. For each year, please separate classes into the Fall and Spring semester only.
+// Each year should be enumerated in the range 1-N, where N is the number of years the user will be at school for.
+
+// Course Names should be followed by the title (i.e., ECON 101 PRINCIPLES OF MICROECONOMICS"). ALL COURSES
+// SHOULD BE IN CAPITAL LETTERS (CAPS LOCK).
+
+// Also, **only use courses mentioned in the addiitonal courses or required courses**.
+// Ensure every class in the required courses *is present in the plan*.
+// `;
+
+//In general, each course has 3-4 credits. Please keep in mind that in order to graduate, the user's credits should
+// ultimately be at least 120. The goal is such that the student has 120 credits in their entire plan. However, they can
+// graduate in fewer than 4 years if this is accomplished. For each year, please separate classes into the Fall and Spring semester only.
+// Each year should be enumerated in the range 1-N, where N is the number of years the user will be at school for. In general,
+// each semester should contain 12-18 credits( 3-5 classes)
+// console.log(systemPrompt);
+// const openaiMessages = [{ role: "system", content: systemPrompt }];
+
+// const chatCompletion = await openai.responses.parse({
+//   model: "gpt-4.1-nano",
+//   input: openaiMessages,
+//   text: {
+//     format: zodTextFormat(fourYearPlanSchema, "academicPlan"),
+//   },
+// });
+
+// const uncheckedPlan = chatCompletion.output_parsed;
+
+// const formatted = formatAcademicPlan(uncheckedPlan);
+// console.log(formatted);
+// return uncheckedPlan;
 
 export async function checkPrereqs(userInfo, plan) {}
 
-export async function searchCourses(userInfo, client, conversation) {
+export async function searchCourses(userInfo, supabaseClient, conversation) {
   const lastUserMessage =
     conversation
       .slice()
@@ -474,26 +491,22 @@ export async function searchCourses(userInfo, client, conversation) {
     reformulationCompletion.choices[0].message.content.trim();
   console.log(rewrittenQuery);
 
-  const embeddingResponse = await openai.embeddings.create({
-    model: "text-embedding-3-small",
-    input: rewrittenQuery,
-  });
-
-  const embedding = embeddingResponse.data[0].embedding;
-
   const filter = { needs_grad_standing: !userInfo.isUndergrad };
   const count = 10;
 
-  const similarity_output = await client.rpc("match_courses_new", {
-    query_embedding: embedding,
-    match_count: count,
-    filter: filter,
-  });
-  const kwd_output = await client.rpc("kw_match_courses_new", {
-    query_text: rewrittenQuery,
-    match_count: count,
-    filter: filter,
-  });
+  const similarity_output = await vector_similarity_search(
+    openai,
+    supabaseClient,
+    rewrittenQuery,
+    count,
+    filter
+  );
+  const kwd_output = await kwd_similarity_search(
+    supabaseClient,
+    rewrittenQuery,
+    count,
+    filter
+  );
 
   console.log("KWD", kwd_output, similarity_output);
   const courses = [];
@@ -520,9 +533,6 @@ export async function searchCourses(userInfo, client, conversation) {
     courses.push(courseStr);
     courseDescriptions.push(courseDescrAndName);
   }
-  const coursesSchema = z.object({
-    courses: z.array(z.string()),
-  });
 
   const parsedCourses = coursesSchema
     .parse({ courses: courses })
@@ -567,17 +577,18 @@ export async function searchCourses(userInfo, client, conversation) {
 
   for (const r of similarity_output.data) {
     const meta = r.metadata;
-
-    const courseStr = `${meta.course_name}${
-      meta.subject_name ? ` ${meta.subject_name}` : ""
-    }`;
-
     const course_id = r.id;
-    const regex = new RegExp(`\\b${courseStr}\\b`, "g");
-    finalOutput = finalOutput.replace(
-      regex,
-      `[${courseStr}](http://localhost:3000/courses/${course_id})`
-    );
+
+    const courseName = meta.course_name;
+    const subjectName = meta.subject_name;
+
+    const fullStr = `${courseName}${subjectName ? ` ${subjectName}` : ""}`;
+    const courseLink = `[${fullStr}](http://localhost:3000/courses/${course_id})`;
+
+    const fullRegex = new RegExp(`\\b${fullStr}\\b`, "g");
+    if (fullRegex.test(finalOutput)) {
+      finalOutput = finalOutput.replace(fullRegex, courseLink);
+    }
   }
 
   return finalOutput;
@@ -654,3 +665,27 @@ export async function searchCourses(userInfo, client, conversation) {
 //     })
 //     .join("\n\n");
 // }
+
+export async function getNormalResponse(conversation) {
+  const systemPrompt = `You are part of an academic planning agent at UW-Madison.
+  You are answering academic planning questions, and return insightful responses
+  from the user. Keep your responses brief and to the point. Do not generate a plan, ever.
+  Instead, direct the user towards a plan by asking questions about creating a plan. 
+  Never, give an academic answer. Never mention course names, schools, or any other specific
+  things because you are not an expert.
+
+  Remember, the goal for the user is to generate a creative academic plan for a major.
+  `;
+
+  const openaiMessages = [
+    { role: "system", content: systemPrompt },
+    ...conversation,
+  ];
+
+  const chatCompletion = await openai.chat.completions.create({
+    model: "gpt-4.1-nano",
+    messages: openaiMessages,
+  });
+
+  return chatCompletion.choices[0].message.content.trim();
+}

@@ -7,8 +7,11 @@ import SuggestedQuestions from "../components/SuggestedQuestions";
 import Vapi from "@vapi-ai/web";
 import { FiMic } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
+import { XMarkIcon } from "@heroicons/react/24/solid"; // Make sure this is at the top
+import { emitGeneratedPlan } from "./FourYearPlan";
 
 const STORAGE_KEY = "uwmadison_chat_history";
+
 const SUGGESTED_QUESTIONS = [
   "What are some interesting computer science courses?",
   "What career paths fit someone who loves biology?",
@@ -63,55 +66,69 @@ export default function ChatbotPage() {
     };
   }, []);
 
+  const clearChat = () => {
+    const greeting =
+      GREETING_MESSAGES[Math.floor(Math.random() * GREETING_MESSAGES.length)];
+    setMessages([{ role: "assistant", content: greeting }]);
+    setInput("");
+    localStorage.removeItem(STORAGE_KEY);
+  };
+
   useEffect(() => {
     if (hydrated) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     }
   }, [messages, hydrated]);
-
+  useEffect(() => {
+    messagesEndRef.current?.scrollTo({
+      top: messagesEndRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages, loading]);
   // useEffect(() => {
   //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   // }, [messages]);
 
   const sendMessage = async (overrideInput = null) => {
-  const messageToSend = overrideInput ?? input;
-  if (!messageToSend.trim()) return;
+    const messageToSend = overrideInput ?? input;
+    if (!messageToSend.trim()) return;
 
-  const userMsg = { role: "user", content: messageToSend };
-  const newMsgs = [...messages, userMsg];
-  setMessages(newMsgs);
-  setInput("");
-  setLoading(true);
-
-  try {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: newMsgs }),
-    });
-
-    const data = await res.json();
-    console.log("DATAAAA", data);
-
-    const reply = data.text || "Sorry, I couldn’t find any courses!";
-    setMessages([...newMsgs, { role: "assistant", content: reply }]);
+    const userMsg = { role: "user", content: messageToSend };
+    const newMsgs = [...messages, userMsg];
+    setMessages(newMsgs);
+    setInput("");
+    setLoading(true);
 
     try {
-      vapiRef.current?.tts(reply);
-    } catch (speechError) {
-      console.warn("Vapi TTS error (ignored):", speechError);
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: newMsgs }),
+      });
+
+      const data = await res.json();
+
+      if (data.updatePlan && data.generatedPlan) {
+        emitGeneratedPlan(data.generatedPlan);
+      }
+      const reply = data.text || "Sorry, I couldn’t find any courses!";
+      setMessages([...newMsgs, { role: "assistant", content: reply }]);
+
+      try {
+        vapiRef.current?.tts(reply);
+      } catch (speechError) {
+        console.warn("Vapi TTS error (ignored):", speechError);
+      }
+    } catch (error) {
+      console.error("API Error:", error);
+      setMessages([
+        ...newMsgs,
+        { role: "assistant", content: "Sorry, something went wrong." },
+      ]);
     }
-  } catch (error) {
-    console.error("❌ API Error:", error);
-    setMessages([
-      ...newMsgs,
-      { role: "assistant", content: "Sorry, something went wrong." },
-    ]);
-  }
 
-  setLoading(false);
-};
-
+    setLoading(false);
+  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -159,12 +176,27 @@ export default function ChatbotPage() {
           maxWidth: "600",
         }}
       >
-        <h2 className="text-3xl font-extrabold mb-4 text-center text-black">
-          Course Selection and Career Advising Chatbot
-        </h2>
+        <div className="relative w-full mb-4">
+          <button
+            onClick={clearChat}
+            className="absolute left-0 top-1 group bg-blue-600 rounded-full text-white p-1 cursor-pointer"
+            aria-label="Clear chat"
+          >
+            <XMarkIcon className="w-5 h-5 font-bold" />
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 text-xs bg-gray-800 text-white px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none select-none">
+              Clear chat
+            </div>
+          </button>
+
+          <h2 className="text-3xl font-extrabold text-black text-center">
+            SiftAI Chatbot
+          </h2>
+        </div>
+
         <div
           className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto"
           style={{ minHeight: "260px" }}
+          ref={messagesEndRef} // ✅ Attach ref to container
         >
           {messages.map((msg, i) => (
             <div
@@ -197,7 +229,12 @@ export default function ChatbotPage() {
               )}
             </div>
           ))}
-          <div ref={messagesEndRef} />
+          {loading && (
+            <div className="rounded-lg px-4 py-2 text-base whitespace-pre-line bg-gray-100 text-blue-500 self-start">
+              Sifting
+              <LoadingDots />
+            </div>
+          )}
         </div>
 
         <div className="w-full flex items-center gap-2">
@@ -212,6 +249,7 @@ export default function ChatbotPage() {
             rows={1}
             style={{ minHeight: "40px", maxHeight: "120px" }}
           />
+
           <button
             onClick={() => sendMessage()}
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold"
@@ -274,5 +312,24 @@ export default function ChatbotPage() {
         <FourYearPlan />
       </div>
     </main>
+  );
+}
+// different animation: glowing dots
+// function LoadingDots() {
+//   return (
+//     <span className="inline-flex gap-2 ml-2 items-center align-middle">
+//       <span className="w-2 h-2 bg-blue-600 rounded-full animate-[ping_1s_ease-in-out_infinite]"></span>
+//       <span className="w-2 h-2 bg-blue-600 rounded-full animate-[ping_1s_ease-in-out_infinite] [animation-delay:200ms]"></span>
+//       <span className="w-2 h-2 bg-blue-600 rounded-full animate-[ping_1s_ease-in-out_infinite] [animation-delay:400ms]"></span>
+//     </span>
+//   );
+// }
+function LoadingDots() {
+  return (
+    <span className="inline-flex gap-1 ml-2">
+      <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:0ms]"></span>
+      <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:150ms]"></span>
+      <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:300ms]"></span>
+    </span>
   );
 }
