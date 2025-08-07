@@ -76,7 +76,7 @@ export default function CoursesPage() {
           />
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg flex items-center justify-center"
+            className="bg-theme-primary hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg flex items-center justify-center"
             aria-label="Search"
           >
             <FiSearch size={22} />
@@ -90,7 +90,7 @@ export default function CoursesPage() {
           </label>
           <select
             id="sort"
-            className="border rounded px-2 py-1 bg-gray-800 text-white font-semibold shadow focus:ring focus:border-blue-400"
+            className="border rounded px-2 py-1 bg-[#0f0f1a] text-white font-semibold shadow focus:ring border border-gray-100"
             value={sort}
             onChange={e => {
               const selected = SORT_OPTIONS.find(o => o.value === e.target.value);
@@ -126,12 +126,12 @@ export default function CoursesPage() {
             href={`/courses/${encodeURIComponent(course.id)}`}
             className="block"
           >
-            <div className="border rounded-xl p-4 shadow bg-white hover:-translate-y-1 hover:shadow-xl transition-transform duration-200 min-h-[190px] flex flex-col justify-between">
-              <h2 className="font-semibold text-lg text-gray-900 mb-1">{course.course_name}</h2>
-              <div className="text-gray-700 mb-2" style={{ minHeight: 48 }}>
+            <div className="border rounded-xl p-4 shadow bg-theme-card hover:-translate-y-1 hover:shadow-xl transition-transform duration-200 min-h-[190px] flex flex-col justify-between">
+              <h2 className="font-semibold text-lg text-white mb-1">{course.course_name}</h2>
+              <div className="text-[#a0a0c0] mb-2" style={{ minHeight: 48 }}>
                 {truncate(course.description || "", 110)}
               </div>
-              <div className="text-sm text-gray-500 mt-auto">
+              <div className="text-sm text-[#a0a0c0] mt-auto">
                 <span>{course.subject_name}</span> | <span>GPA: {course.avg_gpa ?? "N/A"}</span> | <span>Enrolled: {course.students}</span>
               </div>
             </div>
@@ -145,13 +145,13 @@ export default function CoursesPage() {
           <button
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
-            className="px-3 py-1 rounded border text-gray-600 disabled:opacity-40"
+            className="px-3 py-1 rounded border text-[#a0a0c0] disabled:opacity-40"
           >Prev</button>
-          <span className="font-medium text-gray-700">{page} / {totalPages}</span>
+          <span className="font-medium text-[#a0a0c0] ">{page} / {totalPages}</span>
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPages}
-            className="px-3 py-1 rounded border text-gray-600 disabled:opacity-40"
+            className="px-3 py-1 rounded border text-[#a0a0c0]  disabled:opacity-40"
           >Next</button>
         </div>
       )}
