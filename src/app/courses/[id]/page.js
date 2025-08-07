@@ -46,7 +46,7 @@ export default function CourseDetailsPage() {
 
   return (
     <main className="flex flex-col items-center p-8">
-      <div className="bg-white rounded-xl shadow p-8 max-w-xl w-full">
+      <div className="bg-white rounded-xl shadow p-8 max-w-xl w-full border-5 border-gray-200">
         <h1 className="text-2xl font-bold mb-2 text-gray-900">
           {course.course_name}
         </h1>

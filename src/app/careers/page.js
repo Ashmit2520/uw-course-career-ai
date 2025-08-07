@@ -33,7 +33,7 @@ export default function CareersPage() {
       >
         {/*Search bar*/}
         <input
-          className="w-full px-4 py-2 rounded-l border border-theme bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 rounded-l border border-gray-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="text"
           placeholder="Search careers..."
           value={searchInput}

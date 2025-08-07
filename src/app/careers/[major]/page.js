@@ -48,7 +48,7 @@ export default async function CareerDetailPage({ params }) {
           <p><span className="font-semibold">Mid Career Salary:</span> ${data.mid_career_salary.toLocaleString()}</p>
         </div>
 
-        <div className="bg-[#1f2333] p-4 rounded-lg shadow mt-4 md:mt-0">
+        <div className="bg-[#1f2333] p-4 rounded-lg shadow mt-4 md:mt-0 border border-gray-200">
           <h2 className="text-2xl font-semibold mb-4">Demographic Breakdown</h2>
           <DemographicBarChart data={demographicData} />
         </div>
