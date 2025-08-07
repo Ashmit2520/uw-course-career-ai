@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { FiMic } from "react-icons/fi";
 import FourYearPlan from "./FourYearPlan";
-import Vapi from "@vapi-ai/web";
+// import Vapi from "@vapi-ai/web"; // ❌ Vapi temporarily disabled
 
 const STORAGE_KEY = "uwmadison_chat_history";
 
@@ -40,13 +40,14 @@ export default function ChatbotPage() {
       );
     }
 
-    const vapi = new Vapi({ apiKey: "VAPI_API_KEY",
-                            assistant: "VAPI_ASSISTANT_ID",
+    /*
+    const vapi = new Vapi({
+      apiKey: "VAPI_API_KEY",
+      assistant: "VAPI_ASSISTANT_ID",
     });
 
     console.log("✅ Vapi initialized:", vapi);
 
-    
     vapiRef.current = vapi;
 
     vapi.on("transcript", (transcript) => {
@@ -58,6 +59,7 @@ export default function ChatbotPage() {
     return () => {
       vapi.stop();
     };
+    */
   }, []);
 
   // Save messages to localStorage every time they change
@@ -91,7 +93,8 @@ export default function ChatbotPage() {
       const data = await res.json();
       const reply = data.response || "Sorry, I couldn’t find any courses!";
       setMessages([...newMsgs, { role: "assistant", content: reply }]);
-      vapiRef.current?.tts(reply);
+
+      // vapiRef.current?.tts(reply); // ❌ Vapi voice response disabled
     } catch {
       setMessages([
         ...newMsgs,
@@ -123,6 +126,7 @@ export default function ChatbotPage() {
   };
 
   const toggleMic = () => {
+    /*
     const vapi = vapiRef.current;
     if (!isListening) {
       vapi?.start();
@@ -131,6 +135,7 @@ export default function ChatbotPage() {
       vapi?.stop();
       setIsListening(false);
     }
+    */
   };
 
   if (!hydrated) return null;
@@ -190,6 +195,7 @@ export default function ChatbotPage() {
           >
             {loading ? "..." : "Send"}
           </button>
+
           {/* Microphone button */}
           {/* <button
             type="button"
@@ -212,13 +218,15 @@ export default function ChatbotPage() {
         </div>
 
         {/* Inject the widget */}
-      <div dangerouslySetInnerHTML={{ __html: `
-        <vapi-widget
-          public-key="${process.env.NEXT_PUBLIC_VAPI_API_KEY}"
-          assistant-id="${process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID}"
-          mode="chat"
-        ></vapi-widget>
-      ` }} />
+        {/*
+        <div dangerouslySetInnerHTML={{ __html: `
+          <vapi-widget
+            public-key="${process.env.NEXT_PUBLIC_VAPI_API_KEY}"
+            assistant-id="${process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID}"
+            mode="chat"
+          ></vapi-widget>
+        ` }} />
+        */}
 
         <div className="mt-8 bg-[#303060] rounded-lg p-4 w-full border border-grey-200">
           <div className="font-semibold mb-2 text-grey-200">

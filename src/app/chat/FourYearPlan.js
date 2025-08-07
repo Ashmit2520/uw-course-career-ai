@@ -240,7 +240,7 @@ export default function FourYearPlan() {
                   </button>
                   {inPlan && (
                     <span className="block text-xs text-[#64b5f6] mt-1">
-                      You have already overridden {pr} through transfer/AP credit, you don't need to have it in the plan.
+                      You have already overridden {pr} through transfer/AP credit, you don&apos;t need to have it in the plan.
                     </span>
                   )}
                 </>

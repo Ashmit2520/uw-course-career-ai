@@ -33,11 +33,11 @@ export default function SignUpPage() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-[80vh] px-4">
-      <div className="bg-white shadow rounded-xl p-8 w-full max-w-sm">
-        <h2 className="text-3xl text-black font-bold mb-4 text-center">Sign Up</h2>
+      <div className="bg-theme-card shadow rounded-xl p-8 w-full max-w-sm border border-grey-200">
+        <h2 className="text-3xl text-white font-bold mb-4 text-center">Sign Up</h2>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
-            className="px-4 py-2 text-black rounded border focus:outline-none focus:ring placeholder-gray-700"
+            className="px-4 py-2 text-grey-300 rounded border border-white focus:outline-none focus:ring placeholder-gray-700"
             type="text"
             placeholder="Name"
             required
@@ -45,7 +45,7 @@ export default function SignUpPage() {
             onChange={e => setName(e.target.value)}
           />
           <input
-            className="px-4 py-2 text-black rounded border focus:outline-none focus:ring placeholder-gray-700"
+            className="px-4 py-2 text-grey-300 rounded border border-white focus:outline-none focus:ring placeholder-gray-700"
             type="email"
             placeholder="Email"
             required
@@ -53,7 +53,7 @@ export default function SignUpPage() {
             onChange={e => setEmail(e.target.value)}
           />
           <input
-            className="px-4 py-2 text-black rounded border focus:outline-none focus:ring placeholder-gray-700"
+            className="px-4 py-2 text-grey-300 rounded border border-white focus:outline-none focus:ring placeholder-gray-700"
             type="password"
             placeholder="Password"
             required
@@ -69,7 +69,7 @@ export default function SignUpPage() {
         </form>
         {success && <div className="text-green-600 mt-2 text-center">Account created!</div>}
         {error && <div className="text-red-600 mt-2 text-center">{error}</div>}
-        <div className="text-sm text-black text-center mt-4">
+        <div className="text-sm text-white text-center mt-4">
           Already have an account?{" "}
           <Link href="/login" className="text-blue-600 hover:underline">
             Log In

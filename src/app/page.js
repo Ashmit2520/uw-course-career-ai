@@ -37,7 +37,7 @@ export default function Home() {
             { emoji: "🧠", title: "Get Smart Answers", desc: "AI suggests real courses or majors." },
             { emoji: "🎓", title: "Plan Your Path", desc: "Visualize a custom four-year roadmap." },
           ].map((item, i) => (
-            <div key={i} className="bg-[#1c1f2b] p-6 rounded-lg border border-theme shadow-md hover:shadow-xl transition">
+            <div key={i} className="bg-[#1c1f2b] p-6 rounded-lg border-2 border-theme shadow-md hover:shadow-xl transition">
               <div className="text-4xl mb-4">{item.emoji}</div>
               <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
               <p className="text-[#a0a0c0]">{item.desc}</p>
@@ -49,7 +49,7 @@ export default function Home() {
       {/* Benefits Section */}
 <section className="w-full px-6 py-16 bg-[#1a1d24] text-center text-white">
   <h2 className="text-3xl font-bold mb-10">Why SiftAI?</h2>
-  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto ">
     {[
       {
         icon: "💖",
@@ -74,7 +74,7 @@ export default function Home() {
     ].map(({ icon, title, blurb }, i) => (
       <div
         key={i}
-        className="bg-[#2a2d3a] p-6 rounded-lg shadow hover:shadow-xl transition  border border-theme"
+        className="bg-[#2a2d3a] p-6 rounded-lg shadow hover:shadow-xl transition  border-2 border-theme"
       >
         <div className="text-4xl mb-3">{icon}</div>
         <h3 className="text-lg font-semibold mb-2">{title}</h3>
