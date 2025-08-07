@@ -25,9 +25,14 @@ export default function DemographicBarChart({ data }) {
             angle={-30} // ← tilt labels for better spacing
             textAnchor="end"
             interval={0}
+            tick={{ fill: "#a0a0c0" }}
           />
-          <YAxis />
-          <Tooltip />
+          <YAxis 
+            tick={{ fill: "#a0a0c0" }}
+          />
+          <Tooltip 
+          labelStyle={{ color: '#a78bfa' }} // Styles the "Demographics" label
+          />
           <Bar dataKey="value" fill="#a78bfa" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>

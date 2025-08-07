@@ -20,8 +20,8 @@ export default function CoursesPage() {
   const [total, setTotal] = useState(0);
 
   // Sorting
-  const [sort, setSort] = useState("course_name");
-  const [direction, setDirection] = useState("asc");
+  const [sort, setSort] = useState("students");
+  const [direction, setDirection] = useState("desc");
 
   const inputRef = useRef(null);
 
@@ -69,7 +69,7 @@ export default function CoursesPage() {
           <input
             ref={inputRef}
             type="text"
-            className="flex-grow border rounded-l-lg px-4 py-2 shadow-sm focus:ring focus:ring-blue-200"
+            className="flex-grow border rounded-l-lg px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-200"
             placeholder="Search by course name, code, or department..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}

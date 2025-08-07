@@ -62,7 +62,7 @@ export default function CourseDetailsPage() {
           <span className="text-[#a0a0c0]">{course.prerequisites || "None"}</span>
         </div>
         <div className="mt-6">
-          <h2 className="font-extrabold text-lg mb-2 text-white">
+          <h2 className="font-bold text-lg mb-2 text-white">
             Grade Distribution
           </h2>
           <div style={{ width: "100%", height: 240 }}>
@@ -94,7 +94,9 @@ export default function CourseDetailsPage() {
                   }}
                   tick={{ fill: "#a0a0c0" }}
                 />
-                <Tooltip />
+                <Tooltip 
+                labelStyle={{ color: '#a78bfa' }} // Styles the "Grade" label
+                />
                 <Bar dataKey="value" fill="#a78bfa" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
