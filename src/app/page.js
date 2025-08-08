@@ -87,8 +87,11 @@ export default function Home() {
 
       {/* Chat Preview Section */}
       <section className="px-4 py-20 text-center max-w-3xl">
-        <h2 className="text-3xl font-bold mb-6">See It In Action</h2>          
+        <h2 className="text-3xl font-bold mb-6">See It In Action</h2> 
+          <div className="border-4 border-theme rounded-lg">
             <Image src="/SiftAI_home_picture.jpg" alt="Chatbot_in_action" width={800} height={320}/>
+          </div>         
+            
       </section>
 
       {/* Final CTA */}
