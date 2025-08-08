@@ -11,7 +11,8 @@ import {
   kwd_similarity_search,
   vector_similarity_search,
 } from "@/utils/llmUtils";
-
+import { validateFourYearPlan } from "@/utils/validatePlan";
+import { parseLLMPlan } from "@/utils/validatePlan";
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function router(conversation) {
@@ -30,10 +31,12 @@ export async function router(conversation) {
     2 — if the user is asking about more information regarding classes, not plans, (e.g., "Could you
     suggest some Machine Learning courses for an introductory student?", "What are some classes like 
     Math 340?", "Give me 10 classes on Spanish", "Give me DS courses")
-    3 — if the user is talking about unrelated topics not above (e.g., jokes, greetings, questions not about academics, 
+    3 - if the user is asking about careers, (e.g., "What careers would work well for this major?", 
+    "With my interests, what is a good match career-wise?")
+    4 — if the user is talking about unrelated topics not above (e.g., jokes, greetings, questions not about academics, 
     "Hey, how's it going", "Hi!", "What's the weather like?")
 
-    Only return "1", "2", or "3".`;
+    Only return "1", "2", "3", or "4".`;
 
   const openaiMessages = [
     { role: "system", content: systemPrompt },
@@ -47,7 +50,7 @@ export async function router(conversation) {
   });
 
   const result = chatCompletion.choices[0].message.content.trim();
-  const decision = ["1", "2", "3"].includes(result) ? result : "3";
+  const decision = ["1", "2", "3", "4"].includes(result) ? result : "4";
 
   return decision;
 }
@@ -64,7 +67,7 @@ export async function extractUserInfo(conversation, supabaseClient) {
      "academicInterests": User indicated general academic interests (i.e., "probability", "art", "Spanish literature", "geometry", "pianos"),
      "specificDetails": User indicated specfic preferences (i.e., "I dont like Math 340", "I already have taken Comp Sci 300", "I want two more courses related to ML", etc.)
      "targetYears": Number of years by which user wants to graduate,
-     "credits": Number of credits a has (default of 0)
+     "credits": Number of credits a has (default of 0). (example: "I am coming in with 60 AP credits", then credits = 60)
      "isUndergrad": True if user is an undergraduate, False otherwise. This defaults to True if a user hasn't explicity said anything 
 
    }
@@ -304,6 +307,11 @@ export async function combineReqsAndAddtl(userInfo, reqCourses, addtlCourses) {
   const num_classes = Math.floor(remaining / 3); //default credit amount (until we get credit data)
   let addtlInPlan = [];
 
+  console.log("Needs credits overall", needsCredits);
+
+  console.log("Remaining credits needed after reqs", remaining);
+  console.log("Num classes  needed", remaining);
+
   if (remaining > 0) {
     const systemPrompt = `You are part of an academic planning agent. Here is the user's info:
     
@@ -320,6 +328,8 @@ export async function combineReqsAndAddtl(userInfo, reqCourses, addtlCourses) {
     `;
     const openaiMessages = [{ role: "system", content: systemPrompt }];
 
+    console.log(systemPrompt);
+
     const chatCompletion = await openai.responses.parse({
       model: "gpt-4.1-nano",
       input: openaiMessages,
@@ -334,31 +344,47 @@ export async function combineReqsAndAddtl(userInfo, reqCourses, addtlCourses) {
   const reqs_and_addtl = [...reqsInPlan, ...addtlInPlan];
   return reqs_and_addtl;
 }
-export async function generateDraftPlan(userInfo, courses) {
-  const systemPrompt = `You are part of an academic planning agent. Here is the user's info:
-    
-    ${JSON.stringify(userInfo, null, 2)}
-    
-    A list of courses for their major has already been created:
 
+//MANUALLY CREATE PLAN --> CALC n_CLASSES_per SEMESTER
+// then fill in plan in order
+//THEN! ASK CHATBOT TO REORDER plan
+//THEN CHECKPREREQS
+//FINALLY
+
+//ALSO< ADD FUNCTION MODIFY FOUR YEAR PLAN
+
+export async function generateDraftPlan(userInfo, courses) {
+  const systemPrompt = `Here is a list of courses:
+    
     ${courses.join("\n")}
 
     Please order these classes into a schema provided:
     {
     "yearPlans": [
-      { "year": 1, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] },
-      { "year": 2, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] },
-      { "year": 3, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] },
-      { "year": 4, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] }
-    ]
+    ${Array.from(
+      { length: userInfo.targetYears },
+      (_, i) =>
+        `    { "year": ${
+          i + 1
+        }, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] }`
+    ).join(",\n")}
+      ]
     }
 
-    Each semester should have between 3-5 classes. Please add **all** the classes provided into the schema, leaving no 
-    gap semesters (unless the user has said so). Additionally, please note any user preferences in the specificDetails 
-    parameter, such as "I don't want Math 240 in my plan" or "I would like only 3 classes in my 2nd year fall semester".
+    Please keep in mind the user would like their classes to be over the course of ${
+      userInfo.targetYears
+    } years. Please keep in mind that 
+    classes should be spread out over the semesters in the plan (of course, keeping in mind the number of years). Unless the number of years is 
+    less than 4, each semester should, on average have 3-5 classes.
+    You MUST include **all courses provided**, even if it leads to 6+ courses per semester. Do **not omit**, **filter**, or **combine** any. Include every course **exactly once**. If a course lists multiple departments (e.g. "MATH, COMPSCI 240"), keep the full department name as-is.
+
+    Also, **rename all "COMP SCI" to "COMPSCI"**. Keep subject codes like "MATH, COMPSCI 240" unchanged — only "COMP SCI" alone should become "COMPSCI".
+
+    Your output should be a single valid JSON object using the schema above — with all courses included.
     `;
   const openaiMessages = [{ role: "system", content: systemPrompt }];
 
+  console.log(systemPrompt);
   const chatCompletion = await openai.responses.parse({
     model: "gpt-4o",
     input: openaiMessages,
@@ -430,7 +456,12 @@ export async function generateDraftPlan(userInfo, courses) {
 // console.log(formatted);
 // return uncheckedPlan;
 
-export async function checkPrereqs(userInfo, plan) {}
+export async function checkPrereqs(userInfo, supabaseClient, plan) {
+  const draftPlan = parseLLMPlan(plan);
+
+  const warnings = validateFourYearPlan(draftPlan);
+  console.log("WARNINGS", warnings);
+}
 
 export async function searchCourses(userInfo, supabaseClient, conversation) {
   const lastUserMessage =
@@ -575,19 +606,31 @@ export async function searchCourses(userInfo, supabaseClient, conversation) {
 
   let finalOutput = chatCompletion.choices[0].message.content.trim();
 
-  for (const r of similarity_output.data) {
-    const meta = r.metadata;
-    const course_id = r.id;
-
-    const courseName = meta.course_name;
-    const subjectName = meta.subject_name;
-
+  // Merge the two result arrays into one:
+  const merged = [...similarity_output.data, ...kwd_output.data];
+  const allResults = Array.from(
+    new Map(merged.map((r) => [r.doc_id || r.id, r])).values()
+  );
+  for (const r of allResults) {
+    const { course_name: courseName, subject_name: subjectName } = r.metadata;
     const fullStr = `${courseName}${subjectName ? ` ${subjectName}` : ""}`;
-    const courseLink = `[${fullStr}](http://localhost:3000/courses/${course_id})`;
 
-    const fullRegex = new RegExp(`\\b${fullStr}\\b`, "g");
+    // escape special regex chars
+    const escaped = fullStr.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+    const fullRegex = new RegExp(`\\b${escaped}\\b`, "g");
+
+    console.log("🧐 Trying to replace:", fullStr);
+    console.log("Regex:", fullRegex);
+    console.log("Before:", finalOutput);
+
     if (fullRegex.test(finalOutput)) {
-      finalOutput = finalOutput.replace(fullRegex, courseLink);
+      finalOutput = finalOutput.replace(
+        fullRegex,
+        `[${fullStr}](http://localhost:3000/courses/${r.id || r.doc_id})`
+      );
+      console.log("✅ Replaced! After:", finalOutput);
+    } else {
+      console.warn("⚠️ No match for:", fullStr);
     }
   }
 

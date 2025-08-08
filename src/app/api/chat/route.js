@@ -8,7 +8,9 @@ import {
   combineReqsAndAddtl,
   searchCourses,
   generateDraftPlan,
+  checkPrereqs,
 } from "./llmActions";
+import respondToCareerQuestion from "./careerResponses";
 import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req) {
@@ -51,6 +53,7 @@ export async function POST(req) {
       const combinedCourses = await combineReqsAndAddtl(userInfo, r0, a0);
 
       const draftPlan = await generateDraftPlan(userInfo, combinedCourses);
+      const b = await checkPrereqs(userInfo, supabase, draftPlan);
       return NextResponse.json({
         text: "I've created a plan!",
         updatePlan: true,
@@ -68,10 +71,18 @@ export async function POST(req) {
       return NextResponse.json({ text: responseToCourses, updatePlan: false });
 
     case "3":
+      const userInfo3 = await extractUserInfo(messages, supabase);
+      const responseToCareers = await respondToCareerQuestion(
+        userInfo3,
+        messages
+      );
+      console.log(responseToCareers);
+      return NextResponse.json({ text: responseToCareers, updatePlan: false });
+
+    case "4":
       const normalResponse = await getNormalResponse(messages);
       console.log("NORMAL", normalResponse);
       return NextResponse.json({ text: normalResponse, updatePlan: true });
-
     // // case "3":
     //   // Statements to execute if expression matches value3
     //   break;

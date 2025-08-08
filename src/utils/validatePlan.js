@@ -5,9 +5,38 @@ import prereqMap from "@/app/db/prereqMap.json";
  * E.g., "COMP SCI 400" => "COMPSCI400"
  */
 function normalizeCourseId(id) {
+  if (!id || typeof id !== "string") return ""; // handle undefined/null/empty
   return id.replace(/[^A-Z0-9]/gi, "").toUpperCase();
 }
 
+/**
+ * Splits course name + subject name into separate parts (only used by LLM generated plans)
+ */
+export function extractCode(courseName) {
+  // Matches the subject and course number (e.g., COMPSCI 300)
+  const match = courseName.match(/^[A-Z ,&/]+ \d+[A-Z]?/);
+  return match ? match[0].replace(/\s+/g, " ").trim() : courseName.trim();
+}
+
+export function parseLLMPlan(plan) {
+  return plan.yearPlans.map((y) => ({
+    year: y.year,
+    fall: y.semesters
+      .find((s) => s.name === "Fall")
+      .courses.map((fullName) => ({
+        id: extractCode(fullName),
+        name: fullName,
+        credits: 3,
+      })),
+    spring: y.semesters
+      .find((s) => s.name === "Spring")
+      .courses.map((fullName) => ({
+        id: extractCode(fullName),
+        name: fullName,
+        credits: 3,
+      })),
+  }));
+}
 /**
  * Given a plan, returns array of {courseId, unmet: [prereq, ...]}
  */

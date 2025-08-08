@@ -186,11 +186,11 @@ export default function ChatbotPage() {
         }
       `}</style>
       <div
-        className="bg-[#1a1a2e] shadow rounded-xl p-10 flex flex-col items-center border border-grey-200"
+        className="bg-[#1a1a2e] shadow rounded-xl p-10 flex flex-col items-center border border-grey-200 h-full overflow-hidden"
         style={{
-          width: "600",
-          minWidth: "800px",
-          maxWidth: "600",
+          width: 600,
+          minWidth: 800,
+          maxWidth: 600,
         }}
       >
         <div className="relative w-full mb-4">
@@ -209,10 +209,9 @@ export default function ChatbotPage() {
             SiftAI Chatbot
           </h2>
         </div>
-
         <div
-          className="w-full flex flex-col gap-2 mb-6 max-h-96 overflow-y-auto hide-scrollbar"
-          style={{ minHeight: "260px" }}
+          className="w-full flex flex-col gap-2 mb-6 max-h-[600px] overflow-y-auto hide-scrollbar"
+          style={{ minHeight: "400px" }}
           ref={messagesEndRef}
         >
           {messages.map((msg, i) => (
@@ -232,7 +231,7 @@ export default function ChatbotPage() {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-0.1 py-0 bg-[#303060] text-whtie rounded-md font-medium hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200"
+                        className="inline-block px-0.25 py-0 bg-[#303060] text-white rounded-md font-medium hover:bg-violet-500 transition-colors duration-200"
                       >
                         {children}
                       </a>
@@ -328,8 +327,10 @@ export default function ChatbotPage() {
           </div>
         </div>
       </div>
-
-      <div className="ml-8" style={{ minWidth: "950px" }}>
+      <div
+        className="ml-8 h-screen overflow-y-auto pr-2"
+        style={{ minWidth: "950px" }}
+      >
         <FourYearPlan />
       </div>
     </main>
