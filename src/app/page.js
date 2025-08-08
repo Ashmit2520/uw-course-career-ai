@@ -109,7 +109,7 @@ export default function Home() {
         </p>
         <Link
           href="/chat"
-          className="inline-block px-6 py-3 bg-[#0f1117] text-white rounded-lg shadow-lg hover:bg-theme-foreground transition"
+          className="inline-block px-6 py-3 bg-[#0f1117] text-white rounded-lg shadow-lg hover:border transition"
         >
           Launch Chatbot 
         </Link>

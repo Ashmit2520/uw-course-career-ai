@@ -302,7 +302,7 @@ export default function FourYearPlan() {
       <h2 className="text-3xl font-bold mb-6 text-white text-center">
         Academic Plan
       </h2>
-      <div className="flex justify-end mb-4">
+      <div className="flex justify-start mb-4">
         <button
           onClick={() => {
             setPlan(INITIAL_PLAN);
@@ -313,7 +313,7 @@ export default function FourYearPlan() {
               new CustomEvent("new-four-year-plan", { detail: INITIAL_PLAN })
             );
           }}
-          className="absolute left-1 top-1 group bg-[#a48fff] text-[#0f0f1a] hover:bg-violet-500 rounded-full p-1 cursor-pointer"
+          className="group bg-[#a48fff] text-[#0f0f1a] hover:bg-violet-500 rounded-full p-1 cursor-pointer"
           aria-label="Clear plan"
         >
           <XMarkIcon className="w-5 h-5 font-bold" />

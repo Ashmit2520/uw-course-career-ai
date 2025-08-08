@@ -16,7 +16,7 @@ const STORAGE_KEY = "uwmadison_chat_history";
 const SUGGESTED_QUESTIONS = [
   "What are some interesting computer science courses?",
   "What career paths fit someone who loves biology?",
-  "I want a major with high pay and good job outlook. What courses should I take?",
+  "I am not interested in math. Can you take away Math 240 from my 4-year-plan?",
 ];
 const GREETING_MESSAGES = [
   "Hi there! What can I help you plan today?",
@@ -315,7 +315,7 @@ export default function ChatbotPage() {
           <div className="font-semibold mb-2 text-grey-200">
             Try these questions:
           </div>
-          <div className="flex flex-row gap-2 overflow-x-auto">
+          <div className="flex flex-col gap-2">
             {SUGGESTED_QUESTIONS.map((q) => (
               <button
                 key={q}

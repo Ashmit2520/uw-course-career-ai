@@ -125,3 +125,8 @@ body {
 
 /* Example for borders and other elements */
 .border-theme { border-color: var(--border) !important; }
+
+.zoom-75-percent {
+   transform: scale(0.75);
+  transform-origin: top left; /* Ensures the zoom starts from the top-left corner */
+}
