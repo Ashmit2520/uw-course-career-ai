@@ -87,16 +87,8 @@ export default function Home() {
 
       {/* Chat Preview Section */}
       <section className="px-4 py-20 text-center max-w-3xl">
-        <h2 className="text-3xl font-bold mb-6">See It In Action</h2>
-        <div className="bg-[#1e2230] text-left rounded-lg p-6 text-sm font-mono text-[#c9d1d9] shadow-lg">
-          <p><span className="text-[#2cb67d]">User:</span> What are some interesting computer science courses?</p>
-          <p className="mt-3"><span className="text-[#7f5af0]">SiftAI:</span> </p>
-          <ul className="pl-4 list-disc text-[#9ca3af]">
-            <li>CS 540 – Intro to AI: Explore search algorithms, ML, and NLP.</li>
-            <li>CS 537 – Operating Systems: Learn memory, filesystems, processes.</li>
-            <li>CS 400 – Backend Dev: Databases, APIs, and server-side logic.</li>
-          </ul>
-        </div>
+        <h2 className="text-3xl font-bold mb-6">See It In Action</h2>          
+            <Image src="/SiftAI_home_picture.jpg" alt="Chatbot_in_action" width={800} height={320}/>
       </section>
 
       {/* Final CTA */}
