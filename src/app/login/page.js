@@ -1,7 +1,12 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { supabase } from "@/src/app/utils/supabaseClient";
+import { createClient } from "@supabase/supabase-js";
+
+// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+// const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+
+// const supabase = createClient(supabaseUrl, supabaseAnonKey);
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
@@ -32,7 +37,9 @@ export default function LoginPage() {
   return (
     <main className="flex flex-col items-center justify-center min-h-[80vh] px-4">
       <div className="bg-theme-card shadow rounded-xl p-8 w-full max-w-sm border border-grey-200">
-        <h2 className="text-3xl text-white font-bold mb-4 text-center">Log In</h2>
+        <h2 className="text-3xl text-white font-bold mb-4 text-center">
+          Log In
+        </h2>
         <form className="flex flex-col gap-4 " onSubmit={handleSubmit}>
           <input
             className="px-4 py-2 text-grey-300 rounded border border-white focus:outline-none focus:ring placeholder-gray-700"
