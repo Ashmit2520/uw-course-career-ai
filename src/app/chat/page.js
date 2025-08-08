@@ -8,7 +8,8 @@ import Vapi from "@vapi-ai/web";
 import { FiMic } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import { XMarkIcon } from "@heroicons/react/24/solid"; // Make sure this is at the top
-import { emitGeneratedPlan } from "./FourYearPlan";
+import { emitGeneratedPlan, INITIAL_PLAN } from "./FourYearPlan";
+
 // import Vapi from "@vapi-ai/web"; // ❌ Vapi temporarily disabled
 
 const STORAGE_KEY = "uwmadison_chat_history";
@@ -103,10 +104,16 @@ export default function ChatbotPage() {
     setLoading(true);
 
     try {
+      let currentPlan = INITIAL_PLAN;
+      if (typeof window !== "undefined") {
+        const stored = localStorage.getItem("uwmadison_four_year_plan");
+        if (stored) currentPlan = JSON.parse(stored);
+      }
+
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newMsgs }),
+        body: JSON.stringify({ messages: newMsgs, plan: currentPlan }),
       });
 
       const data = await res.json();
@@ -231,7 +238,7 @@ export default function ChatbotPage() {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-0.25 py-0 bg-[#303060] text-white rounded-md font-medium hover:bg-violet-500 transition-colors duration-200"
+                        className="inline-block px-1 py-0 bg-[#303060] border border-[#a48fff]  text-white rounded-md font-medium hover:bg-violet-500 transition-colors duration-200"
                       >
                         {children}
                       </a>
@@ -268,7 +275,7 @@ export default function ChatbotPage() {
 
           <button
             onClick={() => sendMessage()}
-            className="bg-[#a48fff] hover:bg-violet-500 text-[#0f0f1a] px-4 py-2 focus-visible:ring-ring rounded font-semibold"
+            className="bg-[#a48fff] hover:bg-violet-500 text-[#0f0f1a] px-4 py-2 focus-visible:ring-ring rounded font-semibold hover:cursor-pointer"
             disabled={loading}
           >
             {loading ? "..." : "Send"}
@@ -319,7 +326,7 @@ export default function ChatbotPage() {
               <button
                 key={q}
                 onClick={() => handleSuggested(q)}
-                className="bg-[#a48fff] hover:bg-violet-500 text-[#0f0f1a] px-4 py-2 focus-visible:ring-ring rounded"
+                className="bg-[#a48fff] hover:bg-violet-500 text-[#0f0f1a] hover:cursor-pointer px-4 py-2 focus-visible:ring-ring rounded"
               >
                 {q}
               </button>

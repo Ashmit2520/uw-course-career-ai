@@ -21,20 +21,20 @@ export function extractCode(courseName) {
 export function parseLLMPlan(plan) {
   return plan.yearPlans.map((y) => ({
     year: y.year,
-    fall: y.semesters
-      .find((s) => s.name === "Fall")
-      .courses.map((fullName) => ({
+    fall: (y.semesters?.find((s) => s.name === "Fall")?.courses || []).map(
+      (fullName) => ({
         id: extractCode(fullName),
         name: fullName,
         credits: 3,
-      })),
-    spring: y.semesters
-      .find((s) => s.name === "Spring")
-      .courses.map((fullName) => ({
+      })
+    ),
+    spring: (y.semesters?.find((s) => s.name === "Spring")?.courses || []).map(
+      (fullName) => ({
         id: extractCode(fullName),
         name: fullName,
         credits: 3,
-      })),
+      })
+    ),
   }));
 }
 /**

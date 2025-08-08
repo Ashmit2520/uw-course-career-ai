@@ -24,19 +24,22 @@ export async function router(conversation) {
     You will see a pair of messages: the assistant's last message and the user's reply.
 
     Return:
-    1 — if the user is discussing or agreeing to create or change an academic plan,
+    1 — if the user is discussing or agreeing to create or change an academic plan in a major way,
     (e.g., "I want to major in Computer Science, could you make a 3-year plan for me?", 
-    "I want to major in Stats", "I want a 4-year plan for a DS major", 
+    "I want to major in Stats", "I want a 4-year plan for a DS major", "I want to graduate in 3 years instead", 
     "Yes" after being asked about a major, "I like CS", "Could you Math 340 to my 4-year plan")
     2 — if the user is asking about more information regarding classes, not plans, (e.g., "Could you
     suggest some Machine Learning courses for an introductory student?", "What are some classes like 
     Math 340?", "Give me 10 classes on Spanish", "Give me DS courses")
     3 - if the user is asking about careers, (e.g., "What careers would work well for this major?", 
     "With my interests, what is a good match career-wise?")
-    4 — if the user is talking about unrelated topics not above (e.g., jokes, greetings, questions not about academics, 
+    4 - if the user is discussing or agreeing to changing the academic plan in a MINOR way, (e.g., "I don't like
+    Math 240, please remove it from my plan", "I woud like one more class in my FALL semester for my 3rd year", "Please
+    add a more Sanskrit course to my plan.")
+    5 — if the user is talking about unrelated topics not above (e.g., jokes, greetings, questions not about academics, 
     "Hey, how's it going", "Hi!", "What's the weather like?")
 
-    Only return "1", "2", "3", or "4".`;
+    Only return "1", "2", "3", "4", or "5".`;
 
   const openaiMessages = [
     { role: "system", content: systemPrompt },
@@ -50,7 +53,7 @@ export async function router(conversation) {
   });
 
   const result = chatCompletion.choices[0].message.content.trim();
-  const decision = ["1", "2", "3", "4"].includes(result) ? result : "4";
+  const decision = ["1", "2", "3", "4", "5"].includes(result) ? result : "5";
 
   return decision;
 }
@@ -234,7 +237,9 @@ export async function getAddtlCourses(userInfo, supabaseClient) {
     }
   }
 
-  const addtl_courses = coursesSchema.parse({ courses: uniqueCourses }).courses;
+  const addtl_courses = coursesSchema
+    .parse({ courses: uniqueCourses })
+    .courses.sort(() => Math.random() - 0.5);
 
   console.log("ADDTL Courses", addtl_courses);
   // return parsed.courses.join("\n");
@@ -358,7 +363,7 @@ export async function generateDraftPlan(userInfo, courses) {
     
     ${courses.join("\n")}
 
-    Please order these classes into a schema provided:
+    Please order these classes into a schema provided to INCLUDE EVERY SINGLE CLASS LISTED.
     {
     "yearPlans": [
     ${Array.from(
@@ -373,9 +378,7 @@ export async function generateDraftPlan(userInfo, courses) {
 
     Please keep in mind the user would like their classes to be over the course of ${
       userInfo.targetYears
-    } years. Please keep in mind that 
-    classes should be spread out over the semesters in the plan (of course, keeping in mind the number of years). Unless the number of years is 
-    less than 4, each semester should, on average have 3-5 classes.
+    } years. Please keep in mind that classes should be spread out over the semesters in the plan.
     You MUST include **all courses provided**, even if it leads to 6+ courses per semester. Do **not omit**, **filter**, or **combine** any. Include every course **exactly once**. If a course lists multiple departments (e.g. "MATH, COMPSCI 240"), keep the full department name as-is.
 
     Also, **rename all "COMP SCI" to "COMPSCI"**. Keep subject codes like "MATH, COMPSCI 240" unchanged — only "COMP SCI" alone should become "COMPSCI".
@@ -611,22 +614,29 @@ export async function searchCourses(userInfo, supabaseClient, conversation) {
   const allResults = Array.from(
     new Map(merged.map((r) => [r.doc_id || r.id, r])).values()
   );
+
   for (const r of allResults) {
     const { course_name: courseName, subject_name: subjectName } = r.metadata;
     const fullStr = `${courseName}${subjectName ? ` ${subjectName}` : ""}`;
 
-    // escape special regex chars
-    const escaped = fullStr.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
-    const fullRegex = new RegExp(`\\b${escaped}\\b`, "g");
+    // escape regex specials
+    const escaped = fullStr.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 
+    // Guard: not already inside [...] and bounded by non-word or string edges
+    // (^|[^A-Za-z0-9]) — left boundary
+    // (?=[^A-Za-z0-9]|$) — right boundary (allows punctuation like ":" right after the match)
+    const pattern = new RegExp(
+      `(?<!\\[)(^|[^A-Za-z0-9])(${escaped})(?=[^A-Za-z0-9]|$)`,
+      "g"
+    );
     console.log("🧐 Trying to replace:", fullStr);
-    console.log("Regex:", fullRegex);
+    console.log("Regex:", pattern);
     console.log("Before:", finalOutput);
 
-    if (fullRegex.test(finalOutput)) {
+    if (pattern.test(finalOutput)) {
       finalOutput = finalOutput.replace(
-        fullRegex,
-        `[${fullStr}](http://localhost:3000/courses/${r.id || r.doc_id})`
+        pattern,
+        `$1[${fullStr}](http://localhost:3000/courses/${r.id || r.doc_id})`
       );
       console.log("✅ Replaced! After:", finalOutput);
     } else {
@@ -708,6 +718,106 @@ export async function searchCourses(userInfo, supabaseClient, conversation) {
 //     })
 //     .join("\n\n");
 // }
+export async function makeMinorChange(
+  userInfo,
+  conversation,
+  plan,
+  supabaseClient
+) {
+  const lastExchange = getLastExchange(conversation);
+  const lastUserMessage =
+    conversation
+      .slice()
+      .reverse()
+      .find((m) => m.role === "user") || null;
+
+  console.log("LASTUSER MESSAGE", lastUserMessage);
+  const filter = {};
+  if (userInfo.isUndergrad === true) {
+    filter.needs_grad_standing = false;
+  }
+
+  const count = 3;
+  const vectorRes = await vector_similarity_search(
+    openai,
+    supabaseClient,
+    lastUserMessage.content,
+    count,
+    filter
+  );
+
+  const kwdRes = await kwd_similarity_search(
+    supabaseClient,
+    lastUserMessage.content,
+    count,
+    filter
+  );
+
+  // Merge results and dedupe
+  const mergedResults = Array.from(
+    new Map(
+      [...vectorRes.data, ...kwdRes.data].map((r) => [r.doc_id || r.id, r])
+    ).values()
+  );
+
+  const matchedCourses = mergedResults.map((r) => {
+    const meta = r.metadata;
+    return `${meta.course_name}${
+      meta.subject_name ? ` ${meta.subject_name}` : ""
+    }`;
+  });
+
+  // --- 2) LLM system prompt ---
+  const systemPrompt = `
+    You are part of an academic planning agent at UW-Madison.
+
+    The current academic plan is:
+    ${JSON.stringify(plan, null, 2)}
+
+    The user has requested the following minor change:
+    "${lastUserMessage.content}"
+
+    Here is possible relevant context from the database:
+    ${matchedCourses.length ? matchedCourses.join("\n") : "No matches found"}
+
+    Your job:
+    - Apply ONLY the requested change.
+    - If the user request matches a course/topic, use the closest match from the provided list.
+    - Keep all other courses and order the same unless needed for the change.
+    - Preserve the JSON structure exactly like the input plan.
+    - Return a valid JSON object following this schema:
+    {
+    "yearPlans": [
+    ${Array.from(
+      { length: userInfo.targetYears },
+      (_, i) =>
+        `    { "year": ${
+          i + 1
+        }, "semesters": [{ "name": "Fall", "courses": [] }, { "name": "Spring", "courses": [] }] }`
+    ).join(",\n")}
+      ]
+    }
+
+    IMPORTANT:
+    - Do NOT drop any courses unless explicitly requested.
+    - Do NOT add extra courses unless explicitly requested.
+    - If no match is found for the request, make no change.
+    - Only change what the user requested: nothing more, nothing less.
+    `;
+  console.log(systemPrompt);
+
+  const chatCompletion = await openai.responses.parse({
+    model: "gpt-4o",
+    input: [{ role: "system", content: systemPrompt }, ...lastExchange],
+    text: {
+      format: zodTextFormat(fourYearPlanSchema, "modifiedPlan"),
+    },
+  });
+  const modifiedPlan = chatCompletion.output_parsed;
+  console.log(modifiedPlan);
+
+  return modifiedPlan;
+}
 
 export async function getNormalResponse(conversation) {
   const systemPrompt = `You are part of an academic planning agent at UW-Madison.

@@ -9,12 +9,13 @@ import {
   searchCourses,
   generateDraftPlan,
   checkPrereqs,
+  makeMinorChange,
 } from "./llmActions";
 import respondToCareerQuestion from "./careerResponses";
 import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req) {
-  const { messages } = await req.json();
+  const { messages, plan } = await req.json();
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -55,7 +56,7 @@ export async function POST(req) {
       const draftPlan = await generateDraftPlan(userInfo, combinedCourses);
       const b = await checkPrereqs(userInfo, supabase, draftPlan);
       return NextResponse.json({
-        text: "I've created a plan!",
+        text: "I've created your plan!",
         updatePlan: true,
         generatedPlan: draftPlan,
       });
@@ -80,6 +81,19 @@ export async function POST(req) {
       return NextResponse.json({ text: responseToCareers, updatePlan: false });
 
     case "4":
+      const userInfo4 = await extractUserInfo(messages, supabase);
+      const editedPlan = await makeMinorChange(
+        userInfo4,
+        messages,
+        plan,
+        supabase
+      );
+      return NextResponse.json({
+        text: "I've modified your plan!",
+        updatePlan: true,
+        generatedPlan: editedPlan,
+      });
+    case "5":
       const normalResponse = await getNormalResponse(messages);
       console.log("NORMAL", normalResponse);
       return NextResponse.json({ text: normalResponse, updatePlan: true });

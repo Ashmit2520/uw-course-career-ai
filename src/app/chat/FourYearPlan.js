@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
-import { validateFourYearPlan } from "@/utils/validatePlan";
+import { validateFourYearPlan, parseLLMPlan } from "@/utils/validatePlan";
 import prereqMap from "@/app/db/prereqMap.json";
 import { XMarkIcon } from "@heroicons/react/24/solid"; // Make sure this is at the top
 import Link from "next/link";
@@ -27,7 +27,7 @@ function loadOverridesFromStorage() {
   return data ? JSON.parse(data) : {};
 }
 
-const INITIAL_PLAN = [
+export const INITIAL_PLAN = [
   { year: 1, fall: [], spring: [] },
   { year: 2, fall: [], spring: [] },
   { year: 3, fall: [], spring: [] },
@@ -147,8 +147,8 @@ export default function FourYearPlan() {
 
   // Hydrate plan and overrides from storage
   useEffect(() => {
-    setPlan(INITIAL_PLAN);
-    setOverrides({});
+    setPlan(loadPlanFromStorage(INITIAL_PLAN));
+    setOverrides(loadOverridesFromStorage());
     setHydrated(true);
   }, []);
 
@@ -230,68 +230,66 @@ export default function FourYearPlan() {
 
   // Warning display, override button, and AP credit message
   function getWarning(course, plan) {
-    const found = warnings.find((w) => w.courseId === course.id);
-    if (!found) return null;
-
-    return (
-      <span className="text-xs font-bold text-[#ff5470] ml-2 flex flex-col gap-1">
-        Prereqs not met:&nbsp;
-        {found.unmet.map((pr) => {
-          const isOverridden = overrides[pr];
-          const inPlan = isCourseInPlan(plan, pr);
-
-          return (
-            <span key={pr} className="inline-block mr-2">
-              {pr}
-              {isOverridden ? (
-                <>
-                  {" "}
-                  <span className="text-[#4db6ac]">(Overridden)</span>
-                  <button
-                    onClick={() => {
-                      setOverrides((prev) => {
-                        const copy = { ...prev };
-                        delete copy[pr];
-                        return copy;
-                      });
-                    }}
-                    className="ml-1 p-0.5 rounded-full bg-gray-200 hover:bg-red-200 text-xs text-gray-700 inline-flex items-center"
-                    aria-label={`Remove override for ${pr}`}
-                    tabIndex={0}
-                  >
-                    &times;
-                  </button>
-                  {inPlan && (
-                    <span className="block text-xs text-[#64b5f6] mt-1">
-                      You have already overridden {pr} through transfer/AP
-                      credit, you don&apos;t need to have it in the plan.
-                    </span>
-                  )}
-                </>
-              ) : (
-                <button
-                  onClick={() =>
-                    setOverrides((prev) => ({ ...prev, [pr]: true }))
-                  }
-                  className="ml-2 px-2 py-0.5 rounded bg-[#a48fff] hover:bg-blue-200 text-zinc-900 text-xs"
-                  aria-label={`Override prereq ${pr} with AP/Transfer credit`}
-                  tabIndex={0}
-                >
-                  Override (AP/Transfer) &times;
-                </button>
-              )}
-            </span>
-          );
-        })}
-      </span>
-    );
+    // const found = warnings.find((w) => w.courseId === course.id);
+    // if (!found) return null;
+    // return (
+    //   <span className="text-xs font-bold text-[#ff5470] ml-2 flex flex-col gap-1">
+    //     Prereqs not met:&nbsp;
+    //     {found.unmet.map((pr) => {
+    //       const isOverridden = overrides[pr];
+    //       const inPlan = isCourseInPlan(plan, pr);
+    //       return (
+    //         <span key={pr} className="inline-block mr-2">
+    //           {pr}
+    //           {isOverridden ? (
+    //             <>
+    //               {" "}
+    //               <span className="text-[#4db6ac]">(Overridden)</span>
+    //               <button
+    //                 onClick={() => {
+    //                   setOverrides((prev) => {
+    //                     const copy = { ...prev };
+    //                     delete copy[pr];
+    //                     return copy;
+    //                   });
+    //                 }}
+    //                 className="ml-1 p-0.5 rounded-full bg-gray-200 hover:bg-red-200 text-xs text-gray-700 inline-flex items-center"
+    //                 aria-label={`Remove override for ${pr}`}
+    //                 tabIndex={0}
+    //               >
+    //                 &times;
+    //               </button>
+    //               {inPlan && (
+    //                 <span className="block text-xs text-[#64b5f6] mt-1">
+    //                   You have already overridden {pr} through transfer/AP
+    //                   credit, you don&apos;t need to have it in the plan.
+    //                 </span>
+    //               )}
+    //             </>
+    //           ) : (
+    //             <button
+    //               onClick={() =>
+    //                 setOverrides((prev) => ({ ...prev, [pr]: true }))
+    //               }
+    //               className="ml-2 px-2 py-0.5 rounded bg-[#a48fff] hover:bg-blue-200 text-zinc-900 text-xs"
+    //               aria-label={`Override prereq ${pr} with AP/Transfer credit`}
+    //               tabIndex={0}
+    //             >
+    //               Override (AP/Transfer) &times;
+    //             </button>
+    //           )}
+    //         </span>
+    //       );
+    //     })}
+    //   </span>
+    // );
   }
 
   if (!hydrated) return null;
 
   return (
     <div
-      className="bg-[#1a1a2e] shadow-xl rounded-xl px-6 py-8 flex flex-col border border-gray relative"
+      className="bg-[#1a1a2e] shadow-xl rounded-xl px-8 py-8 flex flex-col border border-gray relative"
       style={{
         minWidth: 650,
         maxWidth: 900,
@@ -300,10 +298,9 @@ export default function FourYearPlan() {
         marginRight: 0,
       }}
     >
-      <h2 className="text-3xl font-bold mb-6 text-white text-center">
-        Academic Plan
-      </h2>
-      <div className="flex justify-start mb-4">
+      {/* Title row with Clear Plan button */}
+      <div className="relative flex items-center mb-6">
+        {/* Left-aligned X button */}
         <button
           onClick={() => {
             setPlan(INITIAL_PLAN);
@@ -314,7 +311,7 @@ export default function FourYearPlan() {
               new CustomEvent("new-four-year-plan", { detail: INITIAL_PLAN })
             );
           }}
-          className="absolute group bg-[#a48fff] text-[#0f0f1a] hover:bg-violet-500 rounded-full p-1 cursor-pointer"
+          className="group bg-[#a48fff] text-[#0f0f1a] hover:bg-violet-500 rounded-full p-1 cursor-pointer absolute left-0"
           aria-label="Clear plan"
         >
           <XMarkIcon className="w-5 h-5 font-bold" />
@@ -322,87 +319,93 @@ export default function FourYearPlan() {
             Clear plan
           </div>
         </button>
+
+        <h2 className="mx-auto text-3xl font-bold text-white">Academic Plan</h2>
       </div>
 
       <div className="flex flex-col w-full gap-6">
         {plan.map((year, yIdx) => {
           const isEmpty = year.fall.length === 0 && year.spring.length === 0;
           if (isEmpty) return null; // 🚫 don't render empty years
-
-          <div key={yIdx} className="flex flex-col gap-2">
-            <div className="font-bold text-lg text-white mb-2 text-center">
-              Year {year.year}
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {["fall", "spring"].map((sem) => {
-                const { status, message } = getSemesterStatus(year[sem]);
-                return (
-                  <div
-                    key={sem}
-                    className={`rounded p-2 flex flex-col flex-1 border-2 w-full ${
-                      status === "low"
-                        ? "border-red-400 bg-red-200"
-                        : status === "high"
-                        ? "border-orange-400 bg-orange-200"
-                        : "border-gray-500 bg-[#303060]"
-                    }`}
-                    onDragOver={(e) => e.preventDefault()}
-                    onDrop={() => onDrop(yIdx, sem)}
-                  >
-                    <div className="font-semibold text-gray-100 mb-1 flex items-center justify-between">
-                      <span>
-                        {sem[0].toUpperCase() + sem.slice(1)}{" "}
-                        <span className="text-xs text-gray-400">
-                          ({semesterCredits(year[sem])} cr)
-                        </span>
-                      </span>
-                      {status !== "ok" && (
-                        <span className="text-xs font-bold text-red-400 ml-2">
-                          {message}
-                        </span>
-                      )}
-                    </div>
-                    {year[sem].length === 0 && (
-                      <div className="text-slate-700 text-xs italic">
-                        Drop courses here
-                      </div>
-                    )}
-                    <div className="flex flex-col gap-2 w-full">
-                      {year[sem].map((course, cIdx) => (
-                        <div
-                          key={course.id + cIdx}
-                          className="bg-[#222244] px-2 py-2 rounded text-base cursor-move border border-gray-500 flex items-center justify-between group w-full"
-                          draggable
-                          onDragStart={() => onDragStart(yIdx, sem, cIdx)}
-                          style={{
-                            minHeight: 44,
-                            wordBreak: "break-word",
-                            whiteSpace: "normal",
-                          }}
-                        >
-                          <span className="text-white font-medium w-full break-words hover:white">
-                            {course.name}{" "}
-                            <span className="text-xs text-gray-400">
-                              ({course.credits} cr)
-                            </span>
-                            {getWarning(course, plan)}
+          return (
+            <div key={yIdx} className="flex flex-col gap-2">
+              <div className="font-bold text-lg text-white mb-2 text-center">
+                Year {year.year}
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {["fall", "spring"].map((sem) => {
+                  const { status, message } = getSemesterStatus(year[sem]);
+                  return (
+                    <div
+                      key={sem}
+                      className={`rounded p-2 flex flex-col flex-1 border-2 w-full ${
+                        status === "low"
+                          ? "border-red-400 bg-red-200"
+                          : status === "high"
+                          ? "border-orange-400 bg-orange-200"
+                          : "border-gray-500 bg-[#303060]"
+                      }`}
+                      onDragOver={(e) => e.preventDefault()}
+                      onDrop={() => onDrop(yIdx, sem)}
+                    >
+                      <div className="font-semibold text-gray-100 mb-1 flex items-center justify-between">
+                        <span>
+                          {sem[0].toUpperCase() + sem.slice(1)}{" "}
+                          <span className="text-xs text-gray-400">
+                            ({semesterCredits(year[sem])} cr)
                           </span>
-                          <button
-                            onClick={() => removeCourse(yIdx, sem, cIdx)}
-                            className="ml-2 p-1 text-gray-400 hover:text-red-600 opacity-100 group-hover:opacity-100 transition"
-                            aria-label="Remove course"
-                            tabIndex={0}
-                          >
-                            <IoClose size={20} />
-                          </button>
+                        </span>
+                        {status !== "ok" && (
+                          <span className="text-xs font-bold text-red-400 ml-2">
+                            {message}
+                          </span>
+                        )}
+                      </div>
+                      {year[sem].length === 0 && (
+                        <div className="text-slate-700 text-xs italic">
+                          Drop courses here
                         </div>
-                      ))}
+                      )}
+                      <div className="flex flex-col gap-2 w-full">
+                        {year[sem].map((course, cIdx) => (
+                          <div
+                            key={course.id || cIdx} // Unique key for each course
+                            className="bg-[#222244] px-2 py-2 rounded text-base border border-gray-500 flex items-center justify-between group w-full"
+                            draggable
+                            onDragStart={() => onDragStart(yIdx, sem, cIdx)}
+                            style={{
+                              minHeight: 44,
+                              wordBreak: "break-word",
+                              whiteSpace: "normal",
+                              cursor: "move",
+                            }}
+                          >
+                            {/* Course name and credits */}
+                            <span className="text-white font-medium w-full break-words">
+                              {course.name}{" "}
+                              <span className="text-xs text-gray-400">
+                                ({course.credits} cr)
+                              </span>
+                            </span>
+
+                            {/* Remove button */}
+                            <button
+                              onClick={() => removeCourse(yIdx, sem, cIdx)}
+                              className="ml-2 p-1 text-gray-400 hover:text-red-600 opacity-100 group-hover:opacity-100 transition"
+                              aria-label="Remove course"
+                              tabIndex={0}
+                            >
+                              <IoClose size={20} />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>;
+          );
         })}
       </div>
     </div>
@@ -411,6 +414,7 @@ export default function FourYearPlan() {
 
 export function emitGeneratedPlan(plan) {
   const detail = parseLLMPlan(plan);
+  console.log("DETAL", detail);
   window.dispatchEvent(new CustomEvent("new-four-year-plan", { detail }));
 }
 
