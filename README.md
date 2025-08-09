@@ -1,38 +1,30 @@
-Our website: https://uw-madison-course-selector-clean-dd.vercel.app/ 
+# SiftAI 🎓✨
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+SiftAI is a private project built within the SAIL program at UW–Madison by a team of three students. It helps students navigate course choices and career paths intelligently by combining an AI assistant with trusted academic data and a guided planning experience. SiftAI reduces friction in finding the right classes, clarifies prerequisites, and connects academic interests to realistic outcomes.
 
-## Getting Started
+## Key Features 🔑
 
-First, run the development server:
+- 🤖 **AI Course Advisor**: Conversational chatbot that recommends courses aligned with a student’s interests, major, prerequisites, and graduation goals.
+- 📊 **Career Insights**: Explore majors with salary trajectories and demographic breakdowns to understand outcomes before committing.
+- 🗺️ **Four‑Year Plan Generation**: Draft a personalized semester‑by‑semester plan that students can refine over time.
+- 📚 **Real Data Integration**: Combines campus‑relevant sources like MadGrades and Rate My Professor to surface GPA trends, enrollment, and qualitative context.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Impact 🌟
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+SiftAI empowers students to make confident, informed academic and career decisions:
+- 🔍 **Clarity**: Translates interests and goals into concrete course paths.
+- ✅ **Confidence**: Surfaces prerequisite requirements and feasibility early.
+- 🔭 **Perspective**: Connects courses and majors to career outcomes and demographics.
+- 🤝 **Equity**: Presents transparent data to support informed planning for all students.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tech Stack 🧰
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend**: ⚛️ Next.js (App Router, Turbopack), 🎨 Tailwind CSS, 🧩 shadcn/ui
+- **Backend**: 🧠 Node.js, 🗄️ SQLite (better‑sqlite3), 🔌 Next.js API routes
+- **Data Layer**: 🗃️ Supabase for authentication and structured data hosting
+- **AI & APIs**: 🧠 OpenAI API; 🎙️ optional Vapi AI voice assistant integration
+- **Deployment**: 🚀 Vercel
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+From classrooms to careers, SiftAI helps UW–Madison students explore, plan, and progress—with confidence. 💫
