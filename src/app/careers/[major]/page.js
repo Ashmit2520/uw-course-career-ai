@@ -13,11 +13,13 @@ export async function generateStaticParams() {
 }
 
 export default async function CareerDetailPage({ params }) {
-  const encodedMajor = params.major;
+  const encodedMajor = (await params).major;
   const major = decodeURIComponent(encodedMajor);
 
   const db = new Database(dbPath);
-  const data = db.prepare("SELECT * FROM career_stats WHERE major = ?").get(major);
+  const data = db
+    .prepare("SELECT * FROM career_stats WHERE major = ?")
+    .get(major);
 
   if (!data) notFound();
 
@@ -41,11 +43,26 @@ export default async function CareerDetailPage({ params }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start px-4">
         <div className="space-y-2">
-          <p><span className="font-semibold">Unemployment Rate:</span> {data.unemployment_rate}%</p>
-          <p><span className="font-semibold">Underemployment Rate:</span> {data.underemployment_rate}%</p>
-          <p><span className="font-semibold">Graduate Degree Share:</span> {data.grad_degree_share}%</p>
-          <p><span className="font-semibold">Early Career Salary:</span> ${data.early_career_salary.toLocaleString()}</p>
-          <p><span className="font-semibold">Mid Career Salary:</span> ${data.mid_career_salary.toLocaleString()}</p>
+          <p>
+            <span className="font-semibold">Unemployment Rate:</span>{" "}
+            {data.unemployment_rate}%
+          </p>
+          <p>
+            <span className="font-semibold">Underemployment Rate:</span>{" "}
+            {data.underemployment_rate}%
+          </p>
+          <p>
+            <span className="font-semibold">Graduate Degree Share:</span>{" "}
+            {data.grad_degree_share}%
+          </p>
+          <p>
+            <span className="font-semibold">Early Career Salary:</span> $
+            {data.early_career_salary.toLocaleString()}
+          </p>
+          <p>
+            <span className="font-semibold">Mid Career Salary:</span> $
+            {data.mid_career_salary.toLocaleString()}
+          </p>
         </div>
 
         <div className="bg-[#1f2333] p-4 rounded-lg shadow mt-4 md:mt-0 border border-gray-200">

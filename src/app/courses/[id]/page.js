@@ -12,8 +12,13 @@ import {
 } from "recharts";
 
 const GRADE_KEYS = [
-  "grade_a", "grade_ab", "grade_b", "grade_bc",
-  "grade_c", "grade_d", "grade_f"
+  "grade_a",
+  "grade_ab",
+  "grade_b",
+  "grade_bc",
+  "grade_c",
+  "grade_d",
+  "grade_f",
 ];
 
 export default function CourseDetailsPage() {
@@ -36,13 +41,14 @@ export default function CourseDetailsPage() {
     return <div className="p-8 text-center text-[#a0a0c0]">Course not found.</div>;
 
   // Prepare grade data for the bar chart
-  const chartData = GRADE_KEYS
-    .map((k) =>
-      course[k] !== undefined && course[k] !== "NA"
-        ? { grade: k.replace("grade_", "").toUpperCase(), value: Number(course[k]) }
-        : null
-    )
-    .filter((d) => d && !isNaN(d.value));
+  const chartData = GRADE_KEYS.map((k) =>
+    course[k] !== undefined && course[k] !== "NA"
+      ? {
+          grade: k.replace("grade_", "").toUpperCase(),
+          value: Number(course[k]),
+        }
+      : null
+  ).filter((d) => d && !isNaN(d.value));
 
   return (
     <main className="flex flex-col items-center p-8">
@@ -67,7 +73,7 @@ export default function CourseDetailsPage() {
           </h2>
           <div style={{ width: "100%", height: 240 }}>
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData} >
+              <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
                   dataKey="grade"

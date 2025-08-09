@@ -1,5 +1,5 @@
-import './globals.css'
-import NavBar from './components/NavBar'
+import "./globals.css";
+import NavBar from "./components/NavBar";
 
 export const metadata = { 
   icon: 'public/Sift_AI_Logo.png',
@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark zoom-75">
       <body>
         <NavBar />
         {children}
       </body>
     </html>
-  )
+  );
 }

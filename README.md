@@ -1,38 +1,56 @@
-Our website: https://uw-madison-course-selector-clean-dd.vercel.app/ 
+<div align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/shadcn%2Fui-111827?style=for-the-badge&logoColor=white" alt="shadcn/ui" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=111827" alt="Supabase" />
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/Vapi-8B5CF6?style=for-the-badge&logoColor=white" alt="Vapi (optional)" />
+</div>
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">SiftAI</h1>
+<h2 align="center">🧭 From Classrooms to Careers — Your AI Course & Career Assistant 🎓</h2>
 
-## Getting Started
+<p align="center">
+  <strong>Built within UW–Madison’s SAIL program by a team of three students.</strong> SiftAI helps students choose courses and explore majors with confidence by combining conversational AI, reliable academic data, and a guided planning experience.
+</p>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Our Mission
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Empower UW–Madison students to make informed, confident academic and career decisions by translating interests and goals into concrete course paths and real‑world outcomes.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ✨ How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Ask**: Chat about interests, majors, goals, or requirements.
+2. **Discover**: See relevant courses with GPA trends, enrollment, and context.
+3. **Plan**: Generate and refine a personalized four‑year roadmap.
 
-## Learn More
+## 🔑 Key Features
 
-To learn more about Next.js, take a look at the following resources:
+- 🤖 **AI Course Advisor**: Recommends courses based on interests, major, prerequisites, and graduation goals.
+- 📊 **Career Insights**: Salary trajectories and demographic breakdowns by major for better decision‑making.
+- 🗺️ **Four‑Year Plan Generation**: Drafts a semester‑by‑semester plan you can customize.
+- 📚 **Real Data Integration**: Pulls from sources like MadGrades and Rate My Professor for grounded context.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌟 Impact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Clarity**: Turns curiosity into concrete pathways.
+- **Confidence**: Surfaces prerequisites and feasibility early.
+- **Perspective**: Connects courses and majors to outcomes that matter.
+- **Equity**: Presents transparent, accessible information for all students.
 
-## Deploy on Vercel
+## 🧰 Tech Stack (at a glance)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Frontend**: Next.js (App Router, Turbopack), Tailwind CSS, shadcn/ui
+- **Backend**: Node.js, SQLite (better‑sqlite3), API routes
+- **Data Layer**: Supabase (auth & structured data)
+- **AI & APIs**: OpenAI API; optional Vapi voice assistant
+- **Deployment**: Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+<p align="center">SiftAI helps UW–Madison students explore, plan, and progress — with data, empathy, and AI. ✨</p>

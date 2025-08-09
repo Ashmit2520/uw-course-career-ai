@@ -9,9 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^2.0.0-beta.5",
+    "@ai-sdk/react": "^2.0.0-beta.9",
+    "@heroicons/react": "^2.2.0",
+    "@langchain/community": "^0.3.49",
+    "@langchain/core": "^0.3.66",
+    "@langchain/openai": "^0.6.3",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.50.3",
     "@vapi-ai/web": "^2.3.8",
+    "ai": "^5.0.0-beta.9",
     "better-sqlite3": "^12.2.0",
     "csv-parse": "^6.1.0",
     "csv-parser": "^3.2.0",
@@ -22,11 +30,15 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
-    "recharts": "^3.1.2"
+    "react-is": "^19.1.1",
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.1.2",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/react": "19.1.8",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4"
