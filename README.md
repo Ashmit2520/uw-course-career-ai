@@ -2,10 +2,12 @@
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
   <img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/shadcn%2Fui-111827?style=for-the-badge&logoColor=white" alt="shadcn/ui" />
+  <img src="https://img.shields.io/badge/tweakcn-6B7280?style=for-the-badge&logoColor=white" alt="tweakcn" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
   <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=111827" alt="Supabase" />
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI" />
+  <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter" />
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
   <img src="https://img.shields.io/badge/Vapi-8B5CF6?style=for-the-badge&logoColor=white" alt="Vapi (optional)" />
 </div>
@@ -45,9 +47,9 @@ Empower UW–Madison students to make informed, confident academic and career de
 
 ## 🧰 Tech Stack (at a glance)
 
-- **Frontend**: Next.js (App Router, Turbopack), Tailwind CSS, shadcn/ui
+- **Frontend**: Next.js (App Router, Turbopack), Tailwind CSS, shadcn/ui, tweakcn
 - **Backend**: Node.js, SQLite (better‑sqlite3), API routes
-- **Data Layer**: Supabase (auth & structured data)
+- **Data Layer**: Supabase (auth & structured data), Jupyter Notebook (data prep / analysis)
 - **AI & APIs**: OpenAI API; optional Vapi voice assistant
 - **Deployment**: Vercel
 
