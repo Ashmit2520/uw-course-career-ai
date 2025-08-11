@@ -4,6 +4,7 @@
   <img src="https://img.shields.io/badge/shadcn%2Fui-111827?style=for-the-badge&logoColor=white" alt="shadcn/ui" />
   <img src="https://img.shields.io/badge/tweakcn-6B7280?style=for-the-badge&logoColor=white" alt="tweakcn" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
   <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=111827" alt="Supabase" />
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI" />
@@ -48,7 +49,7 @@ Empower UW–Madison students to make informed, confident academic and career de
 ## 🧰 Tech Stack (at a glance)
 
 - **Frontend**: Next.js (App Router, Turbopack), Tailwind CSS, shadcn/ui, tweakcn
-- **Backend**: Node.js, SQLite (better‑sqlite3), API routes
+- **Backend**: Node.js, Python, SQLite (better‑sqlite3), API routes
 - **Data Layer**: Supabase (auth & structured data), Jupyter Notebook (data prep / analysis)
 - **AI & APIs**: OpenAI API; optional Vapi voice assistant
 - **Deployment**: Vercel
